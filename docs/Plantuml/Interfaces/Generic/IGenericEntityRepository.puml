@@ -1,0 +1,32 @@
+@startuml
+!include ../IEntityModel.puml
+
+interface IGenericEntityRepository {
+    GetList(entities interface{}, orderBy string, orderDirection string, page int, size int, query string, args ...interface{})
+    --
+    GetAll(entities interface{}) error
+    --
+    GetById(entity IEntityModel, id uint) error
+    --
+    Update(entity IEntityModel) error
+    --
+    Insert(entity IEntityModel) uint error
+    --
+    Delete(entity IEntityModel, id uint) error
+}
+note left of IGenericEntityRepository::GetAll
+  Passing a pointer to an array of pointers to entities
+end note
+note left of IGenericEntityRepository::GetById
+  We pass a pointer to entity and its ID
+end note
+note left of IGenericEntityRepository::Update
+  We pass a pointer to entity for update
+end note
+note left of IGenericEntityRepository::Insert
+  We pass a pointer to an entity for creating
+end note
+note left of IGenericEntityRepository::Delete
+  We pass a pointer to an entity and its ID
+end note
+@enduml

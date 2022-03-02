@@ -1,0 +1,7 @@
+@startuml
+
+enum EthernetSwitchModel {
+    UBIQUITY_US24_250W
+}
+
+@enduml

@@ -1,0 +1,31 @@
+@startuml
+!include ../IEntityDtoModel.puml
+
+interface IGenericEntityService {
+    GetAll(dtoArr interface{}) error
+    --
+    GetById(dto IEntityDtoModel, id uint) error
+    --
+    Update(id uint, model IEntityDtoModel) error
+    --
+    Create(model IEntityDtoModel) (uint error)
+    --
+    Delete(model IEntityDtoModel, id uint) error
+}
+note left of IGenericEntityService::GetAll
+  Get all entities DTO.
+  Passing a pointer to an array of pointers to entities DTO
+end note
+note left of IGenericEntityService::GetById
+  We pass a pointer to entity DTO and its ID.
+end note
+note left of IGenericEntityService::Update
+  We pass a pointer to entity DTO for updating.
+end note
+note left of IGenericEntityService::Create
+  We pass a pointer to entity DTO for creating and get its ID
+end note
+note left of IGenericEntityService::Delete
+  We pass a pointer to entity DTO for deleting and its ID.
+end note
+@enduml

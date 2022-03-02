@@ -1,0 +1,19 @@
+@startuml
+!include BaseEntity.puml
+!include ../Interfaces/IEntityModel.puml
+!include EthernetSwitchPoePortType.puml
+
+class EthernetSwitchPort {
+    EthernetSwitchId uint
+    --
+    PoeType EthernetSwitchPoePortType
+    --
+    Name string
+}
+EthernetSwitchPort *-- BaseEntity
+EthernetSwitchPort::PoeType -- EthernetSwitchPoePortType
+EthernetSwitchPort::EthernetSwitchId -- EthernetSwitch
+note left of EthernetSwitchPort::Name
+  Unique within 1 switch
+end note
+@enduml

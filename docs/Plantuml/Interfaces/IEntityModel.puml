@@ -1,0 +1,11 @@
+@startuml
+interface IEntityModel {
+    GetId() uint
+    --
+    SetDeleteTimeNow()
+}
+note left of IEntityModel::SetDeleteTimeNow
+  Set deletion time
+  This method marks that the entity has been deleted
+end note
+@enduml

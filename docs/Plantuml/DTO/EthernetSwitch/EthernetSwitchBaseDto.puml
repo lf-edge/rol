@@ -1,0 +1,15 @@
+@startuml
+
+class EthernetSwitchBaseDto {
+	Name string
+	--
+	Serial string
+	--
+	SwitchModel enums.EthernetSwitchModel
+	--
+	Address string
+	--
+	Username string
+}
+
+@enduml

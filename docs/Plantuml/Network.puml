@@ -1,0 +1,39 @@
+@startuml
+nwdiag {
+  network VPNClients {
+     color = "orange"
+     address = 10.10.8.0/24
+     Router [ address = 10.10.8.1, description = "[ Router ] route 10.10.11.1-10.10.100.254 via RoL Server" ]
+     VPNClient_1 [ address = 10.10.8.2 ]
+  }
+  network LocalLabNetworks{
+    color = "red"
+    address = 192.168.10.0/24
+    RoL_Server [ address = 192.168.10.2, description = "[ RoL Server ] with routing to RoL projects VLAN's" ]
+    Router [ address = 192.168.10.1 ]
+    LocalPC_1 [ address = 192.168.10.10 ]
+  }
+  network Vlan_CI {
+    description = "[ RoL managed project VLAN ] CI";
+    address = "10.10.11.0/24"
+    color = "palegreen"
+    RoL_Server
+    group CIProjectVLAN {
+      GitHub_76767_eve_7.7.0_xen [address = "10.10.11.2/24"]
+      GitHub_76769_eve_master-0.0.0-e12da1c_kvm [address = "10.10.11.3/24"]
+      GitHub_76767_eve_master-0.0.0-e12da1c_xen [address = "10.10.11.4/24"]
+      GitHub_76769_eve_7.7.0_kvm [address = "10.10.11.5/24"]
+    }
+  }
+  network RoLNetworksNat {
+    description = "[ RoL managed project VLAN ] New kernel version testing";
+    address = "10.10.12.0/24"
+    color = "palegreen"
+    RoL_Server
+    group KernelTestingVLAN {
+      EVE_kernel_5.15.2_kvm_arm-rpi4[address = "10.10.11.2/24"]
+      EVE_kernel_5.15.2_kvm_x86-hp1022[address = "10.10.11.3/24"]
+    }
+  }
+}
+@enduml

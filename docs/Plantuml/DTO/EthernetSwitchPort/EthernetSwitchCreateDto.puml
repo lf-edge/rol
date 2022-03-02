@@ -1,0 +1,11 @@
+@startuml
+!include ../../Entities/EthernetSwitchPoePortType.puml
+class EthernetSwitchPortCreateDto {
+    EthernetSwitchId uint
+    --
+    PoeType EthernetSwitchPoePortType
+    --
+    Name string
+}
+EthernetSwitchPortCreateDto::PoeType -- EthernetSwitchPoePortType
+@enduml

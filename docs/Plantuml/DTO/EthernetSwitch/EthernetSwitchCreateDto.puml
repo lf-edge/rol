@@ -1,0 +1,15 @@
+@startuml
+!include ../../Interfaces/IEntityDtoModel.puml
+!include EthernetSwitchBaseDto.puml
+
+enum EthernetSwitchModel {
+    UBIQUITY_US24_250W
+}
+
+class EthernetSwitchCreateDto {
+    Password string
+}
+EthernetSwitchCreateDto *-- EthernetSwitchBaseDto
+EthernetSwitchCreateDto <|.. IEntityDtoModel
+EthernetSwitchBaseDto::Model -- EthernetSwitchModel
+@enduml

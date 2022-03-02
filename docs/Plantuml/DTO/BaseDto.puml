@@ -1,0 +1,9 @@
+@startuml
+class BaseDto {
+    Id uint
+    --
+	CreatedAt time.Time
+	--
+	UpdatedAt time.Time
+}
+@enduml

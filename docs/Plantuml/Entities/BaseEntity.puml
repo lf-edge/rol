@@ -1,0 +1,15 @@
+@startuml
+!include ../Interfaces/IEntityModel.puml
+
+class BaseEntity {
+	ID uint `gorm:"primarykey"`
+	--
+	CreatedAt time.Time `gorm:"index"`
+	--
+	UpdatedAt time.Time `gorm:"index"`
+	--
+	DeletedAt time.Time `gorm:"index"`
+}
+BaseEntity <|.. IEntityModel
+
+@enduml

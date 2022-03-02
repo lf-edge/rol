@@ -1,0 +1,5 @@
+@startuml
+interface IEntityDtoModel {
+    Validate() error
+}
+@enduml

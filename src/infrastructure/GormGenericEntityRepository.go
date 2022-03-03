@@ -57,10 +57,6 @@ func (ger *GormGenericEntityRepository) GetList(entities interface{}, orderBy st
 			gormQuery = gormQuery.Where(query)
 		}
 	}
-	err := gormQuery.Count(&count).Error
-	if err != nil {
-		return 0, err
-	}
 	gormQuery = gormQuery.Count(&count)
 	if count < offset {
 		offset = 0

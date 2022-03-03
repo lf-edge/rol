@@ -3,6 +3,7 @@ package generic
 import "rol/app/interfaces"
 
 type IGenericEntityService interface {
+	GetList(dtoArr interface{}, search, orderBy, orderDirection string, page, pageSize int) (int64, error)
 	//GetAll
 	//	Get all entities DTO from service.
 	//Params

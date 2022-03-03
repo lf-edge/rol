@@ -31,6 +31,7 @@ func (server *HttpServer) InitializeControllers() error {
 	switchContr := controllers.NewEthernetSwitchController(server.service)
 
 	groupRoute := server.engine.Group("/api/v1")
+	groupRoute.GET("/switch/list", switchContr.GetList)
 	groupRoute.GET("/switch/:id", switchContr.GetById)
 	groupRoute.GET("/switch", switchContr.GetAll)
 	groupRoute.POST("/switch", switchContr.Create)

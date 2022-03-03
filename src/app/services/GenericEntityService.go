@@ -1,9 +1,13 @@
 package services
 
 import (
+	"fmt"
+	"regexp"
 	"rol/app/interfaces"
 	"rol/app/interfaces/generic"
 	"rol/app/mappers"
+	"rol/app/utils"
+	"strings"
 )
 
 type GenericEntityService struct {
@@ -14,6 +18,50 @@ func NewGenericEntityService(repo generic.IGenericEntityRepository) (*GenericEnt
 	return &GenericEntityService{
 		repository: repo,
 	}, nil
+}
+
+func toSnakeCase(entityStringFieldsNames *[]string) *[]string {
+	snakeNames := &[]string{}
+	matchAllCap := regexp.MustCompile("([a-z0-9])([A-Z])")
+	for i := 0; i < len(*entityStringFieldsNames); i++ {
+		containPass := strings.Contains(strings.ToLower((*entityStringFieldsNames)[i]), "pass")
+		containKey := strings.Contains(strings.ToLower((*entityStringFieldsNames)[i]), "key")
+		if containPass || containKey {
+			continue
+		}
+		snakeName := matchAllCap.ReplaceAllString((*entityStringFieldsNames)[i], "${1}_${2}")
+		*snakeNames = append(*snakeNames, strings.ToLower(snakeName))
+	}
+	return snakeNames
+}
+
+func generateQuerySearchString(entity interface{}, search string) string {
+	queryString := ""
+	stringFieldNames := &[]string{}
+	utils.GetStringFieldsNames(entity, stringFieldNames)
+	snakeCaseColumnNames := toSnakeCase(stringFieldNames)
+	for i := 0; i < len(*snakeCaseColumnNames); i++ {
+		if i != 0 {
+			queryString = queryString + " OR "
+		}
+		queryString = queryString + fmt.Sprintf("%s LIKE \"%s\"", (*snakeCaseColumnNames)[i], "%"+search+"%")
+	}
+	return queryString
+}
+
+func (ges *GenericEntityService) GetList(dtoArr interface{}, search, orderBy, orderDirection string, page, pageSize int) (int64, error) {
+	entities := mappers.GetEntityEmptyArray(dtoArr)
+	queryRepString := ""
+	var _ interface{} = nil
+	if len(search) > 3 {
+		entityModel := mappers.GetEmptyEntityFromArrayType(entities)
+		queryRepString = generateQuerySearchString(entityModel, search)
+	} else {
+		queryRepString = ""
+	}
+	count, err := ges.repository.GetList(entities, orderBy, orderDirection, page, pageSize, queryRepString)
+	mappers.Map(entities, dtoArr)
+	return count, err
 }
 
 func (ges *GenericEntityService) GetAll(dtoArr interface{}) error {

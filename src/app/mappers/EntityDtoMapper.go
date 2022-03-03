@@ -21,6 +21,8 @@ func GetEntityEmptyArray(dto interface{}) interface{} {
 	switch dto.(type) {
 	case *[]*dtos.EthernetSwitchDto:
 		return &[]*entities.EthernetSwitch{}
+	case *[]*dtos.EthernetSwitchPortDto:
+		return &[]*entities.EthernetSwitchPort{}
 	}
 	return nil
 }

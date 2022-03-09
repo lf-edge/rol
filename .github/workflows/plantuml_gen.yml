@@ -1,0 +1,42 @@
+name: PlantumlSVG
+on:
+  push:
+    branches:
+      - main
+jobs:
+  plantuml_svg_gen:
+    runs-on: ubuntu-latest
+    name: Plantuml SVG generation
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Get a list of modified files
+        id: changed-files
+        uses: tj-actions/changed-files@v16
+      - name: Check if puml files have changed
+        id: puml_check
+        run: |
+          puml_edited=1
+          echo ${{ steps.changed-files.outputs.all_changed_files }} | grep .puml || eval puml_edited=0
+          echo ::set-output name=changed::$(echo $puml_edited)
+      - name: Setup packages
+        if: steps.puml_check.outputs.changed == 1
+        run: |
+          sudo apt update
+          sudo apt install -y default-jdk graphviz
+      - name: Generate SVG
+        if: steps.puml_check.outputs.changed == 1
+        run: |
+          wget -O plantuml.jar https://github.com/plantuml/plantuml/releases/download/v1.2022.1/plantuml-1.2022.1.jar
+          for file in $(find . -name '*.puml'); do
+            java -jar plantuml.jar -tsvg "$file"
+          done
+          rm plantuml.jar
+      - name: Push Local Changes
+        if: steps.puml_check.outputs.changed == 1
+        uses: stefanzweifel/git-auto-commit-action@v4.1.2
+        with:
+          commit_message: "Generate SVG files for PlantUML diagrams"
+          branch: ${{ github.head_ref }}

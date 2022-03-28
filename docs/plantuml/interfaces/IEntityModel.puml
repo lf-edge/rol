@@ -1,0 +1,5 @@
+@startuml IEntityModel
+interface IEntityModel {
+    GetId() uuid.UUID
+}
+@enduml

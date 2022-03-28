@@ -1,0 +1,9 @@
+@startuml IEntityModelDeletedAt
+interface IEntityModelDeletedAt {
+    SetDeleted()
+}
+note left of IEntityModelDeletedAt::SetDeleted
+    Set deletion time
+    This method marks that the entity has been deleted
+end note
+@enduml

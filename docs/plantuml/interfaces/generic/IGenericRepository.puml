@@ -1,0 +1,43 @@
+@startuml IGenericEntityRepository
+interface IGenericEntityRepository {
+    GetList(ctx context.Context, orderBy string, orderDirection string, page int, size int, queryBuilder interfaces.IQueryBuilder) (*[]EntityType, error)
+    --
+    Count(ctx context.Context, queryBuilder interfaces.IQueryBuilder) (int64, error)
+    --
+    NewQueryBuilder(ctx context.Context) interfaces.IQueryBuilder
+    --
+    GetById(ctx context.Context, id uuid.UUID) (*EntityType, error)
+    --
+    Update(ctx context.Context, entity *EntityType) error
+    --
+    Insert(ctx context.Context, entity EntityType) (uuid.UUID, error)
+    --
+    Delete(ctx context.Context, id uuid.UUID) error
+    --
+    CloseDb() error
+}
+note left of IGenericEntityRepository::GetList
+  Get list of elements with filtering and pagination
+end note
+note left of IGenericEntityRepository::Count
+  Get count of entities with filtering
+end note
+note left of IGenericEntityRepository::NewQueryBuilder
+  Get new instance of the query builder
+end note
+note left of IGenericEntityRepository::GetById
+  Get entity by ID from repository
+end note
+note left of IGenericEntityRepository::Update
+  Save the changes to the existing entity in the repository
+end note
+note left of IGenericEntityRepository::Insert
+  Add entity to the repository
+end note
+note left of IGenericEntityRepository::Delete
+  Delete entity from the database
+end note
+note left of IGenericEntityRepository::CloseDb
+  Closes current database connection
+end note
+@enduml

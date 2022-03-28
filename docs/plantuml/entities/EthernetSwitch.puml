@@ -1,0 +1,31 @@
+@startuml EthernetSwitch
+!include Entity.puml
+!include EthernetSwitchModel.puml
+
+
+class EthernetSwitch {
+    Name string
+    --
+    Serial string
+    --
+    SwitchModel EthernetSwitchModel
+    --
+    Address string
+    --
+    Username string
+    --
+    Password string
+    --
+    Ports *[]*EthernetSwitchPort
+}
+EthernetSwitch *-- Entity
+EthernetSwitch::SwitchModel -- EthernetSwitchModel
+
+
+note left of EthernetSwitch::Serial
+  Unique
+end note
+note left of EthernetSwitch::Address
+  Ip address of the switch
+end note
+@enduml

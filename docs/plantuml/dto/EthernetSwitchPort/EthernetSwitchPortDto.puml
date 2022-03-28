@@ -1,0 +1,13 @@
+@startuml EthernetSwitchPortDto
+
+!include EthernetSwitchPortBaseDto.puml
+!include ../BaseDto.puml
+!include ../../interfaces/IEntityDtoModel.puml
+class EthernetSwitchPortDto {
+
+}
+
+EthernetSwitchPortDto *-- BaseDto
+EthernetSwitchPortDto *-- EthernetSwitchPortBaseDto
+EthernetSwitchPortDto <|-- IEntityDtoModel
+@enduml

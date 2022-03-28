@@ -1,0 +1,11 @@
+@startuml EthernetSwitchPoePortType
+enum EthernetSwitchPoePortType {
+    POE = 1
+    --
+    POE_PLUS
+    --
+    PASSIVE_V24
+    --
+    NONE = 10
+}
+@enduml

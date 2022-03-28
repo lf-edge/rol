@@ -1,0 +1,37 @@
+---
+# HTTP Server configurations
+httpServer:
+  host: "localhost"
+  port: 8080
+
+# Database credentials
+database:
+  # yamllint disable-line rule:line-length
+  entityConnectionString: "root:67Edh68Tyt69@tcp(localhost:3306)/"
+  entityDbName: "roldb"
+  entityDbParams: "?charset=utf8mb4&parseTime=True&loc=Local"
+  # yamllint disable-line rule:line-length
+  logConnectionString: "root:67Edh68Tyt69@tcp(localhost:3306)/"
+  logDbName: "rollogdb"
+  logDbParams: "?charset=utf8mb4&parseTime=True&loc=Local"
+
+# Logger configuration
+logger:
+  # "panic" - highest level of severity. Logs and then calls panic with the
+  # message passed to Debug, Info, ...
+
+  # "fatal" - logs and then calls `logger.Exit(1)`. It will exit even if the
+  # logging level is set to Panic.
+
+  # "error" - logs. Used for errors that should definitely be noted.
+  # Commonly used for hooks to send errors to an error tracking service.
+
+  # "warning" - non-critical entries that deserve eyes.
+
+  # "info" - general operational entries about what's going on inside the application.
+
+  # "debug" - usually only enabled when debugging. Very verbose logging.
+
+  # "trace" - designates finer-grained informational events than the Debug.
+  level: "debug"
+  logsToDatabase: true

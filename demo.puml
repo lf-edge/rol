@@ -1,0 +1,13 @@
+@startuml Entity
+
+class Entity {
+    ID uuid.UUID `gorm:"primarykey"`
+    --
+    CreatedAt time.Time `gorm:"index"`
+    --
+    UpdatedAt time.Time `gorm:"index"`
+    --
+    DeletedAt time.Time `gorm:"index"`
+}
+
+@enduml

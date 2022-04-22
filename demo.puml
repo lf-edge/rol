@@ -3,7 +3,7 @@
 class Entity {
     ID uuid.UUID `gorm:"primarykey"`
     --
-    CreatedAt time.Time `gorm:"index"`
+    CreatedAte time.Time `gorm:"index"`
     --
     UpdatedAt time.Time `gorm:"index"`
     --

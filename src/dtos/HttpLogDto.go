@@ -24,10 +24,3 @@ type HttpLogDto struct {
 	//	CustomRequestHeaders - custom headers of the request
 	CustomRequestHeaders string
 }
-
-//Validate validates dto fields
-//Return
-//	error - if error occurs return error, otherwise nil
-func (hld HttpLogDto) Validate() error {
-	return nil
-}

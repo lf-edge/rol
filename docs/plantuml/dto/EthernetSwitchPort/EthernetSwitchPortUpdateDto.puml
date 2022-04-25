@@ -1,10 +1,8 @@
 @startuml EthernetSwitchPortUpdateDto
 !include EthernetSwitchPortBaseDto.puml
-!include ../../interfaces/IEntityDtoModel.puml
 
 class EthernetSwitchPortUpdateDto {
 
 }
 EthernetSwitchPortUpdateDto *-- EthernetSwitchPortBaseDto
-EthernetSwitchPortUpdateDto <|-- IEntityDtoModel
 @enduml

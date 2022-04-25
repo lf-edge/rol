@@ -13,7 +13,7 @@ import (
 //	entity - pointer to the entity
 //Return
 //  error - if error occurs return error, otherwise nil
-func MapDtoToEntity(dto interfaces.IEntityDtoModel, entity interface{}) error {
+func MapDtoToEntity(dto interface{}, entity interface{}) error {
 	switch dto.(type) {
 	// EthernetSwitch
 	case dtos.EthernetSwitchCreateDto:

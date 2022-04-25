@@ -17,9 +17,9 @@ import (
 )
 
 //GenericService generic service structure for IEntityModel
-type GenericService[DtoType interfaces.IEntityDtoModel,
-	CreateDtoType interfaces.IEntityDtoModel,
-	UpdateDtoType interfaces.IEntityDtoModel,
+type GenericService[DtoType interface{},
+	CreateDtoType interface{},
+	UpdateDtoType interface{},
 	EntityType interfaces.IEntityModel] struct {
 	repository    interfaces.IGenericRepository[EntityType]
 	logger        *logrus.Logger
@@ -32,9 +32,9 @@ type GenericService[DtoType interfaces.IEntityDtoModel,
 //	logger - logger
 //Return
 //	New generic service
-func NewGenericService[DtoType interfaces.IEntityDtoModel,
-	CreateDtoType interfaces.IEntityDtoModel,
-	UpdateDtoType interfaces.IEntityDtoModel,
+func NewGenericService[DtoType interface{},
+	CreateDtoType interface{},
+	UpdateDtoType interface{},
 	EntityType interfaces.IEntityModel](repo interfaces.IGenericRepository[EntityType], logger *logrus.Logger) (
 	*GenericService[
 		DtoType,

@@ -15,9 +15,9 @@ import (
 )
 
 //GinGenericController generic controller structure for IEntityModel
-type GinGenericController[DtoType interfaces.IEntityDtoModel,
-	CreateDtoType interfaces.IEntityDtoModel,
-	UpdateDtoType interfaces.IEntityDtoModel,
+type GinGenericController[DtoType interface{},
+	CreateDtoType interface{},
+	UpdateDtoType interface{},
 	EntityType interfaces.IEntityModel] struct {
 	//	service - service with needed dtos instantiated
 	service interfaces.IGenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]
@@ -32,9 +32,9 @@ type GinGenericController[DtoType interfaces.IEntityDtoModel,
 //	log - logrus logger
 //Return
 //	*GinGenericController - new generic controller for type which was instantiated
-func NewGinGenericController[DtoType interfaces.IEntityDtoModel,
-	CreateDtoType interfaces.IEntityDtoModel,
-	UpdateDtoType interfaces.IEntityDtoModel,
+func NewGinGenericController[DtoType interface{},
+	CreateDtoType interface{},
+	UpdateDtoType interface{},
 	EntityType interfaces.IEntityModel](service interfaces.IGenericService[DtoType, CreateDtoType, UpdateDtoType,
 	EntityType], log *logrus.Logger) *GinGenericController[DtoType,
 	CreateDtoType,

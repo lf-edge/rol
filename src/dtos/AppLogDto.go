@@ -15,10 +15,3 @@ type AppLogDto struct {
 	//	Message - log message
 	Message string
 }
-
-//Validate validates dto fields
-//Return
-//	error - if error occurs return error, otherwise nil
-func (hld AppLogDto) Validate() error {
-	return nil
-}

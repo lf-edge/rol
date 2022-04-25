@@ -68,9 +68,6 @@ func (ess *EthernetSwitchService) GetById(ctx context.Context, id uuid.UUID) (*d
 //Return
 //	error - if an error occurs, otherwise nil
 func (ess *EthernetSwitchService) Update(ctx context.Context, updateDto dtos.EthernetSwitchUpdateDto, id uuid.UUID) error {
-	if err := updateDto.Validate(); err != nil {
-		return err
-	}
 	return ess.GenericService.Update(ctx, updateDto, id)
 }
 
@@ -82,9 +79,6 @@ func (ess *EthernetSwitchService) Update(ctx context.Context, updateDto dtos.Eth
 //	uuid.UUID - new ethernet switch id
 //	error - if an error occurs, otherwise nil
 func (ess *EthernetSwitchService) Create(ctx context.Context, createDto dtos.EthernetSwitchCreateDto) (uuid.UUID, error) {
-	if err := createDto.Validate(); err != nil {
-		return uuid.UUID{}, err
-	}
 	return ess.GenericService.Create(ctx, createDto)
 }
 

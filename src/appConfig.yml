@@ -4,16 +4,24 @@ httpServer:
   host: "localhost"
   port: 8080
 
-# Database credentials
+# Database config [MySQL only]
 database:
-  # yamllint disable-line rule:line-length
-  entityConnectionString: "root:67Edh68Tyt69@tcp(localhost:3306)/"
-  entityDbName: "roldb"
-  entityDbParams: "?charset=utf8mb4&parseTime=True&loc=Local"
-  # yamllint disable-line rule:line-length
-  logConnectionString: "root:67Edh68Tyt69@tcp(localhost:3306)/"
-  logDbName: "rollogdb"
-  logDbParams: "?charset=utf8mb4&parseTime=True&loc=Local"
+  entity:
+    dbName: "roldb"
+    username: "root"
+    password: "67Edh68Tyt69"
+    protocol: "tcp"
+    hostname: "localhost"
+    port: "3306"
+    parameters: "?charset=utf8mb4&parseTime=True&loc=Local"
+  log:
+    dbName: "roldb_logs"
+    username: "root"
+    password: "67Edh68Tyt69"
+    protocol: "tcp"
+    hostname: "localhost"
+    port: "3306"
+    parameters: "?charset=utf8mb4&parseTime=True&loc=Local"
 
 # Logger configuration
 logger:

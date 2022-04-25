@@ -3,7 +3,7 @@ package services
 import (
 	"context"
 	"github.com/google/uuid"
-	"rol/app/interfaces/generic"
+	"rol/app/interfaces"
 	"rol/domain"
 	"rol/dtos"
 
@@ -23,7 +23,7 @@ type EthernetSwitchService struct {
 //	log - logrus logger
 //Return
 //	New ethernet switch service
-func NewEthernetSwitchService(rep generic.IGenericRepository[domain.EthernetSwitch], log *logrus.Logger) (generic.IGenericService[
+func NewEthernetSwitchService(rep interfaces.IGenericRepository[domain.EthernetSwitch], log *logrus.Logger) (interfaces.IGenericService[
 	dtos.EthernetSwitchDto,
 	dtos.EthernetSwitchCreateDto,
 	dtos.EthernetSwitchUpdateDto,

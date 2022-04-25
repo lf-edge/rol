@@ -2,7 +2,7 @@ package controllers
 
 import (
 	"github.com/gin-gonic/gin"
-	"rol/app/interfaces/generic"
+	"rol/app/interfaces"
 	"rol/domain"
 	"rol/dtos"
 	"rol/webapi"
@@ -60,7 +60,7 @@ func (c *HttpLogGinController) GetById(ctx *gin.Context) {
 //	log - logrus logger
 //Return
 //	*GinGenericController - instance of generic controller for http logs
-func NewHTTPLogGinController(service generic.IGenericService[dtos.HttpLogDto,
+func NewHTTPLogGinController(service interfaces.IGenericService[dtos.HttpLogDto,
 	dtos.HttpLogDto,
 	dtos.HttpLogDto,
 	domain.HttpLog], log *logrus.Logger) *HttpLogGinController {

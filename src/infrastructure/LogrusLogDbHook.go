@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"math/rand"
 	"os"
-	"rol/app/interfaces/generic"
+	"rol/app/interfaces"
 	"rol/domain"
 	"sync"
 	"time"
@@ -17,9 +17,9 @@ var AppBufSize uint = 8192
 
 //AppHook application log hook struct
 type AppHook struct {
-	repo       generic.IGenericRepository[domain.AppLog]
+	repo       interfaces.IGenericRepository[domain.AppLog]
 	mutex      sync.RWMutex
-	InsertFunc func(entry *logrus.Entry, repository generic.IGenericRepository[domain.AppLog]) error
+	InsertFunc func(entry *logrus.Entry, repository interfaces.IGenericRepository[domain.AppLog]) error
 }
 
 //AppAsyncHook application log async hook struct
@@ -29,10 +29,10 @@ type AppAsyncHook struct {
 	flush      chan bool
 	wg         sync.WaitGroup
 	Ticker     *time.Ticker
-	InsertFunc func(entry *logrus.Entry, repository generic.IGenericRepository[domain.AppLog]) error
+	InsertFunc func(entry *logrus.Entry, repository interfaces.IGenericRepository[domain.AppLog]) error
 }
 
-var insertAppFunc = func(entry *logrus.Entry, repository generic.IGenericRepository[domain.AppLog]) error {
+var insertAppFunc = func(entry *logrus.Entry, repository interfaces.IGenericRepository[domain.AppLog]) error {
 	if entry.Data["method"] == nil && !fromLogController(entry) {
 		ent := newEntityFromApp(entry)
 		_, err := repository.Insert(nil, *ent)
@@ -41,7 +41,7 @@ var insertAppFunc = func(entry *logrus.Entry, repository generic.IGenericReposit
 	return nil
 }
 
-var asyncAppInsertFunc = func(entry *logrus.Entry, repository generic.IGenericRepository[domain.AppLog]) error {
+var asyncAppInsertFunc = func(entry *logrus.Entry, repository interfaces.IGenericRepository[domain.AppLog]) error {
 	if entry.Data["method"] != nil {
 		ent := newEntityFromApp(entry)
 		_, err := repository.Insert(nil, *ent)
@@ -75,7 +75,7 @@ func newEntityFromApp(entry *logrus.Entry) *domain.AppLog {
 //	repo - gorm generic repository with domain.AppLog instantiated
 //Return
 //	*AppHook - gorm hook
-func NewAppHook(repo generic.IGenericRepository[domain.AppLog]) *AppHook {
+func NewAppHook(repo interfaces.IGenericRepository[domain.AppLog]) *AppHook {
 	return &AppHook{
 		repo:       repo,
 		InsertFunc: insertAppFunc,
@@ -87,7 +87,7 @@ func NewAppHook(repo generic.IGenericRepository[domain.AppLog]) *AppHook {
 //	repo - gorm generic repository with domain.AppLog instantiated
 //Return
 //	*AppHook - async gorm hook
-func NewAsyncAppHook(repo generic.IGenericRepository[domain.AppLog]) *AppAsyncHook {
+func NewAsyncAppHook(repo interfaces.IGenericRepository[domain.AppLog]) *AppAsyncHook {
 	hook := &AppAsyncHook{
 		AppHook:    NewAppHook(repo),
 		buf:        make(chan *logrus.Entry, AppBufSize),

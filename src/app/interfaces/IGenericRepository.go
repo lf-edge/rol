@@ -1,13 +1,11 @@
-package generic
+package interfaces
 
 import (
 	"context"
-	"rol/app/interfaces"
-
 	"github.com/google/uuid"
 )
 
-type IGenericRepository[EntityType interfaces.IEntityModel] interface {
+type IGenericRepository[EntityType IEntityModel] interface {
 	//GetList
 	//	Get list of elements with filtering and pagination.
 	//Params
@@ -19,7 +17,7 @@ type IGenericRepository[EntityType interfaces.IEntityModel] interface {
 	//Return
 	// 	*[]EntityType - pointer to array of the entities.
 	//	error - if an error occurred, otherwise nil
-	GetList(ctx context.Context, orderBy string, orderDirection string, page int, size int, queryBuilder interfaces.IQueryBuilder) (*[]EntityType, error)
+	GetList(ctx context.Context, orderBy string, orderDirection string, page int, size int, queryBuilder IQueryBuilder) (*[]EntityType, error)
 	//Count
 	// Get count of entities with filtering
 	//Params
@@ -27,12 +25,12 @@ type IGenericRepository[EntityType interfaces.IEntityModel] interface {
 	//Return
 	//	int64 - count of entities
 	//	error - if an error occurred, otherwise nil
-	Count(ctx context.Context, queryBuilder interfaces.IQueryBuilder) (int64, error)
+	Count(ctx context.Context, queryBuilder IQueryBuilder) (int64, error)
 	//NewQueryBuilder
 	//	Get QueryBuilder
 	//Return
 	//	IQueryBuilder pointer to object that implements IQueryBuilder interface for this repository
-	NewQueryBuilder(ctx context.Context) interfaces.IQueryBuilder
+	NewQueryBuilder(ctx context.Context) IQueryBuilder
 	//GetById
 	//	Get entity by ID from repository.
 	//Params

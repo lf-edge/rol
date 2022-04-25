@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"os"
 	"path"
-	"rol/app/interfaces/generic"
+	"rol/app/interfaces"
 	"rol/domain"
 	"rol/infrastructure"
 	"runtime"
@@ -20,7 +20,7 @@ import (
 
 var testRepoFileName string
 var testRepoDbConnection gorm.Dialector
-var testRepo generic.IGenericRepository[domain.EthernetSwitch]
+var testRepo interfaces.IGenericRepository[domain.EthernetSwitch]
 var testCtx context.Context
 var repoInsertedId uuid.UUID
 

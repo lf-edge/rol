@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"os"
 	"path"
-	"rol/app/interfaces/generic"
+	"rol/app/interfaces"
 	"rol/app/services"
 	"rol/domain"
 	"rol/dtos"
@@ -22,8 +22,8 @@ import (
 
 var testServiceRepoFileName string
 var testServiceRepoDbConnection gorm.Dialector
-var testServiceRepo generic.IGenericRepository[domain.EthernetSwitch]
-var testService generic.IGenericService[
+var testServiceRepo interfaces.IGenericRepository[domain.EthernetSwitch]
+var testService interfaces.IGenericService[
 	dtos.EthernetSwitchDto,
 	dtos.EthernetSwitchCreateDto,
 	dtos.EthernetSwitchUpdateDto,

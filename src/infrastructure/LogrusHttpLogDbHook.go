@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"math/rand"
 	"os"
-	"rol/app/interfaces/generic"
+	"rol/app/interfaces"
 	"rol/app/utils"
 	"rol/domain"
 	"strings"
@@ -22,9 +22,9 @@ const appApiName = "applog"
 
 //HttpHook log hook struct
 type HttpHook struct {
-	repo       generic.IGenericRepository[domain.HttpLog]
+	repo       interfaces.IGenericRepository[domain.HttpLog]
 	mutex      sync.RWMutex
-	InsertFunc func(entry *logrus.Entry, repository generic.IGenericRepository[domain.HttpLog]) error
+	InsertFunc func(entry *logrus.Entry, repository interfaces.IGenericRepository[domain.HttpLog]) error
 }
 
 //HttpAsyncHook log hook struct
@@ -34,10 +34,10 @@ type HttpAsyncHook struct {
 	flush      chan bool
 	wg         sync.WaitGroup
 	Ticker     *time.Ticker
-	InsertFunc func(entry *logrus.Entry, repository generic.IGenericRepository[domain.HttpLog]) error
+	InsertFunc func(entry *logrus.Entry, repository interfaces.IGenericRepository[domain.HttpLog]) error
 }
 
-var httpInsertFunc = func(entry *logrus.Entry, repository generic.IGenericRepository[domain.HttpLog]) error {
+var httpInsertFunc = func(entry *logrus.Entry, repository interfaces.IGenericRepository[domain.HttpLog]) error {
 	if entry.Data["method"] != nil && !fromLogController(entry) {
 		ent := newEntityFromHttp(entry)
 		_, err := repository.Insert(nil, *ent)
@@ -46,7 +46,7 @@ var httpInsertFunc = func(entry *logrus.Entry, repository generic.IGenericReposi
 	return nil
 }
 
-var asyncHttpInsertFunc = func(entry *logrus.Entry, repository generic.IGenericRepository[domain.HttpLog]) error {
+var asyncHttpInsertFunc = func(entry *logrus.Entry, repository interfaces.IGenericRepository[domain.HttpLog]) error {
 	if entry.Data["method"] != nil {
 		ent := newEntityFromHttp(entry)
 		_, err := repository.Insert(nil, *ent)
@@ -87,7 +87,7 @@ func newEntityFromHttp(entry *logrus.Entry) *domain.HttpLog {
 //	repo - gorm generic repository with domain.HttpHook instantiated
 //Return
 //	*HttpHook - gorm hook
-func NewHttpHook(repo generic.IGenericRepository[domain.HttpLog]) *HttpHook {
+func NewHttpHook(repo interfaces.IGenericRepository[domain.HttpLog]) *HttpHook {
 	return &HttpHook{
 		repo:       repo,
 		InsertFunc: httpInsertFunc,

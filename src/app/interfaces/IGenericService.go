@@ -1,17 +1,16 @@
-package generic
+package interfaces
 
 import (
 	"context"
-	"rol/app/interfaces"
 	"rol/dtos"
 
 	"github.com/google/uuid"
 )
 
-type IGenericService[DtoType interfaces.IEntityDtoModel,
-	CreateDtoType interfaces.IEntityDtoModel,
-	UpdateDtoType interfaces.IEntityDtoModel,
-	EntityType interfaces.IEntityModel] interface {
+type IGenericService[DtoType IEntityDtoModel,
+	CreateDtoType IEntityDtoModel,
+	UpdateDtoType IEntityDtoModel,
+	EntityType IEntityModel] interface {
 	//GetList
 	//	Get list of elements with search and pagination.
 	//Params

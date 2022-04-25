@@ -5,16 +5,26 @@ import (
 	"rol/app/interfaces/generic"
 	"rol/domain"
 	"rol/dtos"
+	"rol/webapi"
 
 	"github.com/sirupsen/logrus"
 )
 
-// NewAppLogGinController Application log GIN controller constructor
+//NewAppLogGinController Application log GIN controller constructor
 type AppLogGinController struct {
 	GinGenericController[dtos.AppLogDto,
 		dtos.AppLogDto,
 		dtos.AppLogDto,
 		domain.AppLog]
+}
+
+//RegisterAppLogController registers controller for getting application logs via api on path /api/v1/applog/
+func RegisterAppLogController(controller *AppLogGinController, server *webapi.GinHTTPServer) {
+
+	groupRoute := server.Engine.Group("/api/v1")
+
+	groupRoute.GET("/log/app/", controller.GetList)
+	groupRoute.GET("/log/app/:id", controller.GetById)
 }
 
 // @Summary Gets paginated list of app logs

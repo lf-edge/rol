@@ -5,6 +5,7 @@ import (
 	"rol/app/interfaces/generic"
 	"rol/domain"
 	"rol/dtos"
+	"rol/webapi"
 
 	"github.com/sirupsen/logrus"
 )
@@ -15,6 +16,18 @@ type EthernetSwitchGinController struct {
 		dtos.EthernetSwitchCreateDto,
 		dtos.EthernetSwitchUpdateDto,
 		domain.EthernetSwitch]
+}
+
+//RegisterSwitchController registers controller for the switches on path /api/v1/switch/
+func RegisterSwitchController(controller *EthernetSwitchGinController, server *webapi.GinHTTPServer) {
+
+	groupRoute := server.Engine.Group("/api/v1")
+
+	groupRoute.GET("/switch/", controller.GetList)
+	groupRoute.GET("/switch/:id", controller.GetById)
+	groupRoute.POST("/switch", controller.Create)
+	groupRoute.PUT("/switch/:id", controller.Update)
+	groupRoute.DELETE("/switch/:id", controller.Delete)
 }
 
 // @Summary Gets paginated list of switches
@@ -54,6 +67,7 @@ func (c *EthernetSwitchGinController) GetById(ctx *gin.Context) {
 // @Success 200 {object} dtos.ResponseDataDto
 // @router /switch/ [post]
 func (c *EthernetSwitchGinController) Create(ctx *gin.Context) {
+
 	c.GinGenericController.Create(ctx)
 }
 

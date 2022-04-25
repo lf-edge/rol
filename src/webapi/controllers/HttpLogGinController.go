@@ -5,6 +5,7 @@ import (
 	"rol/app/interfaces/generic"
 	"rol/domain"
 	"rol/dtos"
+	"rol/webapi"
 
 	"github.com/sirupsen/logrus"
 )
@@ -14,6 +15,15 @@ type HttpLogGinController struct {
 		dtos.HttpLogDto,
 		dtos.HttpLogDto,
 		domain.HttpLog]
+}
+
+//RegisterHTTPLogController registers controller for getting http logs via api on path /api/v1/httplog/
+func RegisterHTTPLogController(controller *HttpLogGinController, server *webapi.GinHTTPServer) {
+
+	groupRoute := server.Engine.Group("/api/v1")
+
+	groupRoute.GET("/log/http/", controller.GetList)
+	groupRoute.GET("/log/http/:id", controller.GetById)
 }
 
 // @Summary Gets paginated list of http logs

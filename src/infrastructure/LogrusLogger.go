@@ -2,6 +2,7 @@ package infrastructure
 
 import (
 	"os"
+	"rol/app/interfaces/generic"
 	"rol/domain"
 
 	"github.com/sirupsen/logrus"
@@ -24,4 +25,14 @@ func NewLogrusLogger(config *domain.AppConfig) (*logrus.Logger, error) {
 		return nil, err
 	}
 	return logger, nil
+}
+
+//RegisterLogHooks registers logrus hooks which will duplicate all logs to database
+func RegisterLogHooks(logger *logrus.Logger, httpLogRepo generic.IGenericRepository[domain.HttpLog], logRepo generic.IGenericRepository[domain.AppLog], config *domain.AppConfig) {
+	if config.Logger.LogsToDatabase {
+		httpHook := NewHttpHook(httpLogRepo)
+		appHook := NewAppHook(logRepo)
+		logger.AddHook(httpHook)
+		logger.AddHook(appHook)
+	}
 }

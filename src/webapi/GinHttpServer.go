@@ -36,11 +36,16 @@ func NewGinHTTPServer(log *logrus.Logger, config *domain.AppConfig) *GinHTTPServ
 	}
 }
 
-//Start Starts http server
+//Start starts http server
 func (server *GinHTTPServer) Start() {
 	err := server.Engine.Run(server.address)
 	if err != nil {
 		server.logger.Errorf("[Http server] start server error: %s", err.Error())
 		return
 	}
+}
+
+//StartHttpServer starts a new http server from fx.Invoke
+func StartHttpServer(server *GinHTTPServer) {
+	server.Start()
 }

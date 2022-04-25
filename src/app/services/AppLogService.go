@@ -1,7 +1,7 @@
 package services
 
 import (
-	"rol/app/interfaces/generic"
+	"rol/app/interfaces"
 	"rol/domain"
 	"rol/dtos"
 
@@ -14,7 +14,7 @@ import (
 //	log - logrus logger
 //Return
 //	New app log service
-func NewAppLogService(rep generic.IGenericRepository[domain.AppLog], log *logrus.Logger) (generic.IGenericService[
+func NewAppLogService(rep interfaces.IGenericRepository[domain.AppLog], log *logrus.Logger) (interfaces.IGenericService[
 	dtos.AppLogDto,
 	dtos.AppLogDto,
 	dtos.AppLogDto,

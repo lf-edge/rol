@@ -2,7 +2,7 @@ package controllers
 
 import (
 	"github.com/gin-gonic/gin"
-	"rol/app/interfaces/generic"
+	"rol/app/interfaces"
 	"rol/domain"
 	"rol/dtos"
 	"rol/webapi"
@@ -101,7 +101,7 @@ func (c *EthernetSwitchGinController) Delete(ctx *gin.Context) {
 //	log - logrus logger
 //Return
 //	*GinGenericController - instance of generic controller for ethernet switches
-func NewEthernetSwitchGinController(service generic.IGenericService[dtos.EthernetSwitchDto,
+func NewEthernetSwitchGinController(service interfaces.IGenericService[dtos.EthernetSwitchDto,
 	dtos.EthernetSwitchCreateDto,
 	dtos.EthernetSwitchUpdateDto,
 	domain.EthernetSwitch], log *logrus.Logger) *EthernetSwitchGinController {

@@ -6,7 +6,6 @@ import (
 	"io/ioutil"
 	"net/http"
 	"rol/app/interfaces"
-	"rol/app/interfaces/generic"
 	"rol/dtos"
 	"strconv"
 
@@ -21,7 +20,7 @@ type GinGenericController[DtoType interfaces.IEntityDtoModel,
 	UpdateDtoType interfaces.IEntityDtoModel,
 	EntityType interfaces.IEntityModel] struct {
 	//	service - service with needed dtos instantiated
-	service generic.IGenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]
+	service interfaces.IGenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]
 	//	logger - logger
 	logger *logrus.Logger
 }
@@ -36,7 +35,7 @@ type GinGenericController[DtoType interfaces.IEntityDtoModel,
 func NewGinGenericController[DtoType interfaces.IEntityDtoModel,
 	CreateDtoType interfaces.IEntityDtoModel,
 	UpdateDtoType interfaces.IEntityDtoModel,
-	EntityType interfaces.IEntityModel](service generic.IGenericService[DtoType, CreateDtoType, UpdateDtoType,
+	EntityType interfaces.IEntityModel](service interfaces.IGenericService[DtoType, CreateDtoType, UpdateDtoType,
 	EntityType], log *logrus.Logger) *GinGenericController[DtoType,
 	CreateDtoType,
 	UpdateDtoType,

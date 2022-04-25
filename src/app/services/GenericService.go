@@ -6,7 +6,6 @@ import (
 	"fmt"
 	"reflect"
 	"rol/app/interfaces"
-	"rol/app/interfaces/generic"
 	"rol/app/mappers"
 	"rol/app/utils"
 	"rol/dtos"
@@ -22,7 +21,7 @@ type GenericService[DtoType interfaces.IEntityDtoModel,
 	CreateDtoType interfaces.IEntityDtoModel,
 	UpdateDtoType interfaces.IEntityDtoModel,
 	EntityType interfaces.IEntityModel] struct {
-	repository    generic.IGenericRepository[EntityType]
+	repository    interfaces.IGenericRepository[EntityType]
 	logger        *logrus.Logger
 	logSourceName string
 }
@@ -36,7 +35,7 @@ type GenericService[DtoType interfaces.IEntityDtoModel,
 func NewGenericService[DtoType interfaces.IEntityDtoModel,
 	CreateDtoType interfaces.IEntityDtoModel,
 	UpdateDtoType interfaces.IEntityDtoModel,
-	EntityType interfaces.IEntityModel](repo generic.IGenericRepository[EntityType], logger *logrus.Logger) (
+	EntityType interfaces.IEntityModel](repo interfaces.IGenericRepository[EntityType], logger *logrus.Logger) (
 	*GenericService[
 		DtoType,
 		CreateDtoType,

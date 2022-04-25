@@ -1,7 +1,7 @@
 package infrastructure
 
 import (
-	"rol/app/interfaces/generic"
+	"rol/app/interfaces"
 	"rol/domain"
 
 	"github.com/sirupsen/logrus"
@@ -16,7 +16,7 @@ import (
 //	log - logrus logger
 //Return
 //	generic.IGenericRepository[domain.EthernetSwitch] - new ethernet switch repository
-func NewEthernetSwitchRepository(db *gorm.DB, log *logrus.Logger) generic.IGenericRepository[domain.EthernetSwitch] {
+func NewEthernetSwitchRepository(db *gorm.DB, log *logrus.Logger) interfaces.IGenericRepository[domain.EthernetSwitch] {
 	return NewGormGenericRepository[domain.EthernetSwitch](db, log)
 }
 
@@ -26,7 +26,7 @@ func NewEthernetSwitchRepository(db *gorm.DB, log *logrus.Logger) generic.IGener
 //	log - logrus logger
 //Return
 //	generic.IGenericRepository[domain.HttpLog] - new http log repository
-func NewHttpLogRepository(dbShell *GormFxShell, log *logrus.Logger) generic.IGenericRepository[domain.HttpLog] {
+func NewHttpLogRepository(dbShell *GormFxShell, log *logrus.Logger) interfaces.IGenericRepository[domain.HttpLog] {
 	db := dbShell.GetDb()
 	return NewGormGenericRepository[domain.HttpLog](db, log)
 }
@@ -37,7 +37,17 @@ func NewHttpLogRepository(dbShell *GormFxShell, log *logrus.Logger) generic.IGen
 //	log - logrus logger
 //Return
 //	generic.IGenericRepository[domain.AppLog] - new app log repository
-func NewAppLogRepository(dbShell *GormFxShell, log *logrus.Logger) generic.IGenericRepository[domain.AppLog] {
+func NewAppLogRepository(dbShell *GormFxShell, log *logrus.Logger) interfaces.IGenericRepository[domain.AppLog] {
 	db := dbShell.GetDb()
 	return NewGormGenericRepository[domain.AppLog](db, log)
+}
+
+//NewEthernetSwitchPortRepository preparing domain.EthernetSwitchPort repository for passing it in DI
+//Params
+//	db - gorm database
+//	log - logrus logger
+//Return
+//	generic.IGenericRepository[domain.EthernetSwitchPort] - new ethernet switch repository
+func NewEthernetSwitchPortRepository(db *gorm.DB, log *logrus.Logger) interfaces.IGenericRepository[domain.EthernetSwitchPort] {
+	return NewGormGenericRepository[domain.EthernetSwitchPort](db, log)
 }

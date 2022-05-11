@@ -28,7 +28,7 @@ func NewLogrusLogger(config *domain.AppConfig) (*logrus.Logger, error) {
 }
 
 //RegisterLogHooks registers logrus hooks which will duplicate all logs to database
-func RegisterLogHooks(logger *logrus.Logger, httpLogRepo interfaces.IGenericRepository[domain.HttpLog], logRepo interfaces.IGenericRepository[domain.AppLog], config *domain.AppConfig) {
+func RegisterLogHooks(logger *logrus.Logger, httpLogRepo interfaces.IGenericRepository[domain.HTTPLog], logRepo interfaces.IGenericRepository[domain.AppLog], config *domain.AppConfig) {
 	if config.Logger.LogsToDatabase {
 		httpHook := NewHttpHook(httpLogRepo)
 		appHook := NewAppHook(logRepo)

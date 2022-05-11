@@ -36,7 +36,7 @@ logger:
 
   # "warning" - non-critical entries that deserve eyes.
 
-  # "info" - general operational entries about what's going on inside the application.
+  # "info" - general entries about what's going on inside the application.
 
   # "debug" - usually only enabled when debugging. Very verbose logging.
 

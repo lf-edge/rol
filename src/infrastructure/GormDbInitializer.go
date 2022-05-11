@@ -1,7 +1,6 @@
 package infrastructure
 
 import (
-	"errors"
 	"fmt"
 	"rol/domain"
 
@@ -11,6 +10,7 @@ import (
 	"gorm.io/gorm/schema"
 )
 
+//OurNamingSchema tables, columns naming strategy
 type OurNamingSchema struct {
 	schema.NamingStrategy
 }
@@ -39,14 +39,14 @@ func NewGormEntityDb(cfg *domain.AppConfig) (*gorm.DB, error) {
 		Logger: logger.Default.LogMode(logger.Info),
 	})
 	if err != nil {
-		return nil, errors.New(fmt.Sprintf("[NewGormEntityDb]: Failed to open db: %v", err))
+		return nil, fmt.Errorf("[NewGormEntityDb]: Failed to open db: %v", err)
 	}
 	err = db.AutoMigrate(
 		&domain.EthernetSwitch{},
 		&domain.EthernetSwitchPort{},
 	)
 	if err != nil {
-		return nil, errors.New(fmt.Sprintf("[NewGormEntityDb]: Failed to apply db migrations: %v", err))
+		return nil, fmt.Errorf("[NewGormEntityDb]: Failed to apply db migrations: %v", err)
 	}
 	return db, nil
 	// entityConnectionString: "root:67Edh68Tyt69@tcp(localhost:3306)/"
@@ -70,14 +70,14 @@ func NewGormLogDb(cfg *domain.AppConfig) (*GormFxShell, error) {
 		Logger: logger.Default.LogMode(logger.Info),
 	})
 	if err != nil {
-		return nil, errors.New(fmt.Sprintf("[NewGormLogDb]: Failed to open db: %v", err))
+		return nil, fmt.Errorf("[NewGormLogDb]: Failed to open db: %v", err)
 	}
 	err = db.AutoMigrate(
-		&domain.HttpLog{},
+		&domain.HTTPLog{},
 		&domain.AppLog{},
 	)
 	if err != nil {
-		return nil, errors.New(fmt.Sprintf("[NewGormLogDb]: Failed to apply db migrations: %v", err))
+		return nil, fmt.Errorf("[NewGormLogDb]: Failed to apply db migrations: %v", err)
 	}
 	return &GormFxShell{dbShell: db}, nil
 }

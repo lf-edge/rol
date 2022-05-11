@@ -10,15 +10,15 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-type HttpLogGinController struct {
-	GinGenericController[dtos.HttpLogDto,
-		dtos.HttpLogDto,
-		dtos.HttpLogDto,
-		domain.HttpLog]
+type HTTPLogGinController struct {
+	GinGenericController[dtos.HTTPLogDto,
+		dtos.HTTPLogDto,
+		dtos.HTTPLogDto,
+		domain.HTTPLog]
 }
 
 //RegisterHTTPLogController registers controller for getting http logs via api on path /api/v1/httplog/
-func RegisterHTTPLogController(controller *HttpLogGinController, server *webapi.GinHTTPServer) {
+func RegisterHTTPLogController(controller *HTTPLogGinController, server *webapi.GinHTTPServer) {
 
 	groupRoute := server.Engine.Group("/api/v1")
 
@@ -36,9 +36,9 @@ func RegisterHTTPLogController(controller *HttpLogGinController, server *webapi.
 // @param 	search 			path	string	false	"searchable value in entity"
 // @param 	page 			path	int		false	"page number"
 // @param 	pageSize 		path	int		false	"number of entities per page"
-// @Success 200 {object} dtos.ResponseDataDto{data=dtos.PaginatedListDto{items=[]dtos.HttpLogDto}} "desc"
+// @Success 200 {object} dtos.ResponseDataDto{data=dtos.PaginatedListDto{items=[]dtos.HTTPLogDto}} "desc"
 // @router /log/http/ [get]
-func (c *HttpLogGinController) GetList(ctx *gin.Context) {
+func (c *HTTPLogGinController) GetList(ctx *gin.Context) {
 	c.GinGenericController.GetList(ctx)
 }
 
@@ -48,9 +48,9 @@ func (c *HttpLogGinController) GetList(ctx *gin.Context) {
 // @Accept  json
 // @Produce  json
 // @param 	id	path	string		true	"log id"
-// @Success 200 {object} dtos.ResponseDataDto{data=dtos.HttpLogDto}
+// @Success 200 {object} dtos.ResponseDataDto{data=dtos.HTTPLogDto}
 // @router /log/http/{id} [get]
-func (c *HttpLogGinController) GetById(ctx *gin.Context) {
+func (c *HTTPLogGinController) GetById(ctx *gin.Context) {
 	c.GinGenericController.GetById(ctx)
 }
 
@@ -60,12 +60,12 @@ func (c *HttpLogGinController) GetById(ctx *gin.Context) {
 //	log - logrus logger
 //Return
 //	*GinGenericController - instance of generic controller for http logs
-func NewHTTPLogGinController(service interfaces.IGenericService[dtos.HttpLogDto,
-	dtos.HttpLogDto,
-	dtos.HttpLogDto,
-	domain.HttpLog], log *logrus.Logger) *HttpLogGinController {
+func NewHTTPLogGinController(service interfaces.IGenericService[dtos.HTTPLogDto,
+	dtos.HTTPLogDto,
+	dtos.HTTPLogDto,
+	domain.HTTPLog], log *logrus.Logger) *HTTPLogGinController {
 	genContr := NewGinGenericController(service, log)
-	logContr := &HttpLogGinController{
+	logContr := &HTTPLogGinController{
 		GinGenericController: *genContr,
 	}
 	return logContr

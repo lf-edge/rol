@@ -8,6 +8,7 @@ import (
 	"strings"
 )
 
+//GormQueryBuilder query builder struct for gorm
 type GormQueryBuilder struct {
 	QueryString string
 	Values      []interface{}
@@ -18,6 +19,7 @@ func NewGormQueryBuilder() *GormQueryBuilder {
 	return &GormQueryBuilder{}
 }
 
+//ToSnakeCase converts camelCase field name to snake_case
 func ToSnakeCase(fieldName string) string {
 	matchAllCap := regexp.MustCompile("([a-z0-9])([A-Z])")
 	snakeName := strings.ToLower(matchAllCap.ReplaceAllString(fieldName, "${1}_${2}"))

@@ -6,6 +6,9 @@ import (
 	"rol/dtos"
 )
 
+//ValidateEthernetSwitchCreateDto validates switch create dto with ozzo-validation
+//	Return
+//	error - if an error occurs, otherwise nil
 func ValidateEthernetSwitchCreateDto(dto dtos.EthernetSwitchCreateDto) error {
 	expr, _ := regexp.Compile(`^[\w\d.]*$`)
 	fieldRule := []validation.Rule{

@@ -4,12 +4,12 @@ import (
 	"github.com/google/uuid"
 )
 
-//HttpLog http log entity
-type HttpLog struct {
+//HTTPLog http log entity
+type HTTPLog struct {
 	//	Entity - nested base entity
 	Entity
 	//	HttpMethod - http method
-	HttpMethod string
+	HTTPMethod string
 	//	Domain - domain that processed the request
 	Domain string
 	//	RelativePath - path to the endpoint
@@ -37,6 +37,6 @@ type HttpLog struct {
 }
 
 //GetID gets the id of the entity
-func (log HttpLog) GetID() uuid.UUID {
+func (log HTTPLog) GetID() uuid.UUID {
 	return log.ID
 }

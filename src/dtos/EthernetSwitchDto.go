@@ -1,7 +1,6 @@
 package dtos
 
-//EthernetSwitchDto
-//	Ethernet switch response dto
+//EthernetSwitchDto Ethernet switch response dto
 type EthernetSwitchDto struct {
 	//	EthernetSwitchBaseDto - nested base switch dto structure
 	EthernetSwitchBaseDto

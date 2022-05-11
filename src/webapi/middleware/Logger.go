@@ -49,9 +49,9 @@ func Logger(logger logrus.FieldLogger, notLogged ...string) gin.HandlerFunc {
 	}
 
 	return func(c *gin.Context) {
-		requestId := uuid.New()
-		c.Set("requestId", requestId)
-		c.Header("X-Request-Id", requestId.String())
+		requestID := uuid.New()
+		c.Set("requestID", requestID)
+		c.Header("X-Request-Id", requestID.String())
 		// other handler can change c.Path so:
 		path := c.Request.URL.Path
 		start := time.Now()
@@ -139,7 +139,7 @@ func Logger(logger logrus.FieldLogger, notLogged ...string) gin.HandlerFunc {
 			"queryParams":     queryParams,
 			"headers":         headersString,
 			"requestBody":     string(bodyBytes),
-			"requestId":       requestId,
+			"requestID":       requestID,
 			"customHeaders":   customHeadersString,
 			"responseBody":    respBody,
 			"responseHeaders": respHeaders,

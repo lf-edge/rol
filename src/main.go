@@ -33,12 +33,12 @@ func main() {
 			infrastructure.NewGormEntityDb,
 			infrastructure.NewGormLogDb,
 			infrastructure.NewEthernetSwitchRepository,
-			infrastructure.NewHttpLogRepository,
+			infrastructure.NewHTTPLogRepository,
 			infrastructure.NewAppLogRepository,
 			infrastructure.NewLogrusLogger,
 			// Application logic
 			services.NewEthernetSwitchService,
-			services.NewHttpLogService,
+			services.NewHTTPLogService,
 			services.NewAppLogService,
 			// WEB API -> Server
 			webapi.NewGinHTTPServer,
@@ -52,7 +52,7 @@ func main() {
 			controllers.RegisterSwitchController,
 			controllers.RegisterHTTPLogController,
 			controllers.RegisterAppLogController,
-			webapi.StartHttpServer,
+			webapi.StartHTTPServer,
 		),
 	)
 	app.Run()

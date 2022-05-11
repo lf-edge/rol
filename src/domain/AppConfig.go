@@ -1,5 +1,6 @@
 package domain
 
+//DbConfig structure describing the database configuration
 type DbConfig struct {
 	DbName     string `yaml:"dbName"`
 	Username   string `yaml:"username"`

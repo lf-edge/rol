@@ -4,6 +4,7 @@ package domain
 type EthernetSwitchModel int
 
 const (
+	//Ubiquiti UniFi Switch US-24-250W
 	UBIQUITY_US24_250W = iota
 )
 

@@ -2,7 +2,7 @@ package infrastructure
 
 import "gorm.io/gorm"
 
-// Shell for second database passing in FX DI framework
+//GormFxShell Shell for second database passing in FX DI framework
 type GormFxShell struct {
 	dbShell *gorm.DB
 }

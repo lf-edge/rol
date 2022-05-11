@@ -20,15 +20,15 @@ func NewEthernetSwitchRepository(db *gorm.DB, log *logrus.Logger) interfaces.IGe
 	return NewGormGenericRepository[domain.EthernetSwitch](db, log)
 }
 
-//NewHttpLogRepository constructor for domain.HttpLog GORM generic repository
+//NewHTTPLogRepository constructor for domain.HTTPLog GORM generic repository
 //Params
 //	dbShell - gorm database shell
 //	log - logrus logger
 //Return
-//	generic.IGenericRepository[domain.HttpLog] - new http log repository
-func NewHttpLogRepository(dbShell *GormFxShell, log *logrus.Logger) interfaces.IGenericRepository[domain.HttpLog] {
+//	generic.IGenericRepository[domain.HTTPLog] - new http log repository
+func NewHTTPLogRepository(dbShell *GormFxShell, log *logrus.Logger) interfaces.IGenericRepository[domain.HTTPLog] {
 	db := dbShell.GetDb()
-	return NewGormGenericRepository[domain.HttpLog](db, log)
+	return NewGormGenericRepository[domain.HTTPLog](db, log)
 }
 
 //NewAppLogRepository constructor for domain.AppLog GORM generic repository

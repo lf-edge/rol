@@ -23,7 +23,7 @@ type GinHTTPServer struct {
 //	log - logrus logger
 //	config - application configurations
 //Return
-//	*GinHttpServer - gin http server instance
+//	*GinHTTPServer - gin http server instance
 func NewGinHTTPServer(log *logrus.Logger, config *domain.AppConfig) *GinHTTPServer {
 	ginEngine := gin.New()
 	url := ginSwagger.URL("http://localhost:8080/swagger/doc.json")
@@ -40,12 +40,12 @@ func NewGinHTTPServer(log *logrus.Logger, config *domain.AppConfig) *GinHTTPServ
 func (server *GinHTTPServer) Start() {
 	err := server.Engine.Run(server.address)
 	if err != nil {
-		server.logger.Errorf("[Http server] start server error: %s", err.Error())
+		server.logger.Errorf("[HTTP server] start server error: %s", err.Error())
 		return
 	}
 }
 
-//StartHttpServer starts a new http server from fx.Invoke
-func StartHttpServer(server *GinHTTPServer) {
+//StartHTTPServer starts a new http server from fx.Invoke
+func StartHTTPServer(server *GinHTTPServer) {
 	server.Start()
 }

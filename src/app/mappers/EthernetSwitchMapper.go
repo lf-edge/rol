@@ -36,7 +36,7 @@ func MapEthernetSwitchCreateDto(dto dtos.EthernetSwitchCreateDto, entity *domain
 //	entity - ethernet switch entity
 //	dto - dest ethernet switch dto
 func MapEthernetSwitchToDto(entity domain.EthernetSwitch, dto *dtos.EthernetSwitchDto) {
-	dto.Id = entity.ID
+	dto.ID = entity.ID
 	dto.Name = entity.Name
 	dto.Address = entity.Address
 	dto.Username = entity.Username

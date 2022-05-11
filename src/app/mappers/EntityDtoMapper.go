@@ -46,8 +46,8 @@ func MapEntityToDto(entity interfaces.IEntityModel, dto interface{}) error {
 	case domain.EthernetSwitchPort:
 		MapEthernetSwitchPortToDto(entity.(domain.EthernetSwitchPort), dto.(*dtos.EthernetSwitchPortDto))
 	//HttpLog
-	case domain.HttpLog:
-		MapHTTPLogEntityToDto(entity.(domain.HttpLog), dto.(*dtos.HttpLogDto))
+	case domain.HTTPLog:
+		MapHTTPLogEntityToDto(entity.(domain.HTTPLog), dto.(*dtos.HTTPLogDto))
 	//AppLog
 	case domain.AppLog:
 		MapAppLogEntityToDto(entity.(domain.AppLog), dto.(*dtos.AppLogDto))

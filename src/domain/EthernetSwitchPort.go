@@ -6,9 +6,13 @@ import "github.com/google/uuid"
 type EthernetSwitchPoePortType int
 
 const (
+	//POE standard poe
 	POE = iota + 1
+	//POE_PLUS poe plus
 	POE_PLUS
+	//PASSIVE_V24 passive v24 poe
 	PASSIVE_V24
+	//NONE none poe
 	NONE = 10
 )
 
@@ -18,8 +22,8 @@ type EthernetSwitchPort struct {
 	Entity
 	//	Name - name of switch port
 	Name string
-	//	EthernetSwitchId - id of switch port
-	EthernetSwitchId uuid.UUID `gorm:"size:191"`
+	//	EthernetSwitchID - id of switch port
+	EthernetSwitchID uuid.UUID `gorm:"size:191"`
 	//	PoeType - switch port type number
 	PoeType EthernetSwitchPoePortType
 }

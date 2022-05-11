@@ -1,10 +1,10 @@
 package dtos
 
-//HttpLogDto dto for http log
-type HttpLogDto struct {
+//HTTPLogDto dto for http log
+type HTTPLogDto struct {
 	BaseDto
 	//	HttpMethod - http method
-	HttpMethod string
+	HTTPMethod string
 	//	Domain - domain that processed the request
 	Domain string
 	//	RelativePath - path to the endpoint

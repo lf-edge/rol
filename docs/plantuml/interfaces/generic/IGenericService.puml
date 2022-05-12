@@ -25,3 +25,5 @@ end note
 note left of IGenericService::Delete
     Mark an entity as deleted in the repository
 end note
+
+@enduml

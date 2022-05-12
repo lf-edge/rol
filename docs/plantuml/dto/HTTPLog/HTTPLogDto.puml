@@ -1,0 +1,29 @@
+@startuml HTTPLogDto
+!include ../BaseDto.puml
+
+
+class HTTPLogDto {
+    HTTPMethod string
+    --
+    Domain string
+    --
+    RelativePath string
+    --
+    QueryParams string
+    --
+    ClientIP string
+    --
+    Latency int
+    --
+    RequestBody string
+    --
+    ResponseBody string
+    --
+    RequestHeaders string
+    --
+    CustomRequestHeaders string
+}
+HTTPLogDto *-- BaseDto
+
+
+@enduml

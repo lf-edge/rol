@@ -1,0 +1,15 @@
+@startuml LogDto
+!include ../BaseDto.puml
+
+class LogDto {
+    ActionID uuid.UUID `gorm:"index"`
+    --
+    Level string
+    --
+    Source string
+    --
+    Message string
+}
+LogDto *-- BaseDto
+
+@enduml

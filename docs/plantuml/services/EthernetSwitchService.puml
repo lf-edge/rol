@@ -1,0 +1,9 @@
+@startuml
+!include GenericService.puml
+
+class EthernetSwitchService {
+
+}
+
+EthernetSwitchService *-- GenericService
+@enduml

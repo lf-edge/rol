@@ -1,0 +1,13 @@
+@startuml
+!include ../interfaces/generic/IGenericService.puml
+
+class GenericService {
+    repository    interfaces.IGenericRepository[EntityType]
+    --
+    logger        *logrus.Logger
+    --
+    logSourceName string
+}
+
+GenericService <|.. IGenericService
+@enduml

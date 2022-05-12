@@ -63,18 +63,9 @@ func (gst *GenericServiceTest[DtoType, CreateDtoType, UpdateDtoType, EntityType]
 	if dto == nil {
 		return fmt.Errorf("no entity with such id")
 	}
-	value := reflect.ValueOf(*dto).FieldByName("Id")
-	getUuidFromReflectArray(value)
+	value := reflect.ValueOf(*dto).FieldByName("ID")
 
-	bytes := make([]byte, 16)
-	if value.Kind() == reflect.Array {
-		for i := 0; i < value.Len(); i++ {
-			item := value.Index(i)
-			u := item.Uint()
-			bytes[i] = byte(u)
-		}
-	}
-	obtainedId, err := uuid.FromBytes(bytes)
+	obtainedId, err := getUuidFromReflectArray(value)
 	if err != nil {
 		return fmt.Errorf("convert bytes to uuid failed: %s", err)
 	}

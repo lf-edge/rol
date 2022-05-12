@@ -1,5 +1,5 @@
-@startuml IGenericEntityRepository
-interface IGenericEntityRepository {
+@startuml IGenericRepository
+interface IGenericRepository<EntityType> {
     GetList(ctx context.Context, orderBy string, orderDirection string, page int, size int, queryBuilder interfaces.IQueryBuilder) (*[]EntityType, error)
     --
     Count(ctx context.Context, queryBuilder interfaces.IQueryBuilder) (int64, error)
@@ -16,28 +16,28 @@ interface IGenericEntityRepository {
     --
     CloseDb() error
 }
-note left of IGenericEntityRepository::GetList
+note left of IGenericRepository::GetList
   Get list of elements with filtering and pagination
 end note
-note left of IGenericEntityRepository::Count
+note left of IGenericRepository::Count
   Get count of entities with filtering
 end note
-note left of IGenericEntityRepository::NewQueryBuilder
+note left of IGenericRepository::NewQueryBuilder
   Get new instance of the query builder
 end note
-note left of IGenericEntityRepository::GetById
+note left of IGenericRepository::GetById
   Get entity by ID from repository
 end note
-note left of IGenericEntityRepository::Update
+note left of IGenericRepository::Update
   Save the changes to the existing entity in the repository
 end note
-note left of IGenericEntityRepository::Insert
+note left of IGenericRepository::Insert
   Add entity to the repository
 end note
-note left of IGenericEntityRepository::Delete
+note left of IGenericRepository::Delete
   Delete entity from the database
 end note
-note left of IGenericEntityRepository::CloseDb
+note left of IGenericRepository::CloseDb
   Closes current database connection
 end note
 @enduml

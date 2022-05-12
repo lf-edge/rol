@@ -1,10 +1,10 @@
 @startuml
 !include ../interfaces/generic/IGenericService.puml
 
-class GenericService {
-    repository    interfaces.IGenericRepository[EntityType]
+class GenericService<EntityType, CreateDtoType, UpdateDtoType, DtoType> {
+    repository IGenericRepository
     --
-    logger        *logrus.Logger
+    logger *logrus.Logger
     --
     logSourceName string
 }

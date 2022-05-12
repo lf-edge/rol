@@ -1,0 +1,11 @@
+@startuml
+!include ../entities/EthernetSwitch.puml
+!include GenericRepository.puml
+
+class GenericRepository<EthernetSwitch>
+interface IGenericRepository<EthernetSwitch>
+
+class EthernetSwitchRepository<EthernetSwitch>
+
+EthernetSwitchRepository *-- GenericRepository
+@enduml

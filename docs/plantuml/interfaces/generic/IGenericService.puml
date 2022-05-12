@@ -1,5 +1,5 @@
 @startuml IGenericService
-interface IGenericService {
+interface IGenericService<EntityType, CreateDtoType, UpdateDtoType, DtoType> {
     GetList(ctx context.Context, search, orderBy, orderDirection string, page, pageSize int) (*dtos.PaginatedListDto[DtoType], error)
     --
     GetById(ctx context.Context, id uuid.UUID) (*DtoType, error)
@@ -23,7 +23,7 @@ note left of IGenericService::Create
     Add entity to the service
 end note
 note left of IGenericService::Delete
-    Mark an entity as deleted in the repository
+    Mark an entity as deleted
 end note
 
 @enduml

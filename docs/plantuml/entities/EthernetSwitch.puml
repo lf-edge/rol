@@ -16,7 +16,7 @@ class EthernetSwitch {
     --
     Password string
     --
-    Ports *[]*EthernetSwitchPort
+    Ports []EthernetSwitchPort
 }
 EthernetSwitch *-- Entity
 EthernetSwitch::SwitchModel -- EthernetSwitchModel

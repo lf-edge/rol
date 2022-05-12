@@ -1,11 +1,10 @@
 @startuml EthernetSwitchCreateDto
 !include EthernetSwitchBaseDto.puml
-!include ../../entities/EthernetSwitchModel.puml
 
 class EthernetSwitchCreateDto {
     Password string
 }
 
 EthernetSwitchCreateDto *-- EthernetSwitchBaseDto
-EthernetSwitchBaseDto::Model -- EthernetSwitchModel
+
 @enduml

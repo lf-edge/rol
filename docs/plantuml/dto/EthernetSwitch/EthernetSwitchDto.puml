@@ -1,5 +1,4 @@
 @startuml EthernetSwitchDto
-!include ../../Entities/EthernetSwitchModel.puml
 !include ../BaseDto.puml
 !include EthernetSwitchBaseDto.puml
 
@@ -8,7 +7,5 @@ class EthernetSwitchDto {
 }
 EthernetSwitchDto *-- EthernetSwitchBaseDto
 EthernetSwitchDto *-- BaseDto
-
-EthernetSwitchBaseDto::Model -- EthernetSwitchModel
 
 @enduml

@@ -1,13 +1,9 @@
 @startuml EthernetSwitchUpdateDto
 !include EthernetSwitchBaseDto.puml
 
-enum EthernetSwitchModel {
-    UBIQUITY_US24_250W
-}
-
 class EthernetSwitchUpdateDto {
     Password string
 }
+
 EthernetSwitchUpdateDto *-- EthernetSwitchBaseDto
-EthernetSwitchBaseDto::Model -- EthernetSwitchModel
 @enduml

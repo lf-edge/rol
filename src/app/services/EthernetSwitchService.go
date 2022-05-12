@@ -4,6 +4,7 @@ import (
 	"context"
 	"github.com/google/uuid"
 	"rol/app/interfaces"
+	"rol/app/validators"
 	"rol/domain"
 	"rol/dtos"
 
@@ -68,6 +69,10 @@ func (ess *EthernetSwitchService) GetById(ctx context.Context, id uuid.UUID) (*d
 //Return
 //	error - if an error occurs, otherwise nil
 func (ess *EthernetSwitchService) Update(ctx context.Context, updateDto dtos.EthernetSwitchUpdateDto, id uuid.UUID) error {
+	err := validators.ValidateEthernetSwitchUpdateDto(updateDto)
+	if err != nil {
+		return err
+	}
 	return ess.GenericService.Update(ctx, updateDto, id)
 }
 
@@ -79,6 +84,10 @@ func (ess *EthernetSwitchService) Update(ctx context.Context, updateDto dtos.Eth
 //	uuid.UUID - new ethernet switch id
 //	error - if an error occurs, otherwise nil
 func (ess *EthernetSwitchService) Create(ctx context.Context, createDto dtos.EthernetSwitchCreateDto) (uuid.UUID, error) {
+	err := validators.ValidateEthernetSwitchCreateDto(createDto)
+	if err != nil {
+		return [16]byte{}, err
+	}
 	return ess.GenericService.Create(ctx, createDto)
 }
 

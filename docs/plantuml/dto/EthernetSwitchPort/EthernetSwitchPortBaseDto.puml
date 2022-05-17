@@ -1,5 +1,4 @@
 @startuml EthernetSwitchPortBaseDto
-!include ../../Entities/EthernetSwitchPoePortType.puml
 
 class EthernetSwitchPortBaseDto {
     EthernetSwitchId uuid.UUID
@@ -8,5 +7,5 @@ class EthernetSwitchPortBaseDto {
     --
     Name string
 }
-EthernetSwitchPortBaseDto::PoeType -- EthernetSwitchPoePortType
+
 @enduml

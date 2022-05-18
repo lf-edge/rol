@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="178px" preserveAspectRatio="none" style="width:1026px;height:178px;background:#FFFFFF;" version="1.1" viewBox="0 0 1026 178" width="1026px" zoomAndPan="magnify"><defs/><g><!--MD5=[6bc9fc1618169c25743dbf954cfe4ef0]
+class IQueryBuilder--><g id="elem_IQueryBuilder"><rect codeLine="1" fill="#F1F1F1" height="153.4844" id="IQueryBuilder" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="487" x="532" y="17.5"/><ellipse cx="724.25" cy="33.5" fill="#B4A7E5" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M720.1719,29.2656 L720.1719,27.1094 L727.5625,27.1094 L727.5625,29.2656 L725.0938,29.2656 L725.0938,37.3438 L727.5625,37.3438 L727.5625,39.5 L720.1719,39.5 L720.1719,37.3438 L722.6406,37.3438 L722.6406,29.2656 L720.1719,29.2656 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="94" x="744.75" y="38.3467">IQueryBuilder</text><line style="stroke:#181818;stroke-width:0.5;" x1="533" x2="1018" y1="49.5" y2="49.5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="475" x="538" y="66.4951">Where(fieldName, comparator string, value interface{}) IQueryBuilder</text><line style="stroke:#181818;stroke-width:1.0;" x1="533" x2="1018" y1="73.7969" y2="73.7969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="335" x="538" y="90.792">WhereQuery(builder IQueryBuilder) IQueryBuilder</text><line style="stroke:#181818;stroke-width:1.0;" x1="533" x2="1018" y1="98.0938" y2="98.0938"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="446" x="538" y="115.0889">Or(fieldName, comparator string, value interface{}) IQueryBuilder</text><line style="stroke:#181818;stroke-width:1.0;" x1="533" x2="1018" y1="122.3906" y2="122.3906"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="306" x="538" y="139.3857">OrQuery(builder IQueryBuilder) IQueryBuilder</text><line style="stroke:#181818;stroke-width:1.0;" x1="533" x2="1018" y1="146.6875" y2="146.6875"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="177" x="538" y="163.6826">Build() (interface{}, error)</text></g><path d="M6,6 L6,31.1328 A0,0 0 0 0 6,31.1328 L258,31.1328 A0,0 0 0 0 258,31.1328 L258,24 L536,61.6484 L258,16 L258,16 L248,6 L6,6 A0,0 0 0 0 6,6 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M248,6 L248,16 L258,16 L248,6 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="231" x="12" y="23.0669">Add new AND condition to the query</text><path d="M6,41.1328 L6,66.2656 A0,0 0 0 0 6,66.2656 L497,66.2656 A0,0 0 0 0 497,66.2656 L497,59.1328 L536,85.9453 L497,51.1328 L497,51.1328 L487,41.1328 L6,41.1328 A0,0 0 0 0 6,41.1328 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M487,41.1328 L487,51.1328 L497,51.1328 L487,41.1328 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="470" x="12" y="58.1997">Add new complicated AND condition to the query based on another query</text><path d="M6,76.2656 L6,101.3984 A0,0 0 0 0 6,101.3984 L247,101.3984 A0,0 0 0 0 247,101.3984 L247,94.2656 L536,110.2422 L247,86.2656 L247,86.2656 L237,76.2656 L6,76.2656 A0,0 0 0 0 6,76.2656 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M237,76.2656 L237,86.2656 L247,86.2656 L237,76.2656 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="220" x="12" y="93.3325">Add new OR condition to the query</text><path d="M6,111.3984 L6,136.5313 A0,0 0 0 0 6,136.5313 L486,136.5313 A0,0 0 0 0 486,136.5313 L486,129.3984 L536,134.5391 L486,121.3984 L486,121.3984 L476,111.3984 L6,111.3984 A0,0 0 0 0 6,111.3984 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M476,111.3984 L476,121.3984 L486,121.3984 L476,111.3984 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="459" x="12" y="128.4653">Add new complicated OR condition to the query based on another query</text><path d="M6,146.5313 L6,171.6641 A0,0 0 0 0 6,171.6641 L232,171.6641 A0,0 0 0 0 232,171.6641 L232,164.5313 L536,158.8359 L232,156.5313 L232,156.5313 L222,146.5313 L6,146.5313 A0,0 0 0 0 6,146.5313 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M222,146.5313 L222,156.5313 L232,156.5313 L222,146.5313 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="205" x="12" y="163.5981">Build a slice of query arguments</text><!--MD5=[031dfff82ef3e68cdc19b549a89236b7]
+@startuml IQueryBuilder
+interface IQueryBuilder {
+    Where(fieldName, comparator string, value interface{}) IQueryBuilder
+    - -
+    WhereQuery(builder IQueryBuilder) IQueryBuilder
+    - -
+    Or(fieldName, comparator string, value interface{}) IQueryBuilder
+    - -
+    OrQuery(builder IQueryBuilder) IQueryBuilder
+    - -
+    Build() (interface{}, error)
+}
+note left of IQueryBuilder::Where
+    Add new AND condition to the query
+end note
+note left of IQueryBuilder::WhereQuery
+    Add new complicated AND condition to the query based on another query
+end note
+note left of IQueryBuilder::Or
+    Add new OR condition to the query
+end note
+note left of IQueryBuilder::OrQuery
+    Add new complicated OR condition to the query based on another query
+end note
+note left of IQueryBuilder::Build()
+    Build a slice of query arguments
+end note
+@enduml
+
+PlantUML version 1.2022.4(Sat Apr 09 13:29:17 UTC 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: null
+--></g></svg>

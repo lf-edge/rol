@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="739px" preserveAspectRatio="none" style="width:2194px;height:739px;background:#FFFFFF;" version="1.1" viewBox="0 0 2194 739" width="2194px" zoomAndPan="magnify"><defs/><g><!--MD5=[2a39a5be1cc24ddddd6e6286e4ece992]
+class IEntityModel--><g id="elem_IEntityModel"><rect codeLine="1" fill="#F1F1F1" height="64.2969" id="IEntityModel" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="131" x="616.5" y="569.5"/><ellipse cx="637.8" cy="585.5" fill="#B4A7E5" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M633.7219,581.2656 L633.7219,579.1094 L641.1125,579.1094 L641.1125,581.2656 L638.6438,581.2656 L638.6438,589.3438 L641.1125,589.3438 L641.1125,591.5 L633.7219,591.5 L633.7219,589.3438 L636.1906,589.3438 L636.1906,581.2656 L633.7219,581.2656 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="85" x="653.2" y="590.3467">IEntityModel</text><line style="stroke:#181818;stroke-width:0.5;" x1="617.5" x2="746.5" y1="601.5" y2="601.5"/><line style="stroke:#181818;stroke-width:0.5;" x1="617.5" x2="746.5" y1="609.5" y2="609.5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="119" x="622.5" y="626.4951">GetId() uuid.UUID</text></g><!--MD5=[01906ac0e62f22b4e38e996248db568e]
+class IEntityModelDeletedAt--><g id="elem_IEntityModelDeletedAt"><rect codeLine="1" fill="#F1F1F1" height="64.2969" id="IEntityModelDeletedAt" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="187" x="394.5" y="569.5"/><ellipse cx="409.5" cy="585.5" fill="#B4A7E5" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M405.4219,581.2656 L405.4219,579.1094 L412.8125,579.1094 L412.8125,581.2656 L410.3438,581.2656 L410.3438,589.3438 L412.8125,589.3438 L412.8125,591.5 L405.4219,591.5 L405.4219,589.3438 L407.8906,589.3438 L407.8906,581.2656 L405.4219,581.2656 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="155" x="423.5" y="590.3467">IEntityModelDeletedAt</text><line style="stroke:#181818;stroke-width:0.5;" x1="395.5" x2="580.5" y1="601.5" y2="601.5"/><line style="stroke:#181818;stroke-width:0.5;" x1="395.5" x2="580.5" y1="609.5" y2="609.5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="88" x="400.5" y="626.4951">SetDeleted()</text></g><path d="M6,576.5 L6,616.7656 A0,0 0 0 0 6,616.7656 L360,616.7656 A0,0 0 0 0 360,616.7656 L360,600.6328 L398.5,621.6484 L360,592.6328 L360,586.5 L350,576.5 L6,576.5 A0,0 0 0 0 6,576.5 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M350,576.5 L350,586.5 L360,586.5 L350,576.5 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="110" x="12" y="593.5669">Set deletion time</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="333" x="12" y="608.6997">This method marks that the entity has been deleted</text><!--MD5=[be996cdb8e6bf2fc7cb89c555f2cd144]
+class Entity--><g id="elem_Entity"><rect codeLine="4" fill="#F1F1F1" height="129.1875" id="Entity" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="263" x="453.5" y="272"/><ellipse cx="561.75" cy="288" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M564.7188,293.6406 Q564.1406,293.9375 563.5,294.0781 Q562.8594,294.2344 562.1563,294.2344 Q559.6563,294.2344 558.3281,292.5938 Q557.0156,290.9375 557.0156,287.8125 Q557.0156,284.6875 558.3281,283.0313 Q559.6563,281.375 562.1563,281.375 Q562.8594,281.375 563.5,281.5313 Q564.1563,281.6875 564.7188,281.9844 L564.7188,284.7031 Q564.0938,284.125 563.5,283.8594 Q562.9063,283.5781 562.2813,283.5781 Q560.9375,283.5781 560.25,284.6563 Q559.5625,285.7188 559.5625,287.8125 Q559.5625,289.9063 560.25,290.9844 Q560.9375,292.0469 562.2813,292.0469 Q562.9063,292.0469 563.5,291.7813 Q564.0938,291.5 564.7188,290.9219 L564.7188,293.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="38" x="582.25" y="292.8467">Entity</text><line style="stroke:#181818;stroke-width:0.5;" x1="454.5" x2="715.5" y1="304" y2="304"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="229" x="459.5" y="320.9951">ID uuid.UUID `gorm:"primarykey"`</text><line style="stroke:#181818;stroke-width:1.0;" x1="454.5" x2="715.5" y1="328.2969" y2="328.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="247" x="459.5" y="345.292">CreatedAt time.Time `gorm:"index"`</text><line style="stroke:#181818;stroke-width:1.0;" x1="454.5" x2="715.5" y1="352.5938" y2="352.5938"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="251" x="459.5" y="369.5889">UpdatedAt time.Time `gorm:"index"`</text><line style="stroke:#181818;stroke-width:1.0;" x1="454.5" x2="715.5" y1="376.8906" y2="376.8906"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="247" x="459.5" y="393.8857">DeletedAt time.Time `gorm:"index"`</text></g><!--MD5=[dc03dffccf935ac0ad54d99743d25579]
+class EthernetSwitchModel--><g id="elem_EthernetSwitchModel"><rect codeLine="2" fill="#F1F1F1" height="64.2969" id="EthernetSwitchModel" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="179" x="751.5" y="304.5"/><ellipse cx="766.5" cy="320.5" fill="#EB937F" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M770.6094,326.5 L762.8906,326.5 L762.8906,314.1094 L770.6094,314.1094 L770.6094,316.2656 L765.3438,316.2656 L765.3438,318.9375 L770.1094,318.9375 L770.1094,321.0938 L765.3438,321.0938 L765.3438,324.3438 L770.6094,324.3438 L770.6094,326.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="147" x="780.5" y="325.3467">EthernetSwitchModel</text><line style="stroke:#181818;stroke-width:0.5;" x1="752.5" x2="929.5" y1="336.5" y2="336.5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="156" x="757.5" y="353.4951">UBIQUITY_US24_250W</text><line style="stroke:#181818;stroke-width:0.5;" x1="752.5" x2="929.5" y1="360.7969" y2="360.7969"/></g><!--MD5=[0e6027363d26940633b9df7c844e683a]
+class EthernetSwitch--><g id="elem_EthernetSwitch"><rect codeLine="5" fill="#F1F1F1" height="202.0781" id="EthernetSwitch" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="250" x="588" y="7"/><ellipse cx="656.25" cy="23" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M659.2188,28.6406 Q658.6406,28.9375 658,29.0781 Q657.3594,29.2344 656.6563,29.2344 Q654.1563,29.2344 652.8281,27.5938 Q651.5156,25.9375 651.5156,22.8125 Q651.5156,19.6875 652.8281,18.0313 Q654.1563,16.375 656.6563,16.375 Q657.3594,16.375 658,16.5313 Q658.6563,16.6875 659.2188,16.9844 L659.2188,19.7031 Q658.5938,19.125 658,18.8594 Q657.4063,18.5781 656.7813,18.5781 Q655.4375,18.5781 654.75,19.6563 Q654.0625,20.7188 654.0625,22.8125 Q654.0625,24.9063 654.75,25.9844 Q655.4375,27.0469 656.7813,27.0469 Q657.4063,27.0469 658,26.7813 Q658.5938,26.5 659.2188,25.9219 L659.2188,28.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="105" x="676.75" y="27.8467">EthernetSwitch</text><line style="stroke:#181818;stroke-width:0.5;" x1="589" x2="837" y1="39" y2="39"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="83" x="594" y="55.9951">Name string</text><line style="stroke:#181818;stroke-width:1.0;" x1="589" x2="837" y1="63.2969" y2="63.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="80" x="594" y="80.292">Serial string</text><line style="stroke:#181818;stroke-width:1.0;" x1="589" x2="837" y1="87.5938" y2="87.5938"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="238" x="594" y="104.5889">SwitchModel EthernetSwitchModel</text><line style="stroke:#181818;stroke-width:1.0;" x1="589" x2="837" y1="111.8906" y2="111.8906"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="100" x="594" y="128.8857">Address string</text><line style="stroke:#181818;stroke-width:1.0;" x1="589" x2="837" y1="136.1875" y2="136.1875"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="114" x="594" y="153.1826">Username string</text><line style="stroke:#181818;stroke-width:1.0;" x1="589" x2="837" y1="160.4844" y2="160.4844"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="110" x="594" y="177.4795">Password string</text><line style="stroke:#181818;stroke-width:1.0;" x1="589" x2="837" y1="184.7813" y2="184.7813"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="183" x="594" y="201.7764">Ports []EthernetSwitchPort</text></g><path d="M373.5,72.5 L373.5,97.6328 A0,0 0 0 0 373.5,97.6328 L439.5,97.6328 A0,0 0 0 0 439.5,97.6328 L439.5,90.5 L592,75.4453 L439.5,82.5 L439.5,82.5 L429.5,72.5 L373.5,72.5 A0,0 0 0 0 373.5,72.5 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M429.5,72.5 L429.5,82.5 L439.5,82.5 L429.5,72.5 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="45" x="379.5" y="89.5669">Unique</text><path d="M373.5,107.6328 L373.5,132.7656 A0,0 0 0 0 373.5,132.7656 L544.5,132.7656 A0,0 0 0 0 544.5,132.7656 L544.5,125.6328 L592,124.0391 L544.5,117.6328 L544.5,117.6328 L534.5,107.6328 L373.5,107.6328 A0,0 0 0 0 373.5,107.6328 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M534.5,107.6328 L534.5,117.6328 L544.5,117.6328 L534.5,107.6328 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="150" x="379.5" y="124.6997">Ip address of the switch</text><!--MD5=[b3e0f8dcddb1b27f071a0303a68762bf]
+class IGenericRepository--><g id="elem_IGenericRepository"><rect codeLine="5" fill="#F1F1F1" height="226.375" id="IGenericRepository" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="987" x="1196.5" y="488.5"/><ellipse cx="1569.75" cy="504.5" fill="#B4A7E5" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1565.6719,500.2656 L1565.6719,498.1094 L1573.0625,498.1094 L1573.0625,500.2656 L1570.5938,500.2656 L1570.5938,508.3438 L1573.0625,508.3438 L1573.0625,510.5 L1565.6719,510.5 L1565.6719,508.3438 L1568.1406,508.3438 L1568.1406,500.2656 L1565.6719,500.2656 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="132" x="1590.25" y="509.3467">IGenericRepository</text><rect fill="#FFFFFF" height="15.9688" style="stroke:#000000;stroke-width:1.0;stroke-dasharray:2.0,2.0;" width="98" x="2088.5" y="485.5"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="96" x="2089.5" y="497.6387">EthernetSwitch</text><line style="stroke:#181818;stroke-width:0.5;" x1="1197.5" x2="2182.5" y1="520.5" y2="520.5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="975" x="1202.5" y="537.4951">GetList(ctx context.Context, orderBy string, orderDirection string, page int, size int, queryBuilder interfaces.IQueryBuilder) (*[]EntityType, error)</text><line style="stroke:#181818;stroke-width:1.0;" x1="1197.5" x2="2182.5" y1="544.7969" y2="544.7969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="539" x="1202.5" y="561.792">Count(ctx context.Context, queryBuilder interfaces.IQueryBuilder) (int64, error)</text><line style="stroke:#181818;stroke-width:1.0;" x1="1197.5" x2="2182.5" y1="569.0938" y2="569.0938"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="431" x="1202.5" y="586.0889">NewQueryBuilder(ctx context.Context) interfaces.IQueryBuilder</text><line style="stroke:#181818;stroke-width:1.0;" x1="1197.5" x2="2182.5" y1="593.3906" y2="593.3906"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="424" x="1202.5" y="610.3857">GetById(ctx context.Context, id uuid.UUID) (*EntityType, error)</text><line style="stroke:#181818;stroke-width:1.0;" x1="1197.5" x2="2182.5" y1="617.6875" y2="617.6875"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="360" x="1202.5" y="634.6826">Update(ctx context.Context, entity *EntityType) error</text><line style="stroke:#181818;stroke-width:1.0;" x1="1197.5" x2="2182.5" y1="641.9844" y2="641.9844"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="428" x="1202.5" y="658.9795">Insert(ctx context.Context, entity EntityType) (uuid.UUID, error)</text><line style="stroke:#181818;stroke-width:1.0;" x1="1197.5" x2="2182.5" y1="666.2813" y2="666.2813"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="319" x="1202.5" y="683.2764">Delete(ctx context.Context, id uuid.UUID) error</text><line style="stroke:#181818;stroke-width:1.0;" x1="1197.5" x2="2182.5" y1="690.5781" y2="690.5781"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="106" x="1202.5" y="707.5732">CloseDb() error</text></g><path d="M782.5,461 L782.5,486.1328 A0,0 0 0 0 782.5,486.1328 L1107.5,486.1328 A0,0 0 0 0 1107.5,486.1328 L1107.5,479 L1200.5,532.6484 L1107.5,471 L1107.5,471 L1097.5,461 L782.5,461 A0,0 0 0 0 782.5,461 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M1097.5,461 L1097.5,471 L1107.5,471 L1097.5,461 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="304" x="788.5" y="478.0669">Get list of elements with filtering and pagination</text><path d="M782.5,496.1328 L782.5,521.2656 A0,0 0 0 0 782.5,521.2656 L1013.5,521.2656 A0,0 0 0 0 1013.5,521.2656 L1013.5,514.1328 L1200.5,556.9453 L1013.5,506.1328 L1013.5,506.1328 L1003.5,496.1328 L782.5,496.1328 A0,0 0 0 0 782.5,496.1328 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M1003.5,496.1328 L1003.5,506.1328 L1013.5,506.1328 L1003.5,496.1328 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="210" x="788.5" y="513.1997">Get count of entities with filtering</text><path d="M782.5,531.2656 L782.5,556.3984 A0,0 0 0 0 782.5,556.3984 L1041.5,556.3984 A0,0 0 0 0 1041.5,556.3984 L1041.5,549.2656 L1200.5,581.2422 L1041.5,541.2656 L1041.5,541.2656 L1031.5,531.2656 L782.5,531.2656 A0,0 0 0 0 782.5,531.2656 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M1031.5,531.2656 L1031.5,541.2656 L1041.5,541.2656 L1031.5,531.2656 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="238" x="788.5" y="548.3325">Get new instance of the query builder</text><path d="M782.5,566.3984 L782.5,591.5313 A0,0 0 0 0 782.5,591.5313 L1004.5,591.5313 A0,0 0 0 0 1004.5,591.5313 L1004.5,584.3984 L1200.5,605.5391 L1004.5,576.3984 L1004.5,576.3984 L994.5,566.3984 L782.5,566.3984 A0,0 0 0 0 782.5,566.3984 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M994.5,566.3984 L994.5,576.3984 L1004.5,576.3984 L994.5,566.3984 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="201" x="788.5" y="583.4653">Get entity by ID from repository</text><path d="M782.5,601.5313 L782.5,626.6641 A0,0 0 0 0 782.5,626.6641 L1161.5,626.6641 A0,0 0 0 0 1161.5,626.6641 L1161.5,619.5313 L1200.5,629.8359 L1161.5,611.5313 L1161.5,611.5313 L1151.5,601.5313 L782.5,601.5313 A0,0 0 0 0 782.5,601.5313 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M1151.5,601.5313 L1151.5,611.5313 L1161.5,611.5313 L1151.5,601.5313 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="358" x="788.5" y="618.5981">Save the changes to the existing entity in the repository</text><path d="M782.5,636.6641 L782.5,661.7969 A0,0 0 0 0 782.5,661.7969 L978.5,661.7969 A0,0 0 0 0 978.5,661.7969 L978.5,654.6641 L1200.5,654.1328 L978.5,646.6641 L978.5,646.6641 L968.5,636.6641 L782.5,636.6641 A0,0 0 0 0 782.5,636.6641 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M968.5,636.6641 L968.5,646.6641 L978.5,646.6641 L968.5,636.6641 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="175" x="788.5" y="653.731">Add entity to the repository</text><path d="M782.5,671.7969 L782.5,696.9297 A0,0 0 0 0 782.5,696.9297 L1008.5,696.9297 A0,0 0 0 0 1008.5,696.9297 L1008.5,689.7969 L1200.5,678.4297 L1008.5,681.7969 L1008.5,681.7969 L998.5,671.7969 L782.5,671.7969 A0,0 0 0 0 782.5,671.7969 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M998.5,671.7969 L998.5,681.7969 L1008.5,681.7969 L998.5,671.7969 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="205" x="788.5" y="688.8638">Delete entity from the database</text><path d="M782.5,706.9297 L782.5,732.0625 A0,0 0 0 0 782.5,732.0625 L1033.5,732.0625 A0,0 0 0 0 1033.5,732.0625 L1033.5,724.9297 L1200.5,702.7266 L1033.5,716.9297 L1033.5,716.9297 L1023.5,706.9297 L782.5,706.9297 A0,0 0 0 0 782.5,706.9297 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M1023.5,706.9297 L1023.5,716.9297 L1033.5,716.9297 L1023.5,706.9297 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="230" x="788.5" y="723.9966">Closes current database connection</text><!--MD5=[c98ca7bcab12eeeb1adda7a3ab9c79a8]
+class GenericRepository--><g id="elem_GenericRepository"><rect codeLine="4" fill="#F1F1F1" height="48" id="GenericRepository" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="260" x="1560" y="312.5"/><ellipse cx="1575" cy="328.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1577.9688,334.1406 Q1577.3906,334.4375 1576.75,334.5781 Q1576.1094,334.7344 1575.4063,334.7344 Q1572.9063,334.7344 1571.5781,333.0938 Q1570.2656,331.4375 1570.2656,328.3125 Q1570.2656,325.1875 1571.5781,323.5313 Q1572.9063,321.875 1575.4063,321.875 Q1576.1094,321.875 1576.75,322.0313 Q1577.4063,322.1875 1577.9688,322.4844 L1577.9688,325.2031 Q1577.3438,324.625 1576.75,324.3594 Q1576.1563,324.0781 1575.5313,324.0781 Q1574.1875,324.0781 1573.5,325.1563 Q1572.8125,326.2188 1572.8125,328.3125 Q1572.8125,330.4063 1573.5,331.4844 Q1574.1875,332.5469 1575.5313,332.5469 Q1576.1563,332.5469 1576.75,332.2813 Q1577.3438,332 1577.9688,331.4219 L1577.9688,334.1406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="128" x="1589" y="333.3467">GenericRepository</text><rect fill="#FFFFFF" height="15.9688" style="stroke:#000000;stroke-width:1.0;stroke-dasharray:2.0,2.0;" width="98" x="1725" y="309.5"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="96" x="1726" y="321.6387">EthernetSwitch</text><line style="stroke:#181818;stroke-width:0.5;" x1="1561" x2="1819" y1="344.5" y2="344.5"/><line style="stroke:#181818;stroke-width:0.5;" x1="1561" x2="1819" y1="352.5" y2="352.5"/></g><!--MD5=[44d95913ec2b3ba897526465ba0cec4b]
+class EthernetSwitchRepository--><g id="elem_EthernetSwitchRepository"><rect codeLine="7" fill="#F1F1F1" height="48" id="EthernetSwitchRepository" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="311" x="1534.5" y="83.5"/><ellipse cx="1549.5" cy="99.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1552.4688,105.1406 Q1551.8906,105.4375 1551.25,105.5781 Q1550.6094,105.7344 1549.9063,105.7344 Q1547.4063,105.7344 1546.0781,104.0938 Q1544.7656,102.4375 1544.7656,99.3125 Q1544.7656,96.1875 1546.0781,94.5313 Q1547.4063,92.875 1549.9063,92.875 Q1550.6094,92.875 1551.25,93.0313 Q1551.9063,93.1875 1552.4688,93.4844 L1552.4688,96.2031 Q1551.8438,95.625 1551.25,95.3594 Q1550.6563,95.0781 1550.0313,95.0781 Q1548.6875,95.0781 1548,96.1563 Q1547.3125,97.2188 1547.3125,99.3125 Q1547.3125,101.4063 1548,102.4844 Q1548.6875,103.5469 1550.0313,103.5469 Q1550.6563,103.5469 1551.25,103.2813 Q1551.8438,103 1552.4688,102.4219 L1552.4688,105.1406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="179" x="1563.5" y="104.3467">EthernetSwitchRepository</text><rect fill="#FFFFFF" height="15.9688" style="stroke:#000000;stroke-width:1.0;stroke-dasharray:2.0,2.0;" width="98" x="1750.5" y="80.5"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="96" x="1751.5" y="92.6387">EthernetSwitch</text><line style="stroke:#181818;stroke-width:0.5;" x1="1535.5" x2="1844.5" y1="115.5" y2="115.5"/><line style="stroke:#181818;stroke-width:0.5;" x1="1535.5" x2="1844.5" y1="123.5" y2="123.5"/></g><!--MD5=[26c640b8ca553a99864a1cf1cdc36236]
+reverse link Entity to IEntityModel--><g id="link_Entity_IEntityModel"><path codeLine="13" d="M615.41,419.96 C634.1,470.64 656.98,532.66 670.47,569.24 " fill="none" id="Entity-backto-IEntityModel" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="608.83,422.35,608.48,401.16,621.97,417.51,608.83,422.35" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[c66e272c92ec8cf1fe872f729110197a]
+reverse link Entity to IEntityModelDeletedAt--><g id="link_Entity_IEntityModelDeletedAt"><path codeLine="14" d="M554.59,419.96 C535.9,470.64 513.02,532.66 499.53,569.24 " fill="none" id="Entity-backto-IEntityModelDeletedAt" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="548.03,417.51,561.52,401.16,561.17,422.35,548.03,417.51" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[84355f23807af020fb187e7aed8ce571]
+reverse link EthernetSwitch to Entity--><g id="link_EthernetSwitch_Entity"><path codeLine="20" d="M648.15,223.51 C638.8,240.1 629.47,256.64 620.96,271.72 " fill="none" id="EthernetSwitch-backto-Entity" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="654.62,212.04,648.1892,215.3026,648.7275,222.4936,655.1583,219.231,654.62,212.04" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[78069a7e9c29e98fe2f657561a0fab40]
+link EthernetSwitch to EthernetSwitchModel--><g id="link_EthernetSwitch_EthernetSwitchModel"><path codeLine="21" d="M839,99.5 C919.92,99.5 877.17,239.96 853.41,304.16 " fill="none" id="EthernetSwitch-EthernetSwitchModel" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[475d1973c91e7aa31a9a83f9c94900da]
+reverse link GenericRepository to IGenericRepository--><g id="link_GenericRepository_IGenericRepository"><path codeLine="8" d="M1690,380.96 C1690,410.32 1690,450.51 1690,488.48 " fill="none" id="GenericRepository-backto-IGenericRepository" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="1683,380.84,1690,360.84,1697,380.84,1683,380.84" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[a753f3382eb117ff04894a549e1dd203]
+reverse link EthernetSwitchRepository to GenericRepository--><g id="link_EthernetSwitchRepository_GenericRepository"><path codeLine="9" d="M1690,144.69 C1690,191.83 1690,272.87 1690,312.42 " fill="none" id="EthernetSwitchRepository-backto-GenericRepository" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1690,131.52,1686,137.52,1690,143.52,1694,137.52,1690,131.52" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[e174dbe99e6b56d58a37befbebfd37f7]
+@startuml
+!include ../entities/EthernetSwitch.puml
+!include GenericRepository.puml
+
+class GenericRepository<EthernetSwitch>
+interface IGenericRepository<EthernetSwitch>
+
+class EthernetSwitchRepository<EthernetSwitch>
+
+EthernetSwitchRepository *- - GenericRepository
+@enduml
+
+@startuml
+interface IEntityModel {
+    GetId() uuid.UUID
+}
+interface IEntityModelDeletedAt {
+    SetDeleted()
+}
+note left of IEntityModelDeletedAt::SetDeleted
+    Set deletion time
+    This method marks that the entity has been deleted
+end note
+
+class Entity {
+    ID uuid.UUID `gorm:"primarykey"`
+    - -
+    CreatedAt time.Time `gorm:"index"`
+    - -
+    UpdatedAt time.Time `gorm:"index"`
+    - -
+    DeletedAt time.Time `gorm:"index"`
+}
+Entity <|.. IEntityModel
+Entity <|.. IEntityModelDeletedAt
+
+
+enum EthernetSwitchModel {
+    UBIQUITY_US24_250W
+}
+
+
+
+class EthernetSwitch {
+    Name string
+    - -
+    Serial string
+    - -
+    SwitchModel EthernetSwitchModel
+    - -
+    Address string
+    - -
+    Username string
+    - -
+    Password string
+    - -
+    Ports []EthernetSwitchPort
+}
+EthernetSwitch *- - Entity
+EthernetSwitch::SwitchModel - - EthernetSwitchModel
+
+
+note left of EthernetSwitch::Serial
+  Unique
+end note
+note left of EthernetSwitch::Address
+  Ip address of the switch
+end note
+interface IGenericRepository<EntityType> {
+    GetList(ctx context.Context, orderBy string, orderDirection string, page int, size int, queryBuilder interfaces.IQueryBuilder) (*[]EntityType, error)
+    - -
+    Count(ctx context.Context, queryBuilder interfaces.IQueryBuilder) (int64, error)
+    - -
+    NewQueryBuilder(ctx context.Context) interfaces.IQueryBuilder
+    - -
+    GetById(ctx context.Context, id uuid.UUID) (*EntityType, error)
+    - -
+    Update(ctx context.Context, entity *EntityType) error
+    - -
+    Insert(ctx context.Context, entity EntityType) (uuid.UUID, error)
+    - -
+    Delete(ctx context.Context, id uuid.UUID) error
+    - -
+    CloseDb() error
+}
+note left of IGenericRepository::GetList
+  Get list of elements with filtering and pagination
+end note
+note left of IGenericRepository::Count
+  Get count of entities with filtering
+end note
+note left of IGenericRepository::NewQueryBuilder
+  Get new instance of the query builder
+end note
+note left of IGenericRepository::GetById
+  Get entity by ID from repository
+end note
+note left of IGenericRepository::Update
+  Save the changes to the existing entity in the repository
+end note
+note left of IGenericRepository::Insert
+  Add entity to the repository
+end note
+note left of IGenericRepository::Delete
+  Delete entity from the database
+end note
+note left of IGenericRepository::CloseDb
+  Closes current database connection
+end note
+
+
+class GenericRepository<EntityType> {
+
+}
+
+GenericRepository <|.. IGenericRepository
+
+
+class GenericRepository<EthernetSwitch>
+interface IGenericRepository<EthernetSwitch>
+
+class EthernetSwitchRepository<EthernetSwitch>
+
+EthernetSwitchRepository *- - GenericRepository
+@enduml
+
+PlantUML version 1.2022.4(Sat Apr 09 13:29:17 UTC 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: null
+--></g></svg>

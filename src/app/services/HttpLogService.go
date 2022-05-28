@@ -8,6 +8,15 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
+//HTTPLogService service structure for HTTPLog entity
+type HTTPLogService struct {
+	*GenericService[
+		dtos.HTTPLogDto,
+		dtos.HTTPLogDto,
+		dtos.HTTPLogDto,
+		domain.HTTPLog]
+}
+
 //NewHTTPLogService preparing domain.HTTPLog repository for passing it in DI
 //Params
 //	rep - generic repository with http log instantiated
@@ -19,5 +28,8 @@ func NewHTTPLogService(rep interfaces.IGenericRepository[domain.HTTPLog], log *l
 	dtos.HTTPLogDto,
 	dtos.HTTPLogDto,
 	domain.HTTPLog], error) {
-	return NewGenericService[dtos.HTTPLogDto, dtos.HTTPLogDto, dtos.HTTPLogDto](rep, log)
+	genericSerice, err := NewGenericService[dtos.HTTPLogDto, dtos.HTTPLogDto, dtos.HTTPLogDto](rep, log)
+	return HTTPLogService{
+		genericSerice,
+	}, err
 }

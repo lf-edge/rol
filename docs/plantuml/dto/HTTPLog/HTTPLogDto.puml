@@ -25,5 +25,4 @@ class HTTPLogDto {
 }
 HTTPLogDto *-- BaseDto
 
-
 @enduml

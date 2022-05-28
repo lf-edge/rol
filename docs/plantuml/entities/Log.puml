@@ -1,0 +1,16 @@
+@startuml EthernetSwitch
+!include Entity.puml
+
+class Log {
+    ActionID uuid.UUID `gorm:"index"`
+    --
+    Level string
+    --
+    Source string
+    --
+    Message string
+}
+Log *-- Entity
+
+@enduml
+

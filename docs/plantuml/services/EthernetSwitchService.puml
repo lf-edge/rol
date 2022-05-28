@@ -5,25 +5,18 @@
 !include ../dto/EthernetSwitch/EthernetSwitchUpdateDto.puml
 !include ../dto/EthernetSwitch/EthernetSwitchDto.puml
 
-class EthernetSwitchService<EthernetSwitch, EthernetSwitchCreateDto, EthernetSwitchUpdateDto, EthernetSwitchDto>
+class EthernetSwitchService<EthernetSwitch, EthernetSwitchCreateDto, EthernetSwitchUpdateDto, EthernetSwitchDto> {
+    repository EthernetSwitchRepository
+    --
+}
 note left of EthernetSwitchService
-  Advanced business logic for EthernetSwitch entity
-  For example:
-  DTO Validation Checks
-  Checking the uniqueness of serial numbers
+Advanced business logic for EthernetSwitch entity
+For example:
+DTO Validation Checks
+Checking the uniqueness of serial numbers
 end note
 
-GenericService::repository -- EthernetSwitchRepository
+EthernetSwitchService::repository -- EthernetSwitchRepository
 EthernetSwitchService *-- GenericService
-
-together {
-  class EthernetSwitchService
-  class EthernetSwitchRepository
-  class EthernetSwitch
-  class EthernetSwitchCreateDto
-  class EthernetSwitchUpdateDto
-  class EthernetSwitchDto
-  class EthernetSwitchBaseDto
-}
 
 @enduml

@@ -1,0 +1,8 @@
+@startuml
+!include ../entities/HTTPLog.puml
+!include GormGenericRepository.puml
+
+class HTTPLogRepository<HTTPLog>
+
+HTTPLogRepository *-- GormGenericRepository
+@enduml

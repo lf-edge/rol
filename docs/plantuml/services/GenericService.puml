@@ -1,5 +1,5 @@
 @startuml
-!include ../interfaces/generic/IGenericService.puml
+!include ../interfaces/IGenericService.puml
 
 class GenericService<EntityType, CreateDtoType, UpdateDtoType, DtoType> {
     repository IGenericRepository

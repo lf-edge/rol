@@ -1,0 +1,16 @@
+@startuml
+!include GenericService.puml
+!include ../repositories/HTTPLogRepository.puml
+!include ../dto/BaseDto.puml
+!include ../dto/HTTPLog/HTTPLogDto.puml
+!include ../entities/HTTPLog.puml
+
+class HTTPLogService<HTTPLog,HTTPLogDto,HTTPLogDto,HTTPLogDto> {
+    repository HTTPLogRepository
+    --
+}
+
+HTTPLogService *-- GenericService
+HTTPLogService::repository -- HTTPLogRepository
+
+@enduml

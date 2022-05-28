@@ -1,0 +1,15 @@
+@startuml
+!include GenericService.puml
+!include ../repositories/LogRepository.puml
+!include ../dto/Log/LogDto.puml
+!include ../entities/Log.puml
+
+class LogService<Log, LogDto, LogDto, LogDto> {
+    repository LogRepository
+    --
+}
+
+LogService *-- GenericService
+LogService::repository -- LogRepository
+
+@enduml

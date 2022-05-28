@@ -1,0 +1,33 @@
+@startuml EthernetSwitch
+!include Entity.puml
+
+class HTTPLog {
+    HTTPMethod string
+    --
+    Domain string
+    --
+    RelativePath string `gorm:"index"`
+    --
+    QueryParams string
+    --
+    QueryParamsInd string `gorm:"index"`
+    --
+    ClientIP string `gorm:"index"`
+    --
+    Latency int
+    --
+    RequestBody string
+    --
+    ResponseBody string
+    --
+    RequestHeaders string
+    --
+    ResponseHeaders string
+    --
+    CustomRequestHeaders string
+    --
+    CustomRequestHeadersInd string `gorm:"index"`
+}
+HTTPLog *-- Entity
+
+@enduml

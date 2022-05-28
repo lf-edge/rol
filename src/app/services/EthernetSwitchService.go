@@ -11,6 +11,7 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
+//EthernetSwitchService service structure for EthernetSwitch entity
 type EthernetSwitchService struct {
 	*GenericService[dtos.EthernetSwitchDto,
 		dtos.EthernetSwitchCreateDto,

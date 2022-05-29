@@ -1,0 +1,26 @@
+---
+name: Plantuml
+on:  # yamllint disable-line rule:truthy
+  pull_request:
+    branches: [main]
+    paths:
+      - '**.puml'
+# yamllint disable rule:line-length
+jobs:
+  plantuml_check:
+    runs-on: ubuntu-latest
+    name: Checking diagrams
+    steps:
+      - name: Setup packages
+        run: |
+          sudo apt update
+          sudo apt install -y default-jdk graphviz
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Generate SVG
+        run: |
+          wget -O plantuml.jar https://github.com/lf-edge/plantuml/releases/download/v1.2022.5/plantuml-1.2022.5.jar
+          for file in $(find . -name '*.puml'); do
+            java -jar plantuml.jar -tsvg "$file"
+          done
+          rm plantuml.jar

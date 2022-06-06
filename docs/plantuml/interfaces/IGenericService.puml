@@ -1,29 +1,36 @@
 @startuml IGenericService
-interface IGenericService<EntityType, CreateDtoType, UpdateDtoType, DtoType> {
-    GetList(ctx context.Context, search, orderBy, orderDirection string, page, pageSize int) (*dtos.PaginatedListDto[DtoType], error)
-    --
-    GetByID(ctx context.Context, id uuid.UUID) (*DtoType, error)
-    --
-    Update(ctx context.Context, updateDto UpdateDtoType, id uuid.UUID) error
-    --
-    Create(ctx context.Context, createDto CreateDtoType) (uuid.UUID, error)
-    --
-    Delete(ctx context.Context, id uuid.UUID) error
+
+package app {
+    interface IGenericService<EntityType, CreateDtoType, UpdateDtoType, DtoType> {
+        GetList(ctx context.Context, search, orderBy, orderDirection string, page, pageSize int) (*dtos.PaginatedListDto[DtoType], error)
+        --
+        GetById(ctx context.Context, id uuid.UUID) (*DtoType, error)
+        --
+        Update(ctx context.Context, updateDto UpdateDtoType, id uuid.UUID) error
+        --
+        Create(ctx context.Context, createDto CreateDtoType) (uuid.UUID, error)
+        --
+        Delete(ctx context.Context, id uuid.UUID) error
+    }
+    note left of IGenericService::GetList
+        Get list of elements with search and pagination
+    end note
+
+    note left of IGenericService::GetById
+        Get entity by ID from service
+    end note
+
+    note left of IGenericService::Update
+        Save the changes to the existing entity in the service
+    end note
+
+    note left of IGenericService::Create
+        Add entity to the service
+    end note
+
+    note left of IGenericService::Delete
+        Mark an entity as deleted
+    end note
 }
-note left of IGenericService::GetList
-    Get list of elements with search and pagination
-end note
-note left of IGenericService::GetByID
-    Get entity by ID from service
-end note
-note left of IGenericService::Update
-    Save the changes to the existing entity in the service
-end note
-note left of IGenericService::Create
-    Add entity to the service
-end note
-note left of IGenericService::Delete
-    Mark an entity as deleted
-end note
 
 @enduml

@@ -1,7 +1,9 @@
 @startuml EthernetSwitchModel
 
-enum EthernetSwitchModel {
-    UBIQUITY_US24_250W
+package domain {
+    enum EthernetSwitchModel {
+        UBIQUITY_US24_250W
+    }
 }
 
 @enduml

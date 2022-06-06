@@ -1,15 +1,17 @@
 @startuml EthernetSwitchBaseDto
 
-class EthernetSwitchBaseDto {
-    Name string
-    --
-    Serial string
-    --
-    SwitchModel int
-    --
-    Address string
-    --
-    Username string
+package dtos {
+    class EthernetSwitchBaseDto {
+        Name string
+        --
+        Serial string
+        --
+        SwitchModel int
+        --
+        Address string
+        --
+        Username string
+    }
 }
 
 @enduml

@@ -1,15 +1,18 @@
 @startuml
+
 !include GenericService.puml
 !include ../repositories/LogRepository.puml
 !include ../dto/Log/LogDto.puml
 !include ../entities/Log.puml
 
-class LogService<Log, LogDto, LogDto, LogDto> {
-    repository LogRepository
-    --
-}
+package app {
+    class LogService<Log, LogDto, LogDto, LogDto> {
+        repository IGenericRepository
+        --
+    }
 
-LogService *-- GenericService
-LogService::repository -- LogRepository
+    LogService *-- GenericService
+    LogService::repository -- LogRepository
+}
 
 @enduml

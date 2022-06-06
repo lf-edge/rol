@@ -1,11 +1,14 @@
 @startuml EthernetSwitchDto
+
 !include ../BaseDto.puml
 !include EthernetSwitchBaseDto.puml
 
-class EthernetSwitchDto {
+package dtos {
+    class EthernetSwitchDto {
 
+    }
+    EthernetSwitchDto *-- EthernetSwitchBaseDto
+    EthernetSwitchDto *-- BaseDto
 }
-EthernetSwitchDto *-- EthernetSwitchBaseDto
-EthernetSwitchDto *-- BaseDto
 
 @enduml

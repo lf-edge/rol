@@ -3,21 +3,22 @@
 !include EthernetSwitchPoePortType.puml
 !include EthernetSwitch.puml
 
+package domain {
+    class EthernetSwitchPort {
+        EthernetSwitchId uuid.UUID
+        --
+        PoeType EthernetSwitchPoePortType
+        --
+        Name string
+    }
 
-class EthernetSwitchPort {
-    EthernetSwitchId uuid.UUID
-    --
-    PoeType EthernetSwitchPoePortType
-    --
-    Name string
+    EthernetSwitchPort *-- Entity
+    EthernetSwitchPort::PoeType -- EthernetSwitchPoePortType
+    EthernetSwitchPort::EthernetSwitchId -- EthernetSwitch
+
+    note left of EthernetSwitchPort::Name
+      Unique within 1 switch
+    end note
 }
-
-EthernetSwitchPort *-- Entity
-EthernetSwitchPort::PoeType -- EthernetSwitchPoePortType
-EthernetSwitchPort::EthernetSwitchId -- EthernetSwitch
-
-note left of EthernetSwitchPort::Name
-  Unique within 1 switch
-end note
 
 @enduml

@@ -1,5 +1,9 @@
 @startuml IEntityModel
-interface IEntityModel {
-    GetId() uuid.UUID
+
+package app {
+    interface IEntityModel {
+        GetId() uuid.UUID
+    }
 }
+
 @enduml

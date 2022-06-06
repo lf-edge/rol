@@ -1,17 +1,22 @@
 @startuml Entity
+
 !include ../interfaces/IEntityModel.puml
 !include ../interfaces/IEntityModelDeletedAt.puml
 
-class Entity {
-    ID uuid.UUID `gorm:"primarykey"`
-    --
-    CreatedAt time.Time `gorm:"index"`
-    --
-    UpdatedAt time.Time `gorm:"index"`
-    --
-    DeletedAt time.Time `gorm:"index"`
+package domain {
+    class Entity {
+        ID uuid.UUID `gorm:"primarykey"`
+        --
+        CreatedAt time.Time `gorm:"index"`
+        --
+        UpdatedAt time.Time `gorm:"index"`
+        --
+        DeletedAt time.Time `gorm:"index"`
+    }
+    Entity <|.. IEntityModelDeletedAt
+    Entity <|.. IEntityModel
+
+    IEntityModelDeletedAt .right[hidden]. IEntityModel
 }
-Entity <|.. IEntityModel
-Entity <|.. IEntityModelDeletedAt
 
 @enduml

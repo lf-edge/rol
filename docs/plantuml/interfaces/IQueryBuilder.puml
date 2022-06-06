@@ -1,28 +1,36 @@
 @startuml IQueryBuilder
-interface IQueryBuilder {
-    Where(fieldName, comparator string, value interface{}) IQueryBuilder
-    --
-    WhereQuery(builder IQueryBuilder) IQueryBuilder
-    --
-    Or(fieldName, comparator string, value interface{}) IQueryBuilder
-    --
-    OrQuery(builder IQueryBuilder) IQueryBuilder
-    --
-    Build() (interface{}, error)
+
+package app {
+    interface IQueryBuilder {
+        Where(fieldName, comparator string, value interface{}) IQueryBuilder
+        --
+        WhereQuery(builder IQueryBuilder) IQueryBuilder
+        --
+        Or(fieldName, comparator string, value interface{}) IQueryBuilder
+        --
+        OrQuery(builder IQueryBuilder) IQueryBuilder
+        --
+        Build() (interface{}, error)
+    }
+    note left of IQueryBuilder::Where
+        Add new AND condition to the query
+    end note
+
+    note left of IQueryBuilder::WhereQuery
+        Add new complicated AND condition to the query based on another query
+    end note
+
+    note left of IQueryBuilder::Or
+        Add new OR condition to the query
+    end note
+
+    note left of IQueryBuilder::OrQuery
+        Add new complicated OR condition to the query based on another query
+    end note
+
+    note left of IQueryBuilder::Build()
+        Build a slice of query arguments
+    end note
 }
-note left of IQueryBuilder::Where
-    Add new AND condition to the query
-end note
-note left of IQueryBuilder::WhereQuery
-    Add new complicated AND condition to the query based on another query
-end note
-note left of IQueryBuilder::Or
-    Add new OR condition to the query
-end note
-note left of IQueryBuilder::OrQuery
-    Add new complicated OR condition to the query based on another query
-end note
-note left of IQueryBuilder::Build()
-    Build a slice of query arguments
-end note
+
 @enduml

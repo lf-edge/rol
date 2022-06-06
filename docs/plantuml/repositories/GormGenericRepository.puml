@@ -1,6 +1,10 @@
 @startuml
+
 !include ../interfaces/IGenericRepository.puml
 
-class GormGenericRepository<EntityType>
-GormGenericRepository <|.. IGenericRepository
+package infrastructure {
+    class GormGenericRepository<EntityType>
+    GormGenericRepository <|.. IGenericRepository
+}
+
 @enduml

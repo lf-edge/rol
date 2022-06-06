@@ -1,8 +1,11 @@
 @startuml
+
 !include ../entities/Log.puml
 !include GormGenericRepository.puml
 
-class LogRepository<Log>
+package infrastructure {
+    class LogRepository<Log>
 
-LogRepository *-- GormGenericRepository
+    LogRepository *-- GormGenericRepository
+}
 @enduml

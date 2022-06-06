@@ -1,9 +1,13 @@
 @startuml EthernetSwitchUpdateDto
+
 !include EthernetSwitchBaseDto.puml
 
-class EthernetSwitchUpdateDto {
-    Password string
+package dtos {
+    class EthernetSwitchUpdateDto {
+        Password string
+    }
+
+    EthernetSwitchUpdateDto *-- EthernetSwitchBaseDto
 }
 
-EthernetSwitchUpdateDto *-- EthernetSwitchBaseDto
 @enduml

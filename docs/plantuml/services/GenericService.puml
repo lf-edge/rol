@@ -1,13 +1,16 @@
 @startuml
 !include ../interfaces/IGenericService.puml
 
-class GenericService<EntityType, CreateDtoType, UpdateDtoType, DtoType> {
-    repository IGenericRepository
-    --
-    logger *logrus.Logger
-    --
-    logSourceName string
+package app {
+    class GenericService<EntityType, CreateDtoType, UpdateDtoType, DtoType> {
+        repository IGenericRepository
+        --
+        logger *logrus.Logger
+        --
+        logSourceName string
+    }
+
+    GenericService <|.. IGenericService
 }
 
-GenericService <|.. IGenericService
 @enduml

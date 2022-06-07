@@ -1,0 +1,16 @@
+@startuml
+
+!include YamlGenericTemplateStorage.puml
+!include ../entities/DeviceTemplate.puml
+
+package infrastructure {
+    note "TemplateType is DeviceTemplate" as DeviceTemplateTypeNote
+
+    class DeviceTemplateStorage
+
+    DeviceTemplateStorage *-- YamlGenericTemplateStorage
+    DeviceTemplateStorage .down. DeviceTemplateTypeNote
+    YamlGenericTemplateStorage <.up. DeviceTemplateTypeNote
+}
+
+@enduml

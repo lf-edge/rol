@@ -1,0 +1,44 @@
+@startuml DeviceTemplate
+!include DeviceTemplateNetworkInterface.puml
+!include DeviceTemplateControlDesc.puml
+!include BootStageTemplate.puml
+
+package domain {
+    class DeviceTemplate {
+        Name string
+        ..
+        Unique within the device templates
+        --
+        Model
+        --
+        Manufacturer
+        --
+        Description string
+        --
+        CPUCount int
+        --
+        CPUModel string
+        --
+        RAM int
+        --
+        NetworkInterfaces []DeviceTemplateNetworkInterface
+        --
+        Control DeviceTemplateControlDesc
+        --
+        DiskBootStages []BootStageTemplate
+        --
+        NetBootStages []BootStageTemplate
+        --
+        USBBootStages []BootStageTemplate
+    }
+
+
+    DeviceTemplateNetworkInterface -[hidden]down-DeviceTemplateControlDesc
+    DeviceTemplate::NetworkInterfaces -right- DeviceTemplateNetworkInterface
+    DeviceTemplate::Control -right- DeviceTemplateControlDesc
+    DeviceTemplate::DiskBootStages -left- BootStageTemplate
+    DeviceTemplate::NetBootStages -- BootStageTemplate
+    DeviceTemplate::USBBootStages -- BootStageTemplate
+}
+
+@enduml

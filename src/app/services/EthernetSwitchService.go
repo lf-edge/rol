@@ -47,19 +47,19 @@ func NewEthernetSwitchService(rep interfaces.IGenericRepository[domain.EthernetS
 //Return
 //	*dtos.PaginatedListDto[dtos.EthernetSwitchDto] - pointer to paginated list of ethernet switches
 //	error - if an error occurs, otherwise nil
-func (ess *EthernetSwitchService) GetList(ctx context.Context, search, orderBy, orderDirection string, page, pageSize int) (*dtos.PaginatedListDto[dtos.EthernetSwitchDto], error) {
-	return ess.GenericService.GetList(ctx, search, orderBy, orderDirection, page, pageSize)
+func (e *EthernetSwitchService) GetList(ctx context.Context, search, orderBy, orderDirection string, page, pageSize int) (*dtos.PaginatedListDto[dtos.EthernetSwitchDto], error) {
+	return e.GenericService.GetList(ctx, search, orderBy, orderDirection, page, pageSize)
 }
 
-//GetById Get ethernet switch by ID
+//GetByID Get ethernet switch by ID
 //Params
 //	ctx - context is used only for logging
 //	id - entity id
 //Return
 //	*dtos.EthernetSwitchDto - point to ethernet switch dto
 //	error - if an error occurs, otherwise nil
-func (ess *EthernetSwitchService) GetById(ctx context.Context, id uuid.UUID) (*dtos.EthernetSwitchDto, error) {
-	return ess.GenericService.GetById(ctx, id)
+func (e *EthernetSwitchService) GetByID(ctx context.Context, id uuid.UUID) (*dtos.EthernetSwitchDto, error) {
+	return e.GenericService.GetByID(ctx, id)
 }
 
 //Update save the changes to the existing ethernet switch
@@ -69,12 +69,12 @@ func (ess *EthernetSwitchService) GetById(ctx context.Context, id uuid.UUID) (*d
 //	id - ethernet switch id
 //Return
 //	error - if an error occurs, otherwise nil
-func (ess *EthernetSwitchService) Update(ctx context.Context, updateDto dtos.EthernetSwitchUpdateDto, id uuid.UUID) error {
+func (e *EthernetSwitchService) Update(ctx context.Context, updateDto dtos.EthernetSwitchUpdateDto, id uuid.UUID) error {
 	err := validators.ValidateEthernetSwitchUpdateDto(updateDto)
 	if err != nil {
 		return err
 	}
-	return ess.GenericService.Update(ctx, updateDto, id)
+	return e.GenericService.Update(ctx, updateDto, id)
 }
 
 //Create add new ethernet switch
@@ -84,12 +84,12 @@ func (ess *EthernetSwitchService) Update(ctx context.Context, updateDto dtos.Eth
 //Return
 //	uuid.UUID - new ethernet switch id
 //	error - if an error occurs, otherwise nil
-func (ess *EthernetSwitchService) Create(ctx context.Context, createDto dtos.EthernetSwitchCreateDto) (uuid.UUID, error) {
+func (e *EthernetSwitchService) Create(ctx context.Context, createDto dtos.EthernetSwitchCreateDto) (uuid.UUID, error) {
 	err := validators.ValidateEthernetSwitchCreateDto(createDto)
 	if err != nil {
 		return [16]byte{}, err
 	}
-	return ess.GenericService.Create(ctx, createDto)
+	return e.GenericService.Create(ctx, createDto)
 }
 
 //Delete mark ethernet switch as deleted
@@ -98,6 +98,6 @@ func (ess *EthernetSwitchService) Create(ctx context.Context, createDto dtos.Eth
 //	id - ethernet switch id
 //Return
 //	error - if an error occurs, otherwise nil
-func (ess *EthernetSwitchService) Delete(ctx context.Context, id uuid.UUID) error {
-	return ess.GenericService.Delete(ctx, id)
+func (e *EthernetSwitchService) Delete(ctx context.Context, id uuid.UUID) error {
+	return e.GenericService.Delete(ctx, id)
 }

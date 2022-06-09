@@ -10,7 +10,7 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-//NewAppLogGinController Application log GIN controller constructor
+//AppLogGinController Application log GIN controller constructor
 type AppLogGinController struct {
 	GinGenericController[dtos.AppLogDto,
 		dtos.AppLogDto,
@@ -24,38 +24,44 @@ func RegisterAppLogController(controller *AppLogGinController, server *webapi.Gi
 	groupRoute := server.Engine.Group("/api/v1")
 
 	groupRoute.GET("/log/app/", controller.GetList)
-	groupRoute.GET("/log/app/:id", controller.GetById)
+	groupRoute.GET("/log/app/:id", controller.GetByID)
 }
 
+//GetList get list of logs with search and pagination
+//	Params
+//	ctx - gin context
 // @Summary Gets paginated list of app logs
 // @version 1.0
 // @Tags app log
 // @Accept  json
 // @Produce  json
-// @param 	orderBy			path	string	false	"Order by field"
-// @param 	orderDirection	path	string	false	"'asc' or 'desc' for ascending or descending order"
-// @param 	search 			path	string	false	"searchable value in entity"
-// @param 	page 			path	int		false	"page number"
-// @param 	pageSize 		path	int		false	"number of entities per page"
+// @param	 orderBy			path	string	false	"Order by field"
+// @param	 orderDirection	path	string	false	"'asc' or 'desc' for ascending or descending order"
+// @param	 search			 path	string	false	"searchable value in entity"
+// @param	 page			 path	int		false	"page number"
+// @param	 pageSize		 path	int		false	"number of entities per page"
 // @Success 200 {object} dtos.ResponseDataDto{data=dtos.PaginatedListDto{items=[]dtos.AppLogDto}} ""
 // @router /log/app/ [get]
-func (c *AppLogGinController) GetList(ctx *gin.Context) {
-	c.GinGenericController.GetList(ctx)
+func (a *AppLogGinController) GetList(ctx *gin.Context) {
+	a.GinGenericController.GetList(ctx)
 }
 
+//GetByID get log by id
+//	Params
+//	ctx - gin context
 // @Summary Gets http app by id
 // @version 1.0
 // @Tags app log
 // @Accept  json
 // @Produce  json
-// @param 	id	path	string		true	"log id"
+// @param	 id	path	string		true	"log id"
 // @Success 200 {object} dtos.ResponseDataDto{data=dtos.AppLogDto}
 // @router /log/app/{id} [get]
-func (c *AppLogGinController) GetById(ctx *gin.Context) {
-	c.GinGenericController.GetById(ctx)
+func (a *AppLogGinController) GetByID(ctx *gin.Context) {
+	a.GinGenericController.GetByID(ctx)
 }
 
-//NewEthernetSwitchGinController ppp log controller constructor. Parameters pass through DI
+//NewAppLogGinController app log controller constructor. Parameters pass through DI
 //Params
 //	service - generic service
 //	log - logrus logger

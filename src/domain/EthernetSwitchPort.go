@@ -7,12 +7,16 @@ type EthernetSwitchPoePortType int
 
 const (
 	//POE standard poe
+	//revive:disable-next-line
 	POE = iota + 1
 	//POE_PLUS poe plus
+	//revive:disable-next-line
 	POE_PLUS
 	//PASSIVE_V24 passive v24 poe
+	//revive:disable-next-line
 	PASSIVE_V24
 	//NONE none poe
+	//revive:disable-next-line
 	NONE = 10
 )
 

@@ -20,17 +20,17 @@ type Entity struct {
 }
 
 //GetID gets the id of the entity
-func (ent Entity) GetID() uuid.UUID {
-	return ent.ID
+func (e Entity) GetID() uuid.UUID {
+	return e.ID
 }
 
 //SetDeleted set the entity DeletedAt field at time.Now()
-func (ent *Entity) SetDeleted() {
-	ent.DeletedAt = time.Now()
+func (e *Entity) SetDeleted() {
+	e.DeletedAt = time.Now()
 }
 
 // BeforeCreate will set a UUID rather than numeric ID.
-func (ent *Entity) BeforeCreate(_ *gorm.DB) (err error) {
-	ent.ID = uuid.New()
+func (e *Entity) BeforeCreate(_ *gorm.DB) (err error) {
+	e.ID = uuid.New()
 	return
 }

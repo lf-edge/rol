@@ -2,7 +2,6 @@ package services
 
 import (
 	"context"
-	"errors"
 	"fmt"
 	"reflect"
 	"rol/app/interfaces"
@@ -49,10 +48,10 @@ func NewGenericService[DtoType interface{},
 	}, nil
 }
 
-func (s *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) log(ctx context.Context, level, message string) {
-	entry := s.logger.WithFields(logrus.Fields{
-		"actionId": ctx.Value("requestId"),
-		"source":   s.logSourceName,
+func (g *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) log(ctx context.Context, level, message string) {
+	entry := g.logger.WithFields(logrus.Fields{
+		"actionID": ctx.Value("requestID"),
+		"source":   g.logSourceName,
 	})
 	switch level {
 	case "err":
@@ -66,20 +65,20 @@ func (s *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) log(
 	}
 }
 
-func (ges *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) excludeDeleted(queryBuilder interfaces.IQueryBuilder) {
+func (g *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) excludeDeleted(queryBuilder interfaces.IQueryBuilder) {
 	date, err := time.Parse("2006-01-02", "1999-01-01")
 	if err != nil {
-		ges.logger.Errorf("time parse error: %s", err.Error())
+		g.logger.Errorf("time parse error: %s", err.Error())
 		return
 	}
 	queryBuilder.Where("DeletedAt", "<", date)
 }
 
-func (ges *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) addSearchInAllFields(search string, queryBuilder interfaces.IQueryBuilder) {
+func (g *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) addSearchInAllFields(search string, queryBuilder interfaces.IQueryBuilder) {
 	entityModel := new(EntityType)
 	stringFieldNames := &[]string{}
 	utils.GetStringFieldsNames(entityModel, stringFieldNames)
-	queryGroup := ges.repository.NewQueryBuilder(nil)
+	queryGroup := g.repository.NewQueryBuilder(nil)
 	for i := 0; i < len(*stringFieldNames); i++ {
 		fieldName := (*stringFieldNames)[i]
 		containPass := strings.Contains(strings.ToLower(fieldName), "pass")
@@ -104,7 +103,7 @@ func (ges *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) ad
 //Return
 //	*dtos.PaginatedListDto[DtoType] - pointer to paginated list
 //	error - if an error occurs, otherwise nil
-func (ges *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) GetList(ctx context.Context, search, orderBy, orderDirection string, page, pageSize int) (*dtos.PaginatedListDto[DtoType], error) {
+func (g *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) GetList(ctx context.Context, search, orderBy, orderDirection string, page, pageSize int) (*dtos.PaginatedListDto[DtoType], error) {
 	pageFinal := page
 	pageSizeFinal := pageSize
 	if page < 1 {
@@ -113,16 +112,16 @@ func (ges *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) Ge
 	if pageSize < 1 {
 		pageSizeFinal = 10
 	}
-	searchQueryBuilder := ges.repository.NewQueryBuilder(ctx)
-	ges.excludeDeleted(searchQueryBuilder)
+	searchQueryBuilder := g.repository.NewQueryBuilder(ctx)
+	g.excludeDeleted(searchQueryBuilder)
 	if len(search) > 3 {
-		ges.addSearchInAllFields(search, searchQueryBuilder)
+		g.addSearchInAllFields(search, searchQueryBuilder)
 	}
-	entities, err := ges.repository.GetList(ctx, orderBy, orderDirection, pageFinal, pageSizeFinal, searchQueryBuilder)
+	entities, err := g.repository.GetList(ctx, orderBy, orderDirection, pageFinal, pageSizeFinal, searchQueryBuilder)
 	if err != nil {
 		return nil, err
 	}
-	count, err := ges.repository.Count(ctx, searchQueryBuilder)
+	count, err := g.repository.Count(ctx, searchQueryBuilder)
 	if err != nil {
 		return nil, err
 	}
@@ -131,7 +130,7 @@ func (ges *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) Ge
 		dto := new(DtoType)
 		err = mappers.MapEntityToDto((*entities)[i], dto)
 		if err != nil {
-			return nil, fmt.Errorf("[%s]: [getList]: %s", ges.logSourceName, err.Error())
+			return nil, fmt.Errorf("[%s]: [getList]: %s", g.logSourceName, err.Error())
 		}
 		*dtoArr = append(*dtoArr, *dto)
 	}
@@ -144,11 +143,11 @@ func (ges *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) Ge
 	return paginatedDto, nil
 }
 
-func (ges *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) getByIdExcludeDeleted(ctx context.Context, id uuid.UUID) (*EntityType, error) {
-	queryBuilder := ges.repository.NewQueryBuilder(ctx)
-	ges.excludeDeleted(queryBuilder)
+func (g *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) getByIDExcludeDeleted(ctx context.Context, id uuid.UUID) (*EntityType, error) {
+	queryBuilder := g.repository.NewQueryBuilder(ctx)
+	g.excludeDeleted(queryBuilder)
 	queryBuilder.Where("id", "=", id)
-	entities, err := ges.repository.GetList(ctx, "id", "DESC", 1, 1, queryBuilder)
+	entities, err := g.repository.GetList(ctx, "id", "DESC", 1, 1, queryBuilder)
 	if err != nil {
 		return nil, err
 	}
@@ -159,15 +158,15 @@ func (ges *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) ge
 	return entity, nil
 }
 
-//GetById Get entity by ID
+//GetByID Get entity by ID
 //Params
 //	ctx - context is used only for logging
 //	id - entity id
 //Return
 //	*DtoType - point to dto
 //	error - if an error occurs, otherwise nil
-func (ges *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) GetById(ctx context.Context, id uuid.UUID) (*DtoType, error) {
-	entity, err := ges.getByIdExcludeDeleted(ctx, id)
+func (g *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) GetByID(ctx context.Context, id uuid.UUID) (*DtoType, error) {
+	entity, err := g.getByIDExcludeDeleted(ctx, id)
 	if err != nil {
 		return nil, err
 	}
@@ -177,7 +176,7 @@ func (ges *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) Ge
 	dto := new(DtoType)
 	err = mappers.MapEntityToDto(*entity, dto)
 	if err != nil {
-		return nil, fmt.Errorf("[%s]: [getById]: %s", ges.logSourceName, err.Error())
+		return nil, fmt.Errorf("[%s]: [getByID]: %s", g.logSourceName, err.Error())
 	}
 	return dto, nil
 }
@@ -189,21 +188,20 @@ func (ges *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) Ge
 //	id - entity id
 //Return
 //	error - if an error occurs, otherwise nil
-func (ges *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) Update(ctx context.Context, updateDto UpdateDtoType, id uuid.UUID) error {
-	entity, err := ges.getByIdExcludeDeleted(ctx, id)
+func (g *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) Update(ctx context.Context, updateDto UpdateDtoType, id uuid.UUID) error {
+	entity, err := g.getByIDExcludeDeleted(ctx, id)
 	if err != nil {
 		return err
 	}
 	if entity == nil {
-		errStr := fmt.Sprintf("[%s]: [update]: entity with id %d does not exist", ges.logSourceName, id)
-		err = errors.New(errStr)
+		err := fmt.Errorf("[%s]: [update]: entity with id %d does not exist", g.logSourceName, id)
 		return err
 	}
 	err = mappers.MapDtoToEntity(updateDto, entity)
 	if err != nil {
-		return errors.New(fmt.Sprintf("[%s]: [update]: %s", ges.logSourceName, err.Error()))
+		return fmt.Errorf("[%s]: [update]: %s", g.logSourceName, err.Error())
 	}
-	err = ges.repository.Update(ctx, entity)
+	err = g.repository.Update(ctx, entity)
 	if err != nil {
 		return err
 	}
@@ -217,13 +215,13 @@ func (ges *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) Up
 //Return
 //	uuid.UUID - new entity id
 //	error - if an error occurs, otherwise nil
-func (ges *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) Create(ctx context.Context, createDto CreateDtoType) (uuid.UUID, error) {
+func (g *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) Create(ctx context.Context, createDto CreateDtoType) (uuid.UUID, error) {
 	entity := new(EntityType)
 	err := mappers.MapDtoToEntity(createDto, entity)
 	if err != nil {
-		return uuid.UUID{}, errors.New(fmt.Sprintf("[%s]: [update]: %s", ges.logSourceName, err.Error()))
+		return uuid.UUID{}, fmt.Errorf("[%s]: [update]: %s", g.logSourceName, err.Error())
 	}
-	id, err := ges.repository.Insert(ctx, *entity)
+	id, err := g.repository.Insert(ctx, *entity)
 	if err != nil {
 		return uuid.UUID{}, err
 	}
@@ -236,21 +234,20 @@ func (ges *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) Cr
 //	id - entity id
 //Return
 //	error - if an error occurs, otherwise nil
-func (ges *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) Delete(ctx context.Context, id uuid.UUID) error {
-	entity, err := ges.getByIdExcludeDeleted(ctx, id)
+func (g *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) Delete(ctx context.Context, id uuid.UUID) error {
+	entity, err := g.getByIDExcludeDeleted(ctx, id)
 	if err != nil {
 		return err
 	}
 	if entity == nil {
-		errStr := fmt.Sprintf("[%s]: [delete]: entity with id %d does not exist", ges.logSourceName, id)
-		err = errors.New(errStr)
+		err := fmt.Errorf("[%s]: [delete]: entity with id %d does not exist", g.logSourceName, id)
 		return err
 	}
 
 	entityReflect := reflect.ValueOf(entity).Interface().(interfaces.IEntityModelDeletedAt)
 	entityReflect.SetDeleted()
 
-	err = ges.repository.Update(ctx, entity)
+	err = g.repository.Update(ctx, entity)
 	if err != nil {
 		return err
 	}

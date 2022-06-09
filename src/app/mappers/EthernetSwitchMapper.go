@@ -13,6 +13,7 @@ func MapEthernetSwitchUpdateDto(dto dtos.EthernetSwitchUpdateDto, entity *domain
 	entity.SwitchModel = (domain.EthernetSwitchModel)(dto.SwitchModel)
 	entity.Name = dto.Name
 	entity.Address = dto.Address
+	//  pragma: allowlist nextline secret
 	entity.Password = dto.Password
 	entity.Username = dto.Username
 	entity.Serial = dto.Serial
@@ -26,6 +27,7 @@ func MapEthernetSwitchCreateDto(dto dtos.EthernetSwitchCreateDto, entity *domain
 	entity.SwitchModel = (domain.EthernetSwitchModel)(dto.SwitchModel)
 	entity.Name = dto.Name
 	entity.Address = dto.Address
+	//  pragma: allowlist nextline secret
 	entity.Password = dto.Password
 	entity.Username = dto.Username
 	entity.Serial = dto.Serial

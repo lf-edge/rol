@@ -38,6 +38,9 @@ func Test_EthernetSwitchService_Prepare(t *testing.T) {
 	repo = infrastructure.NewGormGenericRepository[domain.EthernetSwitch](testGenDb, logger)
 	var service interfaces.IGenericService[dtos.EthernetSwitchDto, dtos.EthernetSwitchCreateDto, dtos.EthernetSwitchUpdateDto, domain.EthernetSwitch]
 	service, err = services.NewEthernetSwitchService(repo, logger)
+	if err != nil {
+		t.Errorf("create new service failed:  %q", err)
+	}
 	testerSwitchService = NewGenericServiceTest(service, repo, dbFileName)
 
 	_, filename, _, _ := runtime.Caller(1)
@@ -59,16 +62,17 @@ func Test_EthernetSwitchService_Create(t *testing.T) {
 			Address:     "123.123.123.123",
 			Username:    "AutoUser",
 		},
+		//  pragma: allowlist nextline secret
 		Password: "AutoPass",
 	}
-	err := testerSwitchService.GenericService_Create(createDto)
+	err := testerSwitchService.GenericServiceCreate(createDto)
 	if err != nil {
 		t.Error(err)
 	}
 }
 
-func Test_EthernetSwitchService_GetById(t *testing.T) {
-	err := testerSwitchService.GenericService_GetById(testerSwitchService.InsertedId)
+func Test_EthernetSwitchService_GetByID(t *testing.T) {
+	err := testerSwitchService.GenericServiceGetByID(testerSwitchService.InsertedID)
 	if err != nil {
 		t.Error(err)
 	}
@@ -83,16 +87,17 @@ func Test_EthernetSwitchService_Update(t *testing.T) {
 			Address:     "123.123.123.123",
 			Username:    "Test",
 		},
+		//  pragma: allowlist nextline secret
 		Password: "Test",
 	}
-	err := testerSwitchService.GenericService_Update(updateDto, testerSwitchService.InsertedId)
+	err := testerSwitchService.GenericServiceUpdate(updateDto, testerSwitchService.InsertedID)
 	if err != nil {
 		t.Error(err)
 	}
 }
 
 func Test_EthernetSwitchService_Delete(t *testing.T) {
-	err := testerSwitchService.GenericService_Delete(testerSwitchService.InsertedId)
+	err := testerSwitchService.GenericServiceDelete(testerSwitchService.InsertedID)
 	if err != nil {
 		t.Error(err)
 	}
@@ -108,9 +113,10 @@ func Test_EthernetSwitchService_Create20(t *testing.T) {
 				Address:     "123.123.123.123",
 				Username:    "AutoUser",
 			},
+			//  pragma: allowlist nextline secret
 			Password: "AutoPass",
 		}
-		err := testerSwitchService.GenericService_Create(createDto)
+		err := testerSwitchService.GenericServiceCreate(createDto)
 		if err != nil {
 			t.Error(err)
 		}
@@ -118,21 +124,21 @@ func Test_EthernetSwitchService_Create20(t *testing.T) {
 }
 
 func Test_EthernetSwitchService_GetList(t *testing.T) {
-	err := testerSwitchService.GenericService_GetList(20, 1, 10)
+	err := testerSwitchService.GenericServiceGetList(20, 1, 10)
 	if err != nil {
 		t.Error(err)
 	}
 }
 
 func Test_EthernetSwitchService_Search(t *testing.T) {
-	err := testerSwitchService.GenericService_Search("AutoUser")
+	err := testerSwitchService.GenericServiceSearch("AutoUser")
 	if err != nil {
 		t.Error(err)
 	}
 }
 
 func Test_EthernetSwitchService_CloseConnectionAndRemoveDb(t *testing.T) {
-	err := testerSwitchService.GenericService_CloseConnectionAndRemoveDb()
+	err := testerSwitchService.GenericServiceCloseConnectionAndRemoveDb()
 	if err != nil {
 		t.Error(err)
 	}

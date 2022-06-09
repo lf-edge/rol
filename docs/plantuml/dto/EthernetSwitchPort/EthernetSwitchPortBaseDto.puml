@@ -1,7 +1,7 @@
 @startuml EthernetSwitchPortBaseDto
 
 class EthernetSwitchPortBaseDto {
-    EthernetSwitchId uuid.UUID
+    EthernetSwitchID uuid.UUID
     --
     PoeType int
     --

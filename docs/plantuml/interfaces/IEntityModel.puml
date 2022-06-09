@@ -1,5 +1,5 @@
 @startuml IEntityModel
 interface IEntityModel {
-    GetId() uuid.UUID
+    GetID() uuid.UUID
 }
 @enduml

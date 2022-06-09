@@ -5,7 +5,7 @@
 
 
 class EthernetSwitchPort {
-    EthernetSwitchId uuid.UUID
+    EthernetSwitchID uuid.UUID
     --
     PoeType EthernetSwitchPoePortType
     --
@@ -14,7 +14,7 @@ class EthernetSwitchPort {
 
 EthernetSwitchPort *-- Entity
 EthernetSwitchPort::PoeType -- EthernetSwitchPoePortType
-EthernetSwitchPort::EthernetSwitchId -- EthernetSwitch
+EthernetSwitchPort::EthernetSwitchID -- EthernetSwitch
 
 note left of EthernetSwitchPort::Name
   Unique within 1 switch

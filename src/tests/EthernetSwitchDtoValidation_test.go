@@ -21,6 +21,7 @@ func Test_EthernetSwitchCreateDto(t *testing.T) {
 			Address:     "123.123.123.123",
 			Username:    "AutoUser",
 		},
+		//  pragma: allowlist nextline secret
 		Password: "AutoPass",
 	}
 	err := validators.ValidateEthernetSwitchCreateDto(dto)
@@ -40,6 +41,7 @@ func Test_EthernetSwitchUpdateDto(t *testing.T) {
 			Address:     "123.123.123.123",
 			Username:    "AutoUser",
 		},
+		//  pragma: allowlist nextline secret
 		Password: "AutoPass",
 	}
 	err := validators.ValidateEthernetSwitchUpdateDto(dto)

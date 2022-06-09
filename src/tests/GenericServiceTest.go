@@ -12,6 +12,7 @@ import (
 	"strings"
 )
 
+//GenericServiceTest generic test for generic service
 type GenericServiceTest[DtoType interface{},
 	CreateDtoType interface{},
 	UpdateDtoType interface{},
@@ -25,9 +26,10 @@ type GenericServiceTest[DtoType interface{},
 	Logger     *logrus.Logger
 	Context    context.Context
 	DbName     string
-	InsertedId uuid.UUID
+	InsertedID uuid.UUID
 }
 
+//NewGenericServiceTest GenericServiceTest constructor
 func NewGenericServiceTest[DtoType interface{},
 	CreateDtoType interface{},
 	UpdateDtoType interface{},
@@ -46,17 +48,19 @@ func NewGenericServiceTest[DtoType interface{},
 	}
 }
 
-func (gst *GenericServiceTest[DtoType, CreateDtoType, UpdateDtoType, EntityType]) GenericService_Create(dto CreateDtoType) error {
+//GenericServiceCreate test create entity
+func (g *GenericServiceTest[DtoType, CreateDtoType, UpdateDtoType, EntityType]) GenericServiceCreate(dto CreateDtoType) error {
 	var err error
-	gst.InsertedId, err = gst.Service.Create(gst.Context, dto)
+	g.InsertedID, err = g.Service.Create(g.Context, dto)
 	if err != nil {
 		return fmt.Errorf("create failed: %s", err)
 	}
 	return nil
 }
 
-func (gst *GenericServiceTest[DtoType, CreateDtoType, UpdateDtoType, EntityType]) GenericService_GetById(id uuid.UUID) error {
-	dto, err := gst.Service.GetById(gst.Context, id)
+//GenericServiceGetByID test get entity by id
+func (g *GenericServiceTest[DtoType, CreateDtoType, UpdateDtoType, EntityType]) GenericServiceGetByID(id uuid.UUID) error {
+	dto, err := g.Service.GetByID(g.Context, id)
 	if err != nil {
 		return fmt.Errorf("get by id failed: %s", err)
 	}
@@ -65,23 +69,23 @@ func (gst *GenericServiceTest[DtoType, CreateDtoType, UpdateDtoType, EntityType]
 	}
 	value := reflect.ValueOf(*dto).FieldByName("ID")
 
-	obtainedId, err := getUuidFromReflectArray(value)
+	obtainedID, err := getUUIDFromReflectArray(value)
 	if err != nil {
 		return fmt.Errorf("convert bytes to uuid failed: %s", err)
 	}
-	if obtainedId != id {
-		return fmt.Errorf("unexpected entity ID %d, expect %d", obtainedId, id)
+	if obtainedID != id {
+		return fmt.Errorf("unexpected entity ID %d, expect %d", obtainedID, id)
 	}
 	return nil
 }
 
-func (gst *GenericServiceTest[DtoType, CreateDtoType, UpdateDtoType, EntityType]) GenericService_Update(dto UpdateDtoType, id uuid.UUID) error {
-
-	err := gst.Service.Update(gst.Context, dto, id)
+//GenericServiceUpdate test update entity
+func (g *GenericServiceTest[DtoType, CreateDtoType, UpdateDtoType, EntityType]) GenericServiceUpdate(dto UpdateDtoType, id uuid.UUID) error {
+	err := g.Service.Update(g.Context, dto, id)
 	if err != nil {
 		return fmt.Errorf("get by id failed: %s", err)
 	}
-	obtainedDto, err := gst.Service.GetById(gst.Context, id)
+	obtainedDto, err := g.Service.GetByID(g.Context, id)
 	if err != nil {
 		return fmt.Errorf("get by id failed: %s", err)
 	}
@@ -94,20 +98,25 @@ func (gst *GenericServiceTest[DtoType, CreateDtoType, UpdateDtoType, EntityType]
 	return nil
 }
 
-func (gst *GenericServiceTest[DtoType, CreateDtoType, UpdateDtoType, EntityType]) GenericService_Delete(id uuid.UUID) error {
-	err := gst.Service.Delete(gst.Context, id)
+//GenericServiceDelete test delete entity
+func (g *GenericServiceTest[DtoType, CreateDtoType, UpdateDtoType, EntityType]) GenericServiceDelete(id uuid.UUID) error {
+	err := g.Service.Delete(g.Context, id)
 	if err != nil {
 		return fmt.Errorf("delete failed: %s", err)
 	}
-	dto, err := gst.Service.GetById(gst.Context, id)
+	dto, err := g.Service.GetByID(g.Context, id)
+	if err != nil {
+		return err
+	}
 	if dto != nil {
 		return fmt.Errorf("unexpected entity %v, expect nil", dto)
 	}
 	return nil
 }
 
-func (gst *GenericServiceTest[DtoType, CreateDtoType, UpdateDtoType, EntityType]) GenericService_GetList(total int64, page, size int) error {
-	data, err := gst.Service.GetList(gst.Context, "", "CreatedAt", "desc", page, size)
+//GenericServiceGetList test get list of entities
+func (g *GenericServiceTest[DtoType, CreateDtoType, UpdateDtoType, EntityType]) GenericServiceGetList(total int64, page, size int) error {
+	data, err := g.Service.GetList(g.Context, "", "CreatedAt", "desc", page, size)
 	if err != nil {
 		return fmt.Errorf("get list failed: %s", err)
 	}
@@ -130,8 +139,9 @@ func (gst *GenericServiceTest[DtoType, CreateDtoType, UpdateDtoType, EntityType]
 	return nil
 }
 
-func (gst *GenericServiceTest[DtoType, CreateDtoType, UpdateDtoType, EntityType]) GenericService_Search(search string) error {
-	data, err := gst.Service.GetList(gst.Context, search, "", "", 1, 10)
+//GenericServiceSearch test get list search
+func (g *GenericServiceTest[DtoType, CreateDtoType, UpdateDtoType, EntityType]) GenericServiceSearch(search string) error {
+	data, err := g.Service.GetList(g.Context, search, "", "", 1, 10)
 	if err != nil {
 		return fmt.Errorf("get list failed: %s", err)
 	}
@@ -146,11 +156,12 @@ func (gst *GenericServiceTest[DtoType, CreateDtoType, UpdateDtoType, EntityType]
 	return fmt.Errorf("nothing was found for %s search word", search)
 }
 
-func (gst *GenericServiceTest[DtoType, CreateDtoType, UpdateDtoType, EntityType]) GenericService_CloseConnectionAndRemoveDb() error {
-	if err := gst.Repository.CloseDb(); err != nil {
+//GenericServiceCloseConnectionAndRemoveDb close connection and remove db
+func (g *GenericServiceTest[DtoType, CreateDtoType, UpdateDtoType, EntityType]) GenericServiceCloseConnectionAndRemoveDb() error {
+	if err := g.Repository.CloseDb(); err != nil {
 		return fmt.Errorf("close db failed:  %s", err)
 	}
-	if err := os.Remove(gst.DbName); err != nil {
+	if err := os.Remove(g.DbName); err != nil {
 		return fmt.Errorf("remove db failed:  %s", err)
 	}
 	return nil

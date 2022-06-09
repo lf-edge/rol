@@ -5,6 +5,7 @@ import (
 	"github.com/google/uuid"
 )
 
+//IGenericRepository generic repository interface for IEntityModel
 type IGenericRepository[EntityType IEntityModel] interface {
 	//GetList
 	//	Get list of elements with filtering and pagination.
@@ -15,7 +16,7 @@ type IGenericRepository[EntityType IEntityModel] interface {
 	//	size - size of the page
 	//	queryBuilder - QueryBuilder is repo.NewQueryBuilder()
 	//Return
-	// 	*[]EntityType - pointer to array of the entities.
+	//	 *[]EntityType - pointer to array of the entities.
 	//	error - if an error occurred, otherwise nil
 	GetList(ctx context.Context, orderBy string, orderDirection string, page int, size int, queryBuilder IQueryBuilder) (*[]EntityType, error)
 	//Count
@@ -31,14 +32,14 @@ type IGenericRepository[EntityType IEntityModel] interface {
 	//Return
 	//	IQueryBuilder pointer to object that implements IQueryBuilder interface for this repository
 	NewQueryBuilder(ctx context.Context) IQueryBuilder
-	//GetById
+	//GetByID
 	//	Get entity by ID from repository.
 	//Params
 	//	id - entity id
 	//Return
 	//  *EntityType - pointer to the entity.
 	//	error - if an error occurred, otherwise nil
-	GetById(ctx context.Context, id uuid.UUID) (*EntityType, error)
+	GetByID(ctx context.Context, id uuid.UUID) (*EntityType, error)
 	//Update
 	//	Save the changes to the existing entity in the repository.
 	//Params

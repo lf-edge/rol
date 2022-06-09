@@ -8,7 +8,7 @@ import (
 type HTTPLog struct {
 	//	Entity - nested base entity
 	Entity
-	//	HttpMethod - http method
+	//	HTTPMethod - http method
 	HTTPMethod string
 	//	Domain - domain that processed the request
 	Domain string
@@ -37,6 +37,6 @@ type HTTPLog struct {
 }
 
 //GetID gets the id of the entity
-func (log HTTPLog) GetID() uuid.UUID {
-	return log.ID
+func (h HTTPLog) GetID() uuid.UUID {
+	return h.ID
 }

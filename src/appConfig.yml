@@ -9,7 +9,7 @@ database:
   entity:
     dbName: "roldb"
     username: "root"
-    password: "67Edh68Tyt69"
+    password: "67Edh68Tyt69"    # pragma: allowlist secret
     protocol: "tcp"
     hostname: "localhost"
     port: "3306"
@@ -17,7 +17,7 @@ database:
   log:
     dbName: "roldb_logs"
     username: "root"
-    password: "67Edh68Tyt69"
+    password: "67Edh68Tyt69"    # pragma: allowlist secret
     protocol: "tcp"
     hostname: "localhost"
     port: "3306"

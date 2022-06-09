@@ -26,9 +26,9 @@ type bodyLogWriter struct {
 	body *bytes.Buffer
 }
 
-func (w bodyLogWriter) Write(b []byte) (int, error) {
-	w.body.Write(b)
-	return w.ResponseWriter.Write(b)
+func (b bodyLogWriter) Write(bytes []byte) (int, error) {
+	b.body.Write(bytes)
+	return b.ResponseWriter.Write(bytes)
 }
 
 //Logger is the logrus logger handler
@@ -51,7 +51,7 @@ func Logger(logger logrus.FieldLogger, notLogged ...string) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		requestID := uuid.New()
 		c.Set("requestID", requestID)
-		c.Header("X-Request-Id", requestID.String())
+		c.Header("X-Request-ID", requestID.String())
 		// other handler can change c.Path so:
 		path := c.Request.URL.Path
 		start := time.Now()

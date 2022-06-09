@@ -19,6 +19,6 @@ type AppLog struct {
 }
 
 //GetID gets the id of the log
-func (log AppLog) GetID() uuid.UUID {
-	return log.ID
+func (a AppLog) GetID() uuid.UUID {
+	return a.ID
 }

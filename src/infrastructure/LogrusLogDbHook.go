@@ -13,6 +13,7 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
+//AppBufSize buffer size for async hooks
 var AppBufSize uint = 8192
 
 //AppHook application log hook struct
@@ -51,10 +52,10 @@ var asyncAppInsertFunc = func(entry *logrus.Entry, repository interfaces.IGeneri
 }
 
 func newEntityFromApp(entry *logrus.Entry) *domain.AppLog {
-	var actionId uuid.UUID
+	var actionID uuid.UUID
 	var source string
-	if entry.Data["actionId"] != nil {
-		actionId = entry.Data["actionId"].(uuid.UUID)
+	if entry.Data["actionID"] != nil {
+		actionID = entry.Data["actionID"].(uuid.UUID)
 	}
 	if entry.Data["source"] != nil {
 		source = entry.Data["source"].(string)
@@ -65,7 +66,7 @@ func newEntityFromApp(entry *logrus.Entry) *domain.AppLog {
 		},
 		Level:    entry.Level.String(),
 		Source:   source,
-		ActionID: actionId,
+		ActionID: actionID,
 		Message:  entry.Message,
 	}
 }
@@ -82,7 +83,7 @@ func NewAppHook(repo interfaces.IGenericRepository[domain.AppLog]) *AppHook {
 	}
 }
 
-//NewAppHook create new async gorm hook for application logs
+//NewAsyncAppHook create new async gorm hook for application logs
 //Params
 //	repo - gorm generic repository with domain.AppLog instantiated
 //Return
@@ -99,9 +100,9 @@ func NewAsyncAppHook(repo interfaces.IGenericRepository[domain.AppLog]) *AppAsyn
 	return hook
 }
 
-func (hook *AppHook) newEntry(entry *logrus.Entry) *logrus.Entry {
-	hook.mutex.RLock()
-	defer hook.mutex.RUnlock()
+func (h *AppHook) newEntry(entry *logrus.Entry) *logrus.Entry {
+	h.mutex.RLock()
+	defer h.mutex.RUnlock()
 
 	return &logrus.Entry{
 		Logger:  entry.Logger,
@@ -117,9 +118,9 @@ func (hook *AppHook) newEntry(entry *logrus.Entry) *logrus.Entry {
 //	entry - logrus entry with fields to log
 //Return
 //	error - if error occurs return error, otherwise nil
-func (hook *AppHook) Fire(entry *logrus.Entry) error {
-	newEntry := hook.newEntry(entry)
-	return hook.InsertFunc(newEntry, hook.repo)
+func (h *AppHook) Fire(entry *logrus.Entry) error {
+	newEntry := h.newEntry(entry)
+	return h.InsertFunc(newEntry, h.repo)
 }
 
 //Fire run async hook insert function
@@ -127,26 +128,26 @@ func (hook *AppHook) Fire(entry *logrus.Entry) error {
 //	entry - logrus entry with fields to log
 //Return
 //	error - if error occurs return error, otherwise nil
-func (hook *AppAsyncHook) Fire(entry *logrus.Entry) error {
-	hook.wg.Add(1)
-	hook.buf <- hook.newEntry(entry)
+func (h *AppAsyncHook) Fire(entry *logrus.Entry) error {
+	h.wg.Add(1)
+	h.buf <- h.newEntry(entry)
 	return nil
 }
 
 // Flush empty description
-func (hook *AppAsyncHook) Flush() {
-	hook.Ticker = time.NewTicker(100 * time.Millisecond)
-	hook.wg.Wait()
-	hook.flush <- true
-	<-hook.flush
+func (h *AppAsyncHook) Flush() {
+	h.Ticker = time.NewTicker(100 * time.Millisecond)
+	h.wg.Wait()
+	h.flush <- true
+	<-h.flush
 }
 
-func (hook *AppAsyncHook) fire() {
+func (h *AppAsyncHook) fire() {
 	for {
 		var err error
 		if err != nil {
 			select {
-			case <-hook.Ticker.C:
+			case <-h.Ticker.C:
 				continue
 			}
 		}
@@ -157,30 +158,30 @@ func (hook *AppAsyncHook) fire() {
 	Loop:
 		for {
 			select {
-			case entry := <-hook.buf:
-				err = hook.InsertFunc(entry, hook.repo)
+			case entry := <-h.buf:
+				err = h.InsertFunc(entry, h.repo)
 				if err != nil {
 					fmt.Fprintf(os.Stderr, "[LogrusHook] Can't insert entry (%v): %v\n", entry, err)
 				}
 				numEntries++
-			case <-hook.Ticker.C:
+			case <-h.Ticker.C:
 				if numEntries > 0 {
 					break Loop
 				}
-			case <-hook.flush:
-				hook.flush <- true
+			case <-h.flush:
+				h.flush <- true
 				return
 			}
 		}
 
 		for i := 0; i < numEntries; i++ {
-			hook.wg.Done()
+			h.wg.Done()
 		}
 	}
 }
 
 // Levels returns the available logging levels.
-func (hook *AppHook) Levels() []logrus.Level {
+func (h *AppHook) Levels() []logrus.Level {
 	return []logrus.Level{
 		logrus.FatalLevel,
 		logrus.ErrorLevel,

@@ -7,13 +7,16 @@ import (
 	"rol/app/mappers"
 )
 
+//GenericMapperTest generic struct for test mapper
 type GenericMapperTest[Dto interface{}, Entity interfaces.IEntityModel] struct{}
 
+//NewGenericMapperToEntity GenericMapperTest constructor
 func NewGenericMapperToEntity[Dto interface{}, Entity interfaces.IEntityModel]() *GenericMapperTest[Dto, Entity] {
 	return &GenericMapperTest[Dto, Entity]{}
 }
 
-func (gme *GenericMapperTest[Dto, Entity]) MapToEntity(dto Dto, entity *Entity) error {
+//MapToEntity maps dto to entity
+func (g *GenericMapperTest[Dto, Entity]) MapToEntity(dto Dto, entity *Entity) error {
 	err := mappers.MapDtoToEntity(dto, entity)
 	if err != nil {
 		return err
@@ -21,7 +24,8 @@ func (gme *GenericMapperTest[Dto, Entity]) MapToEntity(dto Dto, entity *Entity) 
 	return nil
 }
 
-func (gme *GenericMapperTest[Dto, Entity]) MapToDto(entity Entity, dto *Dto) error {
+//MapToDto maps entity to dto
+func (g *GenericMapperTest[Dto, Entity]) MapToDto(entity Entity, dto *Dto) error {
 	err := mappers.MapEntityToDto(entity, dto)
 	if err != nil {
 		return err

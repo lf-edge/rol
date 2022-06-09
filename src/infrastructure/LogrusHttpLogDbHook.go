@@ -15,21 +15,22 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-var HttpBufSize uint = 8192
+//HTTPBufSize buffer size for async hooks
+var HTTPBufSize uint = 8192
 
-const httpApiName = "httplog"
-const appApiName = "applog"
+const httpAPIName = "httplog"
+const appAPIName = "applog"
 
-//HttpHook log hook struct
-type HttpHook struct {
+//HTTPHook log hook struct
+type HTTPHook struct {
 	repo       interfaces.IGenericRepository[domain.HTTPLog]
 	mutex      sync.RWMutex
 	InsertFunc func(entry *logrus.Entry, repository interfaces.IGenericRepository[domain.HTTPLog]) error
 }
 
-//HttpAsyncHook log hook struct
-type HttpAsyncHook struct {
-	*HttpHook
+//HTTPAsyncHook log hook struct
+type HTTPAsyncHook struct {
+	*HTTPHook
 	buf        chan *logrus.Entry
 	flush      chan bool
 	wg         sync.WaitGroup
@@ -39,23 +40,23 @@ type HttpAsyncHook struct {
 
 var httpInsertFunc = func(entry *logrus.Entry, repository interfaces.IGenericRepository[domain.HTTPLog]) error {
 	if entry.Data["method"] != nil && !fromLogController(entry) {
-		ent := newEntityFromHttp(entry)
+		ent := newEntityFromHTTP(entry)
 		_, err := repository.Insert(nil, *ent)
 		return err
 	}
 	return nil
 }
 
-var asyncHttpInsertFunc = func(entry *logrus.Entry, repository interfaces.IGenericRepository[domain.HTTPLog]) error {
+var asyncHTTPInsertFunc = func(entry *logrus.Entry, repository interfaces.IGenericRepository[domain.HTTPLog]) error {
 	if entry.Data["method"] != nil {
-		ent := newEntityFromHttp(entry)
+		ent := newEntityFromHTTP(entry)
 		_, err := repository.Insert(nil, *ent)
 		return err
 	}
 	return nil
 }
 
-func newEntityFromHttp(entry *logrus.Entry) *domain.HTTPLog {
+func newEntityFromHTTP(entry *logrus.Entry) *domain.HTTPLog {
 	customHeaders := entry.Data["customHeaders"].(string)
 	queryParams := entry.Data["queryParams"].(string)
 
@@ -82,38 +83,38 @@ func newEntityFromHttp(entry *logrus.Entry) *domain.HTTPLog {
 	}
 }
 
-//NewAppHook create new gorm hook for http logs
+//NewHTTPHook create new gorm hook for http logs
 //Params
-//	repo - gorm generic repository with domain.HttpHook instantiated
+//	repo - gorm generic repository with domain.HTTPHook instantiated
 //Return
-//	*HttpHook - gorm hook
-func NewHttpHook(repo interfaces.IGenericRepository[domain.HTTPLog]) *HttpHook {
-	return &HttpHook{
+//	*HTTPHook - gorm hook
+func NewHTTPHook(repo interfaces.IGenericRepository[domain.HTTPLog]) *HTTPHook {
+	return &HTTPHook{
 		repo:       repo,
 		InsertFunc: httpInsertFunc,
 	}
 }
 
-//NewAppHook create new async gorm hook for http logs
+//NewAsyncHTTPHook create new async gorm hook for http logs
 //Params
-//	repo - gorm generic repository with domain.HttpHook instantiated
+//	repo - gorm generic repository with domain.HTTPHook instantiated
 //Return
-//	*HttpHook - async gorm hook
-func NewAsyncHttpHook(repo *GormGenericRepository[domain.HTTPLog]) *HttpAsyncHook {
-	hook := &HttpAsyncHook{
-		HttpHook:   NewHttpHook(repo),
-		buf:        make(chan *logrus.Entry, HttpBufSize),
+//	*HTTPHook - async gorm hook
+func NewAsyncHTTPHook(repo *GormGenericRepository[domain.HTTPLog]) *HTTPAsyncHook {
+	hook := &HTTPAsyncHook{
+		HTTPHook:   NewHTTPHook(repo),
+		buf:        make(chan *logrus.Entry, HTTPBufSize),
 		flush:      make(chan bool),
 		Ticker:     time.NewTicker(time.Second),
-		InsertFunc: asyncHttpInsertFunc,
+		InsertFunc: asyncHTTPInsertFunc,
 	}
 	go hook.fire()
 	return hook
 }
 
-func (hook *HttpHook) newEntry(entry *logrus.Entry) *logrus.Entry {
-	hook.mutex.RLock()
-	defer hook.mutex.RUnlock()
+func (h *HTTPHook) newEntry(entry *logrus.Entry) *logrus.Entry {
+	h.mutex.RLock()
+	defer h.mutex.RUnlock()
 
 	return &logrus.Entry{
 		Logger:  entry.Logger,
@@ -129,9 +130,9 @@ func (hook *HttpHook) newEntry(entry *logrus.Entry) *logrus.Entry {
 //	entry - logrus entry with fields to log
 //Return
 //	error - if error occurs return error, otherwise nil
-func (hook *HttpHook) Fire(entry *logrus.Entry) error {
-	newEntry := hook.newEntry(entry)
-	return hook.InsertFunc(newEntry, hook.repo)
+func (h *HTTPHook) Fire(entry *logrus.Entry) error {
+	newEntry := h.newEntry(entry)
+	return h.InsertFunc(newEntry, h.repo)
 }
 
 //Fire run async hook insert function
@@ -139,25 +140,26 @@ func (hook *HttpHook) Fire(entry *logrus.Entry) error {
 //	entry - logrus entry with fields to log
 //Return
 //	error - if error occurs return error, otherwise nil
-func (hook *HttpAsyncHook) Fire(entry *logrus.Entry) error {
-	hook.wg.Add(1)
-	hook.buf <- hook.newEntry(entry)
+func (h *HTTPAsyncHook) Fire(entry *logrus.Entry) error {
+	h.wg.Add(1)
+	h.buf <- h.newEntry(entry)
 	return nil
 }
 
-func (hook *HttpAsyncHook) Flush() {
-	hook.Ticker = time.NewTicker(100 * time.Millisecond)
-	hook.wg.Wait()
-	hook.flush <- true
-	<-hook.flush
+//Flush flush async hook
+func (h *HTTPAsyncHook) Flush() {
+	h.Ticker = time.NewTicker(100 * time.Millisecond)
+	h.wg.Wait()
+	h.flush <- true
+	<-h.flush
 }
 
-func (hook *HttpAsyncHook) fire() {
+func (h *HTTPAsyncHook) fire() {
 	for {
 		var err error
 		if err != nil {
 			select {
-			case <-hook.Ticker.C:
+			case <-h.Ticker.C:
 				continue
 			}
 		}
@@ -168,30 +170,30 @@ func (hook *HttpAsyncHook) fire() {
 	Loop:
 		for {
 			select {
-			case entry := <-hook.buf:
-				err = hook.InsertFunc(entry, hook.repo)
+			case entry := <-h.buf:
+				err = h.InsertFunc(entry, h.repo)
 				if err != nil {
 					fmt.Fprintf(os.Stderr, "[LogrusHook] Can't insert entry (%v): %v\n", entry, err)
 				}
 				numEntries++
-			case <-hook.Ticker.C:
+			case <-h.Ticker.C:
 				if numEntries > 0 {
 					break Loop
 				}
-			case <-hook.flush:
-				hook.flush <- true
+			case <-h.flush:
+				h.flush <- true
 				return
 			}
 		}
 
 		for i := 0; i < numEntries; i++ {
-			hook.wg.Done()
+			h.wg.Done()
 		}
 	}
 }
 
 //Levels returns the available logging levels.
-func (hook *HttpHook) Levels() []logrus.Level {
+func (h *HTTPHook) Levels() []logrus.Level {
 	return []logrus.Level{
 		logrus.FatalLevel,
 		logrus.ErrorLevel,
@@ -204,7 +206,7 @@ func (hook *HttpHook) Levels() []logrus.Level {
 func fromLogController(entry *logrus.Entry) bool {
 	if entry.Data["path"] == nil {
 		return false
-	} else if strings.Contains(entry.Data["path"].(string), httpApiName) || strings.Contains(entry.Data["path"].(string), appApiName) {
+	} else if strings.Contains(entry.Data["path"].(string), httpAPIName) || strings.Contains(entry.Data["path"].(string), appAPIName) {
 		return true
 	}
 	return false

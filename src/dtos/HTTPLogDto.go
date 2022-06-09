@@ -3,7 +3,7 @@ package dtos
 //HTTPLogDto dto for http log
 type HTTPLogDto struct {
 	BaseDto
-	//	HttpMethod - http method
+	//	HTTPMethod - http method
 	HTTPMethod string
 	//	Domain - domain that processed the request
 	Domain string

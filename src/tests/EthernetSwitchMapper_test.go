@@ -18,6 +18,7 @@ func Test_EthernetSwitchCreateDtoToEntity(t *testing.T) {
 			Address:     "123.123.123.123",
 			Username:    "Map",
 		},
+		//  pragma: allowlist nextline secret
 		Password: "per",
 	}
 	entity := new(domain.EthernetSwitch)
@@ -45,8 +46,9 @@ func Test_EthernetSwitchEntityToDto(t *testing.T) {
 		SwitchModel: 0,
 		Address:     "asd",
 		Username:    "asd",
-		Password:    "asd",
-		Ports:       nil,
+		//  pragma: allowlist nextline secret
+		Password: "asd",
+		Ports:    nil,
 	}
 	dto := new(dtos.EthernetSwitchDto)
 	err := tester.MapToDto(entity, dto)

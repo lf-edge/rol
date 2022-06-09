@@ -54,17 +54,18 @@ func Test_EthernetSwitchRepository_Insert(t *testing.T) {
 		SwitchModel: 0,
 		Address:     "123.123.123.123",
 		Username:    "AutoName",
-		Password:    "AutoPass",
-		Ports:       nil,
+		//  pragma: allowlist nextline secret
+		Password: "AutoPass",
+		Ports:    nil,
 	}
-	err := testerSwitchRepository.GenericRepository_Insert(entity)
+	err := testerSwitchRepository.GenericRepositoryInsert(entity)
 	if err != nil {
 		t.Error(err)
 	}
 }
 
-func Test_EthernetSwitchRepository_GetById(t *testing.T) {
-	err := testerSwitchRepository.GenericRepository_GetById(testerSwitchRepository.InsertedId)
+func Test_EthernetSwitchRepository_GetByID(t *testing.T) {
+	err := testerSwitchRepository.GenericRepositoryGetByID(testerSwitchRepository.InsertedID)
 	if err != nil {
 		t.Error(err)
 	}
@@ -72,30 +73,31 @@ func Test_EthernetSwitchRepository_GetById(t *testing.T) {
 
 func Test_EthernetSwitchRepository_Update(t *testing.T) {
 	entity := domain.EthernetSwitch{
-		Entity:      domain.Entity{ID: testerSwitchRepository.InsertedId},
+		Entity:      domain.Entity{ID: testerSwitchRepository.InsertedID},
 		Name:        "AutoTestingUpdated",
 		Serial:      "1",
 		SwitchModel: 0,
 		Address:     "123.123.123.123",
 		Username:    "AutoName",
-		Password:    "AutoPass",
-		Ports:       nil,
+		//  pragma: allowlist nextline secret
+		Password: "AutoPass",
+		Ports:    nil,
 	}
-	err := testerSwitchRepository.GenericRepository_Update(entity)
+	err := testerSwitchRepository.GenericRepositoryUpdate(entity)
 	if err != nil {
 		t.Error(err)
 	}
 }
 
 func Test_EthernetSwitchRepository_GetList(t *testing.T) {
-	err := testerSwitchRepository.GenericRepository_GetList()
+	err := testerSwitchRepository.GenericRepositoryGetList()
 	if err != nil {
 		t.Error(err)
 	}
 }
 
 func Test_EthernetSwitchRepository_Delete(t *testing.T) {
-	err := testerSwitchRepository.GenericRepository_Delete(testerSwitchRepository.InsertedId)
+	err := testerSwitchRepository.GenericRepositoryDelete(testerSwitchRepository.InsertedID)
 	if err != nil {
 		t.Error(err)
 	}
@@ -109,10 +111,11 @@ func Test_EthernetSwitchRepository_Insert20(t *testing.T) {
 			SwitchModel: 0,
 			Address:     "123.123.123.123",
 			Username:    "AutoName",
-			Password:    "AutoPass",
-			Ports:       nil,
+			//  pragma: allowlist nextline secret
+			Password: "AutoPass",
+			Ports:    nil,
 		}
-		err := testerSwitchRepository.GenericRepository_Insert(entity)
+		err := testerSwitchRepository.GenericRepositoryInsert(entity)
 		if err != nil {
 			t.Error(err)
 		}
@@ -120,7 +123,7 @@ func Test_EthernetSwitchRepository_Insert20(t *testing.T) {
 }
 
 func Test_EthernetSwitchRepository_Pagination(t *testing.T) {
-	err := testerSwitchRepository.GenericRepository_Pagination(1, 10)
+	err := testerSwitchRepository.GenericRepositoryPagination(1, 10)
 	if err != nil {
 		t.Error(err)
 	}
@@ -131,14 +134,14 @@ func Test_EthernetSwitchRepository_Filter(t *testing.T) {
 	queryGroupBuilder := testerSwitchRepository.Repository.NewQueryBuilder(testerSwitchRepository.Context)
 	queryBuilder.Where("serial", "!=", "5").Where("serial", "!=", "9").
 		WhereQuery(queryGroupBuilder.Where("name", "=", "AutoTesting_6").Or("name", "=", "AutoTesting_9"))
-	err := testerSwitchRepository.GenericRepository_Filter(queryBuilder)
+	err := testerSwitchRepository.GenericRepositoryFilter(queryBuilder)
 	if err != nil {
 		t.Error(err)
 	}
 }
 
 func Test_EthernetSwitchRepository_CloseConnectionAndRemoveDb(t *testing.T) {
-	err := testerSwitchRepository.GenericRepository_CloseConnectionAndRemoveDb()
+	err := testerSwitchRepository.GenericRepositoryCloseConnectionAndRemoveDb()
 	if err != nil {
 		t.Error(err)
 	}

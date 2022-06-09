@@ -12,9 +12,13 @@ import (
 	"gorm.io/gorm/clause"
 )
 
+//GormGenericRepository is implementation of interfaces.IGenericRepository
 type GormGenericRepository[EntityType interfaces.IEntityModel] struct {
-	Db            *gorm.DB
-	logger        *logrus.Logger
+	//Db - gorm database
+	Db *gorm.DB
+	//logger - logrus logger
+	logger *logrus.Logger
+	//logSourceName - logger recording source
 	logSourceName string
 }
 
@@ -33,16 +37,16 @@ func NewGormGenericRepository[EntityType interfaces.IEntityModel](db *gorm.DB, l
 	}
 }
 
-func (ger *GormGenericRepository[EntityType]) log(ctx context.Context, level, message string) {
+func (g *GormGenericRepository[EntityType]) log(ctx context.Context, level, message string) {
 	if ctx != nil {
-		actionId := uuid.UUID{}
-		if ctx.Value("requestId") != nil {
-			actionId = ctx.Value("requestId").(uuid.UUID)
+		actionID := uuid.UUID{}
+		if ctx.Value("requestID") != nil {
+			actionID = ctx.Value("requestID").(uuid.UUID)
 		}
 
-		entry := ger.logger.WithFields(logrus.Fields{
-			"actionId": actionId,
-			"source":   ger.logSourceName,
+		entry := g.logger.WithFields(logrus.Fields{
+			"actionID": actionID,
+			"source":   g.logSourceName,
 		})
 		switch level {
 		case "err":
@@ -63,12 +67,12 @@ func (ger *GormGenericRepository[EntityType]) log(ctx context.Context, level, me
 //	ctx - context is used only for logging
 //Return
 //	interfaces.IQueryBuilder - new query builder
-func (ger *GormGenericRepository[EntityType]) NewQueryBuilder(ctx context.Context) interfaces.IQueryBuilder {
-	ger.log(ctx, "debug", "Call method NewQueryBuilder")
+func (g *GormGenericRepository[EntityType]) NewQueryBuilder(ctx context.Context) interfaces.IQueryBuilder {
+	g.log(ctx, "debug", "Call method NewQueryBuilder")
 	return NewGormQueryBuilder()
 }
 
-func (ger *GormGenericRepository[EntityType]) addQueryToGorm(gormQuery *gorm.DB, queryBuilder interfaces.IQueryBuilder) error {
+func (g *GormGenericRepository[EntityType]) addQueryToGorm(gormQuery *gorm.DB, queryBuilder interfaces.IQueryBuilder) error {
 	if queryBuilder != nil {
 		query, err := queryBuilder.Build()
 		if err != nil {
@@ -115,8 +119,8 @@ func generateOrderString(orderBy string, orderDirection string) string {
 //Return
 //	*[]EntityType - pointer to array of entities
 //	error - if an error occurs, otherwise nil
-func (ger *GormGenericRepository[EntityType]) GetList(ctx context.Context, orderBy string, orderDirection string, page int, size int, queryBuilder interfaces.IQueryBuilder) (*[]EntityType, error) {
-	ger.log(ctx, "debug", fmt.Sprintf("GetList: IN: orderBy=%s, orderDirection=%s, page=%d, size=%d, queryBuilder=%s", orderBy, orderDirection, page, size, queryBuilder))
+func (g *GormGenericRepository[EntityType]) GetList(ctx context.Context, orderBy string, orderDirection string, page int, size int, queryBuilder interfaces.IQueryBuilder) (*[]EntityType, error) {
+	g.log(ctx, "debug", fmt.Sprintf("GetList: IN: orderBy=%s, orderDirection=%s, page=%d, size=%d, queryBuilder=%s", orderBy, orderDirection, page, size, queryBuilder))
 	model := new(EntityType)
 	entities := &[]EntityType{}
 	offset := int64((page - 1) * size)
@@ -124,8 +128,8 @@ func (ger *GormGenericRepository[EntityType]) GetList(ctx context.Context, order
 		orderBy = ToSnakeCase(orderBy)
 	}
 	orderString := generateOrderString(orderBy, orderDirection)
-	gormQuery := ger.Db.Model(&model).Order(orderString)
-	err := ger.addQueryToGorm(gormQuery, queryBuilder)
+	gormQuery := g.Db.Model(&model).Order(orderString)
+	err := g.addQueryToGorm(gormQuery, queryBuilder)
 	if err != nil {
 		return nil, err
 	}
@@ -144,12 +148,12 @@ func (ger *GormGenericRepository[EntityType]) GetList(ctx context.Context, order
 //Return
 //	int64 - number of entities
 //	error - if an error occurs, otherwise nil
-func (ger *GormGenericRepository[EntityType]) Count(ctx context.Context, queryBuilder interfaces.IQueryBuilder) (int64, error) {
-	ger.log(ctx, "debug", fmt.Sprintf("Count: IN: queryBuilder=%+v", queryBuilder))
+func (g *GormGenericRepository[EntityType]) Count(ctx context.Context, queryBuilder interfaces.IQueryBuilder) (int64, error) {
+	g.log(ctx, "debug", fmt.Sprintf("Count: IN: queryBuilder=%+v", queryBuilder))
 	count := int64(0)
 	model := new(EntityType)
-	gormQuery := ger.Db.Model(&model)
-	err := ger.addQueryToGorm(gormQuery, queryBuilder)
+	gormQuery := g.Db.Model(&model)
+	err := g.addQueryToGorm(gormQuery, queryBuilder)
 	if err != nil {
 		return 0, err
 	}
@@ -157,11 +161,11 @@ func (ger *GormGenericRepository[EntityType]) Count(ctx context.Context, queryBu
 	if err != nil {
 		return 0, err
 	}
-	ger.log(ctx, "debug", fmt.Sprintf("Count: OUT: count=%d", count))
+	g.log(ctx, "debug", fmt.Sprintf("Count: OUT: count=%d", count))
 	return count, nil
 }
 
-//GetById
+//GetByID
 //	Get entity by ID from repository
 //Params
 //	ctx - context is used only for logging
@@ -169,14 +173,14 @@ func (ger *GormGenericRepository[EntityType]) Count(ctx context.Context, queryBu
 //Return
 //	*EntityType - point to entity
 //	error - if an error occurs, otherwise nil
-func (ger *GormGenericRepository[EntityType]) GetById(ctx context.Context, id uuid.UUID) (*EntityType, error) {
-	ger.log(ctx, "debug", fmt.Sprintf("GetByID: id=%d", id))
+func (g *GormGenericRepository[EntityType]) GetByID(ctx context.Context, id uuid.UUID) (*EntityType, error) {
+	g.log(ctx, "debug", fmt.Sprintf("GetByID: id=%d", id))
 	entity := new(EntityType)
-	err := ger.Db.First(entity, id).Error
+	err := g.Db.First(entity, id).Error
 	if err != nil {
 		return nil, err
 	}
-	ger.log(ctx, "debug", fmt.Sprintf("GetByID: entity=%+v", entity))
+	g.log(ctx, "debug", fmt.Sprintf("GetByID: entity=%+v", entity))
 	return entity, nil
 }
 
@@ -187,9 +191,9 @@ func (ger *GormGenericRepository[EntityType]) GetById(ctx context.Context, id uu
 //	entity - updated entity to save
 //Return
 //	error - if an error occurs, otherwise nil
-func (ger *GormGenericRepository[EntityType]) Update(ctx context.Context, entity *EntityType) error {
-	ger.log(ctx, "debug", fmt.Sprintf("Update: entity=%+v", entity))
-	return ger.Db.Save(entity).Error
+func (g *GormGenericRepository[EntityType]) Update(ctx context.Context, entity *EntityType) error {
+	g.log(ctx, "debug", fmt.Sprintf("Update: entity=%+v", entity))
+	return g.Db.Save(entity).Error
 }
 
 //Insert
@@ -200,12 +204,12 @@ func (ger *GormGenericRepository[EntityType]) Update(ctx context.Context, entity
 //Return
 //	uuid.UUID - new entity id
 //	error - if an error occurs, otherwise nil
-func (ger *GormGenericRepository[EntityType]) Insert(ctx context.Context, entity EntityType) (uuid.UUID, error) {
-	ger.log(ctx, "debug", fmt.Sprintf("Insert: entity=%+v", entity))
-	if err := ger.Db.Create(&entity).Error; err != nil {
+func (g *GormGenericRepository[EntityType]) Insert(ctx context.Context, entity EntityType) (uuid.UUID, error) {
+	g.log(ctx, "debug", fmt.Sprintf("Insert: entity=%+v", entity))
+	if err := g.Db.Create(&entity).Error; err != nil {
 		return uuid.UUID{}, err
 	}
-	ger.log(ctx, "debug", fmt.Sprintf("Insert: newId=%d", entity.GetID()))
+	g.log(ctx, "debug", fmt.Sprintf("Insert: newID=%d", entity.GetID()))
 	return entity.GetID(), nil
 }
 
@@ -215,23 +219,21 @@ func (ger *GormGenericRepository[EntityType]) Insert(ctx context.Context, entity
 //	id - entity id
 //Return
 //	error - if an error occurs, otherwise nil
-func (ger *GormGenericRepository[EntityType]) Delete(ctx context.Context, id uuid.UUID) error {
-	ger.log(ctx, "debug", fmt.Sprintf("Delete: id=%d", id))
+func (g *GormGenericRepository[EntityType]) Delete(ctx context.Context, id uuid.UUID) error {
+	g.log(ctx, "debug", fmt.Sprintf("Delete: id=%d", id))
 	entity := new(EntityType)
-	gormQuery := ger.Db.Model(entity).Select(clause.Associations)
+	gormQuery := g.Db.Model(entity).Select(clause.Associations)
 	return gormQuery.Delete(entity, id).Error
 }
 
 //CloseDb Closes current database connection
 //Return
 //	error - if an error occurs, otherwise nil
-func (ger *GormGenericRepository[EntityType]) CloseDb() error {
-	sqlDb, err := ger.Db.DB()
+func (g *GormGenericRepository[EntityType]) CloseDb() error {
+	sqlDb, err := g.Db.DB()
 	if err != nil {
 		return err
 	}
-	if err := sqlDb.Close(); err != nil {
-		return err
-	}
-	return nil
+	err = sqlDb.Close()
+	return err
 }

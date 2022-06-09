@@ -7,6 +7,7 @@ import (
 	"github.com/google/uuid"
 )
 
+//IGenericService generic service interface for IEntityModel and it's DTOs
 type IGenericService[DtoType interface{},
 	CreateDtoType interface{},
 	UpdateDtoType interface{},
@@ -22,13 +23,13 @@ type IGenericService[DtoType interface{},
 	//	*dtos.PaginatedListDto[DtoType] - pointer to the struct with pagination info and entities
 	//	error - if an error occurred, otherwise nil
 	GetList(ctx context.Context, search, orderBy, orderDirection string, page, pageSize int) (*dtos.PaginatedListDto[DtoType], error)
-	//GetById Get entity by ID from service.
+	//GetByID Get entity by ID from service.
 	//Params
 	//	id - entity id
 	//Return
 	//	*DtoType - pointer to the entity DTO.
 	//	error - if an error occurred, otherwise nil
-	GetById(ctx context.Context, id uuid.UUID) (*DtoType, error)
+	GetByID(ctx context.Context, id uuid.UUID) (*DtoType, error)
 	//Update Save the changes to the existing entity in the service.
 	//Params
 	//  updateDto - pointer to the entity DTO.

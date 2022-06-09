@@ -10,6 +10,6 @@ type GormFxShell struct {
 //GetDb gets database from shell
 //Return
 //	*gorm.DB - gorm database
-func (shell GormFxShell) GetDb() *gorm.DB {
-	return shell.dbShell
+func (s GormFxShell) GetDb() *gorm.DB {
+	return s.dbShell
 }

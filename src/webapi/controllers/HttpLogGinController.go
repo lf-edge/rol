@@ -10,6 +10,7 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
+//HTTPLogGinController HTTP log controller structure for domain.HTTPLog
 type HTTPLogGinController struct {
 	GinGenericController[dtos.HTTPLogDto,
 		dtos.HTTPLogDto,
@@ -23,35 +24,41 @@ func RegisterHTTPLogController(controller *HTTPLogGinController, server *webapi.
 	groupRoute := server.Engine.Group("/api/v1")
 
 	groupRoute.GET("/log/http/", controller.GetList)
-	groupRoute.GET("/log/http/:id", controller.GetById)
+	groupRoute.GET("/log/http/:id", controller.GetByID)
 }
 
+//GetList get list of http logs with search and pagination
+//	Params
+//	ctx - gin context
 // @Summary Gets paginated list of http logs
 // @version 1.0
 // @Tags http log
 // @Accept  json
 // @Produce  json
-// @param 	orderBy			path	string	false	"Order by field"
-// @param 	orderDirection	path	string	false	"'asc' or 'desc' for ascending or descending order"
-// @param 	search 			path	string	false	"searchable value in entity"
-// @param 	page 			path	int		false	"page number"
-// @param 	pageSize 		path	int		false	"number of entities per page"
+// @param	 orderBy			path	string	false	"Order by field"
+// @param	 orderDirection	path	string	false	"'asc' or 'desc' for ascending or descending order"
+// @param	 search			 path	string	false	"searchable value in entity"
+// @param	 page			 path	int		false	"page number"
+// @param	 pageSize		 path	int		false	"number of entities per page"
 // @Success 200 {object} dtos.ResponseDataDto{data=dtos.PaginatedListDto{items=[]dtos.HTTPLogDto}} "desc"
 // @router /log/http/ [get]
-func (c *HTTPLogGinController) GetList(ctx *gin.Context) {
-	c.GinGenericController.GetList(ctx)
+func (h *HTTPLogGinController) GetList(ctx *gin.Context) {
+	h.GinGenericController.GetList(ctx)
 }
 
+//GetByID get http log by id
+//	Params
+//	ctx - gin context
 // @Summary Gets http log by id
 // @version 1.0
 // @Tags http log
 // @Accept  json
 // @Produce  json
-// @param 	id	path	string		true	"log id"
+// @param	 id	path	string		true	"log id"
 // @Success 200 {object} dtos.ResponseDataDto{data=dtos.HTTPLogDto}
 // @router /log/http/{id} [get]
-func (c *HTTPLogGinController) GetById(ctx *gin.Context) {
-	c.GinGenericController.GetById(ctx)
+func (h *HTTPLogGinController) GetByID(ctx *gin.Context) {
+	h.GinGenericController.GetByID(ctx)
 }
 
 //NewHTTPLogGinController HTTP log controller constructor. Parameters pass through DI

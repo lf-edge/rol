@@ -6,7 +6,7 @@ interface IGenericRepository<EntityType> {
     --
     NewQueryBuilder(ctx context.Context) interfaces.IQueryBuilder
     --
-    GetById(ctx context.Context, id uuid.UUID) (*EntityType, error)
+    GetByID(ctx context.Context, id uuid.UUID) (*EntityType, error)
     --
     Update(ctx context.Context, entity *EntityType) error
     --
@@ -25,7 +25,7 @@ end note
 note left of IGenericRepository::NewQueryBuilder
   Get new instance of the query builder
 end note
-note left of IGenericRepository::GetById
+note left of IGenericRepository::GetByID
   Get entity by ID from repository
 end note
 note left of IGenericRepository::Update

@@ -1,7 +1,7 @@
 @startuml BaseDto
 
 class BaseDto {
-    Id uuid.UUID
+    ID uuid.UUID
     --
     CreatedAt time.Time
     --

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="284px" preserveAspectRatio="none" style="width:1418px;height:284px;background:#FFFFFF;" version="1.1" viewBox="0 0 1418 284" width="1418px" zoomAndPan="magnify"><defs/><g><!--MD5=[b3e0f8dcddb1b27f071a0303a68762bf]
+class IGenericRepository--><g id="elem_IGenericRepository"><rect codeLine="1" fill="#F1F1F1" height="226.375" id="IGenericRepository" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="987" x="420" y="33.5"/><ellipse cx="808.25" cy="49.5" fill="#B4A7E5" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M804.1719,45.2656 L804.1719,43.1094 L811.5625,43.1094 L811.5625,45.2656 L809.0938,45.2656 L809.0938,53.3438 L811.5625,53.3438 L811.5625,55.5 L804.1719,55.5 L804.1719,53.3438 L806.6406,53.3438 L806.6406,45.2656 L804.1719,45.2656 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="132" x="828.75" y="54.3467">IGenericRepository</text><rect fill="#FFFFFF" height="15.9688" style="stroke:#000000;stroke-width:1.0;stroke-dasharray:2.0,2.0;" width="68" x="1342" y="30.5"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="66" x="1343" y="42.6387">EntityType</text><line style="stroke:#181818;stroke-width:0.5;" x1="421" x2="1406" y1="65.5" y2="65.5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="975" x="426" y="82.4951">GetList(ctx context.Context, orderBy string, orderDirection string, page int, size int, queryBuilder interfaces.IQueryBuilder) (*[]EntityType, error)</text><line style="stroke:#181818;stroke-width:1.0;" x1="421" x2="1406" y1="89.7969" y2="89.7969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="539" x="426" y="106.792">Count(ctx context.Context, queryBuilder interfaces.IQueryBuilder) (int64, error)</text><line style="stroke:#181818;stroke-width:1.0;" x1="421" x2="1406" y1="114.0938" y2="114.0938"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="431" x="426" y="131.0889">NewQueryBuilder(ctx context.Context) interfaces.IQueryBuilder</text><line style="stroke:#181818;stroke-width:1.0;" x1="421" x2="1406" y1="138.3906" y2="138.3906"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="424" x="426" y="155.3857">GetById(ctx context.Context, id uuid.UUID) (*EntityType, error)</text><line style="stroke:#181818;stroke-width:1.0;" x1="421" x2="1406" y1="162.6875" y2="162.6875"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="360" x="426" y="179.6826">Update(ctx context.Context, entity *EntityType) error</text><line style="stroke:#181818;stroke-width:1.0;" x1="421" x2="1406" y1="186.9844" y2="186.9844"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="428" x="426" y="203.9795">Insert(ctx context.Context, entity EntityType) (uuid.UUID, error)</text><line style="stroke:#181818;stroke-width:1.0;" x1="421" x2="1406" y1="211.2813" y2="211.2813"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="319" x="426" y="228.2764">Delete(ctx context.Context, id uuid.UUID) error</text><line style="stroke:#181818;stroke-width:1.0;" x1="421" x2="1406" y1="235.5781" y2="235.5781"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="106" x="426" y="252.5732">CloseDb() error</text></g><path d="M6,6 L6,31.1328 A0,0 0 0 0 6,31.1328 L331,31.1328 A0,0 0 0 0 331,31.1328 L331,24 L424,77.6484 L331,16 L331,16 L321,6 L6,6 A0,0 0 0 0 6,6 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M321,6 L321,16 L331,16 L321,6 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="304" x="12" y="23.0669">Get list of elements with filtering and pagination</text><path d="M6,41.1328 L6,66.2656 A0,0 0 0 0 6,66.2656 L237,66.2656 A0,0 0 0 0 237,66.2656 L237,59.1328 L424,101.9453 L237,51.1328 L237,51.1328 L227,41.1328 L6,41.1328 A0,0 0 0 0 6,41.1328 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M227,41.1328 L227,51.1328 L237,51.1328 L227,41.1328 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="210" x="12" y="58.1997">Get count of entities with filtering</text><path d="M6,76.2656 L6,101.3984 A0,0 0 0 0 6,101.3984 L265,101.3984 A0,0 0 0 0 265,101.3984 L265,94.2656 L424,126.2422 L265,86.2656 L265,86.2656 L255,76.2656 L6,76.2656 A0,0 0 0 0 6,76.2656 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M255,76.2656 L255,86.2656 L265,86.2656 L255,76.2656 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="238" x="12" y="93.3325">Get new instance of the query builder</text><path d="M6,111.3984 L6,136.5313 A0,0 0 0 0 6,136.5313 L228,136.5313 A0,0 0 0 0 228,136.5313 L228,129.3984 L424,150.5391 L228,121.3984 L228,121.3984 L218,111.3984 L6,111.3984 A0,0 0 0 0 6,111.3984 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M218,111.3984 L218,121.3984 L228,121.3984 L218,111.3984 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="201" x="12" y="128.4653">Get entity by ID from repository</text><path d="M6,146.5313 L6,171.6641 A0,0 0 0 0 6,171.6641 L385,171.6641 A0,0 0 0 0 385,171.6641 L385,164.5313 L424,174.8359 L385,156.5313 L385,156.5313 L375,146.5313 L6,146.5313 A0,0 0 0 0 6,146.5313 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M375,146.5313 L375,156.5313 L385,156.5313 L375,146.5313 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="358" x="12" y="163.5981">Save the changes to the existing entity in the repository</text><path d="M6,181.6641 L6,206.7969 A0,0 0 0 0 6,206.7969 L202,206.7969 A0,0 0 0 0 202,206.7969 L202,199.6641 L424,199.1328 L202,191.6641 L202,191.6641 L192,181.6641 L6,181.6641 A0,0 0 0 0 6,181.6641 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M192,181.6641 L192,191.6641 L202,191.6641 L192,181.6641 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="175" x="12" y="198.731">Add entity to the repository</text><path d="M6,216.7969 L6,241.9297 A0,0 0 0 0 6,241.9297 L232,241.9297 A0,0 0 0 0 232,241.9297 L232,234.7969 L424,223.4297 L232,226.7969 L232,226.7969 L222,216.7969 L6,216.7969 A0,0 0 0 0 6,216.7969 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M222,216.7969 L222,226.7969 L232,226.7969 L222,216.7969 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="205" x="12" y="233.8638">Delete entity from the database</text><path d="M6,251.9297 L6,277.0625 A0,0 0 0 0 6,277.0625 L257,277.0625 A0,0 0 0 0 257,277.0625 L257,269.9297 L424,247.7266 L257,261.9297 L257,261.9297 L247,251.9297 L6,251.9297 A0,0 0 0 0 6,251.9297 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M247,251.9297 L247,261.9297 L257,261.9297 L247,251.9297 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="230" x="12" y="268.9966">Closes current database connection</text><!--MD5=[71bbcb9ed63c4cb34c7d770fc4ad8de3]
+@startuml IGenericRepository
+interface IGenericRepository<EntityType> {
+    GetList(ctx context.Context, orderBy string, orderDirection string, page int, size int, queryBuilder interfaces.IQueryBuilder) (*[]EntityType, error)
+    - -
+    Count(ctx context.Context, queryBuilder interfaces.IQueryBuilder) (int64, error)
+    - -
+    NewQueryBuilder(ctx context.Context) interfaces.IQueryBuilder
+    - -
+    GetById(ctx context.Context, id uuid.UUID) (*EntityType, error)
+    - -
+    Update(ctx context.Context, entity *EntityType) error
+    - -
+    Insert(ctx context.Context, entity EntityType) (uuid.UUID, error)
+    - -
+    Delete(ctx context.Context, id uuid.UUID) error
+    - -
+    CloseDb() error
+}
+note left of IGenericRepository::GetList
+  Get list of elements with filtering and pagination
+end note
+note left of IGenericRepository::Count
+  Get count of entities with filtering
+end note
+note left of IGenericRepository::NewQueryBuilder
+  Get new instance of the query builder
+end note
+note left of IGenericRepository::GetById
+  Get entity by ID from repository
+end note
+note left of IGenericRepository::Update
+  Save the changes to the existing entity in the repository
+end note
+note left of IGenericRepository::Insert
+  Add entity to the repository
+end note
+note left of IGenericRepository::Delete
+  Delete entity from the database
+end note
+note left of IGenericRepository::CloseDb
+  Closes current database connection
+end note
+@enduml
+
+PlantUML version 1.2022.4(Sat Apr 09 13:29:17 UTC 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: null
+--></g></svg>

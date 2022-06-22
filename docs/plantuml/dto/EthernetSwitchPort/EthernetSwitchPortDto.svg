@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="226px" preserveAspectRatio="none" style="width:431px;height:226px;background:#FFFFFF;" version="1.1" viewBox="0 0 431 226" width="431px" zoomAndPan="magnify"><defs/><g><!--MD5=[ab50d7b8d52645a88dbd59d4662cb3d5]
+class EthernetSwitchPortBaseDto--><g id="elem_EthernetSwitchPortBaseDto"><rect codeLine="2" fill="#F1F1F1" height="104.8906" id="EthernetSwitchPortBaseDto" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="225" x="7" y="115"/><ellipse cx="22" cy="131" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M24.9688,136.6406 Q24.3906,136.9375 23.75,137.0781 Q23.1094,137.2344 22.4063,137.2344 Q19.9063,137.2344 18.5781,135.5938 Q17.2656,133.9375 17.2656,130.8125 Q17.2656,127.6875 18.5781,126.0313 Q19.9063,124.375 22.4063,124.375 Q23.1094,124.375 23.75,124.5313 Q24.4063,124.6875 24.9688,124.9844 L24.9688,127.7031 Q24.3438,127.125 23.75,126.8594 Q23.1563,126.5781 22.5313,126.5781 Q21.1875,126.5781 20.5,127.6563 Q19.8125,128.7188 19.8125,130.8125 Q19.8125,132.9063 20.5,133.9844 Q21.1875,135.0469 22.5313,135.0469 Q23.1563,135.0469 23.75,134.7813 Q24.3438,134.5 24.9688,133.9219 L24.9688,136.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="193" x="36" y="135.8467">EthernetSwitchPortBaseDto</text><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="231" y1="147" y2="147"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="189" x="13" y="163.9951">EthernetSwitchId uuid.UUID</text><line style="stroke:#181818;stroke-width:1.0;" x1="8" x2="231" y1="171.2969" y2="171.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="82" x="13" y="188.292">PoeType int</text><line style="stroke:#181818;stroke-width:1.0;" x1="8" x2="231" y1="195.5938" y2="195.5938"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="83" x="13" y="212.5889">Name string</text></g><!--MD5=[a203eca1f0769929ae1344e0135bff6b]
+class BaseDto--><g id="elem_BaseDto"><rect codeLine="2" fill="#F1F1F1" height="104.8906" id="BaseDto" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="157" x="267" y="115"/><ellipse cx="311.25" cy="131" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M314.2188,136.6406 Q313.6406,136.9375 313,137.0781 Q312.3594,137.2344 311.6563,137.2344 Q309.1563,137.2344 307.8281,135.5938 Q306.5156,133.9375 306.5156,130.8125 Q306.5156,127.6875 307.8281,126.0313 Q309.1563,124.375 311.6563,124.375 Q312.3594,124.375 313,124.5313 Q313.6563,124.6875 314.2188,124.9844 L314.2188,127.7031 Q313.5938,127.125 313,126.8594 Q312.4063,126.5781 311.7813,126.5781 Q310.4375,126.5781 309.75,127.6563 Q309.0625,128.7188 309.0625,130.8125 Q309.0625,132.9063 309.75,133.9844 Q310.4375,135.0469 311.7813,135.0469 Q312.4063,135.0469 313,134.7813 Q313.5938,134.5 314.2188,133.9219 L314.2188,136.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="60" x="331.75" y="135.8467">BaseDto</text><line style="stroke:#181818;stroke-width:0.5;" x1="268" x2="423" y1="147" y2="147"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="84" x="273" y="163.9951">Id uuid.UUID</text><line style="stroke:#181818;stroke-width:1.0;" x1="268" x2="423" y1="171.2969" y2="171.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="141" x="273" y="188.292">CreatedAt time.Time</text><line style="stroke:#181818;stroke-width:1.0;" x1="268" x2="423" y1="195.5938" y2="195.5938"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="145" x="273" y="212.5889">UpdatedAt time.Time</text></g><!--MD5=[486b5bedf9dc6f69fa62dd2fa97f75c6]
+class EthernetSwitchPortDto--><g id="elem_EthernetSwitchPortDto"><rect codeLine="4" fill="#F1F1F1" height="48" id="EthernetSwitchPortDto" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="190" x="137.5" y="7"/><ellipse cx="152.5" cy="23" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M155.4688,28.6406 Q154.8906,28.9375 154.25,29.0781 Q153.6094,29.2344 152.9063,29.2344 Q150.4063,29.2344 149.0781,27.5938 Q147.7656,25.9375 147.7656,22.8125 Q147.7656,19.6875 149.0781,18.0313 Q150.4063,16.375 152.9063,16.375 Q153.6094,16.375 154.25,16.5313 Q154.9063,16.6875 155.4688,16.9844 L155.4688,19.7031 Q154.8438,19.125 154.25,18.8594 Q153.6563,18.5781 153.0313,18.5781 Q151.6875,18.5781 151,19.6563 Q150.3125,20.7188 150.3125,22.8125 Q150.3125,24.9063 151,25.9844 Q151.6875,27.0469 153.0313,27.0469 Q153.6563,27.0469 154.25,26.7813 Q154.8438,26.5 155.4688,25.9219 L155.4688,28.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="158" x="166.5" y="27.8467">EthernetSwitchPortDto</text><line style="stroke:#181818;stroke-width:0.5;" x1="138.5" x2="326.5" y1="39" y2="39"/><line style="stroke:#181818;stroke-width:0.5;" x1="138.5" x2="326.5" y1="47" y2="47"/></g><!--MD5=[460dbe8812d6b686f6b008c34248d6cb]
+reverse link EthernetSwitchPortDto to BaseDto--><g id="link_EthernetSwitchPortDto_BaseDto"><path codeLine="8" d="M260.58,65.42 C273.15,80.38 288.25,98.36 302.22,114.98 " fill="none" id="EthernetSwitchPortDto-backto-BaseDto" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="251.93,55.12,252.7234,62.2873,259.6446,64.3116,258.8512,57.1443,251.93,55.12" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[8c274a35190941eeccbc170fe11fce79]
+reverse link EthernetSwitchPortDto to EthernetSwitchPortBaseDto--><g id="link_EthernetSwitchPortDto_EthernetSwitchPortBaseDto"><path codeLine="9" d="M204.42,65.42 C191.85,80.38 176.75,98.36 162.78,114.98 " fill="none" id="EthernetSwitchPortDto-backto-EthernetSwitchPortBaseDto" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="213.07,55.12,206.1488,57.1443,205.3554,64.3116,212.2766,62.2873,213.07,55.12" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[ff9395d5a8d2fdc17e2ce2636ba5eedd]
+@startuml EthernetSwitchPortDto
+
+!include EthernetSwitchPortBaseDto.puml
+!include ../BaseDto.puml
+class EthernetSwitchPortDto {
+
+}
+
+EthernetSwitchPortDto *- - BaseDto
+EthernetSwitchPortDto *- - EthernetSwitchPortBaseDto
+@enduml
+
+@startuml EthernetSwitchPortDto
+
+
+class EthernetSwitchPortBaseDto {
+    EthernetSwitchId uuid.UUID
+    - -
+    PoeType int
+    - -
+    Name string
+}
+
+
+class BaseDto {
+    Id uuid.UUID
+    - -
+    CreatedAt time.Time
+    - -
+    UpdatedAt time.Time
+}
+
+class EthernetSwitchPortDto {
+
+}
+
+EthernetSwitchPortDto *- - BaseDto
+EthernetSwitchPortDto *- - EthernetSwitchPortBaseDto
+@enduml
+
+PlantUML version 1.2022.4(Sat Apr 09 13:29:17 UTC 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: null
+--></g></svg>

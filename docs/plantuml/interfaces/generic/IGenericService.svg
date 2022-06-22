@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="178px" preserveAspectRatio="none" style="width:1302px;height:178px;background:#FFFFFF;" version="1.1" viewBox="0 0 1302 178" width="1302px" zoomAndPan="magnify"><defs/><g><!--MD5=[7c0ed5f9a527ab221a5373ebedcc681c]
+class IGenericService--><g id="elem_IGenericService"><rect codeLine="1" fill="#F1F1F1" height="153.4844" id="IGenericService" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="890" x="401" y="17.5"/><ellipse cx="618.25" cy="33.5" fill="#B4A7E5" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M614.1719,29.2656 L614.1719,27.1094 L621.5625,27.1094 L621.5625,29.2656 L619.0938,29.2656 L619.0938,37.3438 L621.5625,37.3438 L621.5625,39.5 L614.1719,39.5 L614.1719,37.3438 L616.6406,37.3438 L616.6406,29.2656 L614.1719,29.2656 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="109" x="638.75" y="38.3467">IGenericService</text><rect fill="#FFFFFF" height="15.9688" style="stroke:#000000;stroke-width:1.0;stroke-dasharray:2.0,2.0;" width="336" x="958" y="14.5"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="334" x="959" y="26.6387">EntityType, CreateDtoType, UpdateDtoType, DtoType</text><line style="stroke:#181818;stroke-width:0.5;" x1="402" x2="1290" y1="49.5" y2="49.5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="878" x="407" y="66.4951">GetList(ctx context.Context, search, orderBy, orderDirection string, page, pageSize int) (*dtos.PaginatedListDto[DtoType], error)</text><line style="stroke:#181818;stroke-width:1.0;" x1="402" x2="1290" y1="73.7969" y2="73.7969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="411" x="407" y="90.792">GetById(ctx context.Context, id uuid.UUID) (*DtoType, error)</text><line style="stroke:#181818;stroke-width:1.0;" x1="402" x2="1290" y1="98.0938" y2="98.0938"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="518" x="407" y="115.0889">Update(ctx context.Context, updateDto UpdateDtoType, id uuid.UUID) error</text><line style="stroke:#181818;stroke-width:1.0;" x1="402" x2="1290" y1="122.3906" y2="122.3906"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="499" x="407" y="139.3857">Create(ctx context.Context, createDto CreateDtoType) (uuid.UUID, error)</text><line style="stroke:#181818;stroke-width:1.0;" x1="402" x2="1290" y1="146.6875" y2="146.6875"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="319" x="407" y="163.6826">Delete(ctx context.Context, id uuid.UUID) error</text></g><path d="M6,6 L6,31.1328 A0,0 0 0 0 6,31.1328 L327,31.1328 A0,0 0 0 0 327,31.1328 L327,24 L405,61.6484 L327,16 L327,16 L317,6 L6,6 A0,0 0 0 0 6,6 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M317,6 L317,16 L327,16 L317,6 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="300" x="12" y="23.0669">Get list of elements with search and pagination</text><path d="M6,41.1328 L6,66.2656 A0,0 0 0 0 6,66.2656 L209,66.2656 A0,0 0 0 0 209,66.2656 L209,59.1328 L405,85.9453 L209,51.1328 L209,51.1328 L199,41.1328 L6,41.1328 A0,0 0 0 0 6,41.1328 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M199,41.1328 L199,51.1328 L209,51.1328 L199,41.1328 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="182" x="12" y="58.1997">Get entity by ID from service</text><path d="M6,76.2656 L6,101.3984 A0,0 0 0 0 6,101.3984 L366,101.3984 A0,0 0 0 0 366,101.3984 L366,94.2656 L405,110.2422 L366,86.2656 L366,86.2656 L356,76.2656 L6,76.2656 A0,0 0 0 0 6,76.2656 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M356,76.2656 L356,86.2656 L366,86.2656 L356,76.2656 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="339" x="12" y="93.3325">Save the changes to the existing entity in the service</text><path d="M6,111.3984 L6,136.5313 A0,0 0 0 0 6,136.5313 L183,136.5313 A0,0 0 0 0 183,136.5313 L183,129.3984 L405,134.5391 L183,121.3984 L183,121.3984 L173,111.3984 L6,111.3984 A0,0 0 0 0 6,111.3984 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M173,111.3984 L173,121.3984 L183,121.3984 L173,111.3984 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="156" x="12" y="128.4653">Add entity to the service</text><path d="M6,146.5313 L6,171.6641 A0,0 0 0 0 6,171.6641 L189,171.6641 A0,0 0 0 0 189,171.6641 L189,164.5313 L405,158.8359 L189,156.5313 L189,156.5313 L179,146.5313 L6,146.5313 A0,0 0 0 0 6,146.5313 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M179,146.5313 L179,156.5313 L189,156.5313 L179,146.5313 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="162" x="12" y="163.5981">Mark an entity as deleted</text><!--MD5=[a7c64f44c9b247c14390154ad6d81a52]
+@startuml IGenericService
+interface IGenericService<EntityType, CreateDtoType, UpdateDtoType, DtoType> {
+    GetList(ctx context.Context, search, orderBy, orderDirection string, page, pageSize int) (*dtos.PaginatedListDto[DtoType], error)
+    - -
+    GetById(ctx context.Context, id uuid.UUID) (*DtoType, error)
+    - -
+    Update(ctx context.Context, updateDto UpdateDtoType, id uuid.UUID) error
+    - -
+    Create(ctx context.Context, createDto CreateDtoType) (uuid.UUID, error)
+    - -
+    Delete(ctx context.Context, id uuid.UUID) error
+}
+note left of IGenericService::GetList
+    Get list of elements with search and pagination
+end note
+note left of IGenericService::GetById
+    Get entity by ID from service
+end note
+note left of IGenericService::Update
+    Save the changes to the existing entity in the service
+end note
+note left of IGenericService::Create
+    Add entity to the service
+end note
+note left of IGenericService::Delete
+    Mark an entity as deleted
+end note
+
+@enduml
+
+PlantUML version 1.2022.4(Sat Apr 09 13:29:17 UTC 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: null
+--></g></svg>

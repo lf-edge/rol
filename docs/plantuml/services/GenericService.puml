@@ -9,8 +9,7 @@ package app {
         --
         logSourceName string
     }
-
-    GenericService <|.. IGenericService
+    GenericService .down.|> IGenericService
 }
 
 @enduml

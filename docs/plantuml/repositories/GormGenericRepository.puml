@@ -4,7 +4,8 @@
 
 package infrastructure {
     class GormGenericRepository<EntityType>
-    GormGenericRepository <|.. IGenericRepository
+
+    GormGenericRepository .down.|> IGenericRepository
 }
 
 @enduml

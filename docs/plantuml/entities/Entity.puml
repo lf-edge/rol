@@ -13,10 +13,10 @@ package domain {
         --
         DeletedAt time.Time `gorm:"index"`
     }
-    Entity <|.. IEntityModelDeletedAt
-    Entity <|.. IEntityModel
+    Entity .down.|> IEntityModelDeletedAt
+    Entity .down.|> IEntityModel
 
-    IEntityModelDeletedAt .right[hidden]. IEntityModel
+    IEntityModel .left[hidden]. IEntityModelDeletedAt
 }
 
 @enduml

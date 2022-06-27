@@ -4,9 +4,16 @@
 !include GormGenericRepository.puml
 
 package infrastructure {
-    class EthernetSwitchRepository<EthernetSwitch>
+    class EthernetSwitchRepository
 
-    EthernetSwitchRepository *-- GormGenericRepository
+    EthernetSwitchRepository -down-* GormGenericRepository
+
+
+    note "EntityType is EthernetSwitch" as EthernetSwitchTypeNote
+
+    EthernetSwitchRepository .down. EthernetSwitchTypeNote
+    GormGenericRepository <.up. EthernetSwitchTypeNote
+    EthernetSwitch .. EthernetSwitchTypeNote
 }
 
 @enduml

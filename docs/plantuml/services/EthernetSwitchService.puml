@@ -6,20 +6,36 @@
 !include ../dto/EthernetSwitch/EthernetSwitchDto.puml
 
 package app {
-    class EthernetSwitchService<EthernetSwitch, EthernetSwitchCreateDto, EthernetSwitchUpdateDto, EthernetSwitchDto> {
-        repository IGenericRepository
+    class EthernetSwitchService {
+        repository IGenericRepository<EthernetSwitch>
         --
     }
-    note top of EthernetSwitchService
+
+    note left of EthernetSwitchService
         Advanced business logic for EthernetSwitch entity
         For example:
         DTO Validation
         Checking the uniqueness of serial numbers
     end note
 
-    EthernetSwitchService::repository -- EthernetSwitchRepository
-    EthernetSwitchService *-- GenericService
+    EthernetSwitchRepository -right- EthernetSwitchService::repository
+    GenericService -up-* EthernetSwitchService
 
-    IGenericRepository -[hidden]up- IEntityModelDeletedAt
+    EthernetSwitchService .[hidden]up. IGenericRepository
+
+    note as EthernetSwitchServiceTypes
+    EntityType is EthernetSwitch
+    CreateDtoType is EthernetSwitchCreateDto
+    UpdateDtoType is EthernetSwitchUpdateDto
+    DtoType is EthernetSwitchDto
+    end note
+
+    EthernetSwitchService .down. EthernetSwitchServiceTypes
+    GenericService <.up. EthernetSwitchServiceTypes
+
+    EthernetSwitchServiceTypes .. EthernetSwitchCreateDto
+    EthernetSwitchServiceTypes .. EthernetSwitchUpdateDto
+    EthernetSwitchServiceTypes .. EthernetSwitchDto
+
 }
 @enduml

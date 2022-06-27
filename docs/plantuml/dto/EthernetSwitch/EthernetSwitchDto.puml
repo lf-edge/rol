@@ -7,8 +7,8 @@ package dtos {
     class EthernetSwitchDto {
 
     }
-    EthernetSwitchDto *-- EthernetSwitchBaseDto
-    EthernetSwitchDto *-- BaseDto
+    EthernetSwitchDto --* EthernetSwitchBaseDto
+    EthernetSwitchDto --* BaseDto
 }
 
 @enduml

@@ -6,13 +6,32 @@
 !include ../entities/Log.puml
 
 package app {
-    class LogService<Log, LogDto, LogDto, LogDto> {
+    class LogService {
         repository IGenericRepository
         --
     }
 
-    LogService *-- GenericService
-    LogService::repository -- LogRepository
+    LogService .[hidden]up. IGenericRepository
+
+    LogRepository -right- LogService::repository
+    GenericService *-up- LogService
+
+    note left of LogService
+        Advanced business logic for Log entity
+    end note
+
+    note as LogServiceTypes
+        EntityType is Log
+        CreateDtoType is LogDto
+        UpdateDtoType is LogDto
+        DtoType is LogDto
+        Because the service is read-only
+    end note
+
+    LogService .down. LogServiceTypes
+    GenericService <.up. LogServiceTypes
+
+    LogServiceTypes .. LogDto
 }
 
 @enduml

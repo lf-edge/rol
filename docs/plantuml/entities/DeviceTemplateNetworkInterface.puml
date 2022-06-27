@@ -1,0 +1,26 @@
+@startuml DeviceTemplateNetworkInterface
+
+package domain {
+    class DeviceTemplateNetworkInterface {
+        Name string
+        --
+        NetBoot boolean
+        --
+        POEIn boolean
+        --
+        Management boolean
+    }
+    note right of DeviceTemplateNetworkInterface::Name
+      This field is unique within device template network interfaces
+    end note
+
+    note right of DeviceTemplateNetworkInterface::POEIn
+      Only one network interface can be mark as POEIn
+    end note
+
+    note right of DeviceTemplateNetworkInterface::Management
+      Only one network interface can be mark as management
+    end note
+}
+
+@enduml

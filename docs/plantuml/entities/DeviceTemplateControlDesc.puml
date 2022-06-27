@@ -1,0 +1,26 @@
+@startuml DeviceTemplate
+
+package domain {
+    class DeviceTemplateControlDesc {
+        Emergency string
+        --
+        Power string
+        --
+        NextBoot string
+    }
+
+    note right of DeviceTemplateControlDesc::Emergency
+    How to control device power in case of emergency. As example: POE(For Rpi4), IPMI, ILO or PowerSwitch
+    end note
+
+    note right of DeviceTemplateControlDesc::Power
+    How to control device power. As example: POE(For Rpi4), IPMI, ILO or PowerSwitch
+    end note
+
+    note right of DeviceTemplateControlDesc::NextBoot
+    How to change next boot device. As example: IPMI, ILO or NONE.
+    For example NONE is used for Rpi4, we control next boot by u-boot files in boot stages.
+    end note
+}
+
+@enduml

@@ -1,0 +1,17 @@
+@startuml
+
+!include ../storages/DeviceTemplateStorage.puml
+!include ../dto/DeviceTemplate/DeviceTemplateDto.puml
+
+package app {
+    class DeviceTemplateService {
+        storage IGenericTemplateStorage<DeviceTemplate>
+        --
+        GetList(ctx context.Context, search, orderBy, orderDirection string, page, pageSize int) (*dtos.PaginatedListDto[DeviceTemplateDto], error)
+        --
+        GetByName(ctx context.Context, name string) (*DeviceTemplateDto, error)
+    }
+    DeviceTemplateService::storage -- DeviceTemplateStorage
+}
+
+@enduml

@@ -1,0 +1,15 @@
+@startuml
+
+package dtos {
+    class DeviceTemplateNetworkInterfaceDto {
+        Name string
+        --
+        NetBoot boolean
+        --
+        POEIn boolean
+        --
+        Management boolean
+    }
+}
+
+@enduml

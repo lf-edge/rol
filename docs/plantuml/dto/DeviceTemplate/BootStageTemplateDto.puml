@@ -1,0 +1,22 @@
+@startuml
+package dtos {
+    class BootStageTemplateDto {
+        Name string
+        --
+        Description string
+        --
+        Action string
+        --
+        Files []BootStageTemplateFileDto
+    }
+
+    class BootStageTemplateFileDto {
+        ExistingFileName string
+        --
+        VirtualFileName
+    }
+
+    BootStageTemplateDto::Files -- BootStageTemplateFileDto
+}
+
+@enduml

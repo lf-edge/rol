@@ -1,0 +1,13 @@
+@startuml
+
+package dtos {
+    class DeviceTemplateControlDescDto {
+        Emergency string
+        --
+        Power string
+        --
+        NextBoot string
+    }
+}
+
+@enduml

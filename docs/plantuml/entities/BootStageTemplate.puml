@@ -1,0 +1,48 @@
+@startuml
+
+package domain {
+    class BootStageTemplate {
+        Name string
+        --
+        Description string
+        --
+        Action string
+        --
+        Files []BootStageTemplateFile
+    }
+
+    class BootStageTemplateFile {
+        ExistingFileName string
+        --
+        VirtualFileName
+    }
+
+    BootStageTemplate::Files -- BootStageTemplateFile
+
+    note top of BootStageTemplate
+    Boot stage can be overwritten in runtime by device entity or by device rent entity.
+    BootStageTemplate converts to BootStage for device, then we create device entity.
+    end note
+
+    note left of BootStageTemplate::Action
+    Action for this boot stage.
+    Can be: File, CheckPowerSwitch, EmergencyPowerOff,
+    PowerOff, EmergencyPowerOn, PowerOn,
+    CheckManagement
+    For File action:
+        A stage can only be marked complete if all files have
+        been downloaded by the device via TFTP or DHCP,
+        after which the next step can be loaded.
+    end note
+
+    note left of BootStageTemplateFile::ExistingFileName
+    Existing file name is a real full file path with name on the disk.
+    This path is relative from app directory
+    end note
+
+    note left of BootStageTemplateFile::VirtualFileName
+    Virtual file name is relative from /<mac-address>/
+    end note
+}
+
+@enduml

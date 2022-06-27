@@ -1,0 +1,41 @@
+@startuml
+
+!include DeviceTemplateControlDescDto.puml
+!include DeviceTemplateNetworkInterfaceDto.puml
+!include BootStageTemplateDto.puml
+
+package dtos {
+    class DeviceTemplateDto {
+            Name string
+            --
+            Model
+            --
+            Manufacturer
+            --
+            Description string
+            --
+            CPUCount int
+            --
+            CPUModel string
+            --
+            RAM int
+            --
+            NetworkInterfaces []DeviceTemplateNetworkInterfaceDto
+            --
+            Control DeviceTemplateControlDescDto
+            --
+            DiskBootStages []BootStageTemplateDto
+            --
+            NetBootStages []BootStageTemplateDto
+            --
+            USBBootStages []BootStageTemplateDto
+    }
+    DeviceTemplateNetworkInterfaceDto -[hidden]down-DeviceTemplateControlDescDto
+    DeviceTemplateDto::NetworkInterfaces -right- DeviceTemplateNetworkInterfaceDto
+    DeviceTemplateDto::Control -right- DeviceTemplateControlDescDto
+    DeviceTemplateDto::DiskBootStages -left- BootStageTemplateDto
+    DeviceTemplateDto::NetBootStages -- BootStageTemplateDto
+    DeviceTemplateDto::USBBootStages -- BootStageTemplateDto
+}
+
+@enduml

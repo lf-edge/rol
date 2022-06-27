@@ -7,7 +7,7 @@ package dtos {
         Password string
     }
 
-    EthernetSwitchUpdateDto *-- EthernetSwitchBaseDto
+    EthernetSwitchUpdateDto --* EthernetSwitchBaseDto
 }
 
 @enduml

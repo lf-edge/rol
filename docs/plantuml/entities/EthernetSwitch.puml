@@ -16,8 +16,6 @@ package domain {
         Username string
         --
         Password string
-        --
-        Ports []EthernetSwitchPort
     }
     note left of EthernetSwitch::Serial
     Unique
@@ -27,7 +25,8 @@ package domain {
     Ip address of the switch
     end note
 
-    EthernetSwitch *-- Entity
+    EthernetSwitch -down-* Entity
     EthernetSwitch::SwitchModel -right- EthernetSwitchModel
 }
+
 @enduml

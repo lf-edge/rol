@@ -4,8 +4,14 @@
 !include GormGenericRepository.puml
 
 package infrastructure {
-    class LogRepository<Log>
+    class LogRepository
 
-    LogRepository *-- GormGenericRepository
+    LogRepository -down-* GormGenericRepository
+
+    note "EntityType is Log" as LogTypeNote
+
+    LogRepository .down. LogTypeNote
+    GormGenericRepository <.up. LogTypeNote
+    Log .. LogTypeNote
 }
 @enduml

@@ -5,5 +5,5 @@ class EthernetSwitchPortCreateDto {
 
 }
 
-EthernetSwitchPortCreateDto *-- EthernetSwitchPortBaseDto
+EthernetSwitchPortCreateDto --* EthernetSwitchPortBaseDto
 @enduml

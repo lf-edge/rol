@@ -12,7 +12,7 @@ package domain {
         --
         Message string
     }
-    Log *-- Entity
+    Log -down-* Entity
 }
 
 @enduml

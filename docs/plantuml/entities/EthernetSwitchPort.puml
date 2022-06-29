@@ -1,19 +1,23 @@
 @startuml EthernetSwitchPort
 
 !include Entity.puml
-!include EthernetSwitchPoePortType.puml
 
 package domain {
     class EthernetSwitchPort {
         EthernetSwitchId uuid.UUID
         --
-        PoeType EthernetSwitchPoePortType
+        POEType string
         --
         Name string
     }
 
-    EthernetSwitchPort::PoeType -- EthernetSwitchPoePortType
     EthernetSwitchPort -down-* Entity
+
+    note left of EthernetSwitchPort::POEType
+      POE port type
+      can be: "poe", "poe+", "passive24", "none"
+    end note
+
     note left of EthernetSwitchPort::Name
       Unique within 1 switch
     end note

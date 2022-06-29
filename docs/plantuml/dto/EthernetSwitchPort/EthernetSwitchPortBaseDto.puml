@@ -3,7 +3,7 @@
 class EthernetSwitchPortBaseDto {
     EthernetSwitchID uuid.UUID
     --
-    PoeType int
+    POEType string
     --
     Name string
 }

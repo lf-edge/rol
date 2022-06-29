@@ -6,7 +6,7 @@ package dtos {
         --
         Serial string
         --
-        SwitchModel int
+        SwitchModel string
         --
         Address string
         --

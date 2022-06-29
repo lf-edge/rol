@@ -1,7 +1,6 @@
 @startuml
 
 !include Entity.puml
-!include EthernetSwitchModel.puml
 
 package domain {
     class EthernetSwitch {
@@ -9,7 +8,7 @@ package domain {
         --
         Serial string
         --
-        SwitchModel EthernetSwitchModel
+        SwitchModel string
         --
         Address string
         --
@@ -26,7 +25,6 @@ package domain {
     end note
 
     EthernetSwitch -down-* Entity
-    EthernetSwitch::SwitchModel -right- EthernetSwitchModel
 }
 
 @enduml

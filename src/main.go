@@ -37,6 +37,7 @@ func main() {
 			infrastructure.NewAppLogRepository,
 			infrastructure.NewLogrusLogger,
 			infrastructure.NewEthernetSwitchPortRepository,
+			infrastructure.NewDeviceTemplateStorage,
 			// Application logic
 			services.NewEthernetSwitchService,
 			services.NewHTTPLogService,

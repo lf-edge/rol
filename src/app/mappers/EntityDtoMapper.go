@@ -2,7 +2,6 @@ package mappers
 
 import (
 	"fmt"
-	"rol/app/interfaces"
 	"rol/domain"
 	"rol/dtos"
 )
@@ -37,7 +36,7 @@ func MapDtoToEntity(dto interface{}, entity interface{}) error {
 //	dto - dest DTO
 //Return
 //  error - if error occurs return error, otherwise nil
-func MapEntityToDto(entity interfaces.IEntityModel, dto interface{}) error {
+func MapEntityToDto(entity interface{}, dto interface{}) error {
 	switch entity.(type) {
 	// EthernetSwitch
 	case domain.EthernetSwitch:
@@ -51,6 +50,9 @@ func MapEntityToDto(entity interfaces.IEntityModel, dto interface{}) error {
 	//AppLog
 	case domain.AppLog:
 		MapAppLogEntityToDto(entity.(domain.AppLog), dto.(*dtos.AppLogDto))
+	//DeviceTemplate
+	case domain.DeviceTemplate:
+		MapDeviceTemplateToDto(entity.(domain.DeviceTemplate), dto.(*dtos.DeviceTemplateDto))
 	default:
 		return fmt.Errorf("[mapper]: Can't find route for map entity %+v to dto %+v", entity, dto)
 	}

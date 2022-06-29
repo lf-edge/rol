@@ -51,6 +51,7 @@ func main() {
 			controllers.NewHTTPLogGinController,
 			controllers.NewAppLogGinController,
 			controllers.NewEthernetSwitchPortGinController,
+			controllers.NewDeviceTemplateController,
 		),
 		fx.Invoke(
 			infrastructure.RegisterLogHooks,
@@ -58,6 +59,7 @@ func main() {
 			controllers.RegisterHTTPLogController,
 			controllers.RegisterAppLogController,
 			controllers.RegisterEthernetSwitchPortController,
+			controllers.RegisterDeviceTemplateController,
 			webapi.StartHTTPServer,
 		),
 	)

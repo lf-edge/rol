@@ -1,0 +1,40 @@
+@startuml
+!include GenericService.puml
+!include ../repositories/EthernetSwitchPortRepository.puml
+!include ../dto/EthernetSwitchPort/EthernetSwitchPortCreateDto.puml
+!include ../dto/EthernetSwitchPort/EthernetSwitchPortUpdateDto.puml
+!include ../dto/EthernetSwitchPort/EthernetSwitchPortDto.puml
+
+package app {
+    class EthernetSwitchPortService {
+        repository IGenericRepository<EthernetSwitchPort>
+        --
+    }
+
+    note left of EthernetSwitchPortService
+        Advanced business logic for EthernetSwitchPort entity
+        For example:
+        DTO Validation
+        Checking the uniqueness of port names
+    end note
+
+    EthernetSwitchPortRepository -right- EthernetSwitchPortService::repository
+    GenericService -up-* EthernetSwitchPortService
+
+    EthernetSwitchPortService .[hidden]up. IGenericRepository
+
+    note as EthernetSwitchPortServiceTypes
+    EntityType is EthernetSwitch
+    CreateDtoType is EthernetSwitchCreateDto
+    UpdateDtoType is EthernetSwitchUpdateDto
+    DtoType is EthernetSwitchDto
+    end note
+
+    EthernetSwitchPortService .down. EthernetSwitchPortServiceTypes
+    GenericService <.up. EthernetSwitchPortServiceTypes
+
+    EthernetSwitchPortServiceTypes .. EthernetSwitchPortCreateDto
+    EthernetSwitchPortServiceTypes .. EthernetSwitchPortUpdateDto
+    EthernetSwitchPortServiceTypes .. EthernetSwitchPortDto
+}
+@enduml

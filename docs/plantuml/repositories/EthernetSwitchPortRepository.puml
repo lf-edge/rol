@@ -1,0 +1,20 @@
+@startuml
+
+!include ../entities/EthernetSwitchPort.puml
+!include GormGenericRepository.puml
+
+package infrastructure {
+    class EthernetSwitchPortRepository
+
+    EthernetSwitchPortRepository -down-* GormGenericRepository
+
+
+    note "EntityType is EthernetSwitchPort" as EthernetSwitchPortTypeNote
+
+    EthernetSwitchPortRepository .down. EthernetSwitchPortTypeNote
+    GormGenericRepository <.up. EthernetSwitchPortTypeNote
+    EthernetSwitchPort .. EthernetSwitchPortTypeNote
+}
+
+
+@enduml

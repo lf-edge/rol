@@ -2,10 +2,12 @@
 
 !include EthernetSwitchPortBaseDto.puml
 !include ../BaseDto.puml
-class EthernetSwitchPortDto {
 
+package dtos {
+    class EthernetSwitchPortDto
+
+    EthernetSwitchPortDto --* BaseDto
+    EthernetSwitchPortDto --* EthernetSwitchPortBaseDto
 }
 
-EthernetSwitchPortDto --* BaseDto
-EthernetSwitchPortDto --* EthernetSwitchPortBaseDto
 @enduml

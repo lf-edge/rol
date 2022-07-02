@@ -1,9 +1,11 @@
 @startuml EthernetSwitchPortCreateDto
+
 !include EthernetSwitchPortBaseDto.puml
 
-class EthernetSwitchPortCreateDto {
+package dtos {
+    class EthernetSwitchPortCreateDto
 
+    EthernetSwitchPortCreateDto --* EthernetSwitchPortBaseDto
 }
 
-EthernetSwitchPortCreateDto --* EthernetSwitchPortBaseDto
 @enduml

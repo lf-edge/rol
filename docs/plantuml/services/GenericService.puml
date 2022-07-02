@@ -3,7 +3,7 @@
 
 package app {
     class GenericService<EntityType, CreateDtoType, UpdateDtoType, DtoType> {
-        repository IGenericRepository
+        repository IGenericRepository<EntityType>
         --
         logger *logrus.Logger
         --

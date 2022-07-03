@@ -16,6 +16,14 @@ type EthernetSwitch struct {
 	Username string
 	//	Password - switch management password
 	Password string
-	//	Ports - Switch ports
-	Ports []EthernetSwitchPort
+}
+
+//EthernetSwitchModel - Ethernet switch model info
+type EthernetSwitchModel struct {
+	//Code - unique switch model code
+	Code string
+	//Manufacturer - Switch model manufacturer
+	Manufacturer string
+	//Series - Switch model
+	Model string
 }

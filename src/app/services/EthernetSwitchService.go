@@ -2,8 +2,10 @@ package services
 
 import (
 	"context"
+	"fmt"
 	"github.com/google/uuid"
 	"rol/app/interfaces"
+	"rol/app/mappers"
 	"rol/app/validators"
 	"rol/domain"
 	"rol/dtos"
@@ -17,6 +19,7 @@ type EthernetSwitchService struct {
 		dtos.EthernetSwitchCreateDto,
 		dtos.EthernetSwitchUpdateDto,
 		domain.EthernetSwitch]
+	supportedList *[]domain.EthernetSwitchModel
 }
 
 //NewEthernetSwitchService constructor for domain.EthernetSwitch service
@@ -31,9 +34,53 @@ func NewEthernetSwitchService(rep interfaces.IGenericRepository[domain.EthernetS
 	dtos.EthernetSwitchUpdateDto,
 	domain.EthernetSwitch], error) {
 	genericService, err := NewGenericService[dtos.EthernetSwitchDto, dtos.EthernetSwitchCreateDto, dtos.EthernetSwitchUpdateDto, domain.EthernetSwitch](rep, log)
-	return &EthernetSwitchService{
+	if err != nil {
+		return nil, err
+	}
+	ethernetSwitchService := &EthernetSwitchService{
 		GenericService: genericService,
-	}, err
+		supportedList:  &[]domain.EthernetSwitchModel{},
+	}
+	ethernetSwitchService.initSupportedList()
+	return ethernetSwitchService, nil
+}
+
+func (e *EthernetSwitchService) initSupportedList() {
+
+	//Ubiquity UniFi Switch US-24-250W
+	ubiquityUnifiSwitchUs24250W := domain.EthernetSwitchModel{
+		Model:        "UniFi Switch US-24-250W",
+		Manufacturer: "Ubiquity",
+		Code:         "unifi_switch_us-24-250w",
+	}
+	*e.supportedList = append(*e.supportedList, ubiquityUnifiSwitchUs24250W)
+}
+
+func (e *EthernetSwitchService) sLog(ctx context.Context, level, message string) {
+	entry := e.logger.WithFields(logrus.Fields{
+		"actionID": ctx.Value("requestID"),
+		"source":   "EthernetSwitchService",
+	})
+	switch level {
+	case "err":
+		entry.Error(message)
+	case "info":
+		entry.Info(message)
+	case "warn":
+		entry.Warn(message)
+	case "debug":
+		entry.Debug(message)
+	}
+}
+
+func (e EthernetSwitchService) modelIsSupported(model string) bool {
+	modelIsSupported := false
+	for _, supportedModel := range *e.supportedList {
+		if model == supportedModel.Code {
+			modelIsSupported = true
+		}
+	}
+	return modelIsSupported
 }
 
 //GetList Get list of ethernet switches with filtering and pagination
@@ -74,6 +121,9 @@ func (e *EthernetSwitchService) Update(ctx context.Context, updateDto dtos.Ether
 	if err != nil {
 		return err
 	}
+	if !e.modelIsSupported(updateDto.SwitchModel) {
+		return fmt.Errorf("switch model is not supported")
+	}
 	return e.GenericService.Update(ctx, updateDto, id)
 }
 
@@ -89,6 +139,9 @@ func (e *EthernetSwitchService) Create(ctx context.Context, createDto dtos.Ether
 	if err != nil {
 		return [16]byte{}, err
 	}
+	if !e.modelIsSupported(createDto.SwitchModel) {
+		return [16]byte{}, fmt.Errorf("switch model is not supported")
+	}
 	return e.GenericService.Create(ctx, createDto)
 }
 
@@ -100,4 +153,17 @@ func (e *EthernetSwitchService) Create(ctx context.Context, createDto dtos.Ether
 //	error - if an error occurs, otherwise nil
 func (e *EthernetSwitchService) Delete(ctx context.Context, id uuid.UUID) error {
 	return e.GenericService.Delete(ctx, id)
+}
+
+//GetSupportedModels Get supported switch models
+//Return
+//	*[]dtos.EthernetSwitchModelDto - Ethernet switch model DTO's that supported by system
+func (e *EthernetSwitchService) GetSupportedModels() *[]dtos.EthernetSwitchModelDto {
+	supportedModelsDtos := []dtos.EthernetSwitchModelDto{}
+	for _, model := range *e.supportedList {
+		modelDto := dtos.EthernetSwitchModelDto{}
+		mappers.MapEthernetSwitchModelToDto(model, &modelDto)
+		supportedModelsDtos = append(supportedModelsDtos, modelDto)
+	}
+	return &supportedModelsDtos
 }

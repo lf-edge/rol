@@ -92,7 +92,7 @@ func (e *EthernetSwitchService) serialIsUnique(ctx context.Context, serial strin
 	}
 	serialEthSwitchList, err := e.GenericService.repository.GetList(ctx, "", "asc", 1, 1, uniqueSerialQueryBuilder)
 	if err != nil {
-		return fmt.Errorf("get list error: %d", err)
+		return fmt.Errorf("get list error: %s", err)
 	}
 	if len(*serialEthSwitchList) > 0 {
 		return fmt.Errorf("switch with this serial number already exist")
@@ -144,7 +144,7 @@ func (e *EthernetSwitchService) Update(ctx context.Context, updateDto dtos.Ether
 
 	err = e.serialIsUnique(ctx, updateDto.Serial, id)
 	if err != nil {
-		return fmt.Errorf("serial number uniqueness check error: %d", err)
+		return fmt.Errorf("serial number uniqueness check error: %s", err)
 	}
 
 	return e.GenericService.Update(ctx, updateDto, id)
@@ -160,14 +160,14 @@ func (e *EthernetSwitchService) Update(ctx context.Context, updateDto dtos.Ether
 func (e *EthernetSwitchService) Create(ctx context.Context, createDto dtos.EthernetSwitchCreateDto) (uuid.UUID, error) {
 	err := validators.ValidateEthernetSwitchCreateDto(createDto)
 	if err != nil {
-		return [16]byte{}, fmt.Errorf("dto validation error: %d", err)
+		return [16]byte{}, fmt.Errorf("dto validation error: %s", err)
 	}
 	if !e.modelIsSupported(createDto.SwitchModel) {
 		return [16]byte{}, fmt.Errorf("this switch model is not supported")
 	}
 	err = e.serialIsUnique(ctx, createDto.Serial, [16]byte{})
 	if err != nil {
-		return [16]byte{}, fmt.Errorf("serial number uniqueness check error: %d", err)
+		return [16]byte{}, fmt.Errorf("serial number uniqueness check error: %s", err)
 	}
 	return e.GenericService.Create(ctx, createDto)
 }

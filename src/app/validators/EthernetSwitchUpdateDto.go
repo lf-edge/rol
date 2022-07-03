@@ -10,17 +10,33 @@ import (
 //	Return
 //	error - if an error occurs, otherwise nil
 func ValidateEthernetSwitchUpdateDto(dto dtos.EthernetSwitchUpdateDto) error {
-	expr, _ := regexp.Compile(`^[\w\d.]*$`)
-	fieldRule := []validation.Rule{
-		validation.Required,
-		validation.Match(expr).Error("field cannot start or end with spaces"),
-	}
 	return validation.ValidateStruct(&dto,
-		validation.Field(&dto.Name, fieldRule...),
-		validation.Field(&dto.Address, fieldRule...),
-		validation.Field(&dto.Serial, fieldRule...),
-		validation.Field(&dto.Username, fieldRule...),
-		validation.Field(&dto.Password, fieldRule...),
-		validation.Field(&dto.SwitchModel, fieldRule...),
-	)
+		validation.Field(&dto.Name, []validation.Rule{
+			validation.Required,
+			validation.By(trimValidation),
+			validation.By(containsSpacesValidation),
+		}...),
+		validation.Field(&dto.Address, []validation.Rule{
+			validation.Required,
+			validation.Match(regexp.MustCompile(regexpIPv4)).
+				Error(regexpIPv4Desc),
+		}...),
+		validation.Field(&dto.Serial, []validation.Rule{
+			validation.Required,
+			validation.By(trimValidation),
+			validation.By(containsSpacesValidation),
+		}...),
+		validation.Field(&dto.Username, []validation.Rule{
+			validation.Required,
+			validation.Match(regexp.MustCompile(regexpUsername)).
+				Error(regexpUsernameDesc),
+		}...),
+		validation.Field(&dto.Password, []validation.Rule{
+			validation.Required,
+			validation.Length(6, 60),
+		}...),
+		validation.Field(&dto.SwitchModel, []validation.Rule{
+			validation.Required,
+			validation.By(trimValidation),
+		}...))
 }

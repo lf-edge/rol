@@ -103,6 +103,28 @@ func Test_EthernetSwitchService_CreateFailByNotUniqueSerial(t *testing.T) {
 			Name:        "AutoTesting",
 			Serial:      "test_serial",
 			SwitchModel: "unifi_switch_us-24-250w",
+			Address:     "123.123.123.124",
+			Username:    "AutoUser",
+		},
+		//  pragma: allowlist nextline secret
+		Password: "AutoPass",
+	}
+	id, err := testerSwitchService.GenericServiceCreate(createDto)
+	if err == nil {
+		secondErr := testerSwitchService.GenericServiceDelete(id)
+		if secondErr != nil {
+			t.Error(err, secondErr)
+		}
+		t.Error("created switch with duplicate serial number")
+	}
+}
+
+func Test_EthernetSwitchService_CreateFailByNotUniqueAddress(t *testing.T) {
+	createDto := dtos.EthernetSwitchCreateDto{
+		EthernetSwitchBaseDto: dtos.EthernetSwitchBaseDto{
+			Name:        "AutoTesting",
+			Serial:      "test_serial1",
+			SwitchModel: "unifi_switch_us-24-250w",
 			Address:     "123.123.123.123",
 			Username:    "AutoUser",
 		},
@@ -115,7 +137,7 @@ func Test_EthernetSwitchService_CreateFailByNotUniqueSerial(t *testing.T) {
 		if secondErr != nil {
 			t.Error(err, secondErr)
 		}
-		t.Error("сreated switch with duplicate serial number")
+		t.Error("created switch with duplicate address")
 	}
 }
 
@@ -158,7 +180,7 @@ func Test_EthernetSwitchService_Create20(t *testing.T) {
 				Name:        fmt.Sprintf("AutoTesting_%d", i),
 				Serial:      fmt.Sprintf("auto_serial_%d", i),
 				SwitchModel: "unifi_switch_us-24-250w",
-				Address:     "123.123.123.123",
+				Address:     fmt.Sprintf("123.123.123.%d", i+1),
 				Username:    "AutoUser",
 			},
 			//  pragma: allowlist nextline secret

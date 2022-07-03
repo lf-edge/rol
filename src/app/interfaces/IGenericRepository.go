@@ -45,6 +45,15 @@ type IGenericRepository[EntityType IEntityModel] interface {
 	//  *EntityType - pointer to the entity.
 	//	error - if an error occurred, otherwise nil
 	GetByID(ctx context.Context, id uuid.UUID) (*EntityType, error)
+	//GetByIDExtended Get entity by ID and query from repository
+	//Params
+	//	ctx - context is used only for logging
+	//	id - entity id
+	//	queryBuilder - extended query conditions
+	//Return
+	//	*EntityType - point to entity if existed, otherwise nil
+	//	error - if an error occurs, otherwise nil
+	GetByIDExtended(ctx context.Context, id uuid.UUID, queryBuilder IQueryBuilder) (*EntityType, error)
 	//Update
 	//	Save the changes to the existing entity in the repository.
 	//Params

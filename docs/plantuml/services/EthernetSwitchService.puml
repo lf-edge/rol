@@ -9,13 +9,18 @@ package app {
     class EthernetSwitchService {
         repository IGenericRepository<EthernetSwitch>
         --
+        +GetSupportedModels()
     }
 
+    note left of EthernetSwitchService::GetSupportedModels
+    Get ethernet switch models that supported by system
+    end note
+
     note left of EthernetSwitchService
-        Advanced business logic for EthernetSwitch entity
-        For example:
+        Advanced business logic for EthernetSwitch entity:
         DTO Validation
         Checking the uniqueness of serial numbers
+        Checking the uniqueness of addresses
     end note
 
     EthernetSwitchRepository -right- EthernetSwitchService::repository

@@ -21,6 +21,7 @@ package domain {
     end note
 
     note left of EthernetSwitch::Address
+    Unique
     Ip address of the switch
     end note
 

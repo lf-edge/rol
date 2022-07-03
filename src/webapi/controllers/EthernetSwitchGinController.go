@@ -26,11 +26,11 @@ func RegisterSwitchController(controller *EthernetSwitchGinController, server *w
 	groupRoute := server.Engine.Group("/api/v1")
 
 	groupRoute.GET("/switch/", controller.GetList)
+	groupRoute.GET("/switch/models", controller.GetSupportedModels)
 	groupRoute.GET("/switch/:id", controller.GetByID)
 	groupRoute.POST("/switch", controller.Create)
 	groupRoute.PUT("/switch/:id", controller.Update)
 	groupRoute.DELETE("/switch/:id", controller.Delete)
-	groupRoute.GET("/switch/models", controller.GetSupportedModels)
 }
 
 //GetList get list of switches with search and pagination

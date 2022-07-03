@@ -75,7 +75,7 @@ func Test_EthernetSwitchService_CreateFailByModel(t *testing.T) {
 func Test_EthernetSwitchService_CreateOK(t *testing.T) {
 	createDto := dtos.EthernetSwitchCreateDto{
 		EthernetSwitchBaseDto: dtos.EthernetSwitchBaseDto{
-			Name:        "AutoTesting",
+			Name:        "Auto Testing",
 			Serial:      "test_serial",
 			SwitchModel: "unifi_switch_us-24-250w",
 			Address:     "123.123.123.123",
@@ -107,7 +107,7 @@ func Test_EthernetSwitchService_Update(t *testing.T) {
 			Username:    "Test",
 		},
 		//  pragma: allowlist nextline secret
-		Password: "Test",
+		Password: "AutoPass",
 	}
 	err := testerSwitchService.GenericServiceUpdate(updateDto, testerSwitchService.InsertedID)
 	if err != nil {

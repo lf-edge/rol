@@ -92,18 +92,7 @@ func (g *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) addS
 	queryBuilder = queryBuilder.WhereQuery(queryGroup)
 }
 
-//GetList Get list of elements with filtering and pagination
-//Params
-//	ctx - context is used only for logging
-//	search - string for search in entity string fields
-//	orderBy - order by entity field name
-//	orderDirection - ascending or descending order
-//	page - page number
-//	pageSize - page size
-//Return
-//	*dtos.PaginatedListDto[DtoType] - pointer to paginated list
-//	error - if an error occurs, otherwise nil
-func (g *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) GetList(ctx context.Context, search, orderBy, orderDirection string, page, pageSize int) (*dtos.PaginatedListDto[DtoType], error) {
+func (g *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) getListBasic(ctx context.Context, queryBuilder interfaces.IQueryBuilder, orderBy, orderDirection string, page, pageSize int) (*dtos.PaginatedListDto[DtoType], error) {
 	pageFinal := page
 	pageSizeFinal := pageSize
 	if page < 1 {
@@ -112,16 +101,11 @@ func (g *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) GetL
 	if pageSize < 1 {
 		pageSizeFinal = 10
 	}
-	searchQueryBuilder := g.repository.NewQueryBuilder(ctx)
-	g.excludeDeleted(searchQueryBuilder)
-	if len(search) > 3 {
-		g.addSearchInAllFields(search, searchQueryBuilder)
-	}
-	entities, err := g.repository.GetList(ctx, orderBy, orderDirection, pageFinal, pageSizeFinal, searchQueryBuilder)
+	entities, err := g.repository.GetList(ctx, orderBy, orderDirection, pageFinal, pageSizeFinal, queryBuilder)
 	if err != nil {
 		return nil, err
 	}
-	count, err := g.repository.Count(ctx, searchQueryBuilder)
+	count, err := g.repository.Count(ctx, queryBuilder)
 	if err != nil {
 		return nil, err
 	}
@@ -143,32 +127,30 @@ func (g *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) GetL
 	return paginatedDto, nil
 }
 
-func (g *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) getByIDExcludeDeleted(ctx context.Context, id uuid.UUID) (*EntityType, error) {
-	queryBuilder := g.repository.NewQueryBuilder(ctx)
-	g.excludeDeleted(queryBuilder)
-	queryBuilder.Where("id", "=", id)
-	entities, err := g.repository.GetList(ctx, "id", "DESC", 1, 1, queryBuilder)
-	if err != nil {
-		return nil, err
-	}
-	if len(*entities) == 0 {
-		return nil, nil
-	}
-	entity := &(*entities)[0]
-	return entity, nil
-}
-
-//GetByID Get entity by ID
+//GetList Get list of elements with filtering and pagination
 //Params
 //	ctx - context is used only for logging
-//	id - entity id
+//	search - string for search in entity string fields
+//	orderBy - order by entity field name
+//	orderDirection - ascending or descending order
+//	page - page number
+//	pageSize - page size
 //Return
-//	*DtoType - point to dto
+//	*dtos.PaginatedListDto[DtoType] - pointer to paginated list
 //	error - if an error occurs, otherwise nil
-func (g *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) GetByID(ctx context.Context, id uuid.UUID) (*DtoType, error) {
-	entity, err := g.getByIDExcludeDeleted(ctx, id)
+func (g *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) GetList(ctx context.Context, search, orderBy, orderDirection string, page, pageSize int) (*dtos.PaginatedListDto[DtoType], error) {
+	searchQueryBuilder := g.repository.NewQueryBuilder(ctx)
+	g.excludeDeleted(searchQueryBuilder)
+	if len(search) > 3 {
+		g.addSearchInAllFields(search, searchQueryBuilder)
+	}
+	return g.getListBasic(ctx, searchQueryBuilder, orderBy, orderDirection, page, pageSize)
+}
+
+func (g *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) getByIDBasic(ctx context.Context, id uuid.UUID, queryBuilder interfaces.IQueryBuilder) (*DtoType, error) {
+	entity, err := g.repository.GetByIDExtended(ctx, id, queryBuilder)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("failed to get by id: %s", err)
 	}
 	if entity == nil {
 		return nil, nil
@@ -181,6 +163,38 @@ func (g *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) GetB
 	return dto, nil
 }
 
+//GetByID Get entity by ID
+//Params
+//	ctx - context is used only for logging
+//	id - entity id
+//Return
+//	*DtoType - pointer to dto
+//	error - if an error occurs, otherwise nil
+func (g *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) GetByID(ctx context.Context, id uuid.UUID) (*DtoType, error) {
+	queryBuilder := g.repository.NewQueryBuilder(ctx)
+	g.excludeDeleted(queryBuilder)
+	return g.getByIDBasic(ctx, id, queryBuilder)
+}
+
+func (g *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) updateBasic(ctx context.Context, updateDto UpdateDtoType, id uuid.UUID, queryBuilder interfaces.IQueryBuilder) error {
+	entity, err := g.repository.GetByIDExtended(ctx, id, queryBuilder)
+	if err != nil {
+		return fmt.Errorf("failed to get entity by id: %s", err)
+	}
+	if entity == nil {
+		return fmt.Errorf("failed to get entity by id: entity not found")
+	}
+	err = mappers.MapDtoToEntity(updateDto, entity)
+	if err != nil {
+		return fmt.Errorf("failed to get entity by id: entity not found")
+	}
+	err = g.repository.Update(ctx, entity)
+	if err != nil {
+		return fmt.Errorf("failed to update entity: %s", err)
+	}
+	return nil
+}
+
 //Update save the changes to the existing entity
 //Params
 //	ctx - context is used only for logging
@@ -189,23 +203,9 @@ func (g *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) GetB
 //Return
 //	error - if an error occurs, otherwise nil
 func (g *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) Update(ctx context.Context, updateDto UpdateDtoType, id uuid.UUID) error {
-	entity, err := g.getByIDExcludeDeleted(ctx, id)
-	if err != nil {
-		return err
-	}
-	if entity == nil {
-		err := fmt.Errorf("[%s]: [update]: entity with id %d does not exist", g.logSourceName, id)
-		return err
-	}
-	err = mappers.MapDtoToEntity(updateDto, entity)
-	if err != nil {
-		return fmt.Errorf("[%s]: [update]: %s", g.logSourceName, err.Error())
-	}
-	err = g.repository.Update(ctx, entity)
-	if err != nil {
-		return err
-	}
-	return nil
+	queryBuilder := g.repository.NewQueryBuilder(ctx)
+	g.excludeDeleted(queryBuilder)
+	return g.updateBasic(ctx, updateDto, id, queryBuilder)
 }
 
 //Create add new entity
@@ -235,13 +235,14 @@ func (g *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) Crea
 //Return
 //	error - if an error occurs, otherwise nil
 func (g *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) Delete(ctx context.Context, id uuid.UUID) error {
-	entity, err := g.getByIDExcludeDeleted(ctx, id)
+	queryBuilder := g.repository.NewQueryBuilder(ctx)
+	g.excludeDeleted(queryBuilder)
+	entity, err := g.repository.GetByIDExtended(ctx, id, queryBuilder)
 	if err != nil {
-		return err
+		return fmt.Errorf("failed to get entity by id: %s", err)
 	}
 	if entity == nil {
-		err := fmt.Errorf("[%s]: [delete]: entity with id %d does not exist", g.logSourceName, id)
-		return err
+		return fmt.Errorf("failed to get entity by id: entity not found")
 	}
 
 	entityReflect := reflect.ValueOf(entity).Interface().(interfaces.IEntityModelDeletedAt)

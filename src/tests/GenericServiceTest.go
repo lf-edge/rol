@@ -49,13 +49,12 @@ func NewGenericServiceTest[DtoType interface{},
 }
 
 //GenericServiceCreate test create entity
-func (g *GenericServiceTest[DtoType, CreateDtoType, UpdateDtoType, EntityType]) GenericServiceCreate(dto CreateDtoType) error {
-	var err error
-	g.InsertedID, err = g.Service.Create(g.Context, dto)
+func (g *GenericServiceTest[DtoType, CreateDtoType, UpdateDtoType, EntityType]) GenericServiceCreate(dto CreateDtoType) (uuid.UUID, error) {
+	id, err := g.Service.Create(g.Context, dto)
 	if err != nil {
-		return fmt.Errorf("create failed: %s", err)
+		return [16]byte{}, fmt.Errorf("create failed: %s", err)
 	}
-	return nil
+	return id, nil
 }
 
 //GenericServiceGetByID test get entity by id

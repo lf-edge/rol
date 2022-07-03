@@ -83,6 +83,23 @@ func (e EthernetSwitchService) modelIsSupported(model string) bool {
 	return modelIsSupported
 }
 
+func (e EthernetSwitchService) serialIsUnique(ctx context.Context, serial string, id uuid.UUID) error {
+	uniqueSerialQueryBuilder := e.GenericService.repository.NewQueryBuilder(ctx)
+	e.GenericService.excludeDeleted(uniqueSerialQueryBuilder)
+	uniqueSerialQueryBuilder.Where("Serial", "==", serial)
+	if [16]byte{} != id {
+		uniqueSerialQueryBuilder.Where("ID", "!=", id)
+	}
+	serialEthSwitchList, err := e.GenericService.repository.GetList(ctx, "", "asc", 1, 1, uniqueSerialQueryBuilder)
+	if err != nil {
+		return fmt.Errorf("get list error: %d", err)
+	}
+	if len(*serialEthSwitchList) > 0 {
+		return fmt.Errorf("switch with this serial number already exist")
+	}
+	return nil
+}
+
 //GetList Get list of ethernet switches with filtering and pagination
 //Params
 //	ctx - context is used only for logging
@@ -124,12 +141,18 @@ func (e *EthernetSwitchService) Update(ctx context.Context, updateDto dtos.Ether
 	if !e.modelIsSupported(updateDto.SwitchModel) {
 		return fmt.Errorf("switch model is not supported")
 	}
+
+	err = e.serialIsUnique(ctx, updateDto.Serial, id)
+	if err != nil {
+		return fmt.Errorf("serial number uniqueness check error: %d", err)
+	}
+
 	return e.GenericService.Update(ctx, updateDto, id)
 }
 
 //Create add new ethernet switch
 //Params
-//	ctx - context is used only for logging
+//	ctx - context
 //	createDto - ethernet switch create dto
 //Return
 //	uuid.UUID - new ethernet switch id
@@ -137,10 +160,14 @@ func (e *EthernetSwitchService) Update(ctx context.Context, updateDto dtos.Ether
 func (e *EthernetSwitchService) Create(ctx context.Context, createDto dtos.EthernetSwitchCreateDto) (uuid.UUID, error) {
 	err := validators.ValidateEthernetSwitchCreateDto(createDto)
 	if err != nil {
-		return [16]byte{}, err
+		return [16]byte{}, fmt.Errorf("dto validation error: %d", err)
 	}
 	if !e.modelIsSupported(createDto.SwitchModel) {
-		return [16]byte{}, fmt.Errorf("switch model is not supported")
+		return [16]byte{}, fmt.Errorf("this switch model is not supported")
+	}
+	err = e.serialIsUnique(ctx, createDto.Serial, [16]byte{})
+	if err != nil {
+		return [16]byte{}, fmt.Errorf("serial number uniqueness check error: %d", err)
 	}
 	return e.GenericService.Create(ctx, createDto)
 }

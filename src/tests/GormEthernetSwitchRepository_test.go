@@ -51,12 +51,11 @@ func Test_EthernetSwitchRepository_Insert(t *testing.T) {
 	entity := domain.EthernetSwitch{
 		Name:        "AutoTesting",
 		Serial:      "1",
-		SwitchModel: 0,
+		SwitchModel: "unifi_switch_us-24-250w",
 		Address:     "123.123.123.123",
 		Username:    "AutoName",
 		//  pragma: allowlist nextline secret
 		Password: "AutoPass",
-		Ports:    nil,
 	}
 	err := testerSwitchRepository.GenericRepositoryInsert(entity)
 	if err != nil {
@@ -76,12 +75,11 @@ func Test_EthernetSwitchRepository_Update(t *testing.T) {
 		Entity:      domain.Entity{ID: testerSwitchRepository.InsertedID},
 		Name:        "AutoTestingUpdated",
 		Serial:      "1",
-		SwitchModel: 0,
+		SwitchModel: "unifi_switch_us-24-250w",
 		Address:     "123.123.123.123",
 		Username:    "AutoName",
 		//  pragma: allowlist nextline secret
 		Password: "AutoPass",
-		Ports:    nil,
 	}
 	err := testerSwitchRepository.GenericRepositoryUpdate(entity)
 	if err != nil {
@@ -108,12 +106,11 @@ func Test_EthernetSwitchRepository_Insert20(t *testing.T) {
 		entity := domain.EthernetSwitch{
 			Name:        fmt.Sprintf("AutoTesting_%d", i),
 			Serial:      fmt.Sprint(i),
-			SwitchModel: 0,
+			SwitchModel: "unifi_switch_us-24-250w",
 			Address:     "123.123.123.123",
 			Username:    "AutoName",
 			//  pragma: allowlist nextline secret
 			Password: "AutoPass",
-			Ports:    nil,
 		}
 		err := testerSwitchRepository.GenericRepositoryInsert(entity)
 		if err != nil {

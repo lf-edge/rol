@@ -17,7 +17,7 @@ func Test_EthernetSwitchCreateDto(t *testing.T) {
 		EthernetSwitchBaseDto: dtos.EthernetSwitchBaseDto{
 			Name:        " Validate ",
 			Serial:      "",
-			SwitchModel: 0,
+			SwitchModel: "unifi_switch_us-24-250w",
 			Address:     "123.123.123.123",
 			Username:    "AutoUser",
 		},
@@ -37,7 +37,7 @@ func Test_EthernetSwitchUpdateDto(t *testing.T) {
 		EthernetSwitchBaseDto: dtos.EthernetSwitchBaseDto{
 			Name:        " Validate ",
 			Serial:      "",
-			SwitchModel: 0,
+			SwitchModel: "unifi_switch_us-24-250w",
 			Address:     "123.123.123.123",
 			Username:    "AutoUser",
 		},

@@ -14,7 +14,7 @@ func Test_EthernetSwitchCreateDtoToEntity(t *testing.T) {
 		EthernetSwitchBaseDto: dtos.EthernetSwitchBaseDto{
 			Name:        "Mapper",
 			Serial:      "serial",
-			SwitchModel: 0,
+			SwitchModel: "unifi_switch_us-24-250w",
 			Address:     "123.123.123.123",
 			Username:    "Map",
 		},
@@ -43,12 +43,11 @@ func Test_EthernetSwitchEntityToDto(t *testing.T) {
 		},
 		Name:        "ASD",
 		Serial:      "asd",
-		SwitchModel: 0,
+		SwitchModel: "unifi_switch_us-24-250w",
 		Address:     "asd",
 		Username:    "asd",
 		//  pragma: allowlist nextline secret
 		Password: "asd",
-		Ports:    nil,
 	}
 	dto := new(dtos.EthernetSwitchDto)
 	err := tester.MapToDto(entity, dto)

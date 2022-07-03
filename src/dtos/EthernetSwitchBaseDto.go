@@ -7,7 +7,7 @@ type EthernetSwitchBaseDto struct {
 	//	Serial - switch serial number
 	Serial string
 	//	SwitchModel - switch model
-	SwitchModel int
+	SwitchModel string
 	//	Address - switch ip address
 	Address string
 	//	Username - switch admin username

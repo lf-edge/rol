@@ -10,7 +10,7 @@ import (
 //	dto - ethernet switch update dto
 //	entity - dest ethernet switch entity
 func MapEthernetSwitchUpdateDto(dto dtos.EthernetSwitchUpdateDto, entity *domain.EthernetSwitch) {
-	entity.SwitchModel = (domain.EthernetSwitchModel)(dto.SwitchModel)
+	entity.SwitchModel = dto.SwitchModel
 	entity.Name = dto.Name
 	entity.Address = dto.Address
 	//  pragma: allowlist nextline secret
@@ -24,7 +24,7 @@ func MapEthernetSwitchUpdateDto(dto dtos.EthernetSwitchUpdateDto, entity *domain
 //	dto - ethernet switch create dto
 //	entity - dest ethernet switch entity
 func MapEthernetSwitchCreateDto(dto dtos.EthernetSwitchCreateDto, entity *domain.EthernetSwitch) {
-	entity.SwitchModel = (domain.EthernetSwitchModel)(dto.SwitchModel)
+	entity.SwitchModel = dto.SwitchModel
 	entity.Name = dto.Name
 	entity.Address = dto.Address
 	//  pragma: allowlist nextline secret
@@ -42,7 +42,7 @@ func MapEthernetSwitchToDto(entity domain.EthernetSwitch, dto *dtos.EthernetSwit
 	dto.Name = entity.Name
 	dto.Address = entity.Address
 	dto.Username = entity.Username
-	dto.SwitchModel = (int)(entity.SwitchModel)
+	dto.SwitchModel = entity.SwitchModel
 	dto.Serial = entity.Serial
 	dto.CreatedAt = entity.CreatedAt
 	dto.UpdatedAt = entity.UpdatedAt

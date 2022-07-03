@@ -1,14 +1,5 @@
 package domain
 
-//EthernetSwitchModel model of the switch
-type EthernetSwitchModel int
-
-const (
-	//UBIQUITY_US24_250W UniFi Switch US-24-250W
-	//revive:disable-next-line
-	UBIQUITY_US24_250W = iota
-)
-
 //EthernetSwitch ethernet switch entity
 type EthernetSwitch struct {
 	//	Entity - nested base entity
@@ -17,8 +8,8 @@ type EthernetSwitch struct {
 	Name string
 	//	Serial - serial number of the switch
 	Serial string
-	//	SwitchModel - switch model
-	SwitchModel EthernetSwitchModel
+	//	SwitchModel - switch model code
+	SwitchModel string
 	//	Address - switch ip address
 	Address string
 	//	Username - switch management username

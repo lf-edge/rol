@@ -14,6 +14,7 @@ import (
 	"rol/dtos"
 	"rol/infrastructure"
 	"runtime"
+	"strings"
 	"testing"
 )
 
@@ -53,12 +54,30 @@ func Test_EthernetSwitchService_Prepare(t *testing.T) {
 	}
 }
 
-func Test_EthernetSwitchService_Create(t *testing.T) {
+func Test_EthernetSwitchService_CreateFailByModel(t *testing.T) {
 	createDto := dtos.EthernetSwitchCreateDto{
 		EthernetSwitchBaseDto: dtos.EthernetSwitchBaseDto{
 			Name:        "AutoTesting",
 			Serial:      "test_serial",
-			SwitchModel: 0,
+			SwitchModel: "bad_model",
+			Address:     "123.123.123.123",
+			Username:    "AutoUser",
+		},
+		//  pragma: allowlist nextline secret
+		Password: "AutoPass",
+	}
+	err := testerSwitchService.GenericServiceCreate(createDto)
+	if err == nil || !strings.Contains(err.Error(), "switch model is not supported") {
+		t.Error("awaiting switch model is not supported error")
+	}
+}
+
+func Test_EthernetSwitchService_CreateOK(t *testing.T) {
+	createDto := dtos.EthernetSwitchCreateDto{
+		EthernetSwitchBaseDto: dtos.EthernetSwitchBaseDto{
+			Name:        "AutoTesting",
+			Serial:      "test_serial",
+			SwitchModel: "unifi_switch_us-24-250w",
 			Address:     "123.123.123.123",
 			Username:    "AutoUser",
 		},
@@ -83,7 +102,7 @@ func Test_EthernetSwitchService_Update(t *testing.T) {
 		EthernetSwitchBaseDto: dtos.EthernetSwitchBaseDto{
 			Name:        "AutoTestingUpdated",
 			Serial:      "101",
-			SwitchModel: 0,
+			SwitchModel: "unifi_switch_us-24-250w",
 			Address:     "123.123.123.123",
 			Username:    "Test",
 		},
@@ -109,7 +128,7 @@ func Test_EthernetSwitchService_Create20(t *testing.T) {
 			EthernetSwitchBaseDto: dtos.EthernetSwitchBaseDto{
 				Name:        fmt.Sprintf("AutoTesting_%d", i),
 				Serial:      "test_serial",
-				SwitchModel: 0,
+				SwitchModel: "unifi_switch_us-24-250w",
 				Address:     "123.123.123.123",
 				Username:    "AutoUser",
 			},

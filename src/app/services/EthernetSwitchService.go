@@ -100,6 +100,23 @@ func (e *EthernetSwitchService) serialIsUnique(ctx context.Context, serial strin
 	return nil
 }
 
+func (e *EthernetSwitchService) addressIsUnique(ctx context.Context, serial string, id uuid.UUID) error {
+	uniqueSerialQueryBuilder := e.GenericService.repository.NewQueryBuilder(ctx)
+	e.GenericService.excludeDeleted(uniqueSerialQueryBuilder)
+	uniqueSerialQueryBuilder.Where("Address", "==", serial)
+	if [16]byte{} != id {
+		uniqueSerialQueryBuilder.Where("ID", "!=", id)
+	}
+	serialEthSwitchList, err := e.GenericService.repository.GetList(ctx, "", "asc", 1, 1, uniqueSerialQueryBuilder)
+	if err != nil {
+		return fmt.Errorf("get list error: %s", err)
+	}
+	if len(*serialEthSwitchList) > 0 {
+		return fmt.Errorf("switch with this address already exist")
+	}
+	return nil
+}
+
 //GetList Get list of ethernet switches with filtering and pagination
 //Params
 //	ctx - context is used only for logging
@@ -147,6 +164,11 @@ func (e *EthernetSwitchService) Update(ctx context.Context, updateDto dtos.Ether
 		return fmt.Errorf("serial number uniqueness check error: %s", err)
 	}
 
+	err = e.addressIsUnique(ctx, updateDto.Address, id)
+	if err != nil {
+		return fmt.Errorf("address uniqueness check error: %s", err)
+	}
+
 	return e.GenericService.Update(ctx, updateDto, id)
 }
 
@@ -168,6 +190,10 @@ func (e *EthernetSwitchService) Create(ctx context.Context, createDto dtos.Ether
 	err = e.serialIsUnique(ctx, createDto.Serial, [16]byte{})
 	if err != nil {
 		return [16]byte{}, fmt.Errorf("serial number uniqueness check error: %s", err)
+	}
+	err = e.addressIsUnique(ctx, createDto.Address, [16]byte{})
+	if err != nil {
+		return [16]byte{}, fmt.Errorf("address uniqueness check error: %s", err)
 	}
 	return e.GenericService.Create(ctx, createDto)
 }

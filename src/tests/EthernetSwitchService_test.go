@@ -54,7 +54,7 @@ func Test_EthernetSwitchService_Prepare(t *testing.T) {
 	}
 }
 
-func Test_EthernetSwitchService_CreateFailByModel(t *testing.T) {
+func Test_EthernetSwitchService_CreateFailByWrongModel(t *testing.T) {
 	createDto := dtos.EthernetSwitchCreateDto{
 		EthernetSwitchBaseDto: dtos.EthernetSwitchBaseDto{
 			Name:        "AutoTesting",
@@ -66,8 +66,13 @@ func Test_EthernetSwitchService_CreateFailByModel(t *testing.T) {
 		//  pragma: allowlist nextline secret
 		Password: "AutoPass",
 	}
-	err := testerSwitchService.GenericServiceCreate(createDto)
-	if err == nil || !strings.Contains(err.Error(), "switch model is not supported") {
+	id, err := testerSwitchService.GenericServiceCreate(createDto)
+	if err == nil {
+		err = testerSwitchService.GenericServiceDelete(id)
+		if err != nil {
+			t.Error(err)
+		}
+	} else if !strings.Contains(err.Error(), "switch model is not supported") {
 		t.Error("awaiting switch model is not supported error")
 	}
 }
@@ -84,9 +89,33 @@ func Test_EthernetSwitchService_CreateOK(t *testing.T) {
 		//  pragma: allowlist nextline secret
 		Password: "AutoPass",
 	}
-	err := testerSwitchService.GenericServiceCreate(createDto)
+	id, err := testerSwitchService.GenericServiceCreate(createDto)
 	if err != nil {
 		t.Error(err)
+	} else {
+		testerSwitchService.InsertedID = id
+	}
+}
+
+func Test_EthernetSwitchService_CreateFailByNotUniqueSerial(t *testing.T) {
+	createDto := dtos.EthernetSwitchCreateDto{
+		EthernetSwitchBaseDto: dtos.EthernetSwitchBaseDto{
+			Name:        "AutoTesting",
+			Serial:      "test_serial",
+			SwitchModel: "unifi_switch_us-24-250w",
+			Address:     "123.123.123.123",
+			Username:    "AutoUser",
+		},
+		//  pragma: allowlist nextline secret
+		Password: "AutoPass",
+	}
+	id, err := testerSwitchService.GenericServiceCreate(createDto)
+	if err == nil {
+		secondErr := testerSwitchService.GenericServiceDelete(id)
+		if secondErr != nil {
+			t.Error(err, secondErr)
+		}
+		t.Error("сreated switch with duplicate serial number")
 	}
 }
 
@@ -127,7 +156,7 @@ func Test_EthernetSwitchService_Create20(t *testing.T) {
 		createDto := dtos.EthernetSwitchCreateDto{
 			EthernetSwitchBaseDto: dtos.EthernetSwitchBaseDto{
 				Name:        fmt.Sprintf("AutoTesting_%d", i),
-				Serial:      "test_serial",
+				Serial:      fmt.Sprintf("auto_serial_%d", i),
 				SwitchModel: "unifi_switch_us-24-250w",
 				Address:     "123.123.123.123",
 				Username:    "AutoUser",
@@ -135,7 +164,7 @@ func Test_EthernetSwitchService_Create20(t *testing.T) {
 			//  pragma: allowlist nextline secret
 			Password: "AutoPass",
 		}
-		err := testerSwitchService.GenericServiceCreate(createDto)
+		_, err := testerSwitchService.GenericServiceCreate(createDto)
 		if err != nil {
 			t.Error(err)
 		}

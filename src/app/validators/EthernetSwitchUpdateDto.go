@@ -21,5 +21,6 @@ func ValidateEthernetSwitchUpdateDto(dto dtos.EthernetSwitchUpdateDto) error {
 		validation.Field(&dto.Serial, fieldRule...),
 		validation.Field(&dto.Username, fieldRule...),
 		validation.Field(&dto.Password, fieldRule...),
+		validation.Field(&dto.SwitchModel, fieldRule...),
 	)
 }

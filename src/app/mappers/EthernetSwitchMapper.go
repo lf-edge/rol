@@ -47,3 +47,13 @@ func MapEthernetSwitchToDto(entity domain.EthernetSwitch, dto *dtos.EthernetSwit
 	dto.CreatedAt = entity.CreatedAt
 	dto.UpdatedAt = entity.UpdatedAt
 }
+
+//MapEthernetSwitchModelToDto writes ethernet switch model fields to dto
+//Params
+//	entity - ethernet switch model
+//	dto - dest ethernet switch dto
+func MapEthernetSwitchModelToDto(entity domain.EthernetSwitchModel, dto *dtos.EthernetSwitchModelDto) {
+	dto.Code = entity.Code
+	dto.Manufacturer = entity.Manufacturer
+	dto.Model = entity.Model
+}

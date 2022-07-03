@@ -2,7 +2,9 @@ package controllers
 
 import (
 	"github.com/gin-gonic/gin"
+	"net/http"
 	"rol/app/interfaces"
+	"rol/app/services"
 	"rol/domain"
 	"rol/dtos"
 	"rol/webapi"
@@ -28,6 +30,7 @@ func RegisterSwitchController(controller *EthernetSwitchGinController, server *w
 	groupRoute.POST("/switch", controller.Create)
 	groupRoute.PUT("/switch/:id", controller.Update)
 	groupRoute.DELETE("/switch/:id", controller.Delete)
+	groupRoute.GET("/switch/models", controller.GetSupportedModels)
 }
 
 //GetList get list of switches with search and pagination
@@ -107,6 +110,22 @@ func (e *EthernetSwitchGinController) Update(ctx *gin.Context) {
 // @router /switch/{id} [delete]
 func (e *EthernetSwitchGinController) Delete(ctx *gin.Context) {
 	e.GinGenericController.Delete(ctx)
+}
+
+//GetSupportedModels Get supported switch models
+//	Params
+//	ctx - gin context
+// @Summary Get ethernet switch supported models
+// @version 1.0
+// @Tags ethernet switch
+// @Accept  json
+// @Produce  json
+// @Success 200 {object} dtos.EthernetSwitchModel
+// @router /switch/models [get]
+func (e *EthernetSwitchGinController) GetSupportedModels(ctx *gin.Context) {
+	service := e.GinGenericController.service.(*services.EthernetSwitchService)
+	modelsDtoSlice := service.GetSupportedModels()
+	ctx.JSON(http.StatusOK, modelsDtoSlice)
 }
 
 //NewEthernetSwitchGinController ethernet switch controller constructor. Parameters pass through DI

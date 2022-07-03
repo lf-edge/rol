@@ -184,6 +184,41 @@ func (g *GormGenericRepository[EntityType]) GetByID(ctx context.Context, id uuid
 	return entity, nil
 }
 
+//GetByIDExtended Get entity by ID and query from repository
+//Params
+//	ctx - context is used only for logging
+//	id - entity id
+//	queryBuilder - extended query conditions
+//Return
+//	*EntityType - point to entity
+//	error - if an error occurs, otherwise nil
+func (g *GormGenericRepository[EntityType]) GetByIDExtended(ctx context.Context, id uuid.UUID, queryBuilder interfaces.IQueryBuilder) (*EntityType, error) {
+	g.log(ctx, "debug", fmt.Sprintf("GetByIDExtended: id=%s, query builder: %s", id, queryBuilder))
+	model := new(EntityType)
+	gormQuery := g.Db.Model(model)
+	fullQueryBuilder := g.NewQueryBuilder(ctx)
+	fullQueryBuilder.Where("ID", "==", id)
+	if queryBuilder != nil {
+		fullQueryBuilder.WhereQuery(queryBuilder)
+	}
+	err := g.addQueryToGorm(gormQuery, fullQueryBuilder)
+	if err != nil {
+		return nil, fmt.Errorf("failed add query to gorm query: %s", err)
+	}
+	entities := &[]EntityType{}
+	var entity *EntityType
+	err = gormQuery.Find(entities).Error
+	if err != nil {
+		return nil, fmt.Errorf("gorm query db error: %s", err)
+	}
+	if len(*entities) < 1 {
+		return nil, nil
+	}
+	entity = &(*entities)[0]
+	g.log(ctx, "debug", fmt.Sprintf("GetByID: entity=%+v", entity))
+	return entity, nil
+}
+
 //Update
 //	Save the changes to the existing entity in the repository
 //Params

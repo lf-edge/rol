@@ -10,6 +10,7 @@ type IGenericRepository[EntityType IEntityModel] interface {
 	//GetList
 	//	Get list of elements with filtering and pagination.
 	//Params
+	//	ctx - context
 	//  orderBy - order field name
 	//	orderDirection - Order direction, desc/asc
 	//	page - number of the page
@@ -22,6 +23,7 @@ type IGenericRepository[EntityType IEntityModel] interface {
 	//Count
 	// Get count of entities with filtering
 	//Params
+	//	ctx - context
 	//	queryBuilder - QueryBuilder is repo.NewQueryBuilder()
 	//Return
 	//	int64 - count of entities
@@ -29,12 +31,15 @@ type IGenericRepository[EntityType IEntityModel] interface {
 	Count(ctx context.Context, queryBuilder IQueryBuilder) (int64, error)
 	//NewQueryBuilder
 	//	Get QueryBuilder
+	//Params
+	//	ctx - context
 	//Return
 	//	IQueryBuilder pointer to object that implements IQueryBuilder interface for this repository
 	NewQueryBuilder(ctx context.Context) IQueryBuilder
 	//GetByID
 	//	Get entity by ID from repository.
 	//Params
+	//	ctx - context
 	//	id - entity id
 	//Return
 	//  *EntityType - pointer to the entity.
@@ -43,6 +48,7 @@ type IGenericRepository[EntityType IEntityModel] interface {
 	//Update
 	//	Save the changes to the existing entity in the repository.
 	//Params
+	//	ctx - context
 	//  entity - pointer to the entity.
 	//Return
 	//	error - if an error occurred, otherwise nil
@@ -50,6 +56,7 @@ type IGenericRepository[EntityType IEntityModel] interface {
 	//Insert
 	//	Add entity to the repository.
 	//Params
+	//	ctx - context
 	//  entity - pointer to the entity for update.
 	//Return
 	//	uuid.UUID - entity id
@@ -58,6 +65,7 @@ type IGenericRepository[EntityType IEntityModel] interface {
 	//Delete
 	//	Mark an entity as deleted in the repository.
 	//Params
+	//	ctx - context
 	//  id - id of the entity for delete.
 	//Return
 	//	error - if an error occurred, otherwise nil

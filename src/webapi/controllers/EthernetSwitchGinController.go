@@ -120,7 +120,7 @@ func (e *EthernetSwitchGinController) Delete(ctx *gin.Context) {
 // @Tags ethernet switch
 // @Accept  json
 // @Produce  json
-// @Success 200 {object} dtos.EthernetSwitchModel
+// @Success 200 {object} []dtos.EthernetSwitchModelDto
 // @router /switch/models [get]
 func (e *EthernetSwitchGinController) GetSupportedModels(ctx *gin.Context) {
 	service := e.GinGenericController.service.(*services.EthernetSwitchService)

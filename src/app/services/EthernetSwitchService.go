@@ -73,7 +73,7 @@ func (e *EthernetSwitchService) sLog(ctx context.Context, level, message string)
 	}
 }
 
-func (e EthernetSwitchService) modelIsSupported(model string) bool {
+func (e *EthernetSwitchService) modelIsSupported(model string) bool {
 	modelIsSupported := false
 	for _, supportedModel := range *e.supportedList {
 		if model == supportedModel.Code {
@@ -83,7 +83,7 @@ func (e EthernetSwitchService) modelIsSupported(model string) bool {
 	return modelIsSupported
 }
 
-func (e EthernetSwitchService) serialIsUnique(ctx context.Context, serial string, id uuid.UUID) error {
+func (e *EthernetSwitchService) serialIsUnique(ctx context.Context, serial string, id uuid.UUID) error {
 	uniqueSerialQueryBuilder := e.GenericService.repository.NewQueryBuilder(ctx)
 	e.GenericService.excludeDeleted(uniqueSerialQueryBuilder)
 	uniqueSerialQueryBuilder.Where("Serial", "==", serial)

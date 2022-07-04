@@ -11,7 +11,6 @@ import (
 //	entity - dest ethernet switch port entity
 func MapEthernetSwitchPortCreateDto(dto dtos.EthernetSwitchPortCreateDto, entity *domain.EthernetSwitchPort) {
 	entity.Name = dto.Name
-	entity.EthernetSwitchID = dto.EthernetSwitchID
 	entity.POEType = dto.POEType
 }
 
@@ -32,7 +31,6 @@ func MapEthernetSwitchPortToDto(entity domain.EthernetSwitchPort, dto *dtos.Ethe
 	dto.ID = entity.ID
 	dto.Name = entity.Name
 	dto.POEType = entity.POEType
-	dto.EthernetSwitchID = entity.EthernetSwitchID
 	dto.CreatedAt = entity.CreatedAt
 	dto.UpdatedAt = entity.UpdatedAt
 }

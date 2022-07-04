@@ -9,13 +9,19 @@ package app {
     class EthernetSwitchPortService {
         repository IGenericRepository<EthernetSwitchPort>
         --
+        switchRepository IGenericRepository<EthernetSwitch>
     }
+
+    note left of EthernetSwitchPortService::switchRepository
+        Used to check the existence of switches
+    end note
 
     note left of EthernetSwitchPortService
         Advanced business logic for EthernetSwitchPort entity
         For example:
         DTO Validation
         Checking the uniqueness of port names
+        Checking the existence of a switch
     end note
 
     EthernetSwitchPortRepository -right- EthernetSwitchPortService::repository

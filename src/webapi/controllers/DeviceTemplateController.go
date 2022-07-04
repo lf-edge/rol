@@ -40,8 +40,6 @@ func RegisterDeviceTemplateController(controller *DeviceTemplateController, serv
 //GetList Get list of elements with search and pagination
 //Params
 //	ctx - gin context
-//Return
-//	Returns http status code and response dto
 // @Summary Gets paginated list of device templates
 // @version 1.0
 // @Tags device template
@@ -88,8 +86,6 @@ func (d *DeviceTemplateController) GetList(ctx *gin.Context) {
 //GetByName Get device template by name
 //Params
 //	ctx - gin context
-//Return
-//	Returns http status code and response dto
 // @Summary Gets device template by its name
 // @version 1.0
 // @Tags device template

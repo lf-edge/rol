@@ -2,8 +2,6 @@
 
 package dtos {
     class EthernetSwitchPortBaseDto {
-        EthernetSwitchID uuid.UUID
-        --
         POEType string
         --
         Name string

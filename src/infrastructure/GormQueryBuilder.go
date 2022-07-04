@@ -8,6 +8,16 @@ import (
 	"strings"
 )
 
+var matchFirstCap = regexp.MustCompile("(.)([A-Z][a-z]+)")
+var matchAllCap = regexp.MustCompile("([a-z0-9])([A-Z])")
+
+//ToSnakeCase converts camelCase field name to snake_case
+func ToSnakeCase(str string) string {
+	snake := matchFirstCap.ReplaceAllString(str, "${1}_${2}")
+	snake = matchAllCap.ReplaceAllString(snake, "${1}_${2}")
+	return strings.ToLower(snake)
+}
+
 //GormQueryBuilder query builder struct for gorm
 type GormQueryBuilder struct {
 	QueryString string
@@ -17,14 +27,6 @@ type GormQueryBuilder struct {
 //NewGormQueryBuilder Gets new query builder instance
 func NewGormQueryBuilder() *GormQueryBuilder {
 	return &GormQueryBuilder{}
-}
-
-//ToSnakeCase converts camelCase field name to snake_case
-func ToSnakeCase(fieldName string) string {
-	matchAllCap := regexp.MustCompile("([a-z0-9])([A-Z])")
-	snakeName := strings.ToLower(matchAllCap.ReplaceAllString(fieldName, "${1}_${2}"))
-
-	return snakeName
 }
 
 func (g *GormQueryBuilder) addQuery(condition, fieldName, comparator string, value interface{}) interfaces.IQueryBuilder {

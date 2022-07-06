@@ -20,34 +20,32 @@ type EthernetSwitchGinController struct {
 		domain.EthernetSwitch]
 }
 
-//RegisterSwitchController registers controller for the switches on path /api/v1/switch/
-func RegisterSwitchController(controller *EthernetSwitchGinController, server *webapi.GinHTTPServer) {
-
+//RegisterEthernetSwitchController registers controller for the switches on path /api/v1/ethernet-switch/
+func RegisterEthernetSwitchController(controller *EthernetSwitchGinController, server *webapi.GinHTTPServer) {
 	groupRoute := server.Engine.Group("/api/v1")
-
-	groupRoute.GET("/switch/", controller.GetList)
-	groupRoute.GET("/switch/models", controller.GetSupportedModels)
-	groupRoute.GET("/switch/:id", controller.GetByID)
-	groupRoute.POST("/switch", controller.Create)
-	groupRoute.PUT("/switch/:id", controller.Update)
-	groupRoute.DELETE("/switch/:id", controller.Delete)
+	groupRoute.GET("/ethernet-switch/", controller.GetList)
+	groupRoute.GET("/ethernet-switch/models/", controller.GetSupportedModels)
+	groupRoute.GET("/ethernet-switch/:id", controller.GetByID)
+	groupRoute.POST("/ethernet-switch", controller.Create)
+	groupRoute.PUT("/ethernet-switch/:id", controller.Update)
+	groupRoute.DELETE("/ethernet-switch/:id", controller.Delete)
 }
 
 //GetList get list of switches with search and pagination
 //	Params
 //	ctx - gin context
-// @Summary Gets paginated list of switches
+// @Summary Get paginated list of switches
 // @version 1.0
-// @Tags ethernet switch
+// @Tags ethernet-switch
 // @Accept  json
 // @Produce json
-// @param	 orderBy			path	string	false	"Order by field"
-// @param	 orderDirection	path	string	false	"'asc' or 'desc' for ascending or descending order"
-// @param	 search			 path	string	false	"searchable value in entity"
-// @param	 page			 path	int		false	"page number"
-// @param	 pageSize		 path	int		false	"number of entities per page"
-// @Success 200 {object} dtos.ResponseDataDto{data=dtos.PaginatedListDto{items=[]dtos.EthernetSwitchDto}} "desc"
-// @router /switch/ [get]
+// @param	 orderBy	     path	string	false	"Order by field"
+// @param	 orderDirection	 path	string	false	"'asc' or 'desc' for ascending or descending order"
+// @param	 search			 path	string	false	"Searchable value in entity"
+// @param	 page			 path	int		false	"Page number"
+// @param	 pageSize		 path	int		false	"Number of entities per page"
+// @Success 200 {object} dtos.ResponseDataDto{data=dtos.PaginatedListDto{items=[]dtos.EthernetSwitchDto}}
+// @router /ethernet-switch/ [get]
 func (e *EthernetSwitchGinController) GetList(ctx *gin.Context) {
 	e.GinGenericController.GetList(ctx)
 }
@@ -55,14 +53,14 @@ func (e *EthernetSwitchGinController) GetList(ctx *gin.Context) {
 //GetByID get switch by id
 //	Params
 //	ctx - gin context
-// @Summary Gets ethernet switch by id
+// @Summary Get ethernet switch by id
 // @version 1.0
-// @Tags ethernet switch
+// @Tags ethernet-switch
 // @Accept  json
 // @Produce  json
-// @param	 id	path	string		true	"ethernet switch id"
+// @param	 id	path	string		true	"Ethernet switch ID"
 // @Success 200 {object} dtos.ResponseDataDto{data=dtos.EthernetSwitchDto}
-// @router /switch/{id} [get]
+// @router /ethernet-switch/{id} [get]
 func (e *EthernetSwitchGinController) GetByID(ctx *gin.Context) {
 	e.GinGenericController.GetByID(ctx)
 }
@@ -70,29 +68,29 @@ func (e *EthernetSwitchGinController) GetByID(ctx *gin.Context) {
 //Create new switch
 //	Params
 //	ctx - gin context
-// @Summary Creates new ethernet switch
+// @Summary Create new ethernet switch
 // @version 1.0
-// @Tags ethernet switch
+// @Tags ethernet-switch
 // @Accept  json
 // @Produce  json
-// @Param request body dtos.EthernetSwitchCreateDto true "ethernet switch fields"
-// @Success 200 {object} dtos.ResponseDataDto
-// @router /switch/ [post]
+// @Param request body dtos.EthernetSwitchCreateDto true "Ethernet switch fields"
+// @Success 200 {object} dtos.ResponseDataDto{data=uuid.UUID}
+// @router /ethernet-switch/ [post]
 func (e *EthernetSwitchGinController) Create(ctx *gin.Context) {
 	e.GinGenericController.Create(ctx)
 }
 
-//Update switch in database by id
+//Update switch by id
 //	Params
 //	ctx - gin context
 // @Summary Updates ethernet switch by id
 // @version 1.0
-// @Tags ethernet switch
+// @Tags ethernet-switch
 // @Accept  json
 // @Produce  json
-// @Param request body dtos.EthernetSwitchUpdateDto true "ethernet switch fields"
+// @Param request body dtos.EthernetSwitchUpdateDto true "Ethernet switch fields"
 // @Success 200 {object} dtos.ResponseDto
-// @router /switch/{id} [put]
+// @router /ethernet-switch/{id} [put]
 func (e *EthernetSwitchGinController) Update(ctx *gin.Context) {
 	e.GinGenericController.Update(ctx)
 }
@@ -102,12 +100,12 @@ func (e *EthernetSwitchGinController) Update(ctx *gin.Context) {
 //	ctx - gin context
 // @Summary Delete ethernet switch by id
 // @version 1.0
-// @Tags ethernet switch
+// @Tags ethernet-switch
 // @Accept  json
 // @Produce  json
-// @param	 id	path	string		true	"ethernet switch id"
+// @param	 id	path	string		true	"Ethernet switch ID"
 // @Success 200 {object} dtos.ResponseDto
-// @router /switch/{id} [delete]
+// @router /ethernet-switch/{id} [delete]
 func (e *EthernetSwitchGinController) Delete(ctx *gin.Context) {
 	e.GinGenericController.Delete(ctx)
 }
@@ -117,11 +115,11 @@ func (e *EthernetSwitchGinController) Delete(ctx *gin.Context) {
 //	ctx - gin context
 // @Summary Get ethernet switch supported models
 // @version 1.0
-// @Tags ethernet switch
+// @Tags ethernet-switch
 // @Accept  json
 // @Produce  json
 // @Success 200 {object} []dtos.EthernetSwitchModelDto
-// @router /switch/models [get]
+// @router /ethernet-switch/models [get]
 func (e *EthernetSwitchGinController) GetSupportedModels(ctx *gin.Context) {
 	service := e.GinGenericController.service.(*services.EthernetSwitchService)
 	modelsDtoSlice := service.GetSupportedModels()

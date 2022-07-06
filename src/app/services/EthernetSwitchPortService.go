@@ -193,6 +193,8 @@ func (e *EthernetSwitchPortService) GetPorts(ctx context.Context, switchID uuid.
 	queryBuilder := e.repository.NewQueryBuilder(ctx)
 	e.excludeDeleted(queryBuilder)
 	queryBuilder.Where("EthernetSwitchId", "==", switchID)
-	e.addSearchInAllFields(search, queryBuilder)
+	if len(search) > 3 {
+		e.addSearchInAllFields(search, queryBuilder)
+	}
 	return e.getListBasic(ctx, queryBuilder, orderBy, orderDirection, page, pageSize)
 }

@@ -178,7 +178,7 @@ func Test_EthernetSwitchPortService_GetPorts(t *testing.T) {
 func Test_EthernetSwitchPortService_Search(t *testing.T) {
 	service := switchPortService.(*services.EthernetSwitchPortService)
 
-	ports, err := service.GetPorts(context.TODO(), ethernetSwitchID, "2.0", "", "", 1, 10)
+	ports, err := service.GetPorts(context.TODO(), ethernetSwitchID, "Port2.0", "", "", 1, 10)
 	if err != nil {
 		t.Errorf("get ports failed: %s", err)
 	}

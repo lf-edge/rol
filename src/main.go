@@ -49,7 +49,7 @@ func main() {
 		),
 		fx.Invoke(
 			infrastructure.RegisterLogHooks,
-			controllers.RegisterSwitchController,
+			controllers.RegisterEthernetSwitchController,
 			controllers.RegisterHTTPLogController,
 			controllers.RegisterAppLogController,
 			webapi.StartHTTPServer,

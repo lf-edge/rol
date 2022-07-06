@@ -36,22 +36,26 @@ func main() {
 			infrastructure.NewHTTPLogRepository,
 			infrastructure.NewAppLogRepository,
 			infrastructure.NewLogrusLogger,
+			infrastructure.NewEthernetSwitchPortRepository,
 			// Application logic
 			services.NewEthernetSwitchService,
 			services.NewHTTPLogService,
 			services.NewAppLogService,
+			services.NewEthernetSwitchPortService,
 			// WEB API -> Server
 			webapi.NewGinHTTPServer,
 			// WEB API -> Controllers
 			controllers.NewEthernetSwitchGinController,
 			controllers.NewHTTPLogGinController,
 			controllers.NewAppLogGinController,
+			controllers.NewEthernetSwitchPortGinController,
 		),
 		fx.Invoke(
 			infrastructure.RegisterLogHooks,
 			controllers.RegisterEthernetSwitchController,
 			controllers.RegisterHTTPLogController,
 			controllers.RegisterAppLogController,
+			controllers.RegisterEthernetSwitchPortController,
 			webapi.StartHTTPServer,
 		),
 	)

@@ -28,20 +28,16 @@ type EthernetSwitchPortService struct {
 //	log - logrus logger
 //Return
 //	New ethernet switch service
-func NewEthernetSwitchPortService(rep interfaces.IGenericRepository[domain.EthernetSwitchPort], switchRepo interfaces.IGenericRepository[domain.EthernetSwitch], log *logrus.Logger) (interfaces.IGenericService[
-	dtos.EthernetSwitchPortDto,
-	dtos.EthernetSwitchPortCreateDto,
-	dtos.EthernetSwitchPortUpdateDto,
-	domain.EthernetSwitchPort], error) {
+func NewEthernetSwitchPortService(rep interfaces.IGenericRepository[domain.EthernetSwitchPort], switchRepo interfaces.IGenericRepository[domain.EthernetSwitch], log *logrus.Logger) (*EthernetSwitchPortService, error) {
 	genericService, err := NewGenericService[dtos.EthernetSwitchPortDto, dtos.EthernetSwitchPortCreateDto, dtos.EthernetSwitchPortUpdateDto, domain.EthernetSwitchPort](rep, log)
 	if err != nil {
 		return nil, err
 	}
-	ethernetSwitchService := &EthernetSwitchPortService{
+	ethernetSwitchPortService := &EthernetSwitchPortService{
 		GenericService:   genericService,
 		switchRepository: switchRepo,
 	}
-	return ethernetSwitchService, nil
+	return ethernetSwitchPortService, nil
 }
 
 func (e *EthernetSwitchPortService) switchExist(ctx context.Context, switchID uuid.UUID) error {

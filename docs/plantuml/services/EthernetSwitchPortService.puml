@@ -10,6 +10,16 @@ package app {
         repository IGenericRepository<EthernetSwitchPort>
         --
         switchRepository IGenericRepository<EthernetSwitch>
+        --
+        GetPortByID(ctx context.Context, switchID, id uuid.UUID) (*dtos.EthernetSwitchPortDto, error)
+        --
+        CreatePort(ctx context.Context, switchID uuid.UUID, createDto dtos.EthernetSwitchPortCreateDto) (uuid.UUID, error)
+        --
+        UpdatePort(ctx context.Context, switchID, id uuid.UUID, updateDto dtos.EthernetSwitchPortUpdateDto) error
+        --
+        GetPorts(ctx context.Context, switchID uuid.UUID, search, orderBy, orderDirection string, page, pageSize int) (*dtos.PaginatedListDto[dtos.EthernetSwitchPortDto], error)
+        --
+        DeletePort(ctx context.Context, switchID, id uuid.UUID) error
     }
 
     note left of EthernetSwitchPortService::switchRepository

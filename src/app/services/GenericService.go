@@ -109,7 +109,7 @@ func (g *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) getL
 	if err != nil {
 		return nil, err
 	}
-	dtoArr := new([]DtoType)
+	dtoArr := &[]DtoType{}
 	for i := 0; i < len(*entities); i++ {
 		dto := new(DtoType)
 		err = mappers.MapEntityToDto((*entities)[i], dto)

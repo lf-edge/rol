@@ -1,9 +1,6 @@
 package controllers
 
 import (
-	"bytes"
-	"encoding/json"
-	"io/ioutil"
 	"net/http"
 	"rol/app/interfaces"
 	"rol/dtos"
@@ -16,9 +13,9 @@ import (
 
 //GinGenericController generic controller structure for IEntityModel
 type GinGenericController[DtoType interface{},
-CreateDtoType interface{},
-UpdateDtoType interface{},
-EntityType interfaces.IEntityModel] struct {
+	CreateDtoType interface{},
+	UpdateDtoType interface{},
+	EntityType interfaces.IEntityModel] struct {
 	//	service - service with needed dtos instantiated
 	service interfaces.IGenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]
 	//	logger - logger
@@ -33,9 +30,9 @@ EntityType interfaces.IEntityModel] struct {
 //Return
 //	*GinGenericController - new generic controller for type which was instantiated
 func NewGinGenericController[DtoType interface{},
-CreateDtoType interface{},
-UpdateDtoType interface{},
-EntityType interfaces.IEntityModel](service interfaces.IGenericService[DtoType, CreateDtoType, UpdateDtoType,
+	CreateDtoType interface{},
+	UpdateDtoType interface{},
+	EntityType interfaces.IEntityModel](service interfaces.IGenericService[DtoType, CreateDtoType, UpdateDtoType,
 	EntityType], log *logrus.Logger) *GinGenericController[DtoType,
 	CreateDtoType,
 	UpdateDtoType,
@@ -137,15 +134,10 @@ func (g *GinGenericController[DtoType, CreateDtoType, UpdateDtoType, EntityType]
 	}
 
 	// Restoring body in gin.Context for logging it later in middleware
-	buf, marshalErr := json.Marshal(reqDto)
-	if marshalErr != nil {
-		controllerErr := ctx.AbortWithError(http.StatusBadRequest, err)
-		if controllerErr != nil {
-			g.logger.Errorf("%s : %s", err, controllerErr)
-		}
-		return
+	err = RestoreBody(reqDto, ctx)
+	if err != nil {
+		ctx.AbortWithStatus(http.StatusInternalServerError)
 	}
-	ctx.Request.Body = ioutil.NopCloser(bytes.NewBuffer(buf))
 
 	id, err := g.service.Create(ctx, *reqDto)
 	if err != nil {
@@ -183,21 +175,9 @@ func (g *GinGenericController[DtoType, CreateDtoType, UpdateDtoType, EntityType]
 	}
 
 	// Restoring body in gin.Context for logging it later in middleware
-	buf, err := json.Marshal(reqDto)
+	err = RestoreBody(reqDto, ctx)
 	if err != nil {
-		controllerErr := ctx.AbortWithError(http.StatusBadRequest, err)
-		if controllerErr != nil {
-			g.logger.Errorf("%s : %s", err, controllerErr)
-		}
-		return
-	}
-	ctx.Request.Body = ioutil.NopCloser(bytes.NewBuffer(buf))
-	if err != nil {
-		controllerErr := ctx.AbortWithError(http.StatusBadRequest, err)
-		if controllerErr != nil {
-			g.logger.Errorf("%s : %s", err, controllerErr)
-		}
-		return
+		ctx.AbortWithStatus(http.StatusInternalServerError)
 	}
 
 	strID := ctx.Param("id")
@@ -228,9 +208,12 @@ func (g *GinGenericController[DtoType, CreateDtoType, UpdateDtoType, EntityType]
 //	Returns http status code and response dto
 func (g *GinGenericController[DtoType, CreateDtoType, UpdateDtoType, EntityType]) Delete(ctx *gin.Context) {
 	strID := ctx.Param("id")
-	id := uuid.MustParse(strID)
+	id, err := uuid.Parse(strID)
+	if err != nil {
+		ctx.AbortWithStatus(http.StatusNotFound)
+	}
 
-	err := g.service.Delete(ctx, id)
+	err = g.service.Delete(ctx, id)
 	if err != nil {
 		controllerErr := ctx.AbortWithError(http.StatusBadRequest, err)
 		if controllerErr != nil {

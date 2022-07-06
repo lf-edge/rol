@@ -100,6 +100,9 @@ func (y *YamlGenericTemplateStorage[TemplateType]) getTemplateObjFromYaml(templa
 }
 
 func (y *YamlGenericTemplateStorage[TemplateType]) sortTemplatesSlice(templates *[]TemplateType, orderBy, orderDirection string) error {
+	if len(*templates) < 1 {
+		return nil
+	}
 	if !isFieldExist((*templates)[0], orderBy) && orderBy != "" {
 		return fmt.Errorf("there is no field with name '%s' at template", orderBy)
 	}

@@ -198,3 +198,27 @@ func (e *EthernetSwitchPortService) GetPorts(ctx context.Context, switchID uuid.
 	}
 	return e.getListBasic(ctx, queryBuilder, orderBy, orderDirection, page, pageSize)
 }
+
+//DeletePort mark ethernet switch port as deleted
+//Params
+//	ctx - context is used only for logging
+//	switchID - ethernet switch id
+//Return
+//	error - if an error occurs, otherwise nil
+func (e *EthernetSwitchPortService) DeletePort(ctx context.Context, switchID, id uuid.UUID) error {
+	err := e.switchExist(ctx, switchID)
+	if err != nil {
+		return fmt.Errorf("error when checking the existence of the switch: %s", err)
+	}
+	queryBuilder := e.repository.NewQueryBuilder(ctx)
+	e.excludeDeleted(queryBuilder)
+	queryBuilder.Where("EthernetSwitchID", "==", switchID)
+	entity, err := e.repository.GetByIDExtended(ctx, id, queryBuilder)
+	if err != nil {
+		return fmt.Errorf("failed to get by id: %s", err)
+	}
+	if entity == nil {
+		return fmt.Errorf("ethernet switch port is not exist")
+	}
+	return e.GenericService.Delete(ctx, id)
+}

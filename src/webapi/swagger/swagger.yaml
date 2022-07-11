@@ -5,8 +5,10 @@ definitions:
       actionID:
         type: string
       createdAt:
+        description: CreatedAt - entity create time
         type: string
       id:
+        description: ID - unique identifier
         type: string
       level:
         description: Level - level of the log
@@ -17,6 +19,120 @@ definitions:
       source:
         description: Source - method from which the log was obtained
         type: string
+      updatedAt:
+        description: UpdatedAt - entity update time
+        type: string
+    type: object
+  dtos.DeviceTemplateBootStageDto:
+    properties:
+      action:
+        description: "Action for this boot stage.\nCan be: File, CheckPowerSwitch,
+          EmergencyPowerOff,\nPowerOff, EmergencyPowerOn, PowerOn,\nCheckManagement\n\nFor
+          File action:\n\tA stage can only be marked complete if all files have\n\tbeen
+          downloaded by the device via TFTP or DHCP,\n\tafter which the next step
+          can be loaded."
+        type: string
+      description:
+        description: Description of boot stage template
+        type: string
+      files:
+        description: Files slice of files for boot stage
+        items:
+          $ref: '#/definitions/dtos.DeviceTemplateBootStageFileDto'
+        type: array
+      name:
+        description: Name of boot stage template
+        type: string
+    type: object
+  dtos.DeviceTemplateBootStageFileDto:
+    properties:
+      existingFileName:
+        description: |-
+          ExistingFileName file name is a real full file path with name on the disk.
+          This path is relative from app directory
+        type: string
+      virtualFileName:
+        description: VirtualFileName virtual file name is relative from /<mac-address>/
+        type: string
+    type: object
+  dtos.DeviceTemplateControlDto:
+    properties:
+      emergency:
+        description: 'Emergency how to control device power in case of emergency.
+          As example: POE(For Rpi4), IPMI, ILO or PowerSwitch'
+        type: string
+      nextBoot:
+        description: |-
+          NextBoot how to change next boot device. As example: IPMI, ILO or NONE.
+          For example, NONE is used for Rpi4, we control next boot by u-boot files in boot stages.
+        type: string
+      power:
+        description: 'Power how to control device power. As example: POE(For Rpi4),
+          IPMI, ILO or PowerSwitch'
+        type: string
+    type: object
+  dtos.DeviceTemplateDto:
+    properties:
+      control:
+        $ref: '#/definitions/dtos.DeviceTemplateControlDto'
+        description: Control describes how we control the device
+      cpucount:
+        description: CPUCount count of cpus
+        type: integer
+      cpumodel:
+        description: CPUModel model of cpu
+        type: string
+      description:
+        description: Description template description
+        type: string
+      discBootStages:
+        description: DiscBootStages slice of boot stage templates for disk boot
+        items:
+          $ref: '#/definitions/dtos.DeviceTemplateBootStageDto'
+        type: array
+      manufacturer:
+        description: Manufacturer device manufacturer
+        type: string
+      model:
+        description: Model device model
+        type: string
+      name:
+        description: Name template name
+        type: string
+      netBootStages:
+        description: NetBootStages slice of boot stage templates for net boot
+        items:
+          $ref: '#/definitions/dtos.DeviceTemplateBootStageDto'
+        type: array
+      networkInterfaces:
+        description: NetworkInterfaces slice of device network interfaces
+        items:
+          $ref: '#/definitions/dtos.DeviceTemplateNetworkDto'
+        type: array
+      ram:
+        description: RAM the amount of RAM in GB
+        type: integer
+      usbbootStages:
+        description: USBBootStages slice of boot stage templates for usb boot
+        items:
+          $ref: '#/definitions/dtos.DeviceTemplateBootStageDto'
+        type: array
+    type: object
+  dtos.DeviceTemplateNetworkDto:
+    properties:
+      management:
+        description: Management only one network interface can be mark as management
+        type: boolean
+      name:
+        description: Name of network interface. This field is unique within device
+          template network interfaces
+        type: string
+      netBoot:
+        description: NetBoot flags whether the interface can be loaded over the network
+        type: boolean
+      poein:
+        description: POEIn only one network interface can be mark as POEIn
+        type: boolean
     type: object
   dtos.DtoType:
     type: object
@@ -36,7 +152,7 @@ definitions:
         type: string
       switchModel:
         description: SwitchModel - switch model
-        type: integer
+        type: string
       username:
         description: Username - switch admin username
         type: string
@@ -50,7 +166,7 @@ definitions:
         description: CreatedAt - entity create time
         type: string
       id:
-        description: Id - unique identifier
+        description: ID - unique identifier
         type: string
       name:
         description: Name - switch name
@@ -60,12 +176,66 @@ definitions:
         type: string
       switchModel:
         description: SwitchModel - switch model
-        type: integer
+        type: string
       updatedAt:
         description: UpdatedAt - entity update time
         type: string
       username:
         description: Username - switch admin username
+        type: string
+    type: object
+  dtos.EthernetSwitchModelDto:
+    properties:
+      code:
+        description: Code - unique switch model code
+        type: string
+      manufacturer:
+        description: Manufacturer - Switch model manufacturer
+        type: string
+      model:
+        description: Series - Switch model
+        type: string
+    type: object
+  dtos.EthernetSwitchPortCreateDto:
+    properties:
+      name:
+        description: Name for this port
+        type: string
+      poetype:
+        description: |-
+          POEType type of PoE for this port
+          can be: "poe", "poe+", "passive24", "none"
+        type: string
+    type: object
+  dtos.EthernetSwitchPortDto:
+    properties:
+      createdAt:
+        description: CreatedAt - entity create time
+        type: string
+      id:
+        description: ID - unique identifier
+        type: string
+      name:
+        description: Name for this port
+        type: string
+      poetype:
+        description: |-
+          POEType type of PoE for this port
+          can be: "poe", "poe+", "passive24", "none"
+        type: string
+      updatedAt:
+        description: UpdatedAt - entity update time
+        type: string
+    type: object
+  dtos.EthernetSwitchPortUpdateDto:
+    properties:
+      name:
+        description: Name for this port
+        type: string
+      poetype:
+        description: |-
+          POEType type of PoE for this port
+          can be: "poe", "poe+", "passive24", "none"
         type: string
     type: object
   dtos.EthernetSwitchUpdateDto:
@@ -84,17 +254,18 @@ definitions:
         type: string
       switchModel:
         description: SwitchModel - switch model
-        type: integer
+        type: string
       username:
         description: Username - switch admin username
         type: string
     type: object
-  dtos.HttpLogDto:
+  dtos.HTTPLogDto:
     properties:
       clientIP:
         description: ClientIP - client IP address
         type: string
       createdAt:
+        description: CreatedAt - entity create time
         type: string
       customRequestHeaders:
         description: CustomRequestHeaders - custom headers of the request
@@ -102,10 +273,11 @@ definitions:
       domain:
         description: Domain - domain that processed the request
         type: string
-      httpMethod:
-        description: HttpMethod - http method
+      httpmethod:
+        description: HTTPMethod - http method
         type: string
       id:
+        description: ID - unique identifier
         type: string
       latency:
         description: Latency - latency in milliseconds
@@ -124,6 +296,9 @@ definitions:
         type: string
       responseBody:
         description: ResponseBody - body of the response
+        type: string
+      updatedAt:
+        description: UpdatedAt - entity update time
         type: string
     type: object
   dtos.PaginatedListDto:
@@ -179,6 +354,324 @@ info:
   title: Rack of labs API
   version: version(1.0)
 paths:
+  /ethernet-switch/:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Order by field
+        in: path
+        name: orderBy
+        type: string
+      - description: '''asc'' or ''desc'' for ascending or descending order'
+        in: path
+        name: orderDirection
+        type: string
+      - description: Searchable value in entity
+        in: path
+        name: search
+        type: string
+      - description: Page number
+        in: path
+        name: page
+        type: integer
+      - description: Number of entities per page
+        in: path
+        name: pageSize
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/dtos.ResponseDataDto'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/dtos.PaginatedListDto'
+                  - properties:
+                      items:
+                        items:
+                          $ref: '#/definitions/dtos.EthernetSwitchDto'
+                        type: array
+                    type: object
+              type: object
+      summary: Get paginated list of switches
+      tags:
+      - ethernet-switch
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Ethernet switch fields
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dtos.EthernetSwitchCreateDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/dtos.ResponseDataDto'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Create new ethernet switch
+      tags:
+      - ethernet-switch
+  /ethernet-switch/{id}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: Ethernet switch ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dtos.ResponseDto'
+      summary: Delete ethernet switch by id
+      tags:
+      - ethernet-switch
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Ethernet switch ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/dtos.ResponseDataDto'
+            - properties:
+                data:
+                  $ref: '#/definitions/dtos.EthernetSwitchDto'
+              type: object
+      summary: Get ethernet switch by id
+      tags:
+      - ethernet-switch
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Ethernet switch fields
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dtos.EthernetSwitchUpdateDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dtos.ResponseDto'
+      summary: Updates ethernet switch by id
+      tags:
+      - ethernet-switch
+  /ethernet-switch/{id}/port/:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Ethernet switch ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Order by field
+        in: path
+        name: orderBy
+        type: string
+      - description: '''asc'' or ''desc'' for ascending or descending order'
+        in: path
+        name: orderDirection
+        type: string
+      - description: Searchable value in entity
+        in: path
+        name: search
+        type: string
+      - description: Page number
+        in: path
+        name: page
+        type: integer
+      - description: Number of entities per page
+        in: path
+        name: pageSize
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: desc
+          schema:
+            allOf:
+            - $ref: '#/definitions/dtos.ResponseDataDto'
+            - properties:
+                data:
+                  allOf:
+                  - $ref: '#/definitions/dtos.PaginatedListDto'
+                  - properties:
+                      items:
+                        items:
+                          $ref: '#/definitions/dtos.EthernetSwitchPortDto'
+                        type: array
+                    type: object
+              type: object
+      summary: Gets paginated list of ethernet switch ports
+      tags:
+      - ethernet-switch
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Ethernet switch ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Ethernet switch port fields
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dtos.EthernetSwitchPortCreateDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/dtos.ResponseDataDto'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Creates new ethernet switch port
+      tags:
+      - ethernet-switch
+  /ethernet-switch/{id}/port/{portID}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: Ethernet switch ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Ethernet switch port ID
+        in: path
+        name: portID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dtos.ResponseDto'
+      summary: Delete ethernet switch port by id
+      tags:
+      - ethernet-switch
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Ethernet switch ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Ethernet switch port ID
+        in: path
+        name: portID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/dtos.ResponseDataDto'
+            - properties:
+                data:
+                  $ref: '#/definitions/dtos.EthernetSwitchPortDto'
+              type: object
+      summary: Gets ethernet switch port by id
+      tags:
+      - ethernet-switch
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Ethernet switch ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Ethernet switch port ID
+        in: path
+        name: portID
+        required: true
+        type: string
+      - description: Ethernet switch port fields
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dtos.EthernetSwitchPortUpdateDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dtos.ResponseDto'
+      summary: Updates ethernet switch port by id
+      tags:
+      - ethernet-switch
+  /ethernet-switch/models:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/dtos.EthernetSwitchModelDto'
+            type: array
+      summary: Get ethernet switch supported models
+      tags:
+      - ethernet-switch
   /log/app/:
     get:
       consumes:
@@ -232,7 +725,7 @@ paths:
       - application/json
       parameters:
       - description: log id
-        in: query
+        in: path
         name: id
         required: true
         type: string
@@ -291,7 +784,7 @@ paths:
                   - properties:
                       items:
                         items:
-                          $ref: '#/definitions/dtos.HttpLogDto'
+                          $ref: '#/definitions/dtos.HTTPLogDto'
                         type: array
                     type: object
               type: object
@@ -304,7 +797,7 @@ paths:
       - application/json
       parameters:
       - description: log id
-        in: query
+        in: path
         name: id
         required: true
         type: string
@@ -318,12 +811,12 @@ paths:
             - $ref: '#/definitions/dtos.ResponseDataDto'
             - properties:
                 data:
-                  $ref: '#/definitions/dtos.HttpLogDto'
+                  $ref: '#/definitions/dtos.HTTPLogDto'
               type: object
       summary: Gets http log by id
       tags:
       - http log
-  /switch/:
+  /template/device/:
     get:
       consumes:
       - application/json
@@ -352,7 +845,7 @@ paths:
       - application/json
       responses:
         "200":
-          description: desc
+          description: OK
           schema:
             allOf:
             - $ref: '#/definitions/dtos.ResponseDataDto'
@@ -363,60 +856,21 @@ paths:
                   - properties:
                       items:
                         items:
-                          $ref: '#/definitions/dtos.EthernetSwitchDto'
+                          $ref: '#/definitions/dtos.DeviceTemplateDto'
                         type: array
                     type: object
               type: object
-      summary: Gets paginated list of switches
+      summary: Gets paginated list of device templates
       tags:
-      - ethernet switch
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: ethernet switch fields
-        in: body
-        name: request
-        required: true
-        schema:
-          $ref: '#/definitions/dtos.EthernetSwitchCreateDto'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/dtos.ResponseDataDto'
-      summary: Creates new ethernet switch
-      tags:
-      - ethernet switch
-  /switch/{id}:
-    delete:
-      consumes:
-      - application/json
-      parameters:
-      - description: ethernet switch id
-        in: path
-        name: id
-        required: true
-        type: string
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/dtos.ResponseDto'
-      summary: Delete ethernet switch by id
-      tags:
-      - ethernet switch
+      - device template
+  /template/device/{name}:
     get:
       consumes:
       - application/json
       parameters:
-      - description: ethernet switch id
+      - description: device template name
         in: path
-        name: id
+        name: name
         required: true
         type: string
       produces:
@@ -429,29 +883,9 @@ paths:
             - $ref: '#/definitions/dtos.ResponseDataDto'
             - properties:
                 data:
-                  $ref: '#/definitions/dtos.EthernetSwitchDto'
+                  $ref: '#/definitions/dtos.DeviceTemplateDto'
               type: object
-      summary: Gets ethernet switch by id
+      summary: Gets device template by its name
       tags:
-      - ethernet switch
-    put:
-      consumes:
-      - application/json
-      parameters:
-      - description: ethernet switch fields
-        in: body
-        name: request
-        required: true
-        schema:
-          $ref: '#/definitions/dtos.EthernetSwitchUpdateDto'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/dtos.ResponseDto'
-      summary: Updates ethernet switch by id
-      tags:
-      - ethernet switch
+      - device template
 swagger: "2.0"

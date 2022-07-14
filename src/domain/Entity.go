@@ -31,6 +31,8 @@ func (e *Entity) SetDeleted() {
 
 // BeforeCreate will set a UUID rather than numeric ID.
 func (e *Entity) BeforeCreate(_ *gorm.DB) (err error) {
-	e.ID = uuid.New()
+	if e.ID == uuid.Nil {
+		e.ID = uuid.New()
+	}
 	return
 }

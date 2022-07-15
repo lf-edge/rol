@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="174px" preserveAspectRatio="none" style="width:203px;height:174px;background:#FFFFFF;" version="1.1" viewBox="0 0 203 174" width="203px" zoomAndPan="magnify"><defs/><g><!--MD5=[ac65c812e7532cbcd7b9effd958b962e]
+cluster dtos--><g id="cluster_dtos"><path d="M8.5,6 L40.5,6 A3.75,3.75 0 0 1 43,8.5 L50,29.6094 L193.5,29.6094 A2.5,2.5 0 0 1 196,32.1094 L196,164.5 A2.5,2.5 0 0 1 193.5,167 L8.5,167 A2.5,2.5 0 0 1 6,164.5 L6,8.5 A2.5,2.5 0 0 1 8.5,6 " style="stroke:#000000;stroke-width:1.5;fill:none;"/><line style="stroke:#000000;stroke-width:1.5;fill:none;" x1="6" x2="50" y1="29.6094" y2="29.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="31" x="10" y="22.5332">dtos</text></g><!--MD5=[a203eca1f0769929ae1344e0135bff6b]
+class BaseDto--><g id="elem_BaseDto"><rect codeLine="3" fill="#F1F1F1" height="108.8281" id="BaseDto" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="157" x="22.5" y="42"/><ellipse cx="69.75" cy="58" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M72.5156,53.875 Q72.6719,53.6563 72.8594,53.5469 Q73.0469,53.4375 73.2656,53.4375 Q73.6406,53.4375 73.875,53.7031 Q74.1094,53.9531 74.1094,54.5625 L74.1094,56.0156 Q74.1094,56.625 73.875,56.8906 Q73.6406,57.1563 73.2656,57.1563 Q72.9219,57.1563 72.7188,56.9531 Q72.5156,56.7656 72.4063,56.25 Q72.3594,55.8906 72.1719,55.7031 Q71.8438,55.3281 71.2344,55.1094 Q70.625,54.8906 70,54.8906 Q69.2344,54.8906 68.5938,55.2188 Q67.9688,55.5469 67.4688,56.2969 Q66.9844,57.0469 66.9844,58.0781 L66.9844,59.1719 Q66.9844,60.4063 67.875,61.2344 Q68.7656,62.0469 70.3594,62.0469 Q71.2969,62.0469 71.9531,61.7969 Q72.3438,61.6406 72.7656,61.2031 Q73.0313,60.9375 73.1719,60.8594 Q73.3281,60.7813 73.5313,60.7813 Q73.8594,60.7813 74.1094,61.0469 Q74.375,61.2969 74.375,61.6406 Q74.375,61.9844 74.0313,62.3906 Q73.5313,62.9688 72.7344,63.2969 Q71.6563,63.75 70.3594,63.75 Q68.8438,63.75 67.6406,63.125 Q66.6563,62.625 65.9688,61.5625 Q65.2813,60.4844 65.2813,59.2031 L65.2813,58.0469 Q65.2813,56.7188 65.8906,55.5781 Q66.5156,54.4219 67.6094,53.8125 Q68.7031,53.1875 69.9375,53.1875 Q70.6719,53.1875 71.3125,53.3594 Q71.9688,53.5156 72.5156,53.875 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="54" x="90.25" y="63.7285">BaseDto</text><line style="stroke:#181818;stroke-width:0.5;" x1="23.5" x2="178.5" y1="74" y2="74"/><ellipse cx="33.5" cy="85" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="79" x="42.5" y="92.5332">ID uuid.UUID</text><line style="stroke:#181818;stroke-width:1.0;" x1="23.5" x2="178.5" y1="99.6094" y2="99.6094"/><ellipse cx="33.5" cy="110.6094" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="129" x="42.5" y="118.1426">CreatedAt time.Time</text><line style="stroke:#181818;stroke-width:1.0;" x1="23.5" x2="178.5" y1="125.2188" y2="125.2188"/><ellipse cx="33.5" cy="136.2188" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="131" x="42.5" y="143.752">UpdatedAt time.Time</text></g><!--MD5=[c84e0769b49ca68504582fd23769f955]
+@startuml BaseDto
+
+package dtos {
+    class BaseDto {
+        +ID uuid.UUID
+        - -
+        +CreatedAt time.Time
+        - -
+        +UpdatedAt time.Time
+    }
+}
+
+@enduml
+
+PlantUML version 1.2022.6(Tue Jun 21 20:34:49 MSK 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1251
+Language: ru
+Country: RU
+--></g></svg>

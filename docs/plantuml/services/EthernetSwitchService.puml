@@ -24,7 +24,7 @@ package app {
     end note
 
     EthernetSwitchRepository -right- EthernetSwitchService::repository
-    GenericService -up-* EthernetSwitchService
+    GenericService *-up- EthernetSwitchService
 
     EthernetSwitchService .[hidden]up. IGenericRepository
 

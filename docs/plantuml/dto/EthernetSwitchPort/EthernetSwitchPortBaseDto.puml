@@ -2,9 +2,9 @@
 
 package dtos {
     class EthernetSwitchPortBaseDto {
-        POEType string
+        +POEType string
         --
-        Name string
+        +Name string
     }
 }
 

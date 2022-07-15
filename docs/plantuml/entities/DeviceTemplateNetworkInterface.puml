@@ -2,13 +2,13 @@
 
 package domain {
     class DeviceTemplateNetworkInterface {
-        Name string
+        +Name string
         --
-        NetBoot boolean
+        +NetBoot boolean
         --
-        POEIn boolean
+        +POEIn boolean
         --
-        Management boolean
+        +Management boolean
     }
     note right of DeviceTemplateNetworkInterface::Name
       This field is unique within device template network interfaces

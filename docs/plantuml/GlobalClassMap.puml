@@ -1,5 +1,0 @@
-@startuml GlobalClassMap
-!include services/EthernetSwitchService.puml
-!include services/HTTPLogService.puml
-!include services/LogService.puml
-@enduml

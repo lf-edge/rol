@@ -2,15 +2,15 @@
 
 package dtos {
     class EthernetSwitchBaseDto {
-        Name string
+        +Name string
         --
-        Serial string
+        +Serial string
         --
-        SwitchModel string
+        +SwitchModel string
         --
-        Address string
+        +Address string
         --
-        Username string
+        +Username string
     }
 }
 

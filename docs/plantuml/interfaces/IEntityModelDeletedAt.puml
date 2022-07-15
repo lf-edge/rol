@@ -2,7 +2,7 @@
 
 package app {
     interface IEntityModelDeletedAt {
-        SetDeleted()
+        +SetDeleted()
     }
     note bottom of IEntityModelDeletedAt
         Set deletion time

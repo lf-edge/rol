@@ -2,13 +2,13 @@
 
 package app {
     interface IGenericTemplateStorage<TemplateType> {
-        GetByName(ctx context.Context, string name) (*TemplateType, error)
+        +GetByName(ctx context.Context, string name) (*TemplateType, error)
         --
-        GetList(ctx context.Context, orderBy string, orderDirection string, page int, size int, queryBuilder interfaces.IQueryBuilder) (*[]TemplateType, error)
+        +GetList(ctx context.Context, orderBy string, orderDirection string, page int, size int, queryBuilder interfaces.IQueryBuilder) (*[]TemplateType, error)
         --
-        Count(ctx context.Context, queryBuilder interfaces.IQueryBuilder) (int64, error)
+        +Count(ctx context.Context, queryBuilder interfaces.IQueryBuilder) (int64, error)
         --
-        NewQueryBuilder(ctx context.Context) interfaces.IQueryBuilder
+        +NewQueryBuilder(ctx context.Context) interfaces.IQueryBuilder
     }
 }
 

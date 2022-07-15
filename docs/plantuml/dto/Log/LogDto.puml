@@ -4,13 +4,13 @@
 
 package dtos {
     class LogDto {
-        ActionID uuid.UUID `gorm:"index"`
+        +ActionID uuid.UUID `gorm:"index"`
         --
-        Level string
+        +Level string
         --
-        Source string
+        +Source string
         --
-        Message string
+        +Message string
     }
     LogDto --* BaseDto
 }

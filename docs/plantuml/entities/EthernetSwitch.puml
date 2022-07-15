@@ -4,17 +4,17 @@
 
 package domain {
     class EthernetSwitch {
-        Name string
+        +Name string
         --
-        Serial string
+        +Serial string
         --
-        SwitchModel string
+        +SwitchModel string
         --
-        Address string
+        +Address string
         --
-        Username string
+        +Username string
         --
-        Password string
+        +Password string
     }
     note left of EthernetSwitch::Serial
     Unique

@@ -1,19 +1,19 @@
 @startuml
 package dtos {
     class BootStageTemplateDto {
-        Name string
+        +Name string
         --
-        Description string
+        +Description string
         --
-        Action string
+        +Action string
         --
-        Files []BootStageTemplateFileDto
+        +Files []BootStageTemplateFileDto
     }
 
     class BootStageTemplateFileDto {
-        ExistingFileName string
+        +ExistingFileName string
         --
-        VirtualFileName
+        +VirtualFileName
     }
 
     BootStageTemplateDto::Files -- BootStageTemplateFileDto

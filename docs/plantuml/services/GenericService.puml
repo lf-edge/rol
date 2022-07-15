@@ -3,11 +3,11 @@
 
 package app {
     class GenericService<EntityType, CreateDtoType, UpdateDtoType, DtoType> {
-        repository IGenericRepository<EntityType>
+        -repository IGenericRepository<EntityType>
         --
-        logger *logrus.Logger
+        -logger *logrus.Logger
         --
-        logSourceName string
+        -logSourceName string
     }
     GenericService .down.|> IGenericService
 }

@@ -6,31 +6,31 @@
 
 package domain {
     class DeviceTemplate {
-        Name string
+        +Name string
         ..
-        Unique within the device templates
+        +Unique within the device templates
         --
-        Model
+        +Model
         --
-        Manufacturer
+        +Manufacturer
         --
-        Description string
+        +Description string
         --
-        CPUCount int
+        +CPUCount int
         --
-        CPUModel string
+        +CPUModel string
         --
-        RAM int
+        +RAM int
         --
-        NetworkInterfaces []DeviceTemplateNetworkInterface
+        +NetworkInterfaces []DeviceTemplateNetworkInterface
         --
-        Control DeviceTemplateControlDesc
+        +Control DeviceTemplateControlDesc
         --
-        DiskBootStages []BootStageTemplate
+        +DiskBootStages []BootStageTemplate
         --
-        NetBootStages []BootStageTemplate
+        +NetBootStages []BootStageTemplate
         --
-        USBBootStages []BootStageTemplate
+        +USBBootStages []BootStageTemplate
     }
 
 

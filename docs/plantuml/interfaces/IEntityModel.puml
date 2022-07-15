@@ -2,7 +2,7 @@
 
 package app {
     interface IEntityModel {
-        GetID() uuid.UUID
+        +GetID() uuid.UUID
     }
 }
 

@@ -5,11 +5,11 @@
 
 package app {
     class DeviceTemplateService {
-        storage IGenericTemplateStorage<DeviceTemplate>
+        -storage IGenericTemplateStorage<DeviceTemplate>
         --
-        GetList(ctx context.Context, search, orderBy, orderDirection string, page, pageSize int) (*dtos.PaginatedListDto[DeviceTemplateDto], error)
+        +GetList(ctx context.Context, search, orderBy, orderDirection string, page, pageSize int) (*dtos.PaginatedListDto[DeviceTemplateDto], error)
         --
-        GetByName(ctx context.Context, name string) (*DeviceTemplateDto, error)
+        +GetByName(ctx context.Context, name string) (*DeviceTemplateDto, error)
     }
     DeviceTemplateService::storage -- DeviceTemplateStorage
 }

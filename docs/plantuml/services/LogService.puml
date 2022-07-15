@@ -7,7 +7,7 @@
 
 package app {
     class LogService {
-        repository IGenericRepository
+        -repository IGenericRepository
         --
     }
 

@@ -2,19 +2,19 @@
 
 package domain {
     class BootStageTemplate {
-        Name string
+        +Name string
         --
-        Description string
+        +Description string
         --
-        Action string
+        +Action string
         --
-        Files []BootStageTemplateFile
+        +Files []BootStageTemplateFile
     }
 
     class BootStageTemplateFile {
-        ExistingFileName string
+        +ExistingFileName string
         --
-        VirtualFileName
+        +VirtualFileName
     }
 
     BootStageTemplate::Files -- BootStageTemplateFile

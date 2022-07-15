@@ -6,29 +6,29 @@
 
 package dtos {
     class DeviceTemplateDto {
-            Name string
+            +Name string
             --
-            Model
+            +Model
             --
-            Manufacturer
+            +Manufacturer
             --
-            Description string
+            +Description string
             --
-            CPUCount int
+            +CPUCount int
             --
-            CPUModel string
+            +CPUModel string
             --
-            RAM int
+            +RAM int
             --
-            NetworkInterfaces []DeviceTemplateNetworkInterfaceDto
+            +NetworkInterfaces []DeviceTemplateNetworkInterfaceDto
             --
-            Control DeviceTemplateControlDescDto
+            +Control DeviceTemplateControlDescDto
             --
-            DiskBootStages []BootStageTemplateDto
+            +DiskBootStages []BootStageTemplateDto
             --
-            NetBootStages []BootStageTemplateDto
+            +NetBootStages []BootStageTemplateDto
             --
-            USBBootStages []BootStageTemplateDto
+            +USBBootStages []BootStageTemplateDto
     }
     DeviceTemplateNetworkInterfaceDto -[hidden]down-DeviceTemplateControlDescDto
     DeviceTemplateDto::NetworkInterfaces -right- DeviceTemplateNetworkInterfaceDto

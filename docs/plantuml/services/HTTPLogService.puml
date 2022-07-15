@@ -6,7 +6,7 @@
 
 package app {
     class HTTPLogService {
-        repository IGenericRepository<HTTPLog>
+        -repository IGenericRepository<HTTPLog>
     }
 
     HTTPLogService .[hidden]up. IGenericRepository

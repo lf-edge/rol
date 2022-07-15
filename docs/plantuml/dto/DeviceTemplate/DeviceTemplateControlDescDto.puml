@@ -2,11 +2,11 @@
 
 package dtos {
     class DeviceTemplateControlDescDto {
-        Emergency string
+        +Emergency string
         --
-        Power string
+        +Power string
         --
-        NextBoot string
+        +NextBoot string
     }
 }
 

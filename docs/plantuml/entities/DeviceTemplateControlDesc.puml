@@ -2,11 +2,11 @@
 
 package domain {
     class DeviceTemplateControlDesc {
-        Emergency string
+        +Emergency string
         --
-        Power string
+        +Power string
         --
-        NextBoot string
+        +NextBoot string
     }
 
     note right of DeviceTemplateControlDesc::Emergency

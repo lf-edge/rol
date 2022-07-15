@@ -4,25 +4,25 @@
 
 package dtos {
     class HTTPLogDto {
-        HTTPMethod string
+        +HTTPMethod string
         --
-        Domain string
+        +Domain string
         --
-        RelativePath string
+        +RelativePath string
         --
-        QueryParams string
+        +QueryParams string
         --
-        ClientIP string
+        +ClientIP string
         --
-        Latency int
+        +Latency int
         --
-        RequestBody string
+        +RequestBody string
         --
-        ResponseBody string
+        +ResponseBody string
         --
-        RequestHeaders string
+        +RequestHeaders string
         --
-        CustomRequestHeaders string
+        +CustomRequestHeaders string
     }
     HTTPLogDto --* BaseDto
 }

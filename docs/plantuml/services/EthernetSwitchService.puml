@@ -7,7 +7,7 @@
 
 package app {
     class EthernetSwitchService {
-        repository IGenericRepository<EthernetSwitch>
+        -repository IGenericRepository<EthernetSwitch>
         --
         +GetSupportedModels()
     }

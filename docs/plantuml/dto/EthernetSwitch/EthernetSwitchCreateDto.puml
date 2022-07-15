@@ -4,7 +4,7 @@
 
 package dtos {
     class EthernetSwitchCreateDto {
-        Password string
+        +Password string
     }
 
     EthernetSwitchCreateDto --* EthernetSwitchBaseDto

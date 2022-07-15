@@ -2,13 +2,13 @@
 
 package dtos {
     class DeviceTemplateNetworkInterfaceDto {
-        Name string
+        +Name string
         --
-        NetBoot boolean
+        +NetBoot boolean
         --
-        POEIn boolean
+        +POEIn boolean
         --
-        Management boolean
+        +Management boolean
     }
 }
 

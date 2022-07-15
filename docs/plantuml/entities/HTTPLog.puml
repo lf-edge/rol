@@ -4,31 +4,31 @@
 
 package domain {
     class HTTPLog {
-        HTTPMethod string
+        +HTTPMethod string
         --
-        Domain string
+        +Domain string
         --
-        RelativePath string `gorm:"index"`
+        +RelativePath string `gorm:"index"`
         --
-        QueryParams string
+        +QueryParams string
         --
-        QueryParamsInd string `gorm:"index"`
+        +QueryParamsInd string `gorm:"index"`
         --
-        ClientIP string `gorm:"index"`
+        +ClientIP string `gorm:"index"`
         --
-        Latency int
+        +Latency int
         --
-        RequestBody string
+        +RequestBody string
         --
-        ResponseBody string
+        +ResponseBody string
         --
-        RequestHeaders string
+        +RequestHeaders string
         --
-        ResponseHeaders string
+        +ResponseHeaders string
         --
-        CustomRequestHeaders string
+        +CustomRequestHeaders string
         --
-        CustomRequestHeadersInd string `gorm:"index"`
+        +CustomRequestHeadersInd string `gorm:"index"`
     }
     HTTPLog -down-* Entity
 }

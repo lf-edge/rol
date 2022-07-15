@@ -5,13 +5,13 @@
 
 package domain {
     class Entity {
-        ID uuid.UUID `gorm:"primarykey"`
+        +ID uuid.UUID `gorm:"primarykey"`
         --
-        CreatedAt time.Time `gorm:"index"`
+        +CreatedAt time.Time `gorm:"index"`
         --
-        UpdatedAt time.Time `gorm:"index"`
+        +UpdatedAt time.Time `gorm:"index"`
         --
-        DeletedAt time.Time `gorm:"index"`
+        +DeletedAt time.Time `gorm:"index"`
     }
     Entity .down.|> IEntityModelDeletedAt
     Entity .down.|> IEntityModel

@@ -4,11 +4,11 @@
 
 package domain {
     class EthernetSwitchPort {
-        EthernetSwitchId uuid.UUID
+        +EthernetSwitchId uuid.UUID
         --
-        POEType string
+        +POEType string
         --
-        Name string
+        +Name string
     }
 
     EthernetSwitchPort -down-* Entity

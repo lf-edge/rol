@@ -8,7 +8,7 @@ package infrastructure {
 
     class DeviceTemplateStorage
 
-    DeviceTemplateStorage *-- YamlGenericTemplateStorage
+    DeviceTemplateStorage --* YamlGenericTemplateStorage
     DeviceTemplateStorage .down. DeviceTemplateTypeNote
     YamlGenericTemplateStorage <.up. DeviceTemplateTypeNote
     DeviceTemplateTypeNote .. DeviceTemplate

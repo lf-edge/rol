@@ -4,6 +4,6 @@
 package infrastructure {
     class YamlGenericTemplateStorage<TemplateType>
 
-    YamlGenericTemplateStorage *-- IGenericTemplateStorage
+    YamlGenericTemplateStorage .down.|> IGenericTemplateStorage
 }
 @enduml

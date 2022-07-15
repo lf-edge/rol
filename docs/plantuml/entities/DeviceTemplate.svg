@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="190px" preserveAspectRatio="none" style="width:928px;height:190px;background:#FFFFFF;" version="1.1" viewBox="0 0 928 190" width="928px" zoomAndPan="magnify"><defs/><g><!--MD5=[27f772719433d509ddbc20ff768eba08]
+cluster domain--><g id="cluster_domain"><path d="M8.5,6 L60.5,6 A3.75,3.75 0 0 1 63,8.5 L70,29.6094 L918.5,29.6094 A2.5,2.5 0 0 1 921,32.1094 L921,180.5 A2.5,2.5 0 0 1 918.5,183 L8.5,183 A2.5,2.5 0 0 1 6,180.5 L6,8.5 A2.5,2.5 0 0 1 8.5,6 " style="stroke:#000000;stroke-width:1.5;fill:none;"/><line style="stroke:#000000;stroke-width:1.5;fill:none;" x1="6" x2="70" y1="29.6094" y2="29.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="51" x="10" y="22.5332">domain</text></g><!--MD5=[a234cf70aac494477a7ddd9e1f220e42]
+class DeviceTemplateControlDesc--><g id="elem_DeviceTemplateControlDesc"><rect codeLine="3" fill="#F1F1F1" height="108.8281" id="DeviceTemplateControlDesc" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="212" x="22" y="50"/><ellipse cx="37" cy="66" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M39.7656,61.875 Q39.9219,61.6563 40.1094,61.5469 Q40.2969,61.4375 40.5156,61.4375 Q40.8906,61.4375 41.125,61.7031 Q41.3594,61.9531 41.3594,62.5625 L41.3594,64.0156 Q41.3594,64.625 41.125,64.8906 Q40.8906,65.1563 40.5156,65.1563 Q40.1719,65.1563 39.9688,64.9531 Q39.7656,64.7656 39.6563,64.25 Q39.6094,63.8906 39.4219,63.7031 Q39.0938,63.3281 38.4844,63.1094 Q37.875,62.8906 37.25,62.8906 Q36.4844,62.8906 35.8438,63.2188 Q35.2188,63.5469 34.7188,64.2969 Q34.2344,65.0469 34.2344,66.0781 L34.2344,67.1719 Q34.2344,68.4063 35.125,69.2344 Q36.0156,70.0469 37.6094,70.0469 Q38.5469,70.0469 39.2031,69.7969 Q39.5938,69.6406 40.0156,69.2031 Q40.2813,68.9375 40.4219,68.8594 Q40.5781,68.7813 40.7813,68.7813 Q41.1094,68.7813 41.3594,69.0469 Q41.625,69.2969 41.625,69.6406 Q41.625,69.9844 41.2813,70.3906 Q40.7813,70.9688 39.9844,71.2969 Q38.9063,71.75 37.6094,71.75 Q36.0938,71.75 34.8906,71.125 Q33.9063,70.625 33.2188,69.5625 Q32.5313,68.4844 32.5313,67.2031 L32.5313,66.0469 Q32.5313,64.7188 33.1406,63.5781 Q33.7656,62.4219 34.8594,61.8125 Q35.9531,61.1875 37.1875,61.1875 Q37.9219,61.1875 38.5625,61.3594 Q39.2188,61.5156 39.7656,61.875 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="180" x="51" y="71.7285">DeviceTemplateControlDesc</text><line style="stroke:#181818;stroke-width:0.5;" x1="23" x2="233" y1="82" y2="82"/><ellipse cx="33" cy="93" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="110" x="42" y="100.5332">Emergency string</text><line style="stroke:#181818;stroke-width:1.0;" x1="23" x2="233" y1="107.6094" y2="107.6094"/><ellipse cx="33" cy="118.6094" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="78" x="42" y="126.1426">Power string</text><line style="stroke:#181818;stroke-width:1.0;" x1="23" x2="233" y1="133.2188" y2="133.2188"/><ellipse cx="33" cy="144.2188" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="95" x="42" y="151.752">NextBoot string</text></g><path d="M269,42 L269,51.1758 L152,94.8047 L269,59.1758 L269,68.3516 A0,0 0 0 0 269,68.3516 L905,68.3516 A0,0 0 0 0 905,68.3516 L905,52 L895,42 L269,42 A0,0 0 0 0 269,42 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M895,42 L895,52 L905,52 L895,42 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="615" x="275" y="60.4951">How to control device power in case of emergency. As example: POE(For Rpi4), IPMI, ILO or PowerSwitch</text><path d="M269,78.3516 L269,87.5273 L120,120.4141 L269,95.5273 L269,104.7031 A0,0 0 0 0 269,104.7031 L777,104.7031 A0,0 0 0 0 777,104.7031 L777,88.3516 L767,78.3516 L269,78.3516 A0,0 0 0 0 269,78.3516 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M767,78.3516 L767,88.3516 L777,88.3516 L767,78.3516 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="487" x="275" y="96.8467">How to control device power. As example: POE(For Rpi4), IPMI, ILO or PowerSwitch</text><path d="M269,114.7031 L269,132.0547 L137,146.0234 L269,140.0547 L269,157.4063 A0,0 0 0 0 269,157.4063 L797,157.4063 A0,0 0 0 0 797,157.4063 L797,124.7031 L787,114.7031 L269,114.7031 A0,0 0 0 0 269,114.7031 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M787,114.7031 L787,124.7031 L797,124.7031 L787,114.7031 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="383" x="275" y="133.1982">How to change next boot device. As example: IPMI, ILO or NONE.</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="507" x="275" y="149.5498">For example NONE is used for Rpi4, we control next boot by u-boot files in boot stages.</text><!--MD5=[e50753a18c6fdfbc3ff9f340de536414]
+@startuml DeviceTemplate
+
+package domain {
+    class DeviceTemplateControlDesc {
+        +Emergency string
+        - -
+        +Power string
+        - -
+        +NextBoot string
+    }
+
+    note right of DeviceTemplateControlDesc::Emergency
+    How to control device power in case of emergency. As example: POE(For Rpi4), IPMI, ILO or PowerSwitch
+    end note
+
+    note right of DeviceTemplateControlDesc::Power
+    How to control device power. As example: POE(For Rpi4), IPMI, ILO or PowerSwitch
+    end note
+
+    note right of DeviceTemplateControlDesc::NextBoot
+    How to change next boot device. As example: IPMI, ILO or NONE.
+    For example NONE is used for Rpi4, we control next boot by u-boot files in boot stages.
+    end note
+}
+
+@enduml
+
+PlantUML version 1.2022.6(Tue Jun 21 20:34:49 MSK 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1251
+Language: ru
+Country: RU
+--></g></svg>

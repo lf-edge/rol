@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="869px" preserveAspectRatio="none" style="width:404px;height:869px;background:#FFFFFF;" version="1.1" viewBox="0 0 404 869" width="404px" zoomAndPan="magnify"><defs/><g><!--MD5=[d5ac3844f66b12d9e08170e47495e096]
+cluster app--><g id="cluster_app"><path d="M22.5,641 L49.5,641 A3.75,3.75 0 0 1 52,643.5 L59,664.6094 L394.5,664.6094 A2.5,2.5 0 0 1 397,667.1094 L397,859.5 A2.5,2.5 0 0 1 394.5,862 L22.5,862 A2.5,2.5 0 0 1 20,859.5 L20,643.5 A2.5,2.5 0 0 1 22.5,641 " style="stroke:#000000;stroke-width:1.5;fill:none;"/><line style="stroke:#000000;stroke-width:1.5;fill:none;" x1="20" x2="59" y1="664.6094" y2="664.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="26" x="24" y="657.5332">app</text></g><!--MD5=[27f772719433d509ddbc20ff768eba08]
+cluster domain--><g id="cluster_domain"><path d="M8.5,6 L60.5,6 A3.75,3.75 0 0 1 63,8.5 L70,29.6094 L367.5,29.6094 A2.5,2.5 0 0 1 370,32.1094 L370,614.5 A2.5,2.5 0 0 1 367.5,617 L8.5,617 A2.5,2.5 0 0 1 6,614.5 L6,8.5 A2.5,2.5 0 0 1 8.5,6 " style="stroke:#000000;stroke-width:1.5;fill:none;"/><line style="stroke:#000000;stroke-width:1.5;fill:none;" x1="6" x2="70" y1="29.6094" y2="29.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="51" x="10" y="22.5332">domain</text></g><!--MD5=[2a39a5be1cc24ddddd6e6286e4ece992]
+class IEntityModel--><g id="elem_IEntityModel"><rect codeLine="3" fill="#F1F1F1" height="65.6094" id="IEntityModel" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="138" x="243" y="677"/><ellipse cx="270.6" cy="693" fill="#B4A7E5" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M271.5531,689.6406 L271.5531,696.2969 L273.2719,696.2969 Q273.8813,696.2969 274.1469,696.5313 Q274.4125,696.7656 274.4125,697.1563 Q274.4125,697.5313 274.1469,697.7656 Q273.8813,698 273.2719,698 L268.1313,698 Q267.5219,698 267.2563,697.7656 Q266.9906,697.5313 266.9906,697.1406 Q266.9906,696.7656 267.2563,696.5313 Q267.5219,696.2969 268.1313,696.2969 L269.85,696.2969 L269.85,689.6406 L268.1313,689.6406 Q267.5219,689.6406 267.2563,689.4063 Q266.9906,689.1719 266.9906,688.7813 Q266.9906,688.4063 267.2563,688.1719 Q267.5219,687.9375 268.1313,687.9375 L273.2719,687.9375 Q273.8813,687.9375 274.1469,688.1719 Q274.4125,688.4063 274.4125,688.7813 Q274.4125,689.1719 274.1469,689.4063 Q273.8813,689.6406 273.2719,689.6406 L271.5531,689.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="78" x="287.4" y="698.7285">IEntityModel</text><line style="stroke:#181818;stroke-width:0.5;" x1="244" x2="380" y1="709" y2="709"/><line style="stroke:#181818;stroke-width:0.5;" x1="244" x2="380" y1="717" y2="717"/><ellipse cx="254" cy="728" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="112" x="263" y="735.5332">GetID() uuid.UUID</text></g><!--MD5=[01906ac0e62f22b4e38e996248db568e]
+class IEntityModelDeletedAt--><g id="elem_IEntityModelDeletedAt"><rect codeLine="3" fill="#F1F1F1" height="65.6094" id="IEntityModelDeletedAt" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="172" x="36" y="677"/><ellipse cx="51" cy="693" fill="#B4A7E5" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M51.9531,689.6406 L51.9531,696.2969 L53.6719,696.2969 Q54.2813,696.2969 54.5469,696.5313 Q54.8125,696.7656 54.8125,697.1563 Q54.8125,697.5313 54.5469,697.7656 Q54.2813,698 53.6719,698 L48.5313,698 Q47.9219,698 47.6563,697.7656 Q47.3906,697.5313 47.3906,697.1406 Q47.3906,696.7656 47.6563,696.5313 Q47.9219,696.2969 48.5313,696.2969 L50.25,696.2969 L50.25,689.6406 L48.5313,689.6406 Q47.9219,689.6406 47.6563,689.4063 Q47.3906,689.1719 47.3906,688.7813 Q47.3906,688.4063 47.6563,688.1719 Q47.9219,687.9375 48.5313,687.9375 L53.6719,687.9375 Q54.2813,687.9375 54.5469,688.1719 Q54.8125,688.4063 54.8125,688.7813 Q54.8125,689.1719 54.5469,689.4063 Q54.2813,689.6406 53.6719,689.6406 L51.9531,689.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="140" x="65" y="698.7285">IEntityModelDeletedAt</text><line style="stroke:#181818;stroke-width:0.5;" x1="37" x2="207" y1="709" y2="709"/><line style="stroke:#181818;stroke-width:0.5;" x1="37" x2="207" y1="717" y2="717"/><ellipse cx="47" cy="728" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="80" x="56" y="735.5332">SetDeleted()</text></g><g id="elem_GMN311"><path d="M36.5,803 L36.5,845.7031 A0,0 0 0 0 36.5,845.7031 L355.5,845.7031 A0,0 0 0 0 355.5,845.7031 L355.5,813 L345.5,803 L186.49,803 L143.21,743.24 L178.49,803 L36.5,803 A0,0 0 0 0 36.5,803 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M345.5,803 L345.5,813 L355.5,813 L345.5,803 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="98" x="42.5" y="821.4951">Set deletion time</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="298" x="42.5" y="837.8467">This method marks that the entity has been deleted</text></g><!--MD5=[be996cdb8e6bf2fc7cb89c555f2cd144]
+class Entity--><g id="elem_Entity"><rect codeLine="6" fill="#F1F1F1" height="134.4375" id="Entity" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="250" x="63" y="467"/><ellipse cx="166.25" cy="483" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M169.0156,478.875 Q169.1719,478.6563 169.3594,478.5469 Q169.5469,478.4375 169.7656,478.4375 Q170.1406,478.4375 170.375,478.7031 Q170.6094,478.9531 170.6094,479.5625 L170.6094,481.0156 Q170.6094,481.625 170.375,481.8906 Q170.1406,482.1563 169.7656,482.1563 Q169.4219,482.1563 169.2188,481.9531 Q169.0156,481.7656 168.9063,481.25 Q168.8594,480.8906 168.6719,480.7031 Q168.3438,480.3281 167.7344,480.1094 Q167.125,479.8906 166.5,479.8906 Q165.7344,479.8906 165.0938,480.2188 Q164.4688,480.5469 163.9688,481.2969 Q163.4844,482.0469 163.4844,483.0781 L163.4844,484.1719 Q163.4844,485.4063 164.375,486.2344 Q165.2656,487.0469 166.8594,487.0469 Q167.7969,487.0469 168.4531,486.7969 Q168.8438,486.6406 169.2656,486.2031 Q169.5313,485.9375 169.6719,485.8594 Q169.8281,485.7813 170.0313,485.7813 Q170.3594,485.7813 170.6094,486.0469 Q170.875,486.2969 170.875,486.6406 Q170.875,486.9844 170.5313,487.3906 Q170.0313,487.9688 169.2344,488.2969 Q168.1563,488.75 166.8594,488.75 Q165.3438,488.75 164.1406,488.125 Q163.1563,487.625 162.4688,486.5625 Q161.7813,485.4844 161.7813,484.2031 L161.7813,483.0469 Q161.7813,481.7188 162.3906,480.5781 Q163.0156,479.4219 164.1094,478.8125 Q165.2031,478.1875 166.4375,478.1875 Q167.1719,478.1875 167.8125,478.3594 Q168.4688,478.5156 169.0156,478.875 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="35" x="186.75" y="488.7285">Entity</text><line style="stroke:#181818;stroke-width:0.5;" x1="64" x2="312" y1="499" y2="499"/><ellipse cx="74" cy="510" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="208" x="83" y="517.5332">ID uuid.UUID `gorm:"primarykey"`</text><line style="stroke:#181818;stroke-width:1.0;" x1="64" x2="312" y1="524.6094" y2="524.6094"/><ellipse cx="74" cy="535.6094" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="222" x="83" y="543.1426">CreatedAt time.Time `gorm:"index"`</text><line style="stroke:#181818;stroke-width:1.0;" x1="64" x2="312" y1="550.2188" y2="550.2188"/><ellipse cx="74" cy="561.2188" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="224" x="83" y="568.752">UpdatedAt time.Time `gorm:"index"`</text><line style="stroke:#181818;stroke-width:1.0;" x1="64" x2="312" y1="575.8281" y2="575.8281"/><ellipse cx="74" cy="586.8281" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="220" x="83" y="594.3613">DeletedAt time.Time `gorm:"index"`</text></g><!--MD5=[73025a93428e560011f09646c3da1997]
+class HTTPLog--><g id="elem_HTTPLog"><rect codeLine="5" fill="#F1F1F1" height="364.9219" id="HTTPLog" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="331" x="22.5" y="42"/><ellipse cx="153.75" cy="58" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M156.5156,53.875 Q156.6719,53.6563 156.8594,53.5469 Q157.0469,53.4375 157.2656,53.4375 Q157.6406,53.4375 157.875,53.7031 Q158.1094,53.9531 158.1094,54.5625 L158.1094,56.0156 Q158.1094,56.625 157.875,56.8906 Q157.6406,57.1563 157.2656,57.1563 Q156.9219,57.1563 156.7188,56.9531 Q156.5156,56.7656 156.4063,56.25 Q156.3594,55.8906 156.1719,55.7031 Q155.8438,55.3281 155.2344,55.1094 Q154.625,54.8906 154,54.8906 Q153.2344,54.8906 152.5938,55.2188 Q151.9688,55.5469 151.4688,56.2969 Q150.9844,57.0469 150.9844,58.0781 L150.9844,59.1719 Q150.9844,60.4063 151.875,61.2344 Q152.7656,62.0469 154.3594,62.0469 Q155.2969,62.0469 155.9531,61.7969 Q156.3438,61.6406 156.7656,61.2031 Q157.0313,60.9375 157.1719,60.8594 Q157.3281,60.7813 157.5313,60.7813 Q157.8594,60.7813 158.1094,61.0469 Q158.375,61.2969 158.375,61.6406 Q158.375,61.9844 158.0313,62.3906 Q157.5313,62.9688 156.7344,63.2969 Q155.6563,63.75 154.3594,63.75 Q152.8438,63.75 151.6406,63.125 Q150.6563,62.625 149.9688,61.5625 Q149.2813,60.4844 149.2813,59.2031 L149.2813,58.0469 Q149.2813,56.7188 149.8906,55.5781 Q150.5156,54.4219 151.6094,53.8125 Q152.7031,53.1875 153.9375,53.1875 Q154.6719,53.1875 155.3125,53.3594 Q155.9688,53.5156 156.5156,53.875 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="60" x="174.25" y="63.7285">HTTPLog</text><line style="stroke:#181818;stroke-width:0.5;" x1="23.5" x2="352.5" y1="74" y2="74"/><ellipse cx="33.5" cy="85" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="122" x="42.5" y="92.5332">HTTPMethod string</text><line style="stroke:#181818;stroke-width:1.0;" x1="23.5" x2="352.5" y1="99.6094" y2="99.6094"/><ellipse cx="33.5" cy="110.6094" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="87" x="42.5" y="118.1426">Domain string</text><line style="stroke:#181818;stroke-width:1.0;" x1="23.5" x2="352.5" y1="125.2188" y2="125.2188"/><ellipse cx="33.5" cy="136.2188" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="212" x="42.5" y="143.752">RelativePath string `gorm:"index"`</text><line style="stroke:#181818;stroke-width:1.0;" x1="23.5" x2="352.5" y1="150.8281" y2="150.8281"/><ellipse cx="33.5" cy="161.8281" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="126" x="42.5" y="169.3613">QueryParams string</text><line style="stroke:#181818;stroke-width:1.0;" x1="23.5" x2="352.5" y1="176.4375" y2="176.4375"/><ellipse cx="33.5" cy="187.4375" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="238" x="42.5" y="194.9707">QueryParamsInd string `gorm:"index"`</text><line style="stroke:#181818;stroke-width:1.0;" x1="23.5" x2="352.5" y1="202.0469" y2="202.0469"/><ellipse cx="33.5" cy="213.0469" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="180" x="42.5" y="220.5801">ClientIP string `gorm:"index"`</text><line style="stroke:#181818;stroke-width:1.0;" x1="23.5" x2="352.5" y1="227.6563" y2="227.6563"/><ellipse cx="33.5" cy="238.6563" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="69" x="42.5" y="246.1895">Latency int</text><line style="stroke:#181818;stroke-width:1.0;" x1="23.5" x2="352.5" y1="253.2656" y2="253.2656"/><ellipse cx="33.5" cy="264.2656" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="124" x="42.5" y="271.7988">RequestBody string</text><line style="stroke:#181818;stroke-width:1.0;" x1="23.5" x2="352.5" y1="278.875" y2="278.875"/><ellipse cx="33.5" cy="289.875" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="135" x="42.5" y="297.4082">ResponseBody string</text><line style="stroke:#181818;stroke-width:1.0;" x1="23.5" x2="352.5" y1="304.4844" y2="304.4844"/><ellipse cx="33.5" cy="315.4844" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="145" x="42.5" y="323.0176">RequestHeaders string</text><line style="stroke:#181818;stroke-width:1.0;" x1="23.5" x2="352.5" y1="330.0938" y2="330.0938"/><ellipse cx="33.5" cy="341.0938" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="156" x="42.5" y="348.627">ResponseHeaders string</text><line style="stroke:#181818;stroke-width:1.0;" x1="23.5" x2="352.5" y1="355.7031" y2="355.7031"/><ellipse cx="33.5" cy="366.7031" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="193" x="42.5" y="374.2363">CustomRequestHeaders string</text><line style="stroke:#181818;stroke-width:1.0;" x1="23.5" x2="352.5" y1="381.3125" y2="381.3125"/><ellipse cx="33.5" cy="392.3125" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="305" x="42.5" y="399.8457">CustomRequestHeadersInd string `gorm:"index"`</text></g><!--MD5=[2557b70de049790e1c1a4cc262bbdad6]
+link Entity to IEntityModelDeletedAt--><g id="link_Entity_IEntityModelDeletedAt"><path codeLine="15" d="M162.86,601.28 C155.71,620.12 148.05,640.34 141.3,658.11 " fill="none" id="Entity-to-IEntityModelDeletedAt" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="147.8,660.71,134.16,676.93,134.71,655.75,147.8,660.71" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[a6c7a0eda5b041e127f539f1664bb96a]
+link Entity to IEntityModel--><g id="link_Entity_IEntityModel"><path codeLine="16" d="M235.23,601.28 C249.24,620.93 264.31,642.08 277.36,660.39 " fill="none" id="Entity-to-IEntityModel" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="283.24,656.58,289.15,676.93,271.84,664.71,283.24,656.58" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[9772157d24c033f2fd4659808d74f7d7]
+link IEntityModelDeletedAt to IEntityModel--><!--MD5=[d210a1a4967c1bd5004fbe3d33929ee5]
+link HTTPLog to Entity--><g id="link_HTTPLog_Entity"><path codeLine="32" d="M188,407.04 C188,423.27 188,439.07 188,453.69 " fill="none" id="HTTPLog-to-Entity" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="188,466.75,192,460.75,188,454.75,184,460.75,188,466.75" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[59b5a22d2e42f0dc7ee75364a4a1ba00]
+@startuml EthernetSwitch
+
+!include Entity.puml
+
+package domain {
+    class HTTPLog {
+        +HTTPMethod string
+        - -
+        +Domain string
+        - -
+        +RelativePath string `gorm:"index"`
+        - -
+        +QueryParams string
+        - -
+        +QueryParamsInd string `gorm:"index"`
+        - -
+        +ClientIP string `gorm:"index"`
+        - -
+        +Latency int
+        - -
+        +RequestBody string
+        - -
+        +ResponseBody string
+        - -
+        +RequestHeaders string
+        - -
+        +ResponseHeaders string
+        - -
+        +CustomRequestHeaders string
+        - -
+        +CustomRequestHeadersInd string `gorm:"index"`
+    }
+    HTTPLog -down-* Entity
+}
+
+@enduml
+
+@startuml EthernetSwitch
+
+
+
+package app {
+    interface IEntityModel {
+        +GetID() uuid.UUID
+    }
+}
+
+
+package app {
+    interface IEntityModelDeletedAt {
+        +SetDeleted()
+    }
+    note bottom of IEntityModelDeletedAt
+        Set deletion time
+        This method marks that the entity has been deleted
+    end note
+}
+
+
+package domain {
+    class Entity {
+        +ID uuid.UUID `gorm:"primarykey"`
+        - -
+        +CreatedAt time.Time `gorm:"index"`
+        - -
+        +UpdatedAt time.Time `gorm:"index"`
+        - -
+        +DeletedAt time.Time `gorm:"index"`
+    }
+    Entity .down.|> IEntityModelDeletedAt
+    Entity .down.|> IEntityModel
+
+    IEntityModel .left[hidden]. IEntityModelDeletedAt
+}
+
+
+package domain {
+    class HTTPLog {
+        +HTTPMethod string
+        - -
+        +Domain string
+        - -
+        +RelativePath string `gorm:"index"`
+        - -
+        +QueryParams string
+        - -
+        +QueryParamsInd string `gorm:"index"`
+        - -
+        +ClientIP string `gorm:"index"`
+        - -
+        +Latency int
+        - -
+        +RequestBody string
+        - -
+        +ResponseBody string
+        - -
+        +RequestHeaders string
+        - -
+        +ResponseHeaders string
+        - -
+        +CustomRequestHeaders string
+        - -
+        +CustomRequestHeadersInd string `gorm:"index"`
+    }
+    HTTPLog -down-* Entity
+}
+
+@enduml
+
+PlantUML version 1.2022.6(Tue Jun 21 20:34:49 MSK 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1251
+Language: ru
+Country: RU
+--></g></svg>

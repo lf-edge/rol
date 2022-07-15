@@ -1,0 +1,49 @@
+@startuml
+!include ../services/EthernetSwitchPortService.puml
+!include ../dto/EthernetSwitchPort/EthernetSwitchPortCreateDto.puml
+!include ../dto/EthernetSwitchPort/EthernetSwitchPortUpdateDto.puml
+!include ../dto/EthernetSwitchPort/EthernetSwitchPortDto.puml
+
+package controllers {
+    class EthernetSwitchPortGinController {
+        -service *services.EthernetSwitchPortService
+        --
+        -logger  *logrus.Logger
+        --
+        +GetPortByID(ctx *gin.Context)
+        --
+        +GetPorts(ctx *gin.Context)
+        --
+        +CreatePort(ctx *gin.Context)
+        --
+        +UpdatePort(ctx *gin.Context)
+        --
+        +DeletePort(ctx *gin.Context)
+    }
+
+    note left of EthernetSwitchPortGinController::GetPortByID
+    Get ethernet switch port by id
+    end note
+
+    note left of EthernetSwitchPortGinController::GetPorts
+    Get list of elements with search and pagination
+    end note
+
+    note left of EthernetSwitchPortGinController::CreatePort
+    Create new ethernet switch port
+    end note
+
+    note left of EthernetSwitchPortGinController::UpdatePort
+    Update ethernet switch port by id
+    end note
+
+    note left of EthernetSwitchPortGinController::DeletePort
+    Delete ethernet switch port
+    end note
+
+    EthernetSwitchPortGinController .[hidden]up. EthernetSwitchPort
+    EthernetSwitchPortGinController .up. EthernetSwitchPortServiceTypes
+    EthernetSwitchPortService -left- EthernetSwitchPortGinController::service
+}
+
+@enduml

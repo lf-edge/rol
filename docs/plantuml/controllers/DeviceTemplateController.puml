@@ -1,0 +1,18 @@
+@startuml
+!include ../services/DeviceTemplateService.puml
+
+package controllers{
+    class DeviceTemplateController{
+        -service *services.DeviceTemplateService
+        --
+        -logger  *logrus.Logger
+        --
+        +GetList(ctx *gin.Context)
+        --
+        +GetByName(ctx *gin.Context)
+    }
+}
+
+DeviceTemplateController::service -- DeviceTemplateService
+
+@enduml

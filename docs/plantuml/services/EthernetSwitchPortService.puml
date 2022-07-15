@@ -40,10 +40,10 @@ package app {
     EthernetSwitchPortService .[hidden]up. IGenericRepository
 
     note as EthernetSwitchPortServiceTypes
-    EntityType is EthernetSwitch
-    CreateDtoType is EthernetSwitchCreateDto
-    UpdateDtoType is EthernetSwitchUpdateDto
-    DtoType is EthernetSwitchDto
+    EntityType is EthernetSwitchPort
+    CreateDtoType is EthernetSwitchPortCreateDto
+    UpdateDtoType is EthernetSwitchPortUpdateDto
+    DtoType is EthernetSwitchPortDto
     end note
 
     EthernetSwitchPortService .down. EthernetSwitchPortServiceTypes

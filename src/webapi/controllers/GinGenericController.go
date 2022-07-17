@@ -1,14 +1,11 @@
 package controllers
 
 import (
+	"github.com/gin-gonic/gin"
+	"github.com/sirupsen/logrus"
 	"net/http"
 	"rol/app/interfaces"
 	"rol/dtos"
-	"strconv"
-
-	"github.com/gin-gonic/gin"
-	"github.com/google/uuid"
-	"github.com/sirupsen/logrus"
 )
 
 //GinGenericController generic controller structure for IEntityModel
@@ -47,20 +44,13 @@ func NewGinGenericController[DtoType interface{},
 //Params
 //	ctx - gin context
 func (g *GinGenericController[DtoType, CreateDtoType, UpdateDtoType, EntityType]) GetList(ctx *gin.Context) {
-	orderBy := ctx.DefaultQuery("orderBy", "id")
-	orderDirection := ctx.DefaultQuery("orderDirection", "asc")
-	search := ctx.DefaultQuery("search", "")
-	page := ctx.DefaultQuery("page", "1")
-	pageInt64, err := strconv.ParseInt(page, 10, 64)
-	if err != nil {
-		pageInt64 = 1
-	}
-	pageSize := ctx.DefaultQuery("pageSize", "10")
-	pageSizeInt64, err := strconv.ParseInt(pageSize, 10, 64)
-	if err != nil {
-		pageSizeInt64 = 10
-	}
-	paginatedList, err := g.service.GetList(ctx, search, orderBy, orderDirection, int(pageInt64), int(pageSizeInt64))
+	getListQuery := parseGetListQueryParams(ctx, "id")
+	paginatedList, err := g.service.GetList(ctx,
+		getListQuery.search,
+		getListQuery.orderBy,
+		getListQuery.orderDirection,
+		getListQuery.page,
+		getListQuery.pageSize)
 	if err != nil {
 		abortByTypedError(ctx, err)
 	}
@@ -78,8 +68,7 @@ func (g *GinGenericController[DtoType, CreateDtoType, UpdateDtoType, EntityType]
 //Params
 //	ctx - gin context
 func (g *GinGenericController[DtoType, CreateDtoType, UpdateDtoType, EntityType]) GetByID(ctx *gin.Context) {
-	strID := ctx.Param("id")
-	id, err := uuid.Parse(strID)
+	id, err := parseUUIDFromUrl(ctx, "id")
 	if err != nil {
 		abortByTypedError(ctx, err)
 	}
@@ -131,8 +120,7 @@ func (g *GinGenericController[DtoType, CreateDtoType, UpdateDtoType, EntityType]
 	ctx.JSON(http.StatusOK, responseDto)
 }
 
-//Update
-//	Update entity in database by id
+//Update entity by id
 //Params
 //	ctx - gin context
 func (g *GinGenericController[DtoType, CreateDtoType, UpdateDtoType, EntityType]) Update(ctx *gin.Context) {
@@ -148,8 +136,10 @@ func (g *GinGenericController[DtoType, CreateDtoType, UpdateDtoType, EntityType]
 		ctx.AbortWithStatus(http.StatusInternalServerError)
 	}
 
-	strID := ctx.Param("id")
-	id := uuid.MustParse(strID)
+	id, err := parseUUIDFromUrl(ctx, "id")
+	if err != nil {
+		abortByTypedError(ctx, err)
+	}
 
 	err = g.service.Update(ctx, *reqDto, id)
 	if err != nil {
@@ -164,15 +154,13 @@ func (g *GinGenericController[DtoType, CreateDtoType, UpdateDtoType, EntityType]
 	ctx.JSON(http.StatusOK, responseDto)
 }
 
-//Delete
-//	Soft deleting entity in database
+//Delete deleting entity
 //Params
 //	ctx - gin context
 func (g *GinGenericController[DtoType, CreateDtoType, UpdateDtoType, EntityType]) Delete(ctx *gin.Context) {
-	strID := ctx.Param("id")
-	id, err := uuid.Parse(strID)
+	id, err := parseUUIDFromUrl(ctx, "id")
 	if err != nil {
-		ctx.AbortWithStatus(http.StatusNotFound)
+		abortByTypedError(ctx, err)
 	}
 
 	err = g.service.Delete(ctx, id)

@@ -112,7 +112,7 @@ func (g *GinGenericController[DtoType, CreateDtoType, UpdateDtoType, EntityType]
 	}
 
 	// Restoring body in gin.Context for logging it later in middleware
-	err = RestoreBody(reqDto, ctx)
+	err = restoreBody(reqDto, ctx)
 	if err != nil {
 		ctx.AbortWithStatus(http.StatusInternalServerError)
 	}
@@ -143,7 +143,7 @@ func (g *GinGenericController[DtoType, CreateDtoType, UpdateDtoType, EntityType]
 	}
 
 	// Restoring body in gin.Context for logging it later in middleware
-	err = RestoreBody(reqDto, ctx)
+	err = restoreBody(reqDto, ctx)
 	if err != nil {
 		ctx.AbortWithStatus(http.StatusInternalServerError)
 	}

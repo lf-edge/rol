@@ -9,8 +9,8 @@ import (
 	"rol/app/errors"
 )
 
-//RestoreBody restore body in gin.Context for logging it later in middleware
-func RestoreBody(body interface{}, ctx *gin.Context) error {
+//restoreBody restore body in gin.Context for logging it later in middleware
+func restoreBody(body interface{}, ctx *gin.Context) error {
 	buf, err := json.Marshal(body)
 	if err != nil {
 		return err

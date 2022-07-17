@@ -163,7 +163,7 @@ func (e *EthernetSwitchPortGinController) CreatePort(ctx *gin.Context) {
 	}
 
 	// Restoring body in gin.Context for logging it later in middleware
-	err = RestoreBody(reqDto, ctx)
+	err = restoreBody(reqDto, ctx)
 	if err != nil {
 		ctx.AbortWithStatus(http.StatusInternalServerError)
 	}
@@ -211,7 +211,7 @@ func (e *EthernetSwitchPortGinController) UpdatePort(ctx *gin.Context) {
 	}
 
 	// Restoring body in gin.Context for logging it later in middleware
-	err = RestoreBody(reqDto, ctx)
+	err = restoreBody(reqDto, ctx)
 	if err != nil {
 		ctx.AbortWithStatus(http.StatusInternalServerError)
 	}

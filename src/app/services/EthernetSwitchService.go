@@ -4,13 +4,12 @@ import (
 	"context"
 	"fmt"
 	"github.com/google/uuid"
+	"github.com/sirupsen/logrus"
 	"rol/app/interfaces"
 	"rol/app/mappers"
 	"rol/app/validators"
 	"rol/domain"
 	"rol/dtos"
-
-	"github.com/sirupsen/logrus"
 )
 
 //EthernetSwitchService service structure for EthernetSwitch entity
@@ -19,7 +18,8 @@ type EthernetSwitchService struct {
 		dtos.EthernetSwitchCreateDto,
 		dtos.EthernetSwitchUpdateDto,
 		domain.EthernetSwitch]
-	supportedList *[]domain.EthernetSwitchModel
+	switchPortRepository interfaces.IGenericRepository[domain.EthernetSwitchPort]
+	supportedList        *[]domain.EthernetSwitchModel
 }
 
 //NewEthernetSwitchService constructor for domain.EthernetSwitch service
@@ -28,7 +28,7 @@ type EthernetSwitchService struct {
 //	log - logrus logger
 //Return
 //	New ethernet switch service
-func NewEthernetSwitchService(rep interfaces.IGenericRepository[domain.EthernetSwitch], log *logrus.Logger) (interfaces.IGenericService[
+func NewEthernetSwitchService(rep interfaces.IGenericRepository[domain.EthernetSwitch], switchPortRepo interfaces.IGenericRepository[domain.EthernetSwitchPort], log *logrus.Logger) (interfaces.IGenericService[
 	dtos.EthernetSwitchDto,
 	dtos.EthernetSwitchCreateDto,
 	dtos.EthernetSwitchUpdateDto,
@@ -38,8 +38,9 @@ func NewEthernetSwitchService(rep interfaces.IGenericRepository[domain.EthernetS
 		return nil, err
 	}
 	ethernetSwitchService := &EthernetSwitchService{
-		GenericService: genericService,
-		supportedList:  &[]domain.EthernetSwitchModel{},
+		GenericService:       genericService,
+		switchPortRepository: switchPortRepo,
+		supportedList:        &[]domain.EthernetSwitchModel{},
 	}
 	ethernetSwitchService.initSupportedList()
 	return ethernetSwitchService, nil
@@ -205,7 +206,24 @@ func (e *EthernetSwitchService) Create(ctx context.Context, createDto dtos.Ether
 //Return
 //	error - if an error occurs, otherwise nil
 func (e *EthernetSwitchService) Delete(ctx context.Context, id uuid.UUID) error {
-	return e.GenericService.Delete(ctx, id)
+	err := e.GenericService.Delete(ctx, id)
+	if err != nil {
+		return err
+	}
+	queryBuilder := e.switchPortRepository.NewQueryBuilder(ctx)
+	queryBuilder.Where("EthernetSwitchID", "=", id)
+	ports, err := e.switchPortRepository.GetList(ctx, "", "", 1, 100, queryBuilder)
+	if err != nil {
+		return err
+	}
+	for _, port := range *ports {
+		port.SetDeleted()
+		err := e.switchPortRepository.Update(ctx, &port)
+		if err != nil {
+			return err
+		}
+	}
+	return nil
 }
 
 //GetSupportedModels Get supported switch models

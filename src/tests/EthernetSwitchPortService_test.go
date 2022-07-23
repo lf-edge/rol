@@ -2,7 +2,6 @@ package tests
 
 import (
 	"context"
-	"errors"
 	"fmt"
 	"github.com/google/uuid"
 	"github.com/sirupsen/logrus"
@@ -21,7 +20,6 @@ import (
 
 var (
 	switchPortService    interfaces.IGenericService[dtos.EthernetSwitchPortDto, dtos.EthernetSwitchPortCreateDto, dtos.EthernetSwitchPortUpdateDto, domain.EthernetSwitchPort]
-	switchService        interfaces.IGenericService[dtos.EthernetSwitchDto, dtos.EthernetSwitchCreateDto, dtos.EthernetSwitchUpdateDto, domain.EthernetSwitch]
 	switchPortRepository interfaces.IGenericRepository[domain.EthernetSwitchPort]
 	portID               uuid.UUID
 	ethernetSwitchID     uuid.UUID
@@ -29,6 +27,15 @@ var (
 
 func Test_EthernetSwitchPortService_Prepare(t *testing.T) {
 	dbFileName := "ethernetSwitchPortService_test.db"
+	//remove old test db file
+	_, filename, _, _ := runtime.Caller(1)
+	if _, err := os.Stat(path.Join(path.Dir(filename), dbFileName)); err == nil {
+		err = os.Remove(dbFileName)
+		if err != nil {
+			t.Errorf("remove db failed:  %q", err)
+		}
+	}
+
 	dbConnection := sqlite.Open(dbFileName)
 	testGenDb, err := gorm.Open(dbConnection, &gorm.Config{})
 	if err != nil {
@@ -50,18 +57,19 @@ func Test_EthernetSwitchPortService_Prepare(t *testing.T) {
 	if err != nil {
 		t.Errorf("create new switch port service failed:  %q", err)
 	}
-	switchService, err = services.NewEthernetSwitchService(switchRepo, logger)
-	if err != nil {
-		t.Errorf("create new switch service failed:  %q", err)
+	//create switch for testing
+	switchEntity := domain.EthernetSwitch{
+		Name:        "AutoTesting",
+		Serial:      "AutoTesting",
+		SwitchModel: "unifi_switch_us-24-250w",
+		Address:     "192.111.111.111",
+		Username:    "AutoTesting",
+		//  pragma: allowlist nextline secret
+		Password: "AutoTesting",
 	}
-
-	_, filename, _, _ := runtime.Caller(1)
-	if _, err := os.Stat(path.Join(path.Dir(filename), dbFileName)); errors.Is(err, os.ErrNotExist) {
-		return
-	}
-	err = os.Remove(dbFileName)
+	ethernetSwitchID, err = switchRepo.Insert(context.TODO(), switchEntity)
 	if err != nil {
-		t.Errorf("remove db failed:  %q", err)
+		t.Errorf("create switch failed: %s", err)
 	}
 }
 
@@ -74,25 +82,6 @@ func Test_EthernetSwitchPortService_CreatePortWithoutSwitch(t *testing.T) {
 	_, err := service.CreatePort(context.TODO(), uuid.New(), dto)
 	if err == nil {
 		t.Errorf("nil error, expected: failed to get ethernet switch: switch not found")
-	}
-}
-
-func Test_EthernetSwitchPortService_CreateSwitchForTests(t *testing.T) {
-	switchCreateDto := dtos.EthernetSwitchCreateDto{
-		EthernetSwitchBaseDto: dtos.EthernetSwitchBaseDto{
-			Name:        "AutoTesting",
-			Serial:      "AutoTesting",
-			SwitchModel: "unifi_switch_us-24-250w",
-			Address:     "192.111.111.111",
-			Username:    "AutoTesting",
-		},
-		//  pragma: allowlist nextline secret
-		Password: "AutoTesting",
-	}
-	var err error
-	ethernetSwitchID, err = switchService.Create(context.TODO(), switchCreateDto)
-	if err != nil {
-		t.Errorf("create switch failed: %s", err)
 	}
 }
 

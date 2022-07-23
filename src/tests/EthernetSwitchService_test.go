@@ -1,6 +1,7 @@
 package tests
 
 import (
+	"context"
 	"errors"
 	"fmt"
 	"github.com/sirupsen/logrus"
@@ -16,9 +17,12 @@ import (
 	"runtime"
 	"strings"
 	"testing"
+	"time"
 )
 
-var testerSwitchService *GenericServiceTest[dtos.EthernetSwitchDto, dtos.EthernetSwitchCreateDto, dtos.EthernetSwitchUpdateDto, domain.EthernetSwitch]
+var (
+	testerSwitchService *GenericServiceTest[dtos.EthernetSwitchDto, dtos.EthernetSwitchCreateDto, dtos.EthernetSwitchUpdateDto, domain.EthernetSwitch]
+)
 
 func Test_EthernetSwitchService_Prepare(t *testing.T) {
 	dbFileName := "ethernetSwitchService_test.db"
@@ -29,6 +33,7 @@ func Test_EthernetSwitchService_Prepare(t *testing.T) {
 	}
 	err = testGenDb.AutoMigrate(
 		new(domain.EthernetSwitch),
+		new(domain.EthernetSwitchPort),
 	)
 	if err != nil {
 		t.Errorf("migration failed: %v", err)
@@ -38,7 +43,8 @@ func Test_EthernetSwitchService_Prepare(t *testing.T) {
 	var repo interfaces.IGenericRepository[domain.EthernetSwitch]
 	repo = infrastructure.NewGormGenericRepository[domain.EthernetSwitch](testGenDb, logger)
 	var service interfaces.IGenericService[dtos.EthernetSwitchDto, dtos.EthernetSwitchCreateDto, dtos.EthernetSwitchUpdateDto, domain.EthernetSwitch]
-	service, err = services.NewEthernetSwitchService(repo, logger)
+	switchPortRepository = infrastructure.NewGormGenericRepository[domain.EthernetSwitchPort](testGenDb, logger)
+	service, err = services.NewEthernetSwitchService(repo, switchPortRepository, logger)
 	if err != nil {
 		t.Errorf("create new service failed:  %q", err)
 	}
@@ -167,9 +173,38 @@ func Test_EthernetSwitchService_Update(t *testing.T) {
 }
 
 func Test_EthernetSwitchService_Delete(t *testing.T) {
-	err := testerSwitchService.GenericServiceDelete(testerSwitchService.InsertedID)
+	// here we create a switch port, to make sure it is removed along with the switch
+	portCreateDto := domain.EthernetSwitchPort{
+		Name:             "AutoTestingPort",
+		EthernetSwitchID: testerSwitchService.InsertedID,
+		POEType:          "poe",
+	}
+	switchPortID, err := switchPortRepository.Insert(context.TODO(), portCreateDto)
 	if err != nil {
 		t.Error(err)
+	}
+
+	// this is where the deletion takes place
+	err = testerSwitchService.GenericServiceDelete(testerSwitchService.InsertedID)
+	if err != nil {
+		t.Error(err)
+	}
+
+	port, err := switchPortRepository.GetByID(context.TODO(), switchPortID)
+	if err != nil {
+		t.Errorf("failed to receive switch port: %s", err.Error())
+	}
+	// since we use soft delete we can still get port from repository
+	if port == nil {
+		t.Errorf("get by id failed: %s", err.Error())
+	}
+	// for sure that port was successfully deleted we need to compare it DeletedAt field with old date like 1999-01-01
+	boundaryDate, err := time.Parse("2006-01-02", "1999-01-01")
+	if err != nil {
+		t.Errorf("date parse error: %s", err.Error())
+	}
+	if port.DeletedAt.Before(boundaryDate) {
+		t.Error("error, the switch port was not deleted")
 	}
 }
 

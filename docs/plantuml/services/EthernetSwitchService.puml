@@ -1,6 +1,7 @@
 @startuml
 !include GenericService.puml
 !include ../repositories/EthernetSwitchRepository.puml
+!include ../repositories/EthernetSwitchPortRepository.puml
 !include ../dto/EthernetSwitch/EthernetSwitchCreateDto.puml
 !include ../dto/EthernetSwitch/EthernetSwitchUpdateDto.puml
 !include ../dto/EthernetSwitch/EthernetSwitchDto.puml
@@ -9,14 +10,19 @@ package app {
     class EthernetSwitchService {
         -repository IGenericRepository<EthernetSwitch>
         --
+        -switchPortRepository interfaces.IGenericRepository[domain.EthernetSwitchPort]
+        --
         +GetSupportedModels()
     }
+    note left of EthernetSwitchService::switchPortRepository
+    Used to remove ports when removing a switch
+    end note
 
     note left of EthernetSwitchService::GetSupportedModels
     Get ethernet switch models that supported by system
     end note
 
-    note left of EthernetSwitchService
+    note right of EthernetSwitchService
         Advanced business logic for EthernetSwitch entity:
         DTO Validation
         Checking the uniqueness of serial numbers
@@ -24,9 +30,11 @@ package app {
     end note
 
     EthernetSwitchRepository -right- EthernetSwitchService::repository
+    EthernetSwitchPortRepository -right- EthernetSwitchService::switchPortRepository
     GenericService *-up- EthernetSwitchService
 
     EthernetSwitchService .[hidden]up. IGenericRepository
+    EthernetSwitchPortRepository .[hidden]down. EthernetSwitchRepository
 
     note as EthernetSwitchServiceTypes
     EntityType is EthernetSwitch

@@ -1,0 +1,19 @@
+@startuml
+
+!include ../entities/HostNetworkConfig.puml
+!include ../interfaces/IHostNetworkManager.puml
+!include ../storages/YamlHostNetworkConfigStorage.puml
+
+package infrastructure {
+    class HostNetworkManager {
+        -configStorage  interfaces.IHostNetworkConfigStorage
+        --
+        -hasUnsavedChanges bool
+    }
+
+    HostNetworkManager::configStorage -- YamlHostNetworkConfigStorage
+    HostNetworkManager -down-|> IHostNetworkManager
+    HostNetworkManager -[hidden]left- YamlHostNetworkConfigStorage
+}
+
+@enduml

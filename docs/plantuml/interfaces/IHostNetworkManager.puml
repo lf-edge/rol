@@ -1,0 +1,69 @@
+@startuml
+
+!include ../interfaces/IHostNetworkLink.puml
+
+package app {
+    interface IHostNetworkManager {
+        +GetList() ([]IHostNetworkLink, error)
+        --
+        +GetByName(name string) (IHostNetworkLink, error)
+        --
+        +CreateVlan(master string, vlanID int) (string, error)
+        --
+        +DeleteLinkByName(name string) error
+        --
+        +AddrAdd(linkName string, addr net.IPNet) error
+        --
+        +AddrDelete(linkName string, addr net.IPNet) error
+        --
+        +SaveConfiguration() error
+        --
+        +RestoreFromBackup() error
+        --
+        +ResetChanges() error
+        --
+        +HasUnsavedChanges() bool
+    }
+
+    note left of IHostNetworkManager::GetList
+    Gets list of host network interfaces
+    end note
+
+    note left of IHostNetworkManager::GetByName
+    Gets host network interface by its name
+    end note
+
+    note left of IHostNetworkManager::CreateVlan
+    Create host vlan interface with name rol.{Master}.{VlanID}
+    end note
+
+    note left of IHostNetworkManager::DeleteLinkByName
+    Deletes interface on host by its name
+    end note
+
+    note left of IHostNetworkManager::AddrAdd
+    Add new ip address for network interface
+    end note
+
+    note left of IHostNetworkManager::AddrDelete
+    Delete ip address for network interface
+    end note
+
+    note left of IHostNetworkManager::SaveConfiguration
+    Save current host network configuration to the storage
+    end note
+
+    note left of IHostNetworkManager::RestoreFromBackup
+    Restore and apply host network configuration from backup
+    end note
+
+    note left of IHostNetworkManager::ResetChanges
+    Reset all applied changes to state from saved configuration
+    end note
+
+    note left of IHostNetworkManager::HasUnsavedChanges
+    Gets a flag about unsaved changes
+    end note
+}
+
+@enduml

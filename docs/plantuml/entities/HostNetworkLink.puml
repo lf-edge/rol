@@ -10,6 +10,9 @@ package domain {
         --
         +Type string
     }
+    note left of HostNetworkLink::Name
+    Unique name of the network interface
+    end note
 
     note left of HostNetworkLink::Type
     Default value is "none"

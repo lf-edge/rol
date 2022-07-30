@@ -8,6 +8,7 @@ import (
 	"rol/domain"
 )
 
+//YamlHostNetworkConfigStorage Yaml implementation of IHostNetworkConfigStorage interface for host config management
 type YamlHostNetworkConfigStorage struct {
 	configFilePath string
 }

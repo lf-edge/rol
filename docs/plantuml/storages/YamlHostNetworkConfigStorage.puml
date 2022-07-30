@@ -1,0 +1,13 @@
+@startuml
+
+!include ../interfaces/IHostNetworkConfigStorage.puml
+
+package infrastructure {
+    class YamlHostNetworkConfigStorage {
+        -configFilePath string
+    }
+
+    YamlHostNetworkConfigStorage --|> IHostNetworkConfigStorage
+}
+
+@enduml

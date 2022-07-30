@@ -1,0 +1,15 @@
+@startuml
+
+!include HostNetworkLink.puml
+
+package domain {
+    class HostNetworkVlan {
+        +VlanID int
+        --
+        +Master string
+    }
+
+    HostNetworkVlan --* HostNetworkLink
+}
+
+@enduml

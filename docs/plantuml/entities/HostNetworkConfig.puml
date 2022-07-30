@@ -1,0 +1,17 @@
+@startuml
+
+!include HostNetworkDevice.puml
+!include HostNetworkVlan.puml
+
+package domain {
+    class HostNetworkConfig {
+        +Devices []HostNetworkDevice
+        --
+        +Vlans   []HostNetworkVlan
+    }
+
+    HostNetworkConfig::Devices -- HostNetworkDevice
+    HostNetworkConfig::Vlans -- HostNetworkVlan
+}
+
+@enduml

@@ -1,0 +1,15 @@
+@startuml
+
+!include ../entities/HostNetworkConfig.puml
+
+package app {
+    interface IHostNetworkConfigStorage {
+        +SaveConfig(config domain.HostNetworkConfig) error
+        --
+        +GetConfig() (domain.HostNetworkConfig, error)
+        --
+        +GetBackupConfig() (domain.HostNetworkConfig, error)
+    }
+}
+
+@enduml

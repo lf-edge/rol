@@ -1,0 +1,11 @@
+@startuml
+
+!include HostNetworkLink.puml
+
+package domain {
+    class HostNetworkDevice
+
+    HostNetworkDevice --* HostNetworkLink
+}
+
+@enduml

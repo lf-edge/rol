@@ -1,0 +1,25 @@
+@startuml
+
+package app {
+    interface IHostNetworkLink {
+        +GetName() string
+        --
+        +GetType() string
+        --
+        +GetAddresses() []net.IPNet
+    }
+
+    note left of IHostNetworkLink::GetName
+    Gets host interface name
+    end note
+
+    note left of IHostNetworkLink::GetType
+    Gets host interface type
+    end note
+
+    note left of IHostNetworkLink::GetAddresses
+    Gets host interface addresses
+    end note
+}
+
+@enduml

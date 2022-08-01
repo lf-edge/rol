@@ -4,9 +4,6 @@ import (
 	"context"
 	"fmt"
 	"github.com/sirupsen/logrus"
-	"io/ioutil"
-	"log"
-	"os"
 	"reflect"
 	"rol/app/services"
 	"rol/domain"
@@ -22,13 +19,12 @@ var (
 
 func Test_DeviceTemplateService_Prepare(t *testing.T) {
 	serviceTemplatesCount = 30
-	storageDirName = "devices"
-	err := createXTemplatesForTest(serviceTemplatesCount)
+	err := createXDeviceTemplatesForTest(serviceTemplatesCount)
 	if err != nil {
 		t.Errorf("creating templates failed: %s", err)
 	}
 	log := logrus.New()
-	storage, err = infrastructure.NewYamlGenericTemplateStorage[domain.DeviceTemplate](storageDirName, log)
+	storage, err = infrastructure.NewYamlGenericTemplateStorage[domain.DeviceTemplate]("devices", log)
 	if err != nil {
 		t.Errorf("creating templates storage failed: %s", err.Error())
 	}
@@ -83,16 +79,8 @@ func Test_DeviceTemplateService_Search(t *testing.T) {
 }
 
 func Test_DeviceTemplateService_DeleteTemplates(t *testing.T) {
-	files, err := ioutil.ReadDir("../templates/devices")
+	err := removeAllCreatedDeviceTestTemplates()
 	if err != nil {
-		log.Fatal(err)
-	}
-	for _, f := range files {
-		if strings.Contains(f.Name(), "AutoTesting_") {
-			err := os.Remove(fmt.Sprintf("../templates/devices/" + f.Name()))
-			if err != nil {
-				t.Errorf("deleting file %s failed: %s", f.Name(), err)
-			}
-		}
+		t.Errorf("deleting device templates failed: %s", err)
 	}
 }

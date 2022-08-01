@@ -9,11 +9,19 @@ jobs:
     strategy:
       matrix:
         go-version: [1.18.x]
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        os: [ubuntu-22.04, macos-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/setup-go@v3
         with:
           go-version: ${{ matrix.go-version }}
       - uses: actions/checkout@v3
-      - run: cd src && go test -v ./tests
+      - name: Build tests
+        run: cd src && go test -c rol/tests -o ./tests/rol.test
+      - name: Setup CAP_NET_ADMIN for compiled tests
+        if: matrix.os == 'ubuntu-22.04'
+        run: |
+          sudo setcap cap_net_admin+ep ./src/tests/rol.test
+      - name: Run tests
+        run: |
+          cd src/tests && ./rol.test -test.v

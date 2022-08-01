@@ -9,11 +9,9 @@ import (
 	"io/ioutil"
 	"os"
 	"path"
-	"path/filepath"
 	"reflect"
 	"rol/app/errors"
 	"rol/app/interfaces"
-	"runtime"
 	"sort"
 	"strconv"
 	"strings"
@@ -43,10 +41,8 @@ type QueryUnit struct {
 //	log - logrus.Logger
 func NewYamlGenericTemplateStorage[TemplateType interface{}](dirName string, log *logrus.Logger) (interfaces.IGenericTemplateStorage[TemplateType], error) {
 	model := new(TemplateType)
-	_, b, _, _ := runtime.Caller(0)
-	rootPath := filepath.Join(filepath.Dir(b), "../templates/")
-
-	templatesDirectory := path.Join(rootPath, dirName)
+	executedFilePath, _ := os.Executable()
+	templatesDirectory := path.Join(path.Dir(executedFilePath), "templates", dirName)
 	if _, err := os.Stat(templatesDirectory); os.IsNotExist(err) {
 		err := os.MkdirAll(templatesDirectory, os.ModePerm)
 		if err != nil {

@@ -8,6 +8,7 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+	"path"
 	"reflect"
 	"rol/app/interfaces"
 	"rol/domain"
@@ -17,17 +18,15 @@ import (
 )
 
 var storageTemplatesCount int
-var storageDirName string
 var storage interfaces.IGenericTemplateStorage[domain.DeviceTemplate]
 
 func Test_DeviceTemplateStorage_Prepare(t *testing.T) {
 	storageTemplatesCount = 30
-	storageDirName = "devices"
-	err := createXTemplatesForTest(storageTemplatesCount)
+	err := createXDeviceTemplatesForTest(storageTemplatesCount)
 	if err != nil {
 		t.Errorf("creating templates failed: %s", err)
 	}
-	storage, err = infrastructure.NewYamlGenericTemplateStorage[domain.DeviceTemplate](storageDirName, logrus.New())
+	storage, err = infrastructure.NewYamlGenericTemplateStorage[domain.DeviceTemplate]("devices", logrus.New())
 	if err != nil {
 		t.Errorf("creating templates storage failed: %s", err.Error())
 	}
@@ -128,22 +127,16 @@ func Test_DeviceTemplateStorage_Filter(t *testing.T) {
 }
 
 func Test_DeviceTemplateStorage_DeleteTemplates(t *testing.T) {
-	files, err := ioutil.ReadDir("../templates/devices")
+	err := removeAllCreatedDeviceTestTemplates()
 	if err != nil {
-		log.Fatal(err)
-	}
-	for _, f := range files {
-		if strings.Contains(f.Name(), "AutoTesting_") {
-			err := os.Remove(fmt.Sprintf("../templates/devices/" + f.Name()))
-			if err != nil {
-				t.Errorf("deleting file %s failed: %s", f.Name(), err)
-			}
-		}
+		t.Errorf("deleting device templates failed: %s", err)
 	}
 }
 
-func createXTemplatesForTest(x int) error {
-	err := os.MkdirAll("../templates/devices", 0777)
+func createXDeviceTemplatesForTest(x int) error {
+	executedFilePath, _ := os.Executable()
+	templatesDir := path.Join(path.Dir(executedFilePath), "templates", "devices")
+	err := os.MkdirAll(templatesDir, 0777)
 	if err != nil {
 		return fmt.Errorf("creating dir failed: %s", err)
 	}
@@ -202,10 +195,28 @@ func createXTemplatesForTest(x int) error {
 		if err != nil {
 			return fmt.Errorf("yaml marshal failed: %s", err)
 		}
-		fileName := fmt.Sprintf("../templates/devices/AutoTesting_%d.yml", i)
+		fileName := path.Join(templatesDir, fmt.Sprintf("AutoTesting_%d.yml", i))
 		err = ioutil.WriteFile(fileName, yamlData, 0777)
 		if err != nil {
 			return fmt.Errorf("create yaml file failed: %s", err)
+		}
+	}
+	return nil
+}
+
+func removeAllCreatedDeviceTestTemplates() error {
+	executedFilePath, _ := os.Executable()
+	templatesDir := path.Join(path.Dir(executedFilePath), "templates", "devices")
+	files, err := ioutil.ReadDir(templatesDir)
+	if err != nil {
+		log.Fatal(err)
+	}
+	for _, f := range files {
+		if strings.Contains(f.Name(), "AutoTesting_") {
+			err := os.Remove(path.Join(templatesDir, f.Name()))
+			if err != nil {
+				return err
+			}
 		}
 	}
 	return nil

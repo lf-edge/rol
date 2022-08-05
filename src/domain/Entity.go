@@ -16,7 +16,7 @@ type Entity struct {
 	//	UpdatedAt - time when the entity was updated
 	UpdatedAt time.Time `gorm:"index"`
 	//	DeletedAt - time when the entity was deleted
-	DeletedAt time.Time `gorm:"index"`
+	DeletedAt *time.Time `gorm:"index"`
 }
 
 //GetID gets the id of the entity
@@ -26,7 +26,8 @@ func (e Entity) GetID() uuid.UUID {
 
 //SetDeleted set the entity DeletedAt field at time.Now()
 func (e *Entity) SetDeleted() {
-	e.DeletedAt = time.Now()
+	now := time.Now()
+	e.DeletedAt = &now
 }
 
 // BeforeCreate will set a UUID rather than numeric ID.

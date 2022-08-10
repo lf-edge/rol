@@ -228,7 +228,14 @@
                         "schema": {
                             "$ref": "#/definitions/dtos.EthernetSwitchUpdateDto"
                         }
-                    }
+                    },
+                    {
+                        "type": "string",
+                        "description": "Ethernet switch ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }                    
                 ],
                 "responses": {
                     "200": {

@@ -11,7 +11,7 @@ package domain {
         --
         +UpdatedAt time.Time `gorm:"index"`
         --
-        +DeletedAt time.Time `gorm:"index"`
+        +DeletedAt *time.Time `gorm:"index"`
     }
     Entity .down.|> IEntityModelDeletedAt
     Entity .down.|> IEntityModel

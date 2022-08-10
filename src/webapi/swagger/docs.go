@@ -228,6 +228,13 @@ const docTemplate = `{
                 "summary": "Updates ethernet switch by id",
                 "parameters": [
                     {
+                        "type": "string",
+                        "description": "Ethernet switch ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
                         "description": "Ethernet switch fields",
                         "name": "request",
                         "in": "body",

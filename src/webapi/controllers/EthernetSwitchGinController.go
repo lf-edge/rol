@@ -88,6 +88,7 @@ func (e *EthernetSwitchGinController) Create(ctx *gin.Context) {
 // @Tags ethernet-switch
 // @Accept  json
 // @Produce  json
+// @param	 id	path	string		true	"Ethernet switch ID"
 // @Param request body dtos.EthernetSwitchUpdateDto true "Ethernet switch fields"
 // @Success 200 {object} dtos.ResponseDto
 // @router /ethernet-switch/{id} [put]

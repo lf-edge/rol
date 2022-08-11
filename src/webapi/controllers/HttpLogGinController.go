@@ -1,11 +1,12 @@
 package controllers
 
 import (
-	"github.com/gin-gonic/gin"
 	"rol/app/interfaces"
 	"rol/domain"
 	"rol/dtos"
 	"rol/webapi"
+
+	"github.com/gin-gonic/gin"
 
 	"github.com/sirupsen/logrus"
 )
@@ -35,11 +36,11 @@ func RegisterHTTPLogController(controller *HTTPLogGinController, server *webapi.
 // @Tags http log
 // @Accept  json
 // @Produce  json
-// @param	 orderBy			path	string	false	"Order by field"
-// @param	 orderDirection	path	string	false	"'asc' or 'desc' for ascending or descending order"
-// @param	 search			 path	string	false	"searchable value in entity"
-// @param	 page			 path	int		false	"page number"
-// @param	 pageSize		 path	int		false	"number of entities per page"
+// @param	 orderBy		 query	string	false	"Order by field"
+// @param	 orderDirection		 query	string	false	"'asc' or 'desc' for ascending or descending order"
+// @param	 search			 query	string	false	"searchable value in entity"
+// @param	 page			 query	int		false	"page number"
+// @param	 pageSize		 query	int		false	"number of entities per page"
 // @Success 200 {object} dtos.ResponseDataDto{data=dtos.PaginatedListDto{items=[]dtos.HTTPLogDto}} "desc"
 // @router /log/http/ [get]
 func (h *HTTPLogGinController) GetList(ctx *gin.Context) {

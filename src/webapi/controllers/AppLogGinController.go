@@ -35,11 +35,11 @@ func RegisterAppLogController(controller *AppLogGinController, server *webapi.Gi
 // @Tags app log
 // @Accept  json
 // @Produce  json
-// @param	 orderBy			path	string	false	"Order by field"
-// @param	 orderDirection	path	string	false	"'asc' or 'desc' for ascending or descending order"
-// @param	 search			 path	string	false	"searchable value in entity"
-// @param	 page			 path	int		false	"page number"
-// @param	 pageSize		 path	int		false	"number of entities per page"
+// @param	 orderBy		 query	string	false	"Order by field"
+// @param	 orderDirection		 query	string	false	"'asc' or 'desc' for ascending or descending order"
+// @param	 search			 query	string	false	"searchable value in entity"
+// @param	 page			 query	int		false	"page number"
+// @param	 pageSize		 query	int		false	"number of entities per page"
 // @Success 200 {object} dtos.ResponseDataDto{data=dtos.PaginatedListDto{items=[]dtos.AppLogDto}} ""
 // @router /log/app/ [get]
 func (a *AppLogGinController) GetList(ctx *gin.Context) {

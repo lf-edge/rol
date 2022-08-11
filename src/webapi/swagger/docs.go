@@ -41,31 +41,31 @@ const docTemplate = `{
                         "type": "string",
                         "description": "Order by field",
                         "name": "orderBy",
-                        "in": "path"
+                        "in": "query"
                     },
                     {
                         "type": "string",
                         "description": "'asc' or 'desc' for ascending or descending order",
                         "name": "orderDirection",
-                        "in": "path"
+                        "in": "query"
                     },
                     {
                         "type": "string",
                         "description": "Searchable value in entity",
                         "name": "search",
-                        "in": "path"
+                        "in": "query"
                     },
                     {
                         "type": "integer",
                         "description": "Page number",
                         "name": "page",
-                        "in": "path"
+                        "in": "query"
                     },
                     {
                         "type": "integer",
                         "description": "Number of entities per page",
                         "name": "pageSize",
-                        "in": "path"
+                        "in": "query"
                     }
                 ],
                 "responses": {
@@ -307,31 +307,31 @@ const docTemplate = `{
                         "type": "string",
                         "description": "Order by field",
                         "name": "orderBy",
-                        "in": "path"
+                        "in": "query"
                     },
                     {
                         "type": "string",
                         "description": "'asc' or 'desc' for ascending or descending order",
                         "name": "orderDirection",
-                        "in": "path"
+                        "in": "query"
                     },
                     {
                         "type": "string",
                         "description": "Searchable value in entity",
                         "name": "search",
-                        "in": "path"
+                        "in": "query"
                     },
                     {
                         "type": "integer",
                         "description": "Page number",
                         "name": "page",
-                        "in": "path"
+                        "in": "query"
                     },
                     {
                         "type": "integer",
                         "description": "Number of entities per page",
                         "name": "pageSize",
-                        "in": "path"
+                        "in": "query"
                     }
                 ],
                 "responses": {
@@ -569,31 +569,31 @@ const docTemplate = `{
                         "type": "string",
                         "description": "Order by field",
                         "name": "orderBy",
-                        "in": "path"
+                        "in": "query"
                     },
                     {
                         "type": "string",
                         "description": "'asc' or 'desc' for ascending or descending order",
                         "name": "orderDirection",
-                        "in": "path"
+                        "in": "query"
                     },
                     {
                         "type": "string",
                         "description": "searchable value in entity",
                         "name": "search",
-                        "in": "path"
+                        "in": "query"
                     },
                     {
                         "type": "integer",
                         "description": "page number",
                         "name": "page",
-                        "in": "path"
+                        "in": "query"
                     },
                     {
                         "type": "integer",
                         "description": "number of entities per page",
                         "name": "pageSize",
-                        "in": "path"
+                        "in": "query"
                     }
                 ],
                 "responses": {
@@ -693,31 +693,31 @@ const docTemplate = `{
                         "type": "string",
                         "description": "Order by field",
                         "name": "orderBy",
-                        "in": "path"
+                        "in": "query"
                     },
                     {
                         "type": "string",
                         "description": "'asc' or 'desc' for ascending or descending order",
                         "name": "orderDirection",
-                        "in": "path"
+                        "in": "query"
                     },
                     {
                         "type": "string",
                         "description": "searchable value in entity",
                         "name": "search",
-                        "in": "path"
+                        "in": "query"
                     },
                     {
                         "type": "integer",
                         "description": "page number",
                         "name": "page",
-                        "in": "path"
+                        "in": "query"
                     },
                     {
                         "type": "integer",
                         "description": "number of entities per page",
                         "name": "pageSize",
-                        "in": "path"
+                        "in": "query"
                     }
                 ],
                 "responses": {
@@ -817,31 +817,31 @@ const docTemplate = `{
                         "type": "string",
                         "description": "Order by field",
                         "name": "orderBy",
-                        "in": "path"
+                        "in": "query"
                     },
                     {
                         "type": "string",
                         "description": "'asc' or 'desc' for ascending or descending order",
                         "name": "orderDirection",
-                        "in": "path"
+                        "in": "query"
                     },
                     {
                         "type": "string",
                         "description": "searchable value in entity",
                         "name": "search",
-                        "in": "path"
+                        "in": "query"
                     },
                     {
                         "type": "integer",
                         "description": "page number",
                         "name": "page",
-                        "in": "path"
+                        "in": "query"
                     },
                     {
                         "type": "integer",
                         "description": "number of entities per page",
                         "name": "pageSize",
-                        "in": "path"
+                        "in": "query"
                     }
                 ],
                 "responses": {
@@ -1384,7 +1384,7 @@ const docTemplate = `{
 
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = &swag.Spec{
-	Version:          "version(1.0)",
+	Version:          "0.1.0",
 	Host:             "localhost:8080",
 	BasePath:         "/api/v1/",
 	Schemes:          []string{},

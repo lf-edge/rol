@@ -12,7 +12,7 @@ import (
 )
 
 // @title Rack of labs API
-// @version version(1.0)
+// @version 0.1.0
 // @description Description of specifications
 // @Precautions when using termsOfService specifications
 

@@ -12,7 +12,7 @@
             "name": "license(Mandatory)",
             "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
         },
-        "version": "version(1.0)"
+        "version": "0.1.0"
     },
     "host": "localhost:8080",
     "basePath": "/api/v1/",
@@ -34,31 +34,31 @@
                         "type": "string",
                         "description": "Order by field",
                         "name": "orderBy",
-                        "in": "path"
+                        "in": "query"
                     },
                     {
                         "type": "string",
                         "description": "'asc' or 'desc' for ascending or descending order",
                         "name": "orderDirection",
-                        "in": "path"
+                        "in": "query"
                     },
                     {
                         "type": "string",
                         "description": "Searchable value in entity",
                         "name": "search",
-                        "in": "path"
+                        "in": "query"
                     },
                     {
                         "type": "integer",
                         "description": "Page number",
                         "name": "page",
-                        "in": "path"
+                        "in": "query"
                     },
                     {
                         "type": "integer",
                         "description": "Number of entities per page",
                         "name": "pageSize",
-                        "in": "path"
+                        "in": "query"
                     }
                 ],
                 "responses": {
@@ -300,31 +300,31 @@
                         "type": "string",
                         "description": "Order by field",
                         "name": "orderBy",
-                        "in": "path"
+                        "in": "query"
                     },
                     {
                         "type": "string",
                         "description": "'asc' or 'desc' for ascending or descending order",
                         "name": "orderDirection",
-                        "in": "path"
+                        "in": "query"
                     },
                     {
                         "type": "string",
                         "description": "Searchable value in entity",
                         "name": "search",
-                        "in": "path"
+                        "in": "query"
                     },
                     {
                         "type": "integer",
                         "description": "Page number",
                         "name": "page",
-                        "in": "path"
+                        "in": "query"
                     },
                     {
                         "type": "integer",
                         "description": "Number of entities per page",
                         "name": "pageSize",
-                        "in": "path"
+                        "in": "query"
                     }
                 ],
                 "responses": {
@@ -562,31 +562,31 @@
                         "type": "string",
                         "description": "Order by field",
                         "name": "orderBy",
-                        "in": "path"
+                        "in": "query"
                     },
                     {
                         "type": "string",
                         "description": "'asc' or 'desc' for ascending or descending order",
                         "name": "orderDirection",
-                        "in": "path"
+                        "in": "query"
                     },
                     {
                         "type": "string",
                         "description": "searchable value in entity",
                         "name": "search",
-                        "in": "path"
+                        "in": "query"
                     },
                     {
                         "type": "integer",
                         "description": "page number",
                         "name": "page",
-                        "in": "path"
+                        "in": "query"
                     },
                     {
                         "type": "integer",
                         "description": "number of entities per page",
                         "name": "pageSize",
-                        "in": "path"
+                        "in": "query"
                     }
                 ],
                 "responses": {
@@ -686,31 +686,31 @@
                         "type": "string",
                         "description": "Order by field",
                         "name": "orderBy",
-                        "in": "path"
+                        "in": "query"
                     },
                     {
                         "type": "string",
                         "description": "'asc' or 'desc' for ascending or descending order",
                         "name": "orderDirection",
-                        "in": "path"
+                        "in": "query"
                     },
                     {
                         "type": "string",
                         "description": "searchable value in entity",
                         "name": "search",
-                        "in": "path"
+                        "in": "query"
                     },
                     {
                         "type": "integer",
                         "description": "page number",
                         "name": "page",
-                        "in": "path"
+                        "in": "query"
                     },
                     {
                         "type": "integer",
                         "description": "number of entities per page",
                         "name": "pageSize",
-                        "in": "path"
+                        "in": "query"
                     }
                 ],
                 "responses": {
@@ -810,31 +810,31 @@
                         "type": "string",
                         "description": "Order by field",
                         "name": "orderBy",
-                        "in": "path"
+                        "in": "query"
                     },
                     {
                         "type": "string",
                         "description": "'asc' or 'desc' for ascending or descending order",
                         "name": "orderDirection",
-                        "in": "path"
+                        "in": "query"
                     },
                     {
                         "type": "string",
                         "description": "searchable value in entity",
                         "name": "search",
-                        "in": "path"
+                        "in": "query"
                     },
                     {
                         "type": "integer",
                         "description": "page number",
                         "name": "page",
-                        "in": "path"
+                        "in": "query"
                     },
                     {
                         "type": "integer",
                         "description": "number of entities per page",
                         "name": "pageSize",
-                        "in": "path"
+                        "in": "query"
                     }
                 ],
                 "responses": {

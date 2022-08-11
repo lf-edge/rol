@@ -98,11 +98,11 @@ func (e *EthernetSwitchPortGinController) GetPortByID(ctx *gin.Context) {
 // @Accept  json
 // @Produce json
 // @param	 id	            path	string	true	"Ethernet switch ID"
-// @param	 orderBy		path	string	false	"Order by field"
-// @param	 orderDirection	path	string	false	"'asc' or 'desc' for ascending or descending order"
-// @param	 search			path	string	false	"Searchable value in entity"
-// @param	 page			path	int		false	"Page number"
-// @param	 pageSize		path	int		false	"Number of entities per page"
+// @param	 orderBy		query	string	false	"Order by field"
+// @param	 orderDirection		query	string	false	"'asc' or 'desc' for ascending or descending order"
+// @param	 search			query	string	false	"Searchable value in entity"
+// @param	 page			query	int		false	"Page number"
+// @param	 pageSize		query	int		false	"Number of entities per page"
 // @Success 200 {object} dtos.ResponseDataDto{data=dtos.PaginatedListDto{items=[]dtos.EthernetSwitchPortDto}} "desc"
 // @router /ethernet-switch/{id}/port/ [get]
 func (e *EthernetSwitchPortGinController) GetPorts(ctx *gin.Context) {

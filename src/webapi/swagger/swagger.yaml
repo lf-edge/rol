@@ -352,7 +352,7 @@ info:
     name: license(Mandatory)
     url: http://www.apache.org/licenses/LICENSE-2.0.html
   title: Rack of labs API
-  version: version(1.0)
+  version: 0.1.0
 paths:
   /ethernet-switch/:
     get:
@@ -360,23 +360,23 @@ paths:
       - application/json
       parameters:
       - description: Order by field
-        in: path
+        in: query
         name: orderBy
         type: string
       - description: '''asc'' or ''desc'' for ascending or descending order'
-        in: path
+        in: query
         name: orderDirection
         type: string
       - description: Searchable value in entity
-        in: path
+        in: query
         name: search
         type: string
       - description: Page number
-        in: path
+        in: query
         name: page
         type: integer
       - description: Number of entities per page
-        in: path
+        in: query
         name: pageSize
         type: integer
       produces:
@@ -506,23 +506,23 @@ paths:
         required: true
         type: string
       - description: Order by field
-        in: path
+        in: query
         name: orderBy
         type: string
       - description: '''asc'' or ''desc'' for ascending or descending order'
-        in: path
+        in: query
         name: orderDirection
         type: string
       - description: Searchable value in entity
-        in: path
+        in: query
         name: search
         type: string
       - description: Page number
-        in: path
+        in: query
         name: page
         type: integer
       - description: Number of entities per page
-        in: path
+        in: query
         name: pageSize
         type: integer
       produces:
@@ -683,23 +683,23 @@ paths:
       - application/json
       parameters:
       - description: Order by field
-        in: path
+        in: query
         name: orderBy
         type: string
       - description: '''asc'' or ''desc'' for ascending or descending order'
-        in: path
+        in: query
         name: orderDirection
         type: string
       - description: searchable value in entity
-        in: path
+        in: query
         name: search
         type: string
       - description: page number
-        in: path
+        in: query
         name: page
         type: integer
       - description: number of entities per page
-        in: path
+        in: query
         name: pageSize
         type: integer
       produces:
@@ -755,23 +755,23 @@ paths:
       - application/json
       parameters:
       - description: Order by field
-        in: path
+        in: query
         name: orderBy
         type: string
       - description: '''asc'' or ''desc'' for ascending or descending order'
-        in: path
+        in: query
         name: orderDirection
         type: string
       - description: searchable value in entity
-        in: path
+        in: query
         name: search
         type: string
       - description: page number
-        in: path
+        in: query
         name: page
         type: integer
       - description: number of entities per page
-        in: path
+        in: query
         name: pageSize
         type: integer
       produces:
@@ -827,23 +827,23 @@ paths:
       - application/json
       parameters:
       - description: Order by field
-        in: path
+        in: query
         name: orderBy
         type: string
       - description: '''asc'' or ''desc'' for ascending or descending order'
-        in: path
+        in: query
         name: orderDirection
         type: string
       - description: searchable value in entity
-        in: path
+        in: query
         name: search
         type: string
       - description: page number
-        in: path
+        in: query
         name: page
         type: integer
       - description: number of entities per page
-        in: path
+        in: query
         name: pageSize
         type: integer
       produces:

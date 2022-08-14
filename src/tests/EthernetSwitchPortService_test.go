@@ -81,7 +81,7 @@ func Test_EthernetSwitchPortService_CreatePortWithoutSwitch(t *testing.T) {
 	service := switchPortService.(*services.EthernetSwitchPortService)
 	_, err := service.CreatePort(context.TODO(), uuid.New(), dto)
 	if err == nil {
-		t.Errorf("nil error, expected: failed to get ethernet switch: switch not found")
+		t.Errorf("nil error, expected: error when checking the existence of the switch: switch not found")
 	}
 }
 

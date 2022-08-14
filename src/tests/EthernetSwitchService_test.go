@@ -2,20 +2,19 @@ package tests
 
 import (
 	"context"
-	"errors"
 	"fmt"
 	"github.com/sirupsen/logrus"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 	"os"
 	"path"
+	"rol/app/errors"
 	"rol/app/interfaces"
 	"rol/app/services"
 	"rol/domain"
 	"rol/dtos"
 	"rol/infrastructure"
 	"runtime"
-	"strings"
 	"testing"
 	"time"
 )
@@ -26,6 +25,14 @@ var (
 
 func Test_EthernetSwitchService_Prepare(t *testing.T) {
 	dbFileName := "ethernetSwitchService_test.db"
+	//remove old test db file
+	_, filename, _, _ := runtime.Caller(1)
+	if _, err := os.Stat(path.Join(path.Dir(filename), dbFileName)); err == nil {
+		err = os.Remove(dbFileName)
+		if err != nil {
+			t.Errorf("remove db failed:  %q", err)
+		}
+	}
 	dbConnection := sqlite.Open(dbFileName)
 	testGenDb, err := gorm.Open(dbConnection, &gorm.Config{})
 	if err != nil {
@@ -49,15 +56,6 @@ func Test_EthernetSwitchService_Prepare(t *testing.T) {
 		t.Errorf("create new service failed:  %q", err)
 	}
 	testerSwitchService = NewGenericServiceTest(service, repo, dbFileName)
-
-	_, filename, _, _ := runtime.Caller(1)
-	if _, err := os.Stat(path.Join(path.Dir(filename), dbFileName)); errors.Is(err, os.ErrNotExist) {
-		return
-	}
-	err = os.Remove(dbFileName)
-	if err != nil {
-		t.Errorf("remove db failed:  %q", err)
-	}
 }
 
 func Test_EthernetSwitchService_CreateFailByWrongModel(t *testing.T) {
@@ -78,8 +76,16 @@ func Test_EthernetSwitchService_CreateFailByWrongModel(t *testing.T) {
 		if err != nil {
 			t.Error(err)
 		}
-	} else if !strings.Contains(err.Error(), "switch model is not supported") {
-		t.Error("awaiting switch model is not supported error")
+		return
+	}
+	if errors.As(err, errors.Validation) {
+		cont := errors.GetErrorContext(err)
+		if _, ok := cont["SwitchModel"]; ok {
+			return
+		}
+		t.Error("awaiting switch model validation error")
+	} else {
+		t.Error("awaiting validation error")
 	}
 }
 

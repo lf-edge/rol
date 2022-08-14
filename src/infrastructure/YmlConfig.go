@@ -1,9 +1,9 @@
 package infrastructure
 
 import (
-	"fmt"
 	"os"
 	"path"
+	"rol/app/errors"
 	"rol/domain"
 
 	"gopkg.in/yaml.v2"
@@ -19,14 +19,14 @@ func NewYmlConfig() (*domain.AppConfig, error) {
 	configFilePath := path.Join(path.Dir(ex), "appConfig.yml")
 	f, err := os.Open(configFilePath)
 	if err != nil {
-		return nil, fmt.Errorf("[NewYmlConfig]: Failed to open config file %s: %v", configFilePath, err)
+		return nil, errors.Internal.Wrapf(err, "failed to open config file %s", configFilePath)
 	}
 	defer f.Close()
 
 	decoder := yaml.NewDecoder(f)
 	err = decoder.Decode(cfg)
 	if err != nil {
-		return nil, fmt.Errorf("[NewYmlConfig]: Failed to parse yml config file %s: %v", configFilePath, err)
+		return nil, errors.Internal.Wrapf(err, "failed to parse yml config file %s", configFilePath)
 	}
 	return cfg, nil
 }

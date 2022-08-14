@@ -2,9 +2,9 @@ package services
 
 import (
 	"context"
-	"fmt"
 	"github.com/google/uuid"
 	"github.com/sirupsen/logrus"
+	"rol/app/errors"
 	"rol/app/interfaces"
 	"rol/app/mappers"
 	"rol/app/validators"
@@ -35,7 +35,7 @@ func NewEthernetSwitchService(rep interfaces.IGenericRepository[domain.EthernetS
 	domain.EthernetSwitch], error) {
 	genericService, err := NewGenericService[dtos.EthernetSwitchDto, dtos.EthernetSwitchCreateDto, dtos.EthernetSwitchUpdateDto, domain.EthernetSwitch](rep, log)
 	if err != nil {
-		return nil, err
+		return nil, errors.Internal.Wrap(err, "error constructing ethernet switch service")
 	}
 	ethernetSwitchService := &EthernetSwitchService{
 		GenericService:       genericService,
@@ -84,7 +84,7 @@ func (e *EthernetSwitchService) modelIsSupported(model string) bool {
 	return modelIsSupported
 }
 
-func (e *EthernetSwitchService) serialIsUnique(ctx context.Context, serial string, id uuid.UUID) error {
+func (e *EthernetSwitchService) serialIsUnique(ctx context.Context, serial string, id uuid.UUID) (bool, error) {
 	uniqueSerialQueryBuilder := e.GenericService.repository.NewQueryBuilder(ctx)
 	e.GenericService.excludeDeleted(uniqueSerialQueryBuilder)
 	uniqueSerialQueryBuilder.Where("Serial", "==", serial)
@@ -93,15 +93,15 @@ func (e *EthernetSwitchService) serialIsUnique(ctx context.Context, serial strin
 	}
 	serialEthSwitchList, err := e.GenericService.repository.GetList(ctx, "", "asc", 1, 1, uniqueSerialQueryBuilder)
 	if err != nil {
-		return fmt.Errorf("get list error: %s", err)
+		return false, errors.Internal.Wrap(err, "service failed get list")
 	}
 	if len(*serialEthSwitchList) > 0 {
-		return fmt.Errorf("switch with this serial number already exist")
+		return false, nil
 	}
-	return nil
+	return true, nil
 }
 
-func (e *EthernetSwitchService) addressIsUnique(ctx context.Context, serial string, id uuid.UUID) error {
+func (e *EthernetSwitchService) addressIsUnique(ctx context.Context, serial string, id uuid.UUID) (bool, error) {
 	uniqueSerialQueryBuilder := e.GenericService.repository.NewQueryBuilder(ctx)
 	e.GenericService.excludeDeleted(uniqueSerialQueryBuilder)
 	uniqueSerialQueryBuilder.Where("Address", "==", serial)
@@ -110,12 +110,12 @@ func (e *EthernetSwitchService) addressIsUnique(ctx context.Context, serial stri
 	}
 	serialEthSwitchList, err := e.GenericService.repository.GetList(ctx, "", "asc", 1, 1, uniqueSerialQueryBuilder)
 	if err != nil {
-		return fmt.Errorf("get list error: %s", err)
+		return false, errors.Internal.Wrap(err, "failed to get ethernet switches from repository")
 	}
 	if len(*serialEthSwitchList) > 0 {
-		return fmt.Errorf("switch with this address already exist")
+		return false, nil
 	}
-	return nil
+	return true, nil
 }
 
 //GetList Get list of ethernet switches with filtering and pagination
@@ -130,7 +130,11 @@ func (e *EthernetSwitchService) addressIsUnique(ctx context.Context, serial stri
 //	*dtos.PaginatedListDto[dtos.EthernetSwitchDto] - pointer to paginated list of ethernet switches
 //	error - if an error occurs, otherwise nil
 func (e *EthernetSwitchService) GetList(ctx context.Context, search, orderBy, orderDirection string, page, pageSize int) (*dtos.PaginatedListDto[dtos.EthernetSwitchDto], error) {
-	return e.GenericService.GetList(ctx, search, orderBy, orderDirection, page, pageSize)
+	list, err := e.GenericService.GetList(ctx, search, orderBy, orderDirection, page, pageSize)
+	if err != nil {
+		return nil, errors.Internal.Wrap(err, "service failed get list")
+	}
+	return list, nil
 }
 
 //GetByID Get ethernet switch by ID
@@ -141,7 +145,11 @@ func (e *EthernetSwitchService) GetList(ctx context.Context, search, orderBy, or
 //	*dtos.EthernetSwitchDto - point to ethernet switch dto
 //	error - if an error occurs, otherwise nil
 func (e *EthernetSwitchService) GetByID(ctx context.Context, id uuid.UUID) (*dtos.EthernetSwitchDto, error) {
-	return e.GenericService.GetByID(ctx, id)
+	ethernetSwitch, err := e.GenericService.GetByID(ctx, id)
+	if err != nil {
+		return nil, errors.Internal.Wrap(err, "service failed get by id")
+	}
+	return ethernetSwitch, err
 }
 
 //Update save the changes to the existing ethernet switch
@@ -154,23 +162,36 @@ func (e *EthernetSwitchService) GetByID(ctx context.Context, id uuid.UUID) (*dto
 func (e *EthernetSwitchService) Update(ctx context.Context, updateDto dtos.EthernetSwitchUpdateDto, id uuid.UUID) error {
 	err := validators.ValidateEthernetSwitchUpdateDto(updateDto)
 	if err != nil {
-		return err
+		return err // we already wrap error in validators
 	}
 	if !e.modelIsSupported(updateDto.SwitchModel) {
-		return fmt.Errorf("switch model is not supported")
+		err = errors.Validation.New(errors.ValidationErrorMessage)
+		return errors.AddErrorContext(err, "SwitchModel", "this model is not supported")
 	}
 
-	err = e.serialIsUnique(ctx, updateDto.Serial, id)
+	uniqSerial, err := e.serialIsUnique(ctx, updateDto.Serial, id)
 	if err != nil {
-		return fmt.Errorf("serial number uniqueness check error: %s", err)
+		return errors.Internal.Wrap(err, "error occurred while checking uniqueness of the ethernet switch serial")
+	}
+	if !uniqSerial {
+		err = errors.Validation.New(errors.ValidationErrorMessage)
+		return errors.AddErrorContext(err, "Serial", "ethernet switch with this serial number already exist")
 	}
 
-	err = e.addressIsUnique(ctx, updateDto.Address, id)
+	uniqAddress, err := e.addressIsUnique(ctx, updateDto.Address, id)
 	if err != nil {
-		return fmt.Errorf("address uniqueness check error: %s", err)
+		return errors.Internal.Wrap(err, "address uniqueness check error")
+	}
+	if !uniqAddress {
+		err = errors.Validation.New(errors.ValidationErrorMessage)
+		return errors.AddErrorContext(err, "Address", "switch with this address already exist")
 	}
 
-	return e.GenericService.Update(ctx, updateDto, id)
+	err = e.GenericService.Update(ctx, updateDto, id)
+	if err != nil {
+		return errors.Internal.Wrap(err, "service failed to update entity")
+	}
+	return nil
 }
 
 //Create add new ethernet switch
@@ -183,20 +204,33 @@ func (e *EthernetSwitchService) Update(ctx context.Context, updateDto dtos.Ether
 func (e *EthernetSwitchService) Create(ctx context.Context, createDto dtos.EthernetSwitchCreateDto) (uuid.UUID, error) {
 	err := validators.ValidateEthernetSwitchCreateDto(createDto)
 	if err != nil {
-		return [16]byte{}, fmt.Errorf("dto validation error: %s", err)
+		return [16]byte{}, errors.Validation.Wrap(err, "validation failed")
 	}
 	if !e.modelIsSupported(createDto.SwitchModel) {
-		return [16]byte{}, fmt.Errorf("this switch model is not supported")
+		err = errors.Validation.New(errors.ValidationErrorMessage)
+		return [16]byte{}, errors.AddErrorContext(err, "SwitchModel", "this model is not supported")
 	}
-	err = e.serialIsUnique(ctx, createDto.Serial, [16]byte{})
+	uniqSerial, err := e.serialIsUnique(ctx, createDto.Serial, [16]byte{})
 	if err != nil {
-		return [16]byte{}, fmt.Errorf("serial number uniqueness check error: %s", err)
+		return [16]byte{}, errors.Internal.Wrap(err, "error occurred while checking uniqueness of the ethernet switch serial")
 	}
-	err = e.addressIsUnique(ctx, createDto.Address, [16]byte{})
+	if !uniqSerial {
+		err = errors.Validation.New(errors.ValidationErrorMessage)
+		return [16]byte{}, errors.AddErrorContext(err, "Serial", "ethernet switch with this serial number already exist")
+	}
+	uniqAddress, err := e.addressIsUnique(ctx, createDto.Address, [16]byte{})
 	if err != nil {
-		return [16]byte{}, fmt.Errorf("address uniqueness check error: %s", err)
+		return [16]byte{}, errors.Validation.Wrap(err, "address uniqueness check error")
 	}
-	return e.GenericService.Create(ctx, createDto)
+	if !uniqAddress {
+		err = errors.Validation.New(errors.ValidationErrorMessage)
+		return [16]byte{}, errors.AddErrorContext(err, "Address", "switch with this address already exist")
+	}
+	id, err := e.GenericService.Create(ctx, createDto)
+	if err != nil {
+		return [16]byte{}, errors.Internal.Wrap(err, "service failed to create entity")
+	}
+	return id, nil
 }
 
 //Delete mark ethernet switch as deleted
@@ -208,19 +242,19 @@ func (e *EthernetSwitchService) Create(ctx context.Context, createDto dtos.Ether
 func (e *EthernetSwitchService) Delete(ctx context.Context, id uuid.UUID) error {
 	err := e.GenericService.Delete(ctx, id)
 	if err != nil {
-		return err
+		return errors.Internal.Wrap(err, "service failed to delete entity")
 	}
 	queryBuilder := e.switchPortRepository.NewQueryBuilder(ctx)
 	queryBuilder.Where("EthernetSwitchID", "=", id)
 	ports, err := e.switchPortRepository.GetList(ctx, "", "", 1, 100, queryBuilder)
 	if err != nil {
-		return err
+		return errors.Internal.Wrap(err, "service failed get list")
 	}
 	for _, port := range *ports {
 		port.SetDeleted()
 		err := e.switchPortRepository.Update(ctx, &port)
 		if err != nil {
-			return err
+			return errors.Internal.Wrap(err, "service failed to update entity")
 		}
 	}
 	return nil

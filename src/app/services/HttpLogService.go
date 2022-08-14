@@ -1,6 +1,7 @@
 package services
 
 import (
+	"rol/app/errors"
 	"rol/app/interfaces"
 	"rol/domain"
 	"rol/dtos"
@@ -31,5 +32,5 @@ func NewHTTPLogService(rep interfaces.IGenericRepository[domain.HTTPLog], log *l
 	genericSerice, err := NewGenericService[dtos.HTTPLogDto, dtos.HTTPLogDto, dtos.HTTPLogDto](rep, log)
 	return HTTPLogService{
 		genericSerice,
-	}, err
+	}, errors.Internal.Wrap(err, "error constructing http log service")
 }

@@ -1,7 +1,7 @@
 package mappers
 
 import (
-	"fmt"
+	"rol/app/errors"
 	"rol/domain"
 	"rol/dtos"
 )
@@ -25,7 +25,7 @@ func MapDtoToEntity(dto interface{}, entity interface{}) error {
 	case dtos.EthernetSwitchPortUpdateDto:
 		MapEthernetSwitchPortUpdateDto(dto.(dtos.EthernetSwitchPortUpdateDto), entity.(*domain.EthernetSwitchPort))
 	default:
-		return fmt.Errorf("[mapper]: Can't find route for map dto %+v to entity %+v", dto, entity)
+		return errors.Internal.Newf("can't find route for map dto %+v to entity %+v", dto, entity)
 	}
 	return nil
 }
@@ -54,7 +54,7 @@ func MapEntityToDto(entity interface{}, dto interface{}) error {
 	case domain.DeviceTemplate:
 		MapDeviceTemplateToDto(entity.(domain.DeviceTemplate), dto.(*dtos.DeviceTemplateDto))
 	default:
-		return fmt.Errorf("[mapper]: Can't find route for map entity %+v to dto %+v", entity, dto)
+		return errors.Internal.Newf("can't find route for map entity %+v to dto %+v", dto, entity)
 	}
 	return nil
 }

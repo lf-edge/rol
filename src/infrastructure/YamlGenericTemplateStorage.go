@@ -11,6 +11,7 @@ import (
 	"path"
 	"path/filepath"
 	"reflect"
+	"rol/app/errors"
 	"rol/app/interfaces"
 	"runtime"
 	"sort"
@@ -49,7 +50,7 @@ func NewYamlGenericTemplateStorage[TemplateType interface{}](dirName string, log
 	if _, err := os.Stat(templatesDirectory); os.IsNotExist(err) {
 		err := os.MkdirAll(templatesDirectory, os.ModePerm)
 		if err != nil {
-			return nil, fmt.Errorf("failed to create template directory: %s", err)
+			return nil, errors.Internal.Wrap(err, "failed to create template directory")
 		}
 	}
 	storage := &YamlGenericTemplateStorage[TemplateType]{
@@ -60,7 +61,7 @@ func NewYamlGenericTemplateStorage[TemplateType interface{}](dirName string, log
 	}
 	err := storage.reloadFromFiles()
 	if err != nil {
-		return nil, fmt.Errorf("load from files error: %s", err.Error())
+		return nil, errors.Internal.Wrap(err, "load from files error")
 	}
 	return storage, nil
 }
@@ -70,12 +71,12 @@ func (y *YamlGenericTemplateStorage[TemplateType]) reloadFromFiles() error {
 
 	files, err := ioutil.ReadDir(y.TemplatesDirectory)
 	if err != nil {
-		return fmt.Errorf("reading dir error: %s", err.Error())
+		return errors.Internal.Wrap(err, "reading dir error")
 	}
 	for _, f := range files {
 		template, err := y.getTemplateObjFromYaml(f.Name())
 		if err != nil {
-			return fmt.Errorf("yaml parsing error: %s", err.Error())
+			return errors.Internal.Wrap(err, "yaml parsing error")
 		}
 		*y.Templates = append(*y.Templates, *template)
 	}
@@ -87,14 +88,14 @@ func (y *YamlGenericTemplateStorage[TemplateType]) getTemplateObjFromYaml(templa
 	templateFilePath := path.Join(y.TemplatesDirectory, fmt.Sprintf(templateName))
 	f, err := os.Open(templateFilePath)
 	if err != nil {
-		return nil, fmt.Errorf("directory opening error: %s", err.Error())
+		return nil, errors.Internal.Wrap(err, "directory opening error")
 	}
 	defer f.Close()
 
 	decoder := yaml.NewDecoder(f)
 	err = decoder.Decode(template)
 	if err != nil {
-		return nil, fmt.Errorf("yaml decoding error: %s", err.Error())
+		return nil, errors.Internal.Wrap(err, "yaml decoding error")
 	}
 	return template, nil
 }
@@ -104,7 +105,7 @@ func (y *YamlGenericTemplateStorage[TemplateType]) sortTemplatesSlice(templates 
 		return nil
 	}
 	if !isFieldExist((*templates)[0], orderBy) && orderBy != "" {
-		return fmt.Errorf("there is no field with name '%s' at template", orderBy)
+		return errors.Internal.Newf("there is no field with name '%s' at template", orderBy)
 	}
 	sort.Slice(*templates, func(i, j int) bool {
 		firstElem := (*templates)[i]
@@ -155,12 +156,12 @@ func (y *YamlGenericTemplateStorage[TemplateType]) GetByName(ctx context.Context
 	queryBuilder.Where("Name", "==", templateName)
 	query, err := queryBuilder.Build()
 	if err != nil {
-		return nil, fmt.Errorf("query building error: %s", err.Error())
+		return nil, errors.Internal.Wrap(err, "query building error")
 	}
 	queryArr := query.([]interface{})
 	templates, err := y.handleQuery(*y.Templates, queryArr...)
 	if err != nil {
-		return nil, fmt.Errorf("query handling error: %s", err.Error())
+		return nil, errors.Internal.Wrap(err, "query handling error")
 	}
 	if len(*templates) == 1 {
 		return &(*templates)[0], nil
@@ -191,14 +192,14 @@ func (y *YamlGenericTemplateStorage[TemplateType]) GetList(ctx context.Context, 
 	if queryBuilder != nil {
 		query, err := queryBuilder.Build()
 		if err != nil {
-			return nil, fmt.Errorf("query building error: %s", err.Error())
+			return nil, errors.Internal.Wrap(err, "query building error")
 		}
 		queryArr = query.([]interface{})
 	}
 	if len(queryArr) > 1 {
 		templates, err = y.handleQuery(*y.Templates, queryArr...)
 		if err != nil {
-			return nil, fmt.Errorf("query handling error: %s", err.Error())
+			return nil, errors.Internal.Wrap(err, "query handling error")
 		}
 	} else {
 		templates = y.Templates
@@ -206,11 +207,11 @@ func (y *YamlGenericTemplateStorage[TemplateType]) GetList(ctx context.Context, 
 
 	err = y.sortTemplatesSlice(templates, orderBy, orderDirection)
 	if err != nil {
-		return nil, fmt.Errorf("templates sorting error: %s", err.Error())
+		return nil, errors.Internal.Wrap(err, "templates sorting error")
 	}
 	paginatedSlice, err := y.getPaginatedSlice(*templates, offset, pageSize)
 	if err != nil {
-		return nil, fmt.Errorf("templates pagination error: %s", err.Error())
+		return nil, errors.Internal.Wrap(err, "templates pagination error")
 	}
 
 	return &paginatedSlice, nil
@@ -219,7 +220,7 @@ func (y *YamlGenericTemplateStorage[TemplateType]) GetList(ctx context.Context, 
 func (y *YamlGenericTemplateStorage[TemplateType]) getPaginatedSlice(templates []TemplateType, offset, limit int) ([]TemplateType, error) {
 	limit += offset
 	if offset > len(templates) {
-		return nil, fmt.Errorf("paginated slice offset bounds out of range [%d:] with length %d", offset, len(templates))
+		return nil, errors.Internal.Newf("paginated slice offset bounds out of range [%d:] with length %d", offset, len(templates))
 	}
 	if limit > len(templates) {
 		return templates[offset:], nil
@@ -239,23 +240,23 @@ func (y *YamlGenericTemplateStorage[TemplateType]) Count(ctx context.Context, qu
 	var templatesSlice []TemplateType
 	files, err := ioutil.ReadDir(y.TemplatesDirectory)
 	if err != nil {
-		return 0, fmt.Errorf("get templates files error: %s", err.Error())
+		return 0, errors.Internal.Wrap(err, "get templates files error")
 	}
 	for _, f := range files {
 		template, err := y.getTemplateObjFromYaml(f.Name())
 		if err != nil {
-			return 0, fmt.Errorf("error converting yaml to struct : %s", err.Error())
+			return 0, errors.Internal.Wrap(err, "error converting yaml to struct")
 		}
 		templatesSlice = append(templatesSlice, *template)
 	}
 	queryStr, err := queryBuilder.Build()
 	if err != nil {
-		return 0, fmt.Errorf("query building error: %s", err.Error())
+		return 0, errors.Internal.Wrap(err, "query building error")
 	}
 	queryArr := queryStr.([]interface{})
 	foundTemplates, err := y.handleQuery(templatesSlice, queryArr...)
 	if err != nil {
-		return 0, fmt.Errorf("query handling error: %s", err.Error())
+		return 0, errors.Internal.Wrap(err, "query handling error")
 	}
 	count := int64(len(*foundTemplates))
 	y.log(ctx, logrus.DebugLevel, fmt.Sprintf("Count: OUT: count=%d", count))
@@ -312,7 +313,7 @@ func (y *YamlGenericTemplateStorage[TemplateType]) handleQuery(templatesSlice []
 			}
 			result, err := handleSimpleQuery(template, queryForTemplate[startIndex+1:endIndex-1], queryValues)
 			if err != nil {
-				return nil, fmt.Errorf("simple query handling error: %s", err.Error())
+				return nil, errors.Internal.Wrap(err, "simple query handling error")
 			}
 			if result {
 				queryForTemplate = replaceWithFakeTrueQuery(queryForTemplate, startIndex, endIndex)
@@ -323,7 +324,7 @@ func (y *YamlGenericTemplateStorage[TemplateType]) handleQuery(templatesSlice []
 		}
 		result, err := handleSimpleQuery(template, queryForTemplate, queryValues)
 		if err != nil {
-			return nil, fmt.Errorf("simple query handling error: %s", err.Error())
+			return nil, errors.Internal.Wrap(err, "simple query handling error")
 		}
 		if result {
 			*finalSlice = append(*finalSlice, template)
@@ -342,17 +343,17 @@ func handleSimpleQuery(template interface{}, query string, queryValues []interfa
 		}
 		queryUnit, err := parseQueryUnitString(strings.Trim(queryUnitString, " "))
 		if err != nil {
-			return false, fmt.Errorf("error parsing query unit: %s", err.Error())
+			return false, errors.Internal.Wrap(err, "error parsing query unit")
 		}
 		if !isFieldExist(template, queryUnit.FieldName) && queryUnit.FieldName != "FakeFalse" && queryUnit.FieldName != "FakeTrue" {
-			return false, fmt.Errorf("there is no field with name '%s' at template", queryUnit.FieldName)
+			return false, errors.Internal.Newf("there is no field with name '%s' at template", queryUnit.FieldName)
 		}
 
 		value := queryValues[queryUnit.ValueIndex]
 
 		interimResult, err := getResultOfQueryUnit(template, queryUnit, value)
 		if err != nil {
-			return false, fmt.Errorf("error getting result of query unit: %s", err.Error())
+			return false, errors.Internal.Wrap(err, "error getting result of query unit")
 		}
 		if condition == "" {
 			result = interimResult
@@ -422,9 +423,9 @@ func getFieldValue(template interface{}, fieldName string) (interface{}, error) 
 			fieldValue = valueOfTemplate.FieldByName(fieldName).Interface().(time.Time)
 			break
 		}
-		return nil, fmt.Errorf("wrong field type")
+		return nil, errors.Internal.New("wrong field type")
 	default:
-		return nil, fmt.Errorf("wrong field type")
+		return nil, errors.Internal.New("wrong field type")
 	}
 	return fieldValue, nil
 }
@@ -438,7 +439,7 @@ func parseQueryUnitString(queryUnit string) (QueryUnit, error) {
 	fieldName, comparator := queryUnitSlice[0], queryUnitSlice[1]
 	valueIndex, err := strconv.Atoi(queryUnitSlice[2])
 	if err != nil {
-		return QueryUnit{}, fmt.Errorf("error parsing query unit: %s", err.Error())
+		return QueryUnit{}, errors.Internal.Wrap(err, "error converted to type int")
 	}
 	return QueryUnit{
 		FieldName:  fieldName,
@@ -458,7 +459,7 @@ func isBigger(first, second any) (bool, error) {
 		sTime := second.(time.Time)
 		return fTime.After(sTime), nil
 	default:
-		return false, fmt.Errorf("wrong type")
+		return false, errors.Internal.New("wrong type")
 	}
 }
 
@@ -473,7 +474,7 @@ func isBiggerOrEqual(first, second any) (bool, error) {
 		sTime := second.(time.Time)
 		return fTime.After(sTime) || fTime.Equal(sTime), nil
 	default:
-		return false, fmt.Errorf("wrong type")
+		return false, errors.Internal.New("wrong type")
 	}
 }
 
@@ -488,7 +489,7 @@ func isLesser(first, second any) (bool, error) {
 		sTime := second.(time.Time)
 		return fTime.Before(sTime), nil
 	default:
-		return false, fmt.Errorf("wrong type")
+		return false, errors.Internal.New("wrong type")
 	}
 }
 
@@ -503,7 +504,7 @@ func isLesserOrEqual(first, second any) (bool, error) {
 		sTime := second.(time.Time)
 		return fTime.Before(sTime) || fTime.Equal(sTime), nil
 	default:
-		return false, fmt.Errorf("wrong type")
+		return false, errors.Internal.New("wrong type")
 	}
 }
 
@@ -518,7 +519,7 @@ func getResultOfQueryUnit(template interface{}, queryUnit QueryUnit, value inter
 
 	fieldValue, err := getFieldValue(template, queryUnit.FieldName)
 	if err != nil {
-		return false, fmt.Errorf("error getting a field value: %s", err.Error())
+		return false, errors.Internal.Wrap(err, "error getting a field value")
 	}
 	switch queryUnit.Comparator {
 	case "==":
@@ -536,7 +537,7 @@ func getResultOfQueryUnit(template interface{}, queryUnit QueryUnit, value inter
 	case "LIKE":
 		return strings.Contains(fieldValue.(string), value.(string)), nil
 	default:
-		return false, fmt.Errorf("invalid comparator: %s", queryUnit.Comparator)
+		return false, errors.Internal.New("invalid comparator")
 	}
 }
 

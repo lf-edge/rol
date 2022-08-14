@@ -6,6 +6,7 @@ import (
 	"github.com/google/uuid"
 	"github.com/sirupsen/logrus"
 	"reflect"
+	"rol/app/errors"
 	"rol/app/interfaces"
 	"rol/app/mappers"
 	"rol/app/utils"
@@ -96,18 +97,18 @@ func (g *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) getL
 	}
 	entities, err := g.repository.GetList(ctx, orderBy, orderDirection, pageFinal, pageSizeFinal, queryBuilder)
 	if err != nil {
-		return nil, err
+		return nil, errors.Internal.New("repository failed get list")
 	}
 	count, err := g.repository.Count(ctx, queryBuilder)
 	if err != nil {
-		return nil, err
+		return nil, errors.Internal.Wrap(err, "error counting entities")
 	}
 	dtoArr := &[]DtoType{}
 	for i := 0; i < len(*entities); i++ {
 		dto := new(DtoType)
 		err = mappers.MapEntityToDto((*entities)[i], dto)
 		if err != nil {
-			return nil, fmt.Errorf("[%s]: [getList]: %s", g.logSourceName, err.Error())
+			return nil, errors.Internal.Wrap(err, "error map entity to dto")
 		}
 		*dtoArr = append(*dtoArr, *dto)
 	}
@@ -137,13 +138,17 @@ func (g *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) GetL
 	if len(search) > 3 {
 		g.addSearchInAllFields(search, searchQueryBuilder)
 	}
-	return g.getListBasic(ctx, searchQueryBuilder, orderBy, orderDirection, page, pageSize)
+	list, err := g.getListBasic(ctx, searchQueryBuilder, orderBy, orderDirection, page, pageSize)
+	if err != nil {
+		return nil, errors.Internal.Wrap(err, "failed to get list ")
+	}
+	return list, nil
 }
 
 func (g *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) getByIDBasic(ctx context.Context, id uuid.UUID, queryBuilder interfaces.IQueryBuilder) (*DtoType, error) {
 	entity, err := g.repository.GetByIDExtended(ctx, id, queryBuilder)
 	if err != nil {
-		return nil, fmt.Errorf("failed to get by id: %s", err)
+		return nil, errors.Internal.Wrap(err, "failed to get by id")
 	}
 	if entity == nil {
 		return nil, nil
@@ -151,7 +156,7 @@ func (g *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) getB
 	dto := new(DtoType)
 	err = mappers.MapEntityToDto(*entity, dto)
 	if err != nil {
-		return nil, fmt.Errorf("[%s]: [getByID]: %s", g.logSourceName, err.Error())
+		return nil, errors.Internal.Wrap(err, "error map entity to dto")
 	}
 	return dto, nil
 }
@@ -172,18 +177,18 @@ func (g *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) GetB
 func (g *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) updateBasic(ctx context.Context, updateDto UpdateDtoType, id uuid.UUID, queryBuilder interfaces.IQueryBuilder) error {
 	entity, err := g.repository.GetByIDExtended(ctx, id, queryBuilder)
 	if err != nil {
-		return fmt.Errorf("failed to get entity by id: %s", err)
+		return errors.Internal.Wrap(err, "failed to get entity by id")
 	}
 	if entity == nil {
-		return fmt.Errorf("failed to get entity by id: entity not found")
+		return errors.NotFound.Wrap(err, "entity not found")
 	}
 	err = mappers.MapDtoToEntity(updateDto, entity)
 	if err != nil {
-		return fmt.Errorf("failed to get entity by id: entity not found")
+		return errors.Internal.Wrap(err, "error map entity to dto")
 	}
 	err = g.repository.Update(ctx, entity)
 	if err != nil {
-		return fmt.Errorf("failed to update entity: %s", err)
+		return errors.Internal.Wrap(err, "failed to update entity in repository")
 	}
 	return nil
 }
@@ -212,11 +217,11 @@ func (g *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) Crea
 	entity := new(EntityType)
 	err := mappers.MapDtoToEntity(createDto, entity)
 	if err != nil {
-		return uuid.UUID{}, fmt.Errorf("[%s]: [update]: %s", g.logSourceName, err.Error())
+		return uuid.UUID{}, errors.Internal.Wrap(err, "error map entity to dto")
 	}
 	id, err := g.repository.Insert(ctx, *entity)
 	if err != nil {
-		return uuid.UUID{}, err
+		return uuid.UUID{}, errors.Internal.Wrap(err, "create entity error")
 	}
 	return id, nil
 }
@@ -232,10 +237,10 @@ func (g *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) Dele
 	g.excludeDeleted(queryBuilder)
 	entity, err := g.repository.GetByIDExtended(ctx, id, queryBuilder)
 	if err != nil {
-		return fmt.Errorf("failed to get entity by id: %s", err)
+		return errors.Internal.Wrap(err, "failed to get entity by id")
 	}
 	if entity == nil {
-		return fmt.Errorf("failed to get entity by id: entity not found")
+		return errors.NotFound.Wrap(err, "entity not found")
 	}
 
 	entityReflect := reflect.ValueOf(entity).Interface().(interfaces.IEntityModelDeletedAt)
@@ -243,7 +248,7 @@ func (g *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) Dele
 
 	err = g.repository.Update(ctx, entity)
 	if err != nil {
-		return err
+		return errors.Internal.Wrap(err, "failed to update entity in the repository")
 	}
 	return nil
 }

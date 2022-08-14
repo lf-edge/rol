@@ -3,6 +3,7 @@ package validators
 import (
 	validation "github.com/go-ozzo/ozzo-validation"
 	"regexp"
+	"rol/app/errors"
 	"rol/dtos"
 )
 
@@ -10,7 +11,8 @@ import (
 //	Return
 //	error - if an error occurs, otherwise nil
 func ValidateEthernetSwitchUpdateDto(dto dtos.EthernetSwitchUpdateDto) error {
-	return validation.ValidateStruct(&dto,
+	var err error
+	validationErr := validation.ValidateStruct(&dto,
 		validation.Field(&dto.Name, []validation.Rule{
 			validation.Required,
 			validation.By(trimValidation),
@@ -39,4 +41,11 @@ func ValidateEthernetSwitchUpdateDto(dto dtos.EthernetSwitchUpdateDto) error {
 			validation.Required,
 			validation.By(trimValidation),
 		}...))
+	if validationErr != nil {
+		err = errors.Validation.New(errors.ValidationErrorMessage)
+		for key, value := range validationErr.(validation.Errors) {
+			err = errors.AddErrorContext(err, key, value.Error())
+		}
+	}
+	return err
 }

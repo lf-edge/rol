@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"math/rand"
 	"os"
+	"rol/app/errors"
 	"rol/app/interfaces"
 	"rol/domain"
 	"sync"
@@ -37,7 +38,9 @@ var insertAppFunc = func(entry *logrus.Entry, repository interfaces.IGenericRepo
 	if entry.Data["method"] == nil && !fromLogController(entry) {
 		ent := newEntityFromApp(entry)
 		_, err := repository.Insert(nil, *ent)
-		return err
+		if err != nil {
+			return errors.Internal.Wrap(err, "error inserting log to db")
+		}
 	}
 	return nil
 }
@@ -46,7 +49,9 @@ var asyncAppInsertFunc = func(entry *logrus.Entry, repository interfaces.IGeneri
 	if entry.Data["method"] != nil {
 		ent := newEntityFromApp(entry)
 		_, err := repository.Insert(nil, *ent)
-		return err
+		if err != nil {
+			return errors.Internal.Wrap(err, "error inserting log to db")
+		}
 	}
 	return nil
 }
@@ -120,7 +125,11 @@ func (h *AppHook) newEntry(entry *logrus.Entry) *logrus.Entry {
 //	error - if error occurs return error, otherwise nil
 func (h *AppHook) Fire(entry *logrus.Entry) error {
 	newEntry := h.newEntry(entry)
-	return h.InsertFunc(newEntry, h.repo)
+	err := h.InsertFunc(newEntry, h.repo)
+	if err != nil {
+		return errors.Internal.Wrap(err, "failed to fire hook")
+	}
+	return nil
 }
 
 //Fire run async hook insert function

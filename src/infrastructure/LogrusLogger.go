@@ -2,6 +2,7 @@ package infrastructure
 
 import (
 	"os"
+	"rol/app/errors"
 	"rol/app/interfaces"
 	"rol/domain"
 
@@ -22,7 +23,7 @@ func NewLogrusLogger(config *domain.AppConfig) (*logrus.Logger, error) {
 	var err error
 	logger.Level, err = logrus.ParseLevel(config.Logger.Level)
 	if err != nil {
-		return nil, err
+		return nil, errors.Internal.Wrap(err, "failed to parse logrus level")
 	}
 	return logger, nil
 }

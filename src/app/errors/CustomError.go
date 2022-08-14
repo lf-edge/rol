@@ -5,6 +5,9 @@ import "fmt"
 //ErrorType is a custom error type
 type ErrorType uint
 
+//ValidationErrorMessage default message for validation errors
+const ValidationErrorMessage = "several validation errors occurred"
+
 const (
 	//NoType error without type
 	NoType = ErrorType(iota)

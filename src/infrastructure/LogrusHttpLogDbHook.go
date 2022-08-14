@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"math/rand"
 	"os"
+	"rol/app/errors"
 	"rol/app/interfaces"
 	"rol/app/utils"
 	"rol/domain"
@@ -42,7 +43,9 @@ var httpInsertFunc = func(entry *logrus.Entry, repository interfaces.IGenericRep
 	if entry.Data["method"] != nil && !fromLogController(entry) {
 		ent := newEntityFromHTTP(entry)
 		_, err := repository.Insert(nil, *ent)
-		return err
+		if err != nil {
+			return errors.Internal.Wrap(err, "error inserting http log to db")
+		}
 	}
 	return nil
 }
@@ -51,7 +54,7 @@ var asyncHTTPInsertFunc = func(entry *logrus.Entry, repository interfaces.IGener
 	if entry.Data["method"] != nil {
 		ent := newEntityFromHTTP(entry)
 		_, err := repository.Insert(nil, *ent)
-		return err
+		return errors.Internal.Wrap(err, "error inserting http log to db")
 	}
 	return nil
 }
@@ -132,7 +135,11 @@ func (h *HTTPHook) newEntry(entry *logrus.Entry) *logrus.Entry {
 //	error - if error occurs return error, otherwise nil
 func (h *HTTPHook) Fire(entry *logrus.Entry) error {
 	newEntry := h.newEntry(entry)
-	return h.InsertFunc(newEntry, h.repo)
+	err := h.InsertFunc(newEntry, h.repo)
+	if err != nil {
+		return errors.Internal.Wrap(err, "failed to fire hook")
+	}
+	return nil
 }
 
 //Fire run async hook insert function

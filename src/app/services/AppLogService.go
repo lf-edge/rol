@@ -1,6 +1,7 @@
 package services
 
 import (
+	"rol/app/errors"
 	"rol/app/interfaces"
 	"rol/domain"
 	"rol/dtos"
@@ -30,5 +31,5 @@ func NewAppLogService(rep interfaces.IGenericRepository[domain.AppLog], log *log
 	genericService, err := NewGenericService[dtos.AppLogDto, dtos.AppLogDto, dtos.AppLogDto](rep, log)
 	return &AppLogService{
 		genericService,
-	}, err
+	}, errors.Internal.Wrap(err, "error constructing app log service")
 }

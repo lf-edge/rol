@@ -1,7 +1,7 @@
 package validators
 
 import (
-	"fmt"
+	"rol/app/errors"
 	"strings"
 )
 
@@ -16,7 +16,7 @@ const regexpIPv4Desc = "wrong IPv4 format"
 func trimValidation(value interface{}) error {
 	s, _ := value.(string)
 	if strings.TrimSpace(s) != s {
-		return fmt.Errorf("field cannot start or end with spaces")
+		return errors.Validation.New("field cannot start or end with spaces")
 	}
 	return nil
 }
@@ -24,7 +24,7 @@ func trimValidation(value interface{}) error {
 func containsSpacesValidation(value interface{}) error {
 	s, _ := value.(string)
 	if strings.Contains(s, " ") {
-		return fmt.Errorf("field cannot contain spaces")
+		return errors.Validation.New("field cannot contain spaces")
 	}
 	return nil
 }

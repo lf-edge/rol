@@ -14,9 +14,9 @@ import (
 
 //GenericServiceTest generic test for generic service
 type GenericServiceTest[DtoType interface{},
-	CreateDtoType interface{},
-	UpdateDtoType interface{},
-	EntityType interfaces.IEntityModel] struct {
+CreateDtoType interface{},
+UpdateDtoType interface{},
+EntityType interfaces.IEntityModel] struct {
 	Service interfaces.IGenericService[
 		DtoType,
 		CreateDtoType,
@@ -31,13 +31,13 @@ type GenericServiceTest[DtoType interface{},
 
 //NewGenericServiceTest GenericServiceTest constructor
 func NewGenericServiceTest[DtoType interface{},
-	CreateDtoType interface{},
-	UpdateDtoType interface{},
-	EntityType interfaces.IEntityModel](
+CreateDtoType interface{},
+UpdateDtoType interface{},
+EntityType interfaces.IEntityModel](
 	service interfaces.IGenericService[DtoType,
-		CreateDtoType,
-		UpdateDtoType,
-		EntityType],
+	CreateDtoType,
+	UpdateDtoType,
+	EntityType],
 	repo interfaces.IGenericRepository[EntityType], dbName string) *GenericServiceTest[DtoType, CreateDtoType, UpdateDtoType, EntityType] {
 	return &GenericServiceTest[DtoType, CreateDtoType, UpdateDtoType, EntityType]{
 		Service:    service,
@@ -50,11 +50,7 @@ func NewGenericServiceTest[DtoType interface{},
 
 //GenericServiceCreate test create entity
 func (g *GenericServiceTest[DtoType, CreateDtoType, UpdateDtoType, EntityType]) GenericServiceCreate(dto CreateDtoType) (uuid.UUID, error) {
-	id, err := g.Service.Create(g.Context, dto)
-	if err != nil {
-		return [16]byte{}, fmt.Errorf("create failed: %s", err)
-	}
-	return id, nil
+	return g.Service.Create(g.Context, dto)
 }
 
 //GenericServiceGetByID test get entity by id

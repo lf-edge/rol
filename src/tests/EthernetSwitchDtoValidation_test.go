@@ -1,7 +1,7 @@
 package tests
 
 import (
-	validation "github.com/go-ozzo/ozzo-validation"
+	"rol/app/errors"
 	"rol/app/validators"
 	"rol/dtos"
 	"testing"
@@ -13,6 +13,7 @@ var (
 )
 
 func Test_EthernetSwitchCreateDto(t *testing.T) {
+
 	dto := dtos.EthernetSwitchCreateDto{
 		EthernetSwitchBaseDto: dtos.EthernetSwitchBaseDto{
 			Name:        " Validate ",
@@ -25,8 +26,9 @@ func Test_EthernetSwitchCreateDto(t *testing.T) {
 		Password: "AutoPass",
 	}
 	err := validators.ValidateEthernetSwitchCreateDto(dto)
-	for fieldName, errDescription := range err.(validation.Errors) {
-		if errDescription.Error() != blankErr && errDescription.Error() != whitespaceErr {
+	errContext := errors.GetErrorContext(err)
+	for fieldName, errDescription := range errContext {
+		if errDescription != blankErr && errDescription != whitespaceErr {
 			t.Errorf("%s: %s", fieldName, errDescription)
 		}
 	}
@@ -45,8 +47,9 @@ func Test_EthernetSwitchUpdateDto(t *testing.T) {
 		Password: "AutoPass",
 	}
 	err := validators.ValidateEthernetSwitchUpdateDto(dto)
-	for fieldName, errDescription := range err.(validation.Errors) {
-		if errDescription.Error() != blankErr && errDescription.Error() != whitespaceErr {
+	errContext := errors.GetErrorContext(err)
+	for fieldName, errDescription := range errContext {
+		if errDescription != blankErr && errDescription != whitespaceErr {
 			t.Errorf("%s: %s", fieldName, errDescription)
 		}
 	}

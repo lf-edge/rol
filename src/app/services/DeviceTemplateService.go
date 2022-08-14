@@ -2,8 +2,8 @@ package services
 
 import (
 	"context"
-	"fmt"
 	"github.com/sirupsen/logrus"
+	"rol/app/errors"
 	"rol/app/interfaces"
 	"rol/app/mappers"
 	"rol/app/utils"
@@ -55,17 +55,17 @@ func (d *DeviceTemplateService) GetList(ctx context.Context, search, orderBy, or
 	}
 	templatesArr, err := d.storage.GetList(ctx, orderBy, orderDirection, pageFinal, pageSizeFinal, queryBuilder)
 	if err != nil {
-		return nil, fmt.Errorf("failed to get device templates: %s", err.Error())
+		return nil, errors.Internal.Wrap(err, "failed to get list of device templates")
 	}
 	count, err := d.storage.Count(ctx, queryBuilder)
 	if err != nil {
-		return nil, fmt.Errorf("failed to count device templates: %s", err.Error())
+		return nil, errors.Internal.Wrap(err, "failed to count device templates")
 	}
 	dtosArr := make([]dtos.DeviceTemplateDto, len(*templatesArr))
 	for i := range *templatesArr {
 		err := mappers.MapEntityToDto((*templatesArr)[i], &dtosArr[i])
 		if err != nil {
-			return nil, fmt.Errorf("failed to map template to dto: %s", err.Error())
+			return nil, errors.Internal.Wrap(err, "failed to map template to dto")
 		}
 	}
 	paginatedDto := new(dtos.PaginatedListDto[dtos.DeviceTemplateDto])
@@ -86,7 +86,7 @@ func (d *DeviceTemplateService) GetList(ctx context.Context, search, orderBy, or
 func (d *DeviceTemplateService) GetByName(ctx context.Context, templateName string) (*dtos.DeviceTemplateDto, error) {
 	template, err := d.storage.GetByName(ctx, templateName)
 	if err != nil {
-		return nil, fmt.Errorf("failed to get by name: %s", err.Error())
+		return nil, errors.Internal.Wrap(err, "failed to get template by name")
 	}
 	dto := new(dtos.DeviceTemplateDto)
 	mappers.MapDeviceTemplateToDto(*template, dto)

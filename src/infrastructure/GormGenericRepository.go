@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"reflect"
+	"rol/app/errors"
 	"rol/app/interfaces"
 
 	"github.com/google/uuid"
@@ -76,7 +77,7 @@ func (g *GormGenericRepository[EntityType]) addQueryToGorm(gormQuery *gorm.DB, q
 	if queryBuilder != nil {
 		query, err := queryBuilder.Build()
 		if err != nil {
-			return err
+			return errors.Internal.Wrap(err, "error building a query")
 		}
 		arrQuery := query.([]interface{})
 		// TODO: We need more checks here
@@ -131,11 +132,11 @@ func (g *GormGenericRepository[EntityType]) GetList(ctx context.Context, orderBy
 	gormQuery := g.Db.Model(&model).Order(orderString)
 	err := g.addQueryToGorm(gormQuery, queryBuilder)
 	if err != nil {
-		return nil, err
+		return nil, errors.Internal.Wrap(err, "adding query to gorm failed")
 	}
 	err = gormQuery.Offset(int(offset)).Limit(size).Find(entities).Error
 	if err != nil {
-		return nil, err
+		return nil, errors.Internal.Wrap(err, "error finding entities with gorm query")
 	}
 	return entities, nil
 }
@@ -155,11 +156,11 @@ func (g *GormGenericRepository[EntityType]) Count(ctx context.Context, queryBuil
 	gormQuery := g.Db.Model(&model)
 	err := g.addQueryToGorm(gormQuery, queryBuilder)
 	if err != nil {
-		return 0, err
+		return 0, errors.Internal.Wrap(err, "adding query to gorm failed")
 	}
 	err = gormQuery.Count(&count).Error
 	if err != nil {
-		return 0, err
+		return 0, errors.Internal.Wrap(err, "gorm failed counting entities")
 	}
 	g.log(ctx, "debug", fmt.Sprintf("Count: OUT: count=%d", count))
 	return count, nil
@@ -178,7 +179,7 @@ func (g *GormGenericRepository[EntityType]) GetByID(ctx context.Context, id uuid
 	entity := new(EntityType)
 	err := g.Db.First(entity, id).Error
 	if err != nil {
-		return nil, err
+		return nil, errors.Internal.Wrap(err, "error finding first record")
 	}
 	g.log(ctx, "debug", fmt.Sprintf("GetByID: entity=%+v", entity))
 	return entity, nil
@@ -203,13 +204,13 @@ func (g *GormGenericRepository[EntityType]) GetByIDExtended(ctx context.Context,
 	}
 	err := g.addQueryToGorm(gormQuery, fullQueryBuilder)
 	if err != nil {
-		return nil, fmt.Errorf("failed add query to gorm query: %s", err)
+		return nil, errors.Internal.Wrap(err, "failed add query to gorm query")
 	}
 	entities := &[]EntityType{}
 	var entity *EntityType
 	err = gormQuery.Find(entities).Error
 	if err != nil {
-		return nil, fmt.Errorf("gorm query db error: %s", err)
+		return nil, errors.Internal.Wrap(err, "error finding entities with gorm query")
 	}
 	if len(*entities) < 1 {
 		return nil, nil
@@ -228,7 +229,11 @@ func (g *GormGenericRepository[EntityType]) GetByIDExtended(ctx context.Context,
 //	error - if an error occurs, otherwise nil
 func (g *GormGenericRepository[EntityType]) Update(ctx context.Context, entity *EntityType) error {
 	g.log(ctx, "debug", fmt.Sprintf("Update: entity=%+v", entity))
-	return g.Db.Save(entity).Error
+	err := g.Db.Save(entity).Error
+	if err != nil {
+		return errors.Internal.Wrap(err, "error saving entity")
+	}
+	return nil
 }
 
 //Insert
@@ -242,7 +247,7 @@ func (g *GormGenericRepository[EntityType]) Update(ctx context.Context, entity *
 func (g *GormGenericRepository[EntityType]) Insert(ctx context.Context, entity EntityType) (uuid.UUID, error) {
 	g.log(ctx, "debug", fmt.Sprintf("Insert: entity=%+v", entity))
 	if err := g.Db.Create(&entity).Error; err != nil {
-		return uuid.UUID{}, err
+		return uuid.UUID{}, errors.Internal.Wrap(err, "gorm failed create entity")
 	}
 	g.log(ctx, "debug", fmt.Sprintf("Insert: newID=%d", entity.GetID()))
 	return entity.GetID(), nil
@@ -258,7 +263,11 @@ func (g *GormGenericRepository[EntityType]) Delete(ctx context.Context, id uuid.
 	g.log(ctx, "debug", fmt.Sprintf("Delete: id=%d", id))
 	entity := new(EntityType)
 	gormQuery := g.Db.Model(entity).Select(clause.Associations)
-	return gormQuery.Delete(entity, id).Error
+	err := gormQuery.Delete(entity, id).Error
+	if err != nil {
+		return errors.Internal.Wrap(err, "gorm failed delete entity")
+	}
+	return nil
 }
 
 //CloseDb Closes current database connection
@@ -267,8 +276,11 @@ func (g *GormGenericRepository[EntityType]) Delete(ctx context.Context, id uuid.
 func (g *GormGenericRepository[EntityType]) CloseDb() error {
 	sqlDb, err := g.Db.DB()
 	if err != nil {
-		return err
+		return errors.Internal.Wrap(err, "failed to get db connection")
 	}
 	err = sqlDb.Close()
-	return err
+	if err != nil {
+		return errors.Internal.Wrap(err, "failed to close db connection")
+	}
+	return nil
 }

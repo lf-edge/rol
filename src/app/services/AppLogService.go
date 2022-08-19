@@ -29,7 +29,10 @@ func NewAppLogService(rep interfaces.IGenericRepository[domain.AppLog], log *log
 	dtos.AppLogDto,
 	domain.AppLog], error) {
 	genericService, err := NewGenericService[dtos.AppLogDto, dtos.AppLogDto, dtos.AppLogDto](rep, log)
+	if err != nil {
+		return nil, errors.Internal.Wrap(err, "error constructing app log service")
+	}
 	return &AppLogService{
 		genericService,
-	}, errors.Internal.Wrap(err, "error constructing app log service")
+	}, nil
 }

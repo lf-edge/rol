@@ -1,0 +1,45 @@
+@startuml
+
+!include ../dto/HostNetworkVlan/HostNetworkVlanDto.puml
+!include ../dto/HostNetworkVlan/HostNetworkVlanCreateDto.puml
+!include ../dto/HostNetworkVlan/HostNetworkVlanUpdateDto.puml
+!include ../managers/HostNetworkManager.puml
+
+package app {
+    class HostNetworkVlanService {
+        -manager IHostNetworkManager
+        --
+        +GetList() ([]HostNetworkVlanDto, error)
+        --
+        +GetByName(name string) (HostNetworkVlanDto, error)
+        --
+        +Create(createDto HostNetworkVlanCreateDto) (HostNetworkVlanDto, error)
+        --
+        +Update(name string, updateDto HostNetworkVlanUpdateDto) (HostNetworkVlanDto, error)
+        --
+        +Delete(name string) error
+    }
+    HostNetworkVlanService::manager -- HostNetworkManager
+
+    note right of HostNetworkVlanService::GetList
+        Get list of VLAN interfaces on the host
+    end note
+
+    note right of HostNetworkVlanService::GetByName
+        Get VLAN interface by Name
+    end note
+
+    note right of HostNetworkVlanService::Create
+        Create new VLAN interface on the host
+    end note
+
+    note right of HostNetworkVlanService::Update
+        Update VLAN interface on the host
+    end note
+
+    note right of HostNetworkVlanService::Delete
+        Delete VLAN interface from host
+    end note
+}
+
+@enduml

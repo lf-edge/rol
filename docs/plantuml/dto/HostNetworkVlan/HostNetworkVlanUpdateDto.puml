@@ -1,0 +1,9 @@
+@startuml
+
+package dtos {
+    class HostNetworkVlanUpdateDto {
+        +Addresses []string
+    }
+}
+
+@enduml

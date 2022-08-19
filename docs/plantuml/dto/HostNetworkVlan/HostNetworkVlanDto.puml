@@ -1,0 +1,15 @@
+@startuml
+
+package dtos {
+    class HostNetworkVlanDto {
+        +Name string
+        --
+        +Addresses []string
+        --
+        +VlanID int
+        --
+        +Master string
+    }
+}
+
+@enduml

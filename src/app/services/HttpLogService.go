@@ -30,7 +30,10 @@ func NewHTTPLogService(rep interfaces.IGenericRepository[domain.HTTPLog], log *l
 	dtos.HTTPLogDto,
 	domain.HTTPLog], error) {
 	genericSerice, err := NewGenericService[dtos.HTTPLogDto, dtos.HTTPLogDto, dtos.HTTPLogDto](rep, log)
+	if err != nil {
+		return nil, errors.Internal.Wrap(err, "error constructing http log service")
+	}
 	return HTTPLogService{
 		genericSerice,
-	}, errors.Internal.Wrap(err, "error constructing http log service")
+	}, nil
 }

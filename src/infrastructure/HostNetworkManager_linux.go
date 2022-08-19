@@ -130,7 +130,13 @@ func (h *HostNetworkManager) GetList() ([]interfaces.IHostNetworkLink, error) {
 func (h *HostNetworkManager) GetByName(name string) (interfaces.IHostNetworkLink, error) {
 	link, err := netlink.LinkByName(name)
 	if err != nil {
-		return nil, errors.Internal.Wrap(err, "failed to map device link to HostNetworkLink")
+		if err.Error() == "Link not found" {
+			return nil, errors.NotFound.New("link with this name is not exist")
+		}
+		return nil, errors.Internal.Wrap(err, "failed to get link by name")
+	}
+	if link == nil {
+		return nil, errors.NotFound.New("link with this name is not exist")
 	}
 	out, err := h.mapLink(link)
 	if err != nil {

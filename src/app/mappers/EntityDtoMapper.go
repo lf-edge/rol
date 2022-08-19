@@ -24,6 +24,11 @@ func MapDtoToEntity(dto interface{}, entity interface{}) error {
 		MapEthernetSwitchPortCreateDto(dto.(dtos.EthernetSwitchPortCreateDto), entity.(*domain.EthernetSwitchPort))
 	case dtos.EthernetSwitchPortUpdateDto:
 		MapEthernetSwitchPortUpdateDto(dto.(dtos.EthernetSwitchPortUpdateDto), entity.(*domain.EthernetSwitchPort))
+	//HostNetworkVlan
+	case dtos.HostNetworkVlanCreateDto:
+		MapHostNetworkCreateDtoToEntity(dto.(dtos.HostNetworkVlanCreateDto), entity.(*domain.HostNetworkVlan))
+	case dtos.HostNetworkVlanUpdateDto:
+		MapHostNetworkUpdateDtoToEntity(dto.(dtos.HostNetworkVlanUpdateDto), entity.(*domain.HostNetworkVlan))
 	default:
 		return errors.Internal.Newf("can't find route for map dto %+v to entity %+v", dto, entity)
 	}
@@ -53,6 +58,9 @@ func MapEntityToDto(entity interface{}, dto interface{}) error {
 	//DeviceTemplate
 	case domain.DeviceTemplate:
 		MapDeviceTemplateToDto(entity.(domain.DeviceTemplate), dto.(*dtos.DeviceTemplateDto))
+	//HostNetworkVlan
+	case domain.HostNetworkVlan:
+		MapHostNetworkVlanToDto(entity.(domain.HostNetworkVlan), dto.(*dtos.HostNetworkVlanDto))
 	default:
 		return errors.Internal.Newf("can't find route for map entity %+v to dto %+v", dto, entity)
 	}

@@ -1,0 +1,46 @@
+@startuml
+
+!include ../services/HostNetworkVlanService.puml
+
+package controllers {
+    class HostNetworkVlanController {
+        -service *services.HostNetworkVlanService
+        --
+        -logger  *logrus.Logger
+        --
+        +GetList(ctx *gin.Context)
+        --
+        +GetByName(ctx *gin.Context)
+        --
+        +Create(ctx *gin.Context)
+        --
+        +Update(ctx *gin.Context)
+        --
+        +Delete(ctx *gin.Context)
+    }
+
+    note left of HostNetworkVlanController::GetList
+    Get list of vlan's on the host
+    end note
+
+    note left of HostNetworkVlanController::GetByName
+    Get vlan by interface full name on the host
+    end note
+
+    note left of HostNetworkVlanController::Create
+    Create new van on the host
+    end note
+
+    note left of HostNetworkVlanController::Update
+    Update vlan on the host
+    end note
+
+    note left of HostNetworkVlanController::Delete
+    Delete vlan interface on the host
+    end note
+
+
+    HostNetworkVlanService -up- HostNetworkVlanController::service
+}
+
+@enduml

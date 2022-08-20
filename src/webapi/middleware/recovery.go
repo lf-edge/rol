@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"fmt"
 	"io/ioutil"
+	"net/http"
 	"runtime"
 
 	"github.com/gin-gonic/gin"
@@ -143,6 +144,7 @@ func Recovery(logger *logrus.Logger) gin.HandlerFunc {
 					c.Error(err.(error)) // nolint: errcheck
 					c.Abort()
 				}
+				c.AbortWithStatus(http.StatusInternalServerError)
 			}
 		}()
 		c.Next()

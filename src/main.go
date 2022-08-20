@@ -1,7 +1,10 @@
 package main
 
 import (
+	"os"
+	"path/filepath"
 	"rol/app/services"
+	"rol/domain"
 	"rol/infrastructure"
 	"rol/webapi"
 	"rol/webapi/controllers"
@@ -10,6 +13,14 @@ import (
 
 	"go.uber.org/fx"
 )
+
+//GetGlobalDIParameters get global parameters for DI
+func GetGlobalDIParameters() domain.GlobalDIParameters {
+	filePath, _ := os.Executable()
+	return domain.GlobalDIParameters{
+		RootPath: filepath.Dir(filePath),
+	}
+}
 
 // @title Rack of labs API
 // @version 0.1.0
@@ -28,6 +39,8 @@ import (
 func main() {
 	app := fx.New(
 		fx.Provide(
+			// Core
+			GetGlobalDIParameters,
 			// Realizations
 			infrastructure.NewYmlConfig,
 			infrastructure.NewGormEntityDb,
@@ -38,12 +51,15 @@ func main() {
 			infrastructure.NewLogrusLogger,
 			infrastructure.NewEthernetSwitchPortRepository,
 			infrastructure.NewDeviceTemplateStorage,
+			infrastructure.NewYamlHostNetworkConfigStorage,
+			infrastructure.NewHostNetworkManager,
 			// Application logic
 			services.NewEthernetSwitchService,
 			services.NewHTTPLogService,
 			services.NewAppLogService,
 			services.NewEthernetSwitchPortService,
 			services.NewDeviceTemplateService,
+			services.NewHostNetworkVlanService,
 			// WEB API -> Server
 			webapi.NewGinHTTPServer,
 			// WEB API -> Controllers
@@ -52,6 +68,7 @@ func main() {
 			controllers.NewAppLogGinController,
 			controllers.NewEthernetSwitchPortGinController,
 			controllers.NewDeviceTemplateController,
+			controllers.NewHostNetworkVlanController,
 		),
 		fx.Invoke(
 			infrastructure.RegisterLogHooks,
@@ -60,6 +77,7 @@ func main() {
 			controllers.RegisterAppLogController,
 			controllers.RegisterEthernetSwitchPortController,
 			controllers.RegisterDeviceTemplateController,
+			controllers.RegisterHostNetworkVlanController,
 			webapi.StartHTTPServer,
 		),
 	)

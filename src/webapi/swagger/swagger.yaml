@@ -301,6 +301,45 @@ definitions:
         description: UpdatedAt - entity update time
         type: string
     type: object
+  dtos.HostNetworkVlanCreateDto:
+    properties:
+      addresses:
+        description: Addresses list
+        items:
+          type: string
+        type: array
+      master:
+        description: Master interface name
+        type: string
+      vlanID:
+        description: VlanID vlan id
+        type: integer
+    type: object
+  dtos.HostNetworkVlanDto:
+    properties:
+      addresses:
+        description: Addresses list
+        items:
+          type: string
+        type: array
+      master:
+        description: Master interface name
+        type: string
+      name:
+        description: Name interface full name
+        type: string
+      vlanID:
+        description: VlanID id of the vlan
+        type: integer
+    type: object
+  dtos.HostNetworkVlanUpdateDto:
+    properties:
+      addresses:
+        description: Addresses list
+        items:
+          type: string
+        type: array
+    type: object
   dtos.PaginatedListDto:
     properties:
       items:
@@ -339,6 +378,27 @@ definitions:
         type: integer
       message:
         description: Message - response message
+        type: string
+    type: object
+  dtos.ValidationErrorDto:
+    properties:
+      errors:
+        items:
+          $ref: '#/definitions/dtos.ValidationErrorElemDto'
+        type: array
+      message:
+        type: string
+    type: object
+  dtos.ValidationErrorElemDto:
+    properties:
+      error:
+        description: Value for Key
+        type: string
+      field:
+        description: Field with validation error
+        type: string
+      source:
+        description: Source for the field, for example query or body
         type: string
     type: object
 host: localhost:8080
@@ -677,6 +737,127 @@ paths:
       summary: Get ethernet switch supported models
       tags:
       - ethernet-switch
+  /host/network/vlan/:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/dtos.HostNetworkVlanDto'
+            type: array
+        "500":
+          description: Internal Server Error
+      summary: Get list of host network VLAN's
+      tags:
+      - host
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Host vlan fields
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dtos.HostNetworkVlanCreateDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dtos.HostNetworkVlanDto'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dtos.ValidationErrorDto'
+        "500":
+          description: Internal Server Error
+      summary: Create new host vlan
+      tags:
+      - host
+  /host/network/vlan/{name}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: Vlan name
+        in: path
+        name: name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: OK, but No Content
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+      summary: Delete host network vlan by name
+      tags:
+      - host
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Vlan name
+        in: path
+        name: name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dtos.HostNetworkVlanDto'
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+      summary: Gets vlan port by name
+      tags:
+      - host
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Host vlan fields
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dtos.HostNetworkVlanUpdateDto'
+      - description: Vlan name
+        in: path
+        name: name
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dtos.HostNetworkVlanDto'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dtos.ValidationErrorDto'
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+      summary: update host network vlan
+      tags:
+      - host
   /log/app/:
     get:
       consumes:

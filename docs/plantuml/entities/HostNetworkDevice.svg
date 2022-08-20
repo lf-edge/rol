@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="467px" preserveAspectRatio="none" style="width:527px;height:467px;background:#FFFFFF;" version="1.1" viewBox="0 0 527 467" width="527px" zoomAndPan="magnify"><defs/><g><!--MD5=[d5ac3844f66b12d9e08170e47495e096]
+cluster app--><g id="cluster_app"><path d="M64.5,299 L91.5,299 A3.75,3.75 0 0 1 94,301.5 L101,322.6094 L517.5,322.6094 A2.5,2.5 0 0 1 520,325.1094 L520,457.5 A2.5,2.5 0 0 1 517.5,460 L64.5,460 A2.5,2.5 0 0 1 62,457.5 L62,301.5 A2.5,2.5 0 0 1 64.5,299 " style="stroke:#000000;stroke-width:1.5;fill:none;"/><line style="stroke:#000000;stroke-width:1.5;fill:none;" x1="62" x2="101" y1="322.6094" y2="322.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="26" x="66" y="315.5332">app</text></g><!--MD5=[27f772719433d509ddbc20ff768eba08]
+cluster domain--><g id="cluster_domain"><path d="M8.5,6 L60.5,6 A3.75,3.75 0 0 1 63,8.5 L70,29.6094 L500.5,29.6094 A2.5,2.5 0 0 1 503,32.1094 L503,272.5 A2.5,2.5 0 0 1 500.5,275 L8.5,275 A2.5,2.5 0 0 1 6,272.5 L6,8.5 A2.5,2.5 0 0 1 8.5,6 " style="stroke:#000000;stroke-width:1.5;fill:none;"/><line style="stroke:#000000;stroke-width:1.5;fill:none;" x1="6" x2="70" y1="29.6094" y2="29.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="51" x="10" y="22.5332">domain</text></g><!--MD5=[7d972e8a870a7d3102e7596738050350]
+class IHostNetworkLink--><g id="elem_IHostNetworkLink"><rect codeLine="3" fill="#F1F1F1" height="108.8281" id="IHostNetworkLink" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="195" x="308.5" y="335"/><ellipse cx="346.45" cy="351" fill="#B4A7E5" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M347.4031,347.6406 L347.4031,354.2969 L349.1219,354.2969 Q349.7313,354.2969 349.9969,354.5313 Q350.2625,354.7656 350.2625,355.1563 Q350.2625,355.5313 349.9969,355.7656 Q349.7313,356 349.1219,356 L343.9813,356 Q343.3719,356 343.1063,355.7656 Q342.8406,355.5313 342.8406,355.1406 Q342.8406,354.7656 343.1063,354.5313 Q343.3719,354.2969 343.9813,354.2969 L345.7,354.2969 L345.7,347.6406 L343.9813,347.6406 Q343.3719,347.6406 343.1063,347.4063 Q342.8406,347.1719 342.8406,346.7813 Q342.8406,346.4063 343.1063,346.1719 Q343.3719,345.9375 343.9813,345.9375 L349.1219,345.9375 Q349.7313,345.9375 349.9969,346.1719 Q350.2625,346.4063 350.2625,346.7813 Q350.2625,347.1719 349.9969,347.4063 Q349.7313,347.6406 349.1219,347.6406 L347.4031,347.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="112" x="365.55" y="356.7285">IHostNetworkLink</text><line style="stroke:#181818;stroke-width:0.5;" x1="309.5" x2="502.5" y1="367" y2="367"/><ellipse cx="319.5" cy="378" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="108" x="328.5" y="385.5332">GetName() string</text><line style="stroke:#181818;stroke-width:1.0;" x1="309.5" x2="502.5" y1="392.6094" y2="392.6094"/><ellipse cx="319.5" cy="403.6094" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="104" x="328.5" y="411.1426">GetType() string</text><line style="stroke:#181818;stroke-width:1.0;" x1="309.5" x2="502.5" y1="418.2188" y2="418.2188"/><ellipse cx="319.5" cy="429.2188" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="169" x="328.5" y="436.752">GetAddresses() []net.IPNet</text></g><path d="M78.5,335 L78.5,361.3516 A0,0 0 0 0 78.5,361.3516 L245.5,361.3516 A0,0 0 0 0 245.5,361.3516 L245.5,353 L312.5,379.8047 L245.5,345 L245.5,345 L235.5,335 L78.5,335 A0,0 0 0 0 78.5,335 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M235.5,335 L235.5,345 L245.5,345 L235.5,335 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="146" x="84.5" y="353.4951">Gets host interface name</text><path d="M78.5,371.3516 L78.5,397.7031 A0,0 0 0 0 78.5,397.7031 L238.5,397.7031 A0,0 0 0 0 238.5,397.7031 L238.5,389.3516 L312.5,405.4141 L238.5,381.3516 L238.5,381.3516 L228.5,371.3516 L78.5,371.3516 A0,0 0 0 0 78.5,371.3516 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M228.5,371.3516 L228.5,381.3516 L238.5,381.3516 L228.5,371.3516 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="139" x="84.5" y="389.8467">Gets host interface type</text><path d="M78.5,407.7031 L78.5,434.0547 A0,0 0 0 0 78.5,434.0547 L273.5,434.0547 A0,0 0 0 0 273.5,434.0547 L273.5,425.7031 L312.5,431.0234 L273.5,417.7031 L273.5,417.7031 L263.5,407.7031 L78.5,407.7031 A0,0 0 0 0 78.5,407.7031 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M263.5,407.7031 L263.5,417.7031 L273.5,417.7031 L263.5,407.7031 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="174" x="84.5" y="426.1982">Gets host interface addresses</text><!--MD5=[e5fff6262f684687265fbe09f1b48075]
+class HostNetworkLink--><g id="elem_HostNetworkLink"><rect codeLine="5" fill="#F1F1F1" height="108.8281" id="HostNetworkLink" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="162" x="325" y="150"/><ellipse cx="351.7" cy="166" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M354.4656,161.875 Q354.6219,161.6563 354.8094,161.5469 Q354.9969,161.4375 355.2156,161.4375 Q355.5906,161.4375 355.825,161.7031 Q356.0594,161.9531 356.0594,162.5625 L356.0594,164.0156 Q356.0594,164.625 355.825,164.8906 Q355.5906,165.1563 355.2156,165.1563 Q354.8719,165.1563 354.6688,164.9531 Q354.4656,164.7656 354.3563,164.25 Q354.3094,163.8906 354.1219,163.7031 Q353.7938,163.3281 353.1844,163.1094 Q352.575,162.8906 351.95,162.8906 Q351.1844,162.8906 350.5438,163.2188 Q349.9188,163.5469 349.4188,164.2969 Q348.9344,165.0469 348.9344,166.0781 L348.9344,167.1719 Q348.9344,168.4063 349.825,169.2344 Q350.7156,170.0469 352.3094,170.0469 Q353.2469,170.0469 353.9031,169.7969 Q354.2938,169.6406 354.7156,169.2031 Q354.9813,168.9375 355.1219,168.8594 Q355.2781,168.7813 355.4813,168.7813 Q355.8094,168.7813 356.0594,169.0469 Q356.325,169.2969 356.325,169.6406 Q356.325,169.9844 355.9813,170.3906 Q355.4813,170.9688 354.6844,171.2969 Q353.6063,171.75 352.3094,171.75 Q350.7938,171.75 349.5906,171.125 Q348.6063,170.625 347.9188,169.5625 Q347.2313,168.4844 347.2313,167.2031 L347.2313,166.0469 Q347.2313,164.7188 347.8406,163.5781 Q348.4656,162.4219 349.5594,161.8125 Q350.6531,161.1875 351.8875,161.1875 Q352.6219,161.1875 353.2625,161.3594 Q353.9188,161.5156 354.4656,161.875 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="104" x="368.3" y="171.7285">HostNetworkLink</text><line style="stroke:#181818;stroke-width:0.5;" x1="326" x2="486" y1="182" y2="182"/><ellipse cx="336" cy="193" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="75" x="345" y="200.5332">Name string</text><line style="stroke:#181818;stroke-width:1.0;" x1="326" x2="486" y1="207.6094" y2="207.6094"/><ellipse cx="336" cy="218.6094" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="136" x="345" y="226.1426">Addresses []net.IPNet</text><line style="stroke:#181818;stroke-width:1.0;" x1="326" x2="486" y1="233.2188" y2="233.2188"/><ellipse cx="336" cy="244.2188" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="71" x="345" y="251.752">Type string</text></g><path d="M22.5,160 L22.5,186.3516 A0,0 0 0 0 22.5,186.3516 L257.5,186.3516 A0,0 0 0 0 257.5,186.3516 L257.5,178 L329,194.8047 L257.5,170 L257.5,170 L247.5,160 L22.5,160 A0,0 0 0 0 22.5,160 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M247.5,160 L247.5,170 L257.5,170 L247.5,160 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="214" x="28.5" y="178.4951">Unique name of the network interface</text><path d="M22.5,196.3516 L22.5,239.0547 A0,0 0 0 0 22.5,239.0547 L289.5,239.0547 A0,0 0 0 0 289.5,239.0547 L289.5,221.7031 L329,246.0234 L289.5,213.7031 L289.5,206.3516 L279.5,196.3516 L22.5,196.3516 A0,0 0 0 0 22.5,196.3516 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M279.5,196.3516 L279.5,206.3516 L289.5,206.3516 L279.5,196.3516 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="129" x="28.5" y="214.8467">Default value is "none"</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="246" x="28.5" y="231.1982">because HostNetworkLink is a basic class</text><!--MD5=[b17b81604319b97b33af23212dfcf2f4]
+class HostNetworkDevice--><g id="elem_HostNetworkDevice"><rect codeLine="5" fill="#F1F1F1" height="48" id="HostNetworkDevice" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="153" x="329.5" y="42"/><ellipse cx="344.5" cy="58" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M347.2656,53.875 Q347.4219,53.6563 347.6094,53.5469 Q347.7969,53.4375 348.0156,53.4375 Q348.3906,53.4375 348.625,53.7031 Q348.8594,53.9531 348.8594,54.5625 L348.8594,56.0156 Q348.8594,56.625 348.625,56.8906 Q348.3906,57.1563 348.0156,57.1563 Q347.6719,57.1563 347.4688,56.9531 Q347.2656,56.7656 347.1563,56.25 Q347.1094,55.8906 346.9219,55.7031 Q346.5938,55.3281 345.9844,55.1094 Q345.375,54.8906 344.75,54.8906 Q343.9844,54.8906 343.3438,55.2188 Q342.7188,55.5469 342.2188,56.2969 Q341.7344,57.0469 341.7344,58.0781 L341.7344,59.1719 Q341.7344,60.4063 342.625,61.2344 Q343.5156,62.0469 345.1094,62.0469 Q346.0469,62.0469 346.7031,61.7969 Q347.0938,61.6406 347.5156,61.2031 Q347.7813,60.9375 347.9219,60.8594 Q348.0781,60.7813 348.2813,60.7813 Q348.6094,60.7813 348.8594,61.0469 Q349.125,61.2969 349.125,61.6406 Q349.125,61.9844 348.7813,62.3906 Q348.2813,62.9688 347.4844,63.2969 Q346.4063,63.75 345.1094,63.75 Q343.5938,63.75 342.3906,63.125 Q341.4063,62.625 340.7188,61.5625 Q340.0313,60.4844 340.0313,59.2031 L340.0313,58.0469 Q340.0313,56.7188 340.6406,55.5781 Q341.2656,54.4219 342.3594,53.8125 Q343.4531,53.1875 344.6875,53.1875 Q345.4219,53.1875 346.0625,53.3594 Q346.7188,53.5156 347.2656,53.875 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="121" x="358.5" y="63.7285">HostNetworkDevice</text><line style="stroke:#181818;stroke-width:0.5;" x1="330.5" x2="481.5" y1="74" y2="74"/><line style="stroke:#181818;stroke-width:0.5;" x1="330.5" x2="481.5" y1="82" y2="82"/></g><!--MD5=[c7ae537b1fb1fd62da54845b02126a57]
+link HostNetworkLink to IHostNetworkLink--><g id="link_HostNetworkLink_IHostNetworkLink"><path codeLine="21" d="M406,259.42 C406,276.73 406,296.21 406,314.7 " fill="none" id="HostNetworkLink-to-IHostNetworkLink" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="none" points="413,314.97,406,334.97,399,314.97,413,314.97" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[7c0130aaa2dc79170695f96da00ebff9]
+link HostNetworkDevice to HostNetworkLink--><g id="link_HostNetworkDevice_HostNetworkLink"><path codeLine="7" d="M406,90.16 C406,103.06 406,119.86 406,136.55 " fill="none" id="HostNetworkDevice-to-HostNetworkLink" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="406,149.84,410,143.84,406,137.84,402,143.84,406,149.84" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[fb4880cd936e45382a48a710dafec826]
+@startuml
+
+!include HostNetworkLink.puml
+
+package domain {
+    class HostNetworkDevice
+
+    HostNetworkDevice - -* HostNetworkLink
+}
+
+@enduml
+
+@startuml
+
+
+
+package app {
+    interface IHostNetworkLink {
+        +GetName() string
+        - -
+        +GetType() string
+        - -
+        +GetAddresses() []net.IPNet
+    }
+
+    note left of IHostNetworkLink::GetName
+    Gets host interface name
+    end note
+
+    note left of IHostNetworkLink::GetType
+    Gets host interface type
+    end note
+
+    note left of IHostNetworkLink::GetAddresses
+    Gets host interface addresses
+    end note
+}
+
+
+package domain {
+    class HostNetworkLink {
+        +Name string
+        - -
+        +Addresses []net.IPNet
+        - -
+        +Type string
+    }
+    note left of HostNetworkLink::Name
+    Unique name of the network interface
+    end note
+
+    note left of HostNetworkLink::Type
+    Default value is "none"
+    because HostNetworkLink is a basic class
+    end note
+
+    HostNetworkLink - -|> IHostNetworkLink
+}
+
+
+package domain {
+    class HostNetworkDevice
+
+    HostNetworkDevice - -* HostNetworkLink
+}
+
+@enduml
+
+PlantUML version 1.2022.6(Tue Jun 21 20:34:49 MSK 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1251
+Language: ru
+Country: RU
+--></g></svg>

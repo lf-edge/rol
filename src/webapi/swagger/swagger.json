@@ -545,6 +545,192 @@
                 }
             }
         },
+        "/host/network/vlan/": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "host"
+                ],
+                "summary": "Get list of host network VLAN's",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/dtos.HostNetworkVlanDto"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "host"
+                ],
+                "summary": "Create new host vlan",
+                "parameters": [
+                    {
+                        "description": "Host vlan fields",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dtos.HostNetworkVlanCreateDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.HostNetworkVlanDto"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.ValidationErrorDto"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/host/network/vlan/{name}": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "host"
+                ],
+                "summary": "Gets vlan port by name",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Vlan name",
+                        "name": "name",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.HostNetworkVlanDto"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "put": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "host"
+                ],
+                "summary": "update host network vlan",
+                "parameters": [
+                    {
+                        "description": "Host vlan fields",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dtos.HostNetworkVlanUpdateDto"
+                        }
+                    },
+                    {
+                        "type": "string",
+                        "description": "Vlan name",
+                        "name": "name",
+                        "in": "path"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.HostNetworkVlanDto"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.ValidationErrorDto"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "delete": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "host"
+                ],
+                "summary": "Delete host network vlan by name",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Vlan name",
+                        "name": "name",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "OK, but No Content"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
         "/log/app/": {
             "get": {
                 "consumes": [
@@ -1314,6 +1500,62 @@
                 }
             }
         },
+        "dtos.HostNetworkVlanCreateDto": {
+            "type": "object",
+            "properties": {
+                "addresses": {
+                    "description": "Addresses list",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "master": {
+                    "description": "Master interface name",
+                    "type": "string"
+                },
+                "vlanID": {
+                    "description": "VlanID vlan id",
+                    "type": "integer"
+                }
+            }
+        },
+        "dtos.HostNetworkVlanDto": {
+            "type": "object",
+            "properties": {
+                "addresses": {
+                    "description": "Addresses list",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "master": {
+                    "description": "Master interface name",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Name interface full name",
+                    "type": "string"
+                },
+                "vlanID": {
+                    "description": "VlanID id of the vlan",
+                    "type": "integer"
+                }
+            }
+        },
+        "dtos.HostNetworkVlanUpdateDto": {
+            "type": "object",
+            "properties": {
+                "addresses": {
+                    "description": "Addresses list",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
         "dtos.PaginatedListDto": {
             "type": "object",
             "properties": {
@@ -1368,6 +1610,37 @@
                 },
                 "message": {
                     "description": "Message - response message",
+                    "type": "string"
+                }
+            }
+        },
+        "dtos.ValidationErrorDto": {
+            "type": "object",
+            "properties": {
+                "errors": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dtos.ValidationErrorElemDto"
+                    }
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "dtos.ValidationErrorElemDto": {
+            "type": "object",
+            "properties": {
+                "error": {
+                    "description": "Value for Key",
+                    "type": "string"
+                },
+                "field": {
+                    "description": "Field with validation error",
+                    "type": "string"
+                },
+                "source": {
+                    "description": "Source for the field, for example query or body",
                     "type": "string"
                 }
             }

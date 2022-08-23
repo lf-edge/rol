@@ -80,15 +80,16 @@ func (g *GormGenericRepository[EntityType]) addQueryToGorm(gormQuery *gorm.DB, q
 			return errors.Internal.Wrap(err, "error building a query")
 		}
 		arrQuery := query.([]interface{})
-		// TODO: We need more checks here
-		switch arrQuery[0].(type) {
-		case string:
-			queryString := arrQuery[0].(string)
-			queryArgs := make([]interface{}, 0)
-			for i := 1; i < len(arrQuery); i++ {
-				queryArgs = append(queryArgs, arrQuery[i])
+		if len(arrQuery) > 0 {
+			switch arrQuery[0].(type) {
+			case string:
+				queryString := arrQuery[0].(string)
+				queryArgs := make([]interface{}, 0)
+				for i := 1; i < len(arrQuery); i++ {
+					queryArgs = append(queryArgs, arrQuery[i])
+				}
+				gormQuery.Where(queryString, queryArgs...)
 			}
-			gormQuery.Where(queryString, queryArgs...)
 		}
 	}
 	return nil

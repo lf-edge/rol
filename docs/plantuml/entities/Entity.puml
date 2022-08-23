@@ -1,7 +1,6 @@
 @startuml Entity
 
 !include ../interfaces/IEntityModel.puml
-!include ../interfaces/IEntityModelDeletedAt.puml
 
 package domain {
     class Entity {
@@ -11,12 +10,9 @@ package domain {
         --
         +UpdatedAt time.Time `gorm:"index"`
         --
-        +DeletedAt *time.Time `gorm:"index"`
+        +DeletedAt gorm.DeletedAt `gorm:"index"`
     }
-    Entity .down.|> IEntityModelDeletedAt
     Entity .down.|> IEntityModel
-
-    IEntityModel .left[hidden]. IEntityModelDeletedAt
 }
 
 @enduml

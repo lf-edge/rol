@@ -42,7 +42,6 @@ func NewEthernetSwitchPortService(rep interfaces.IGenericRepository[domain.Ether
 
 func (e *EthernetSwitchPortService) switchIsExist(ctx context.Context, switchID uuid.UUID) (bool, error) {
 	queryBuilder := e.GenericService.repository.NewQueryBuilder(ctx)
-	e.GenericService.excludeDeleted(queryBuilder)
 	ethernetSwitch, err := e.switchRepository.GetByIDExtended(ctx, switchID, queryBuilder)
 	if err != nil {
 		return false, errors.Internal.Wrap(err, "repository failed to get ethernet switch")
@@ -72,7 +71,6 @@ func (e *EthernetSwitchPortService) sLog(ctx context.Context, level, message str
 
 func (e *EthernetSwitchPortService) portNameIsUniqueWithinTheSwitch(ctx context.Context, name string, switchID, id uuid.UUID) (bool, error) {
 	uniqueNameQueryBuilder := e.GenericService.repository.NewQueryBuilder(ctx)
-	e.GenericService.excludeDeleted(uniqueNameQueryBuilder)
 	uniqueNameQueryBuilder.Where("Name", "==", name)
 	uniqueNameQueryBuilder.Where("EthernetSwitchID", "==", switchID)
 	if [16]byte{} != id {
@@ -105,7 +103,6 @@ func (e *EthernetSwitchPortService) GetPortByID(ctx context.Context, switchID, i
 		return nil, errors.NotFound.New("switch is not found")
 	}
 	queryBuilder := e.repository.NewQueryBuilder(ctx)
-	e.excludeDeleted(queryBuilder)
 	queryBuilder.Where("EthernetSwitchID", "==", switchID)
 	return e.getByIDBasic(ctx, id, queryBuilder)
 }
@@ -181,7 +178,6 @@ func (e *EthernetSwitchPortService) UpdatePort(ctx context.Context, switchID, id
 		return errors.AddErrorContext(err, "Name", "port with this name already exist")
 	}
 	queryBuilder := e.repository.NewQueryBuilder(ctx)
-	e.excludeDeleted(queryBuilder)
 	queryBuilder.Where("EthernetSwitchId", "==", switchID)
 	return e.updateBasic(ctx, updateDto, id, queryBuilder)
 }
@@ -207,7 +203,6 @@ func (e *EthernetSwitchPortService) GetPorts(ctx context.Context, switchID uuid.
 		return nil, errors.NotFound.New("switch is not found")
 	}
 	queryBuilder := e.repository.NewQueryBuilder(ctx)
-	e.excludeDeleted(queryBuilder)
 	queryBuilder.Where("EthernetSwitchId", "==", switchID)
 	if len(search) > 3 {
 		e.addSearchInAllFields(search, queryBuilder)
@@ -230,7 +225,6 @@ func (e *EthernetSwitchPortService) DeletePort(ctx context.Context, switchID, id
 		return errors.NotFound.New("switch is not found")
 	}
 	queryBuilder := e.repository.NewQueryBuilder(ctx)
-	e.excludeDeleted(queryBuilder)
 	queryBuilder.Where("EthernetSwitchID", "==", switchID)
 	entity, err := e.repository.GetByIDExtended(ctx, id, queryBuilder)
 	if err != nil {

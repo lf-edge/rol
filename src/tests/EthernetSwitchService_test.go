@@ -16,7 +16,6 @@ import (
 	"rol/infrastructure"
 	"runtime"
 	"testing"
-	"time"
 )
 
 var (
@@ -195,22 +194,10 @@ func Test_EthernetSwitchService_Delete(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
-
-	port, err := switchPortRepository.GetByID(context.TODO(), switchPortID)
-	if err != nil {
-		t.Errorf("failed to receive switch port: %s", err.Error())
-	}
-	// since we use soft delete we can still get port from repository
-	if port == nil {
-		t.Errorf("get by id failed: %s", err.Error())
-	}
-	// for sure that port was successfully deleted we need to compare it DeletedAt field with old date like 1999-01-01
-	boundaryDate, err := time.Parse("2006-01-02", "1999-01-01")
-	if err != nil {
-		t.Errorf("date parse error: %s", err.Error())
-	}
-	if port.DeletedAt.Before(boundaryDate) {
-		t.Error("error, the switch port was not deleted")
+	//check port cascade deleting
+	_, err = switchPortRepository.GetByID(context.TODO(), switchPortID)
+	if err == nil {
+		t.Error("successfully get removed switch")
 	}
 }
 

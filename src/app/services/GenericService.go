@@ -64,10 +64,6 @@ func (g *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) log(
 	}
 }
 
-func (g *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) excludeDeleted(queryBuilder interfaces.IQueryBuilder) {
-	queryBuilder.Where("DeletedAt", "=", nil)
-}
-
 func (g *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) addSearchInAllFields(search string, queryBuilder interfaces.IQueryBuilder) {
 	entityModel := new(EntityType)
 	stringFieldNames := &[]string{}
@@ -134,7 +130,6 @@ func (g *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) getL
 //	error - if an error occurs, otherwise nil
 func (g *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) GetList(ctx context.Context, search, orderBy, orderDirection string, page, pageSize int) (*dtos.PaginatedListDto[DtoType], error) {
 	searchQueryBuilder := g.repository.NewQueryBuilder(ctx)
-	g.excludeDeleted(searchQueryBuilder)
 	if len(search) > 3 {
 		g.addSearchInAllFields(search, searchQueryBuilder)
 	}
@@ -169,9 +164,7 @@ func (g *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) getB
 //	*DtoType - pointer to dto
 //	error - if an error occurs, otherwise nil
 func (g *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) GetByID(ctx context.Context, id uuid.UUID) (*DtoType, error) {
-	queryBuilder := g.repository.NewQueryBuilder(ctx)
-	g.excludeDeleted(queryBuilder)
-	return g.getByIDBasic(ctx, id, queryBuilder)
+	return g.getByIDBasic(ctx, id, nil)
 }
 
 func (g *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) updateBasic(ctx context.Context, updateDto UpdateDtoType, id uuid.UUID, queryBuilder interfaces.IQueryBuilder) error {
@@ -201,9 +194,7 @@ func (g *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) upda
 //Return
 //	error - if an error occurs, otherwise nil
 func (g *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) Update(ctx context.Context, updateDto UpdateDtoType, id uuid.UUID) error {
-	queryBuilder := g.repository.NewQueryBuilder(ctx)
-	g.excludeDeleted(queryBuilder)
-	return g.updateBasic(ctx, updateDto, id, queryBuilder)
+	return g.updateBasic(ctx, updateDto, id, nil)
 }
 
 //Create add new entity
@@ -233,22 +224,5 @@ func (g *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) Crea
 //Return
 //	error - if an error occurs, otherwise nil
 func (g *GenericService[DtoType, CreateDtoType, UpdateDtoType, EntityType]) Delete(ctx context.Context, id uuid.UUID) error {
-	queryBuilder := g.repository.NewQueryBuilder(ctx)
-	g.excludeDeleted(queryBuilder)
-	entity, err := g.repository.GetByIDExtended(ctx, id, queryBuilder)
-	if err != nil {
-		return errors.Internal.Wrap(err, "failed to get entity by id")
-	}
-	if entity == nil {
-		return errors.NotFound.Wrap(err, "entity not found")
-	}
-
-	entityReflect := reflect.ValueOf(entity).Interface().(interfaces.IEntityModelDeletedAt)
-	entityReflect.SetDeleted()
-
-	err = g.repository.Update(ctx, entity)
-	if err != nil {
-		return errors.Internal.Wrap(err, "failed to update entity in the repository")
-	}
-	return nil
+	return g.repository.Delete(ctx, id)
 }

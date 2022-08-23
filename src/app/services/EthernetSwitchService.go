@@ -86,7 +86,6 @@ func (e *EthernetSwitchService) modelIsSupported(model string) bool {
 
 func (e *EthernetSwitchService) serialIsUnique(ctx context.Context, serial string, id uuid.UUID) (bool, error) {
 	uniqueSerialQueryBuilder := e.GenericService.repository.NewQueryBuilder(ctx)
-	e.GenericService.excludeDeleted(uniqueSerialQueryBuilder)
 	uniqueSerialQueryBuilder.Where("Serial", "==", serial)
 	if [16]byte{} != id {
 		uniqueSerialQueryBuilder.Where("ID", "!=", id)
@@ -103,7 +102,6 @@ func (e *EthernetSwitchService) serialIsUnique(ctx context.Context, serial strin
 
 func (e *EthernetSwitchService) addressIsUnique(ctx context.Context, serial string, id uuid.UUID) (bool, error) {
 	uniqueSerialQueryBuilder := e.GenericService.repository.NewQueryBuilder(ctx)
-	e.GenericService.excludeDeleted(uniqueSerialQueryBuilder)
 	uniqueSerialQueryBuilder.Where("Address", "==", serial)
 	if [16]byte{} != id {
 		uniqueSerialQueryBuilder.Where("ID", "!=", id)
@@ -251,8 +249,7 @@ func (e *EthernetSwitchService) Delete(ctx context.Context, id uuid.UUID) error 
 		return errors.Internal.Wrap(err, "service failed get list")
 	}
 	for _, port := range *ports {
-		port.SetDeleted()
-		err := e.switchPortRepository.Update(ctx, &port)
+		err := e.switchPortRepository.Delete(ctx, port.ID)
 		if err != nil {
 			return errors.Internal.Wrap(err, "service failed to update entity")
 		}

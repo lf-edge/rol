@@ -3,7 +3,6 @@ package infrastructure
 import (
 	"fmt"
 	"regexp"
-	"rol/app/errors"
 	"rol/app/interfaces"
 	"strings"
 )
@@ -51,18 +50,24 @@ func (g *GormQueryBuilder) addQuery(condition, fieldName, comparator string, val
 }
 
 func (g *GormQueryBuilder) addQueryBuilder(condition string, builder interfaces.IQueryBuilder) interfaces.IQueryBuilder {
-	if len(g.QueryString) > 0 {
-		g.QueryString += fmt.Sprintf(" %s ", condition)
+	if builder == nil {
+		return g
 	}
 	argsInterface, err := builder.Build()
 	if err != nil {
 		return g
 	}
 	argsArrInterface := argsInterface.([]interface{})
+	if len(argsArrInterface) < 1 {
+		return g
+	}
 	switch v := argsArrInterface[0].(type) {
 	case string:
 		if len(argsArrInterface[0].(string)) < 1 {
 			return g
+		}
+		if len(g.QueryString) > 0 {
+			g.QueryString += fmt.Sprintf(" %s ", condition)
 		}
 		g.QueryString += fmt.Sprintf("(%s)", strings.ReplaceAll(v, "WHERE ", ""))
 	default:
@@ -119,11 +124,10 @@ func (g *GormQueryBuilder) OrQuery(builder interfaces.IQueryBuilder) interfaces.
 //	interface{} - slice of interface{}
 //	error - if error occurs return error, otherwise nil
 func (g *GormQueryBuilder) Build() (interface{}, error) {
-	if len(g.QueryString) < 1 {
-		return nil, errors.Internal.New("queryBuilder is empty")
-	}
 	arr := make([]interface{}, 0)
-	arr = append(arr, g.QueryString)
-	arr = append(arr, g.Values...)
+	if len(g.QueryString) > 1 {
+		arr = append(arr, g.QueryString)
+		arr = append(arr, g.Values...)
+	}
 	return arr, nil
 }

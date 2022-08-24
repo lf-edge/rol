@@ -134,8 +134,6 @@ definitions:
         description: POEIn only one network interface can be mark as POEIn
         type: boolean
     type: object
-  dtos.DtoType:
-    type: object
   dtos.EthernetSwitchCreateDto:
     properties:
       address:
@@ -340,45 +338,224 @@ definitions:
           type: string
         type: array
     type: object
-  dtos.PaginatedListDto:
+  dtos.PaginatedItemsDto-dtos_AppLogDto:
     properties:
       items:
-        description: Items - array of DTO items
+        description: Items slice of items
         items:
-          $ref: '#/definitions/dtos.DtoType'
+          properties:
+            actionID:
+              type: string
+            createdAt:
+              description: CreatedAt - entity create time
+              type: string
+            id:
+              description: ID - unique identifier
+              type: string
+            level:
+              description: Level - level of the log
+              type: string
+            message:
+              description: Message - log message
+              type: string
+            source:
+              description: Source - method from which the log was obtained
+              type: string
+            updatedAt:
+              description: UpdatedAt - entity update time
+              type: string
+          type: object
         type: array
+      pagination:
+        $ref: '#/definitions/dtos.PaginationInfoDto'
+        description: Pagination info about pagination
+    type: object
+  dtos.PaginatedItemsDto-dtos_DeviceTemplateDto:
+    properties:
+      items:
+        description: Items slice of items
+        items:
+          properties:
+            control:
+              $ref: '#/definitions/dtos.DeviceTemplateControlDto'
+              description: Control describes how we control the device
+            cpucount:
+              description: CPUCount count of cpus
+              type: integer
+            cpumodel:
+              description: CPUModel model of cpu
+              type: string
+            description:
+              description: Description template description
+              type: string
+            discBootStages:
+              description: DiscBootStages slice of boot stage templates for disk boot
+              items:
+                $ref: '#/definitions/dtos.DeviceTemplateBootStageDto'
+              type: array
+            manufacturer:
+              description: Manufacturer device manufacturer
+              type: string
+            model:
+              description: Model device model
+              type: string
+            name:
+              description: Name template name
+              type: string
+            netBootStages:
+              description: NetBootStages slice of boot stage templates for net boot
+              items:
+                $ref: '#/definitions/dtos.DeviceTemplateBootStageDto'
+              type: array
+            networkInterfaces:
+              description: NetworkInterfaces slice of device network interfaces
+              items:
+                $ref: '#/definitions/dtos.DeviceTemplateNetworkDto'
+              type: array
+            ram:
+              description: RAM the amount of RAM in GB
+              type: integer
+            usbbootStages:
+              description: USBBootStages slice of boot stage templates for usb boot
+              items:
+                $ref: '#/definitions/dtos.DeviceTemplateBootStageDto'
+              type: array
+          type: object
+        type: array
+      pagination:
+        $ref: '#/definitions/dtos.PaginationInfoDto'
+        description: Pagination info about pagination
+    type: object
+  dtos.PaginatedItemsDto-dtos_EthernetSwitchDto:
+    properties:
+      items:
+        description: Items slice of items
+        items:
+          properties:
+            address:
+              description: Address - switch ip address
+              type: string
+            createdAt:
+              description: CreatedAt - entity create time
+              type: string
+            id:
+              description: ID - unique identifier
+              type: string
+            name:
+              description: Name - switch name
+              type: string
+            serial:
+              description: Serial - switch serial number
+              type: string
+            switchModel:
+              description: SwitchModel - switch model
+              type: string
+            updatedAt:
+              description: UpdatedAt - entity update time
+              type: string
+            username:
+              description: Username - switch admin username
+              type: string
+          type: object
+        type: array
+      pagination:
+        $ref: '#/definitions/dtos.PaginationInfoDto'
+        description: Pagination info about pagination
+    type: object
+  dtos.PaginatedItemsDto-dtos_EthernetSwitchPortDto:
+    properties:
+      items:
+        description: Items slice of items
+        items:
+          properties:
+            createdAt:
+              description: CreatedAt - entity create time
+              type: string
+            id:
+              description: ID - unique identifier
+              type: string
+            name:
+              description: Name for this port
+              type: string
+            poetype:
+              description: |-
+                POEType type of PoE for this port
+                can be: "poe", "poe+", "passive24", "none"
+              type: string
+            updatedAt:
+              description: UpdatedAt - entity update time
+              type: string
+          type: object
+        type: array
+      pagination:
+        $ref: '#/definitions/dtos.PaginationInfoDto'
+        description: Pagination info about pagination
+    type: object
+  dtos.PaginatedItemsDto-dtos_HTTPLogDto:
+    properties:
+      items:
+        description: Items slice of items
+        items:
+          properties:
+            clientIP:
+              description: ClientIP - client IP address
+              type: string
+            createdAt:
+              description: CreatedAt - entity create time
+              type: string
+            customRequestHeaders:
+              description: CustomRequestHeaders - custom headers of the request
+              type: string
+            domain:
+              description: Domain - domain that processed the request
+              type: string
+            httpmethod:
+              description: HTTPMethod - http method
+              type: string
+            id:
+              description: ID - unique identifier
+              type: string
+            latency:
+              description: Latency - latency in milliseconds
+              type: integer
+            queryParams:
+              description: QueryParams - query params passed
+              type: string
+            relativePath:
+              description: RelativePath - path to the endpoint
+              type: string
+            requestBody:
+              description: RequestBody - body of the request
+              type: string
+            requestHeaders:
+              description: RequestHeaders - headers of the request
+              type: string
+            responseBody:
+              description: ResponseBody - body of the response
+              type: string
+            updatedAt:
+              description: UpdatedAt - entity update time
+              type: string
+          type: object
+        type: array
+      pagination:
+        $ref: '#/definitions/dtos.PaginationInfoDto'
+        description: Pagination info about pagination
+    type: object
+  dtos.PaginationInfoDto:
+    properties:
       page:
         description: Page - page number
         type: integer
       size:
         description: Size - page size
         type: integer
-      total:
-        description: Total - total number of items
+      totalCount:
+        description: TotalCount - total number of items
         type: integer
-    type: object
-  dtos.ResponseDataDto:
-    properties:
-      data:
-        description: Data - any data to send
-      status:
-        $ref: '#/definitions/dtos.ResponseStatusDto'
-        description: Status - response status structure
-    type: object
-  dtos.ResponseDto:
-    properties:
-      status:
-        $ref: '#/definitions/dtos.ResponseStatusDto'
-        description: Status - response status structure
-    type: object
-  dtos.ResponseStatusDto:
-    properties:
-      code:
-        description: Code - 0 if OK, otherwise 1
+      totalPages:
+        description: TotalPages - total number of pages
         type: integer
-      message:
-        description: Message - response message
-        type: string
     type: object
   dtos.ValidationErrorDto:
     properties:
@@ -445,19 +622,9 @@ paths:
         "200":
           description: OK
           schema:
-            allOf:
-            - $ref: '#/definitions/dtos.ResponseDataDto'
-            - properties:
-                data:
-                  allOf:
-                  - $ref: '#/definitions/dtos.PaginatedListDto'
-                  - properties:
-                      items:
-                        items:
-                          $ref: '#/definitions/dtos.EthernetSwitchDto'
-                        type: array
-                    type: object
-              type: object
+            $ref: '#/definitions/dtos.PaginatedItemsDto-dtos_EthernetSwitchDto'
+        "500":
+          description: Internal Server Error
       summary: Get paginated list of switches
       tags:
       - ethernet-switch
@@ -477,12 +644,13 @@ paths:
         "200":
           description: OK
           schema:
-            allOf:
-            - $ref: '#/definitions/dtos.ResponseDataDto'
-            - properties:
-                data:
-                  type: string
-              type: object
+            $ref: '#/definitions/dtos.EthernetSwitchDto'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dtos.ValidationErrorDto'
+        "500":
+          description: Internal Server Error
       summary: Create new ethernet switch
       tags:
       - ethernet-switch
@@ -499,10 +667,12 @@ paths:
       produces:
       - application/json
       responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/dtos.ResponseDto'
+        "204":
+          description: OK, but No Content
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
       summary: Delete ethernet switch by id
       tags:
       - ethernet-switch
@@ -521,12 +691,11 @@ paths:
         "200":
           description: OK
           schema:
-            allOf:
-            - $ref: '#/definitions/dtos.ResponseDataDto'
-            - properties:
-                data:
-                  $ref: '#/definitions/dtos.EthernetSwitchDto'
-              type: object
+            $ref: '#/definitions/dtos.EthernetSwitchDto'
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
       summary: Get ethernet switch by id
       tags:
       - ethernet-switch
@@ -551,7 +720,15 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/dtos.ResponseDto'
+            $ref: '#/definitions/dtos.EthernetSwitchDto'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dtos.ValidationErrorDto'
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
       summary: Updates ethernet switch by id
       tags:
       - ethernet-switch
@@ -589,21 +766,13 @@ paths:
       - application/json
       responses:
         "200":
-          description: desc
+          description: OK
           schema:
-            allOf:
-            - $ref: '#/definitions/dtos.ResponseDataDto'
-            - properties:
-                data:
-                  allOf:
-                  - $ref: '#/definitions/dtos.PaginatedListDto'
-                  - properties:
-                      items:
-                        items:
-                          $ref: '#/definitions/dtos.EthernetSwitchPortDto'
-                        type: array
-                    type: object
-              type: object
+            $ref: '#/definitions/dtos.PaginatedItemsDto-dtos_EthernetSwitchPortDto'
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
       summary: Gets paginated list of ethernet switch ports
       tags:
       - ethernet-switch
@@ -628,12 +797,15 @@ paths:
         "200":
           description: OK
           schema:
-            allOf:
-            - $ref: '#/definitions/dtos.ResponseDataDto'
-            - properties:
-                data:
-                  type: string
-              type: object
+            $ref: '#/definitions/dtos.EthernetSwitchPortDto'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dtos.ValidationErrorDto'
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
       summary: Creates new ethernet switch port
       tags:
       - ethernet-switch
@@ -655,10 +827,12 @@ paths:
       produces:
       - application/json
       responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/dtos.ResponseDto'
+        "204":
+          description: OK, but No Content
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
       summary: Delete ethernet switch port by id
       tags:
       - ethernet-switch
@@ -682,12 +856,11 @@ paths:
         "200":
           description: OK
           schema:
-            allOf:
-            - $ref: '#/definitions/dtos.ResponseDataDto'
-            - properties:
-                data:
-                  $ref: '#/definitions/dtos.EthernetSwitchPortDto'
-              type: object
+            $ref: '#/definitions/dtos.EthernetSwitchPortDto'
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
       summary: Gets ethernet switch port by id
       tags:
       - ethernet-switch
@@ -717,7 +890,15 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/dtos.ResponseDto'
+            $ref: '#/definitions/dtos.EthernetSwitchPortDto'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dtos.ValidationErrorDto'
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
       summary: Updates ethernet switch port by id
       tags:
       - ethernet-switch
@@ -889,22 +1070,12 @@ paths:
         "200":
           description: OK
           schema:
-            allOf:
-            - $ref: '#/definitions/dtos.ResponseDataDto'
-            - properties:
-                data:
-                  allOf:
-                  - $ref: '#/definitions/dtos.PaginatedListDto'
-                  - properties:
-                      items:
-                        items:
-                          $ref: '#/definitions/dtos.AppLogDto'
-                        type: array
-                    type: object
-              type: object
+            $ref: '#/definitions/dtos.PaginatedItemsDto-dtos_AppLogDto'
+        "500":
+          description: Internal Server Error
       summary: Gets paginated list of app logs
       tags:
-      - app log
+      - log
   /log/app/{id}:
     get:
       consumes:
@@ -921,15 +1092,14 @@ paths:
         "200":
           description: OK
           schema:
-            allOf:
-            - $ref: '#/definitions/dtos.ResponseDataDto'
-            - properties:
-                data:
-                  $ref: '#/definitions/dtos.AppLogDto'
-              type: object
+            $ref: '#/definitions/dtos.AppLogDto'
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
       summary: Gets http app by id
       tags:
-      - app log
+      - log
   /log/http/:
     get:
       consumes:
@@ -959,24 +1129,14 @@ paths:
       - application/json
       responses:
         "200":
-          description: desc
+          description: OK
           schema:
-            allOf:
-            - $ref: '#/definitions/dtos.ResponseDataDto'
-            - properties:
-                data:
-                  allOf:
-                  - $ref: '#/definitions/dtos.PaginatedListDto'
-                  - properties:
-                      items:
-                        items:
-                          $ref: '#/definitions/dtos.HTTPLogDto'
-                        type: array
-                    type: object
-              type: object
+            $ref: '#/definitions/dtos.PaginatedItemsDto-dtos_HTTPLogDto'
+        "500":
+          description: Internal Server Error
       summary: Gets paginated list of http logs
       tags:
-      - http log
+      - log
   /log/http/{id}:
     get:
       consumes:
@@ -993,15 +1153,14 @@ paths:
         "200":
           description: OK
           schema:
-            allOf:
-            - $ref: '#/definitions/dtos.ResponseDataDto'
-            - properties:
-                data:
-                  $ref: '#/definitions/dtos.HTTPLogDto'
-              type: object
+            $ref: '#/definitions/dtos.HTTPLogDto'
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
       summary: Gets http log by id
       tags:
-      - http log
+      - log
   /template/device/:
     get:
       consumes:
@@ -1033,22 +1192,12 @@ paths:
         "200":
           description: OK
           schema:
-            allOf:
-            - $ref: '#/definitions/dtos.ResponseDataDto'
-            - properties:
-                data:
-                  allOf:
-                  - $ref: '#/definitions/dtos.PaginatedListDto'
-                  - properties:
-                      items:
-                        items:
-                          $ref: '#/definitions/dtos.DeviceTemplateDto'
-                        type: array
-                    type: object
-              type: object
+            $ref: '#/definitions/dtos.PaginatedItemsDto-dtos_DeviceTemplateDto'
+        "500":
+          description: Internal Server Error
       summary: Gets paginated list of device templates
       tags:
-      - device template
+      - template
   /template/device/{name}:
     get:
       consumes:
@@ -1065,13 +1214,12 @@ paths:
         "200":
           description: OK
           schema:
-            allOf:
-            - $ref: '#/definitions/dtos.ResponseDataDto'
-            - properties:
-                data:
-                  $ref: '#/definitions/dtos.DeviceTemplateDto'
-              type: object
+            $ref: '#/definitions/dtos.DeviceTemplateDto'
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
       summary: Gets device template by its name
       tags:
-      - device template
+      - template
 swagger: "2.0"

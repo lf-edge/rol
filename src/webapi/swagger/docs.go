@@ -72,35 +72,11 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/dtos.ResponseDataDto"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "allOf": [
-                                                {
-                                                    "$ref": "#/definitions/dtos.PaginatedListDto"
-                                                },
-                                                {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "items": {
-                                                            "type": "array",
-                                                            "items": {
-                                                                "$ref": "#/definitions/dtos.EthernetSwitchDto"
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            ]
-                                        }
-                                    }
-                                }
-                            ]
+                            "$ref": "#/definitions/dtos.PaginatedItemsDto-dtos_EthernetSwitchDto"
                         }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
                     }
                 }
             },
@@ -130,20 +106,17 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/dtos.ResponseDataDto"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "string"
-                                        }
-                                    }
-                                }
-                            ]
+                            "$ref": "#/definitions/dtos.EthernetSwitchDto"
                         }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.ValidationErrorDto"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
                     }
                 }
             }
@@ -198,20 +171,14 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/dtos.ResponseDataDto"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "$ref": "#/definitions/dtos.EthernetSwitchDto"
-                                        }
-                                    }
-                                }
-                            ]
+                            "$ref": "#/definitions/dtos.EthernetSwitchDto"
                         }
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
                     }
                 }
             },
@@ -248,8 +215,20 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/dtos.ResponseDto"
+                            "$ref": "#/definitions/dtos.EthernetSwitchDto"
                         }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.ValidationErrorDto"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
                     }
                 }
             },
@@ -274,11 +253,14 @@ const docTemplate = `{
                     }
                 ],
                 "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/dtos.ResponseDto"
-                        }
+                    "204": {
+                        "description": "OK, but No Content"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
                     }
                 }
             }
@@ -336,37 +318,16 @@ const docTemplate = `{
                 ],
                 "responses": {
                     "200": {
-                        "description": "desc",
+                        "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/dtos.ResponseDataDto"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "allOf": [
-                                                {
-                                                    "$ref": "#/definitions/dtos.PaginatedListDto"
-                                                },
-                                                {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "items": {
-                                                            "type": "array",
-                                                            "items": {
-                                                                "$ref": "#/definitions/dtos.EthernetSwitchPortDto"
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            ]
-                                        }
-                                    }
-                                }
-                            ]
+                            "$ref": "#/definitions/dtos.PaginatedItemsDto-dtos_EthernetSwitchPortDto"
                         }
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
                     }
                 }
             },
@@ -403,20 +364,20 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/dtos.ResponseDataDto"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "type": "string"
-                                        }
-                                    }
-                                }
-                            ]
+                            "$ref": "#/definitions/dtos.EthernetSwitchPortDto"
                         }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.ValidationErrorDto"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
                     }
                 }
             }
@@ -453,20 +414,14 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/dtos.ResponseDataDto"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "$ref": "#/definitions/dtos.EthernetSwitchPortDto"
-                                        }
-                                    }
-                                }
-                            ]
+                            "$ref": "#/definitions/dtos.EthernetSwitchPortDto"
                         }
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
                     }
                 }
             },
@@ -510,8 +465,20 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/dtos.ResponseDto"
+                            "$ref": "#/definitions/dtos.EthernetSwitchPortDto"
                         }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.ValidationErrorDto"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
                     }
                 }
             },
@@ -543,11 +510,14 @@ const docTemplate = `{
                     }
                 ],
                 "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/dtos.ResponseDto"
-                        }
+                    "204": {
+                        "description": "OK, but No Content"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
                     }
                 }
             }
@@ -747,7 +717,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "app log"
+                    "log"
                 ],
                 "summary": "Gets paginated list of app logs",
                 "parameters": [
@@ -786,35 +756,11 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/dtos.ResponseDataDto"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "allOf": [
-                                                {
-                                                    "$ref": "#/definitions/dtos.PaginatedListDto"
-                                                },
-                                                {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "items": {
-                                                            "type": "array",
-                                                            "items": {
-                                                                "$ref": "#/definitions/dtos.AppLogDto"
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            ]
-                                        }
-                                    }
-                                }
-                            ]
+                            "$ref": "#/definitions/dtos.PaginatedItemsDto-dtos_AppLogDto"
                         }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
                     }
                 }
             }
@@ -828,7 +774,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "app log"
+                    "log"
                 ],
                 "summary": "Gets http app by id",
                 "parameters": [
@@ -844,20 +790,14 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/dtos.ResponseDataDto"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "$ref": "#/definitions/dtos.AppLogDto"
-                                        }
-                                    }
-                                }
-                            ]
+                            "$ref": "#/definitions/dtos.AppLogDto"
                         }
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
                     }
                 }
             }
@@ -871,7 +811,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "http log"
+                    "log"
                 ],
                 "summary": "Gets paginated list of http logs",
                 "parameters": [
@@ -908,37 +848,13 @@ const docTemplate = `{
                 ],
                 "responses": {
                     "200": {
-                        "description": "desc",
+                        "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/dtos.ResponseDataDto"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "allOf": [
-                                                {
-                                                    "$ref": "#/definitions/dtos.PaginatedListDto"
-                                                },
-                                                {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "items": {
-                                                            "type": "array",
-                                                            "items": {
-                                                                "$ref": "#/definitions/dtos.HTTPLogDto"
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            ]
-                                        }
-                                    }
-                                }
-                            ]
+                            "$ref": "#/definitions/dtos.PaginatedItemsDto-dtos_HTTPLogDto"
                         }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
                     }
                 }
             }
@@ -952,7 +868,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "http log"
+                    "log"
                 ],
                 "summary": "Gets http log by id",
                 "parameters": [
@@ -968,20 +884,14 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/dtos.ResponseDataDto"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "$ref": "#/definitions/dtos.HTTPLogDto"
-                                        }
-                                    }
-                                }
-                            ]
+                            "$ref": "#/definitions/dtos.HTTPLogDto"
                         }
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
                     }
                 }
             }
@@ -995,7 +905,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "device template"
+                    "template"
                 ],
                 "summary": "Gets paginated list of device templates",
                 "parameters": [
@@ -1034,35 +944,11 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/dtos.ResponseDataDto"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "allOf": [
-                                                {
-                                                    "$ref": "#/definitions/dtos.PaginatedListDto"
-                                                },
-                                                {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "items": {
-                                                            "type": "array",
-                                                            "items": {
-                                                                "$ref": "#/definitions/dtos.DeviceTemplateDto"
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            ]
-                                        }
-                                    }
-                                }
-                            ]
+                            "$ref": "#/definitions/dtos.PaginatedItemsDto-dtos_DeviceTemplateDto"
                         }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
                     }
                 }
             }
@@ -1076,7 +962,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "device template"
+                    "template"
                 ],
                 "summary": "Gets device template by its name",
                 "parameters": [
@@ -1092,20 +978,14 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/definitions/dtos.ResponseDataDto"
-                                },
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "data": {
-                                            "$ref": "#/definitions/dtos.DeviceTemplateDto"
-                                        }
-                                    }
-                                }
-                            ]
+                            "$ref": "#/definitions/dtos.DeviceTemplateDto"
                         }
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
                     }
                 }
             }
@@ -1283,9 +1163,6 @@ const docTemplate = `{
                     "type": "boolean"
                 }
             }
-        },
-        "dtos.DtoType": {
-            "type": "object"
         },
         "dtos.EthernetSwitchCreateDto": {
             "type": "object",
@@ -1563,16 +1440,290 @@ const docTemplate = `{
                 }
             }
         },
-        "dtos.PaginatedListDto": {
+        "dtos.PaginatedItemsDto-dtos_AppLogDto": {
             "type": "object",
             "properties": {
                 "items": {
-                    "description": "Items - array of DTO items",
+                    "description": "Items slice of items",
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/dtos.DtoType"
+                        "type": "object",
+                        "properties": {
+                            "actionID": {
+                                "type": "string"
+                            },
+                            "createdAt": {
+                                "description": "CreatedAt - entity create time",
+                                "type": "string"
+                            },
+                            "id": {
+                                "description": "ID - unique identifier",
+                                "type": "string"
+                            },
+                            "level": {
+                                "description": "Level - level of the log",
+                                "type": "string"
+                            },
+                            "message": {
+                                "description": "Message - log message",
+                                "type": "string"
+                            },
+                            "source": {
+                                "description": "Source - method from which the log was obtained",
+                                "type": "string"
+                            },
+                            "updatedAt": {
+                                "description": "UpdatedAt - entity update time",
+                                "type": "string"
+                            }
+                        }
                     }
                 },
+                "pagination": {
+                    "description": "Pagination info about pagination",
+                    "$ref": "#/definitions/dtos.PaginationInfoDto"
+                }
+            }
+        },
+        "dtos.PaginatedItemsDto-dtos_DeviceTemplateDto": {
+            "type": "object",
+            "properties": {
+                "items": {
+                    "description": "Items slice of items",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "control": {
+                                "description": "Control describes how we control the device",
+                                "$ref": "#/definitions/dtos.DeviceTemplateControlDto"
+                            },
+                            "cpucount": {
+                                "description": "CPUCount count of cpus",
+                                "type": "integer"
+                            },
+                            "cpumodel": {
+                                "description": "CPUModel model of cpu",
+                                "type": "string"
+                            },
+                            "description": {
+                                "description": "Description template description",
+                                "type": "string"
+                            },
+                            "discBootStages": {
+                                "description": "DiscBootStages slice of boot stage templates for disk boot",
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/definitions/dtos.DeviceTemplateBootStageDto"
+                                }
+                            },
+                            "manufacturer": {
+                                "description": "Manufacturer device manufacturer",
+                                "type": "string"
+                            },
+                            "model": {
+                                "description": "Model device model",
+                                "type": "string"
+                            },
+                            "name": {
+                                "description": "Name template name",
+                                "type": "string"
+                            },
+                            "netBootStages": {
+                                "description": "NetBootStages slice of boot stage templates for net boot",
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/definitions/dtos.DeviceTemplateBootStageDto"
+                                }
+                            },
+                            "networkInterfaces": {
+                                "description": "NetworkInterfaces slice of device network interfaces",
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/definitions/dtos.DeviceTemplateNetworkDto"
+                                }
+                            },
+                            "ram": {
+                                "description": "RAM the amount of RAM in GB",
+                                "type": "integer"
+                            },
+                            "usbbootStages": {
+                                "description": "USBBootStages slice of boot stage templates for usb boot",
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/definitions/dtos.DeviceTemplateBootStageDto"
+                                }
+                            }
+                        }
+                    }
+                },
+                "pagination": {
+                    "description": "Pagination info about pagination",
+                    "$ref": "#/definitions/dtos.PaginationInfoDto"
+                }
+            }
+        },
+        "dtos.PaginatedItemsDto-dtos_EthernetSwitchDto": {
+            "type": "object",
+            "properties": {
+                "items": {
+                    "description": "Items slice of items",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "address": {
+                                "description": "Address - switch ip address",
+                                "type": "string"
+                            },
+                            "createdAt": {
+                                "description": "CreatedAt - entity create time",
+                                "type": "string"
+                            },
+                            "id": {
+                                "description": "ID - unique identifier",
+                                "type": "string"
+                            },
+                            "name": {
+                                "description": "Name - switch name",
+                                "type": "string"
+                            },
+                            "serial": {
+                                "description": "Serial - switch serial number",
+                                "type": "string"
+                            },
+                            "switchModel": {
+                                "description": "SwitchModel - switch model",
+                                "type": "string"
+                            },
+                            "updatedAt": {
+                                "description": "UpdatedAt - entity update time",
+                                "type": "string"
+                            },
+                            "username": {
+                                "description": "Username - switch admin username",
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "pagination": {
+                    "description": "Pagination info about pagination",
+                    "$ref": "#/definitions/dtos.PaginationInfoDto"
+                }
+            }
+        },
+        "dtos.PaginatedItemsDto-dtos_EthernetSwitchPortDto": {
+            "type": "object",
+            "properties": {
+                "items": {
+                    "description": "Items slice of items",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "createdAt": {
+                                "description": "CreatedAt - entity create time",
+                                "type": "string"
+                            },
+                            "id": {
+                                "description": "ID - unique identifier",
+                                "type": "string"
+                            },
+                            "name": {
+                                "description": "Name for this port",
+                                "type": "string"
+                            },
+                            "poetype": {
+                                "description": "POEType type of PoE for this port\ncan be: \"poe\", \"poe+\", \"passive24\", \"none\"",
+                                "type": "string"
+                            },
+                            "updatedAt": {
+                                "description": "UpdatedAt - entity update time",
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "pagination": {
+                    "description": "Pagination info about pagination",
+                    "$ref": "#/definitions/dtos.PaginationInfoDto"
+                }
+            }
+        },
+        "dtos.PaginatedItemsDto-dtos_HTTPLogDto": {
+            "type": "object",
+            "properties": {
+                "items": {
+                    "description": "Items slice of items",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "clientIP": {
+                                "description": "ClientIP - client IP address",
+                                "type": "string"
+                            },
+                            "createdAt": {
+                                "description": "CreatedAt - entity create time",
+                                "type": "string"
+                            },
+                            "customRequestHeaders": {
+                                "description": "CustomRequestHeaders - custom headers of the request",
+                                "type": "string"
+                            },
+                            "domain": {
+                                "description": "Domain - domain that processed the request",
+                                "type": "string"
+                            },
+                            "httpmethod": {
+                                "description": "HTTPMethod - http method",
+                                "type": "string"
+                            },
+                            "id": {
+                                "description": "ID - unique identifier",
+                                "type": "string"
+                            },
+                            "latency": {
+                                "description": "Latency - latency in milliseconds",
+                                "type": "integer"
+                            },
+                            "queryParams": {
+                                "description": "QueryParams - query params passed",
+                                "type": "string"
+                            },
+                            "relativePath": {
+                                "description": "RelativePath - path to the endpoint",
+                                "type": "string"
+                            },
+                            "requestBody": {
+                                "description": "RequestBody - body of the request",
+                                "type": "string"
+                            },
+                            "requestHeaders": {
+                                "description": "RequestHeaders - headers of the request",
+                                "type": "string"
+                            },
+                            "responseBody": {
+                                "description": "ResponseBody - body of the response",
+                                "type": "string"
+                            },
+                            "updatedAt": {
+                                "description": "UpdatedAt - entity update time",
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "pagination": {
+                    "description": "Pagination info about pagination",
+                    "$ref": "#/definitions/dtos.PaginationInfoDto"
+                }
+            }
+        },
+        "dtos.PaginationInfoDto": {
+            "type": "object",
+            "properties": {
                 "page": {
                     "description": "Page - page number",
                     "type": "integer"
@@ -1581,43 +1732,13 @@ const docTemplate = `{
                     "description": "Size - page size",
                     "type": "integer"
                 },
-                "total": {
-                    "description": "Total - total number of items",
-                    "type": "integer"
-                }
-            }
-        },
-        "dtos.ResponseDataDto": {
-            "type": "object",
-            "properties": {
-                "data": {
-                    "description": "Data - any data to send"
-                },
-                "status": {
-                    "description": "Status - response status structure",
-                    "$ref": "#/definitions/dtos.ResponseStatusDto"
-                }
-            }
-        },
-        "dtos.ResponseDto": {
-            "type": "object",
-            "properties": {
-                "status": {
-                    "description": "Status - response status structure",
-                    "$ref": "#/definitions/dtos.ResponseStatusDto"
-                }
-            }
-        },
-        "dtos.ResponseStatusDto": {
-            "type": "object",
-            "properties": {
-                "code": {
-                    "description": "Code - 0 if OK, otherwise 1",
+                "totalCount": {
+                    "description": "TotalCount - total number of items",
                     "type": "integer"
                 },
-                "message": {
-                    "description": "Message - response message",
-                    "type": "string"
+                "totalPages": {
+                    "description": "TotalPages - total number of pages",
+                    "type": "integer"
                 }
             }
         },

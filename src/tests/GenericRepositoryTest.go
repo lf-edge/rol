@@ -9,6 +9,7 @@ import (
 	"os"
 	"reflect"
 	"rol/app/interfaces"
+	"time"
 )
 
 //GenericRepositoryTest generic test for generic repository
@@ -33,7 +34,8 @@ func NewGenericRepositoryTest[EntityType interfaces.IEntityModel](repo interface
 //GenericRepositoryInsert test insert entity to db
 func (g *GenericRepositoryTest[EntityType]) GenericRepositoryInsert(entity EntityType) error {
 	var err error
-	g.InsertedID, err = g.Repository.Insert(g.Context, entity)
+	newEntity, err := g.Repository.Insert(g.Context, entity)
+	g.InsertedID = newEntity.GetID()
 	if err != nil {
 		return fmt.Errorf("insert failed: %s", err)
 	}
@@ -47,7 +49,7 @@ func (g *GenericRepositoryTest[EntityType]) GenericRepositoryGetByID(id uuid.UUI
 		return fmt.Errorf("get by id failed: %s", err)
 	}
 
-	value := reflect.ValueOf(*entity).FieldByName("ID")
+	value := reflect.ValueOf(entity).FieldByName("ID")
 
 	obtainedID, err := getUUIDFromReflectArray(value)
 	if err != nil {
@@ -61,19 +63,18 @@ func (g *GenericRepositoryTest[EntityType]) GenericRepositoryGetByID(id uuid.UUI
 
 //GenericRepositoryUpdate test update entity
 func (g *GenericRepositoryTest[EntityType]) GenericRepositoryUpdate(entity EntityType) error {
-	err := g.Repository.Update(g.Context, &entity)
-
+	oldEntity, err := g.Repository.GetByID(g.Context, g.InsertedID)
+	if err != nil {
+		return err
+	}
+	beforeUpdTime := reflect.ValueOf(oldEntity).FieldByName("UpdatedAt").Interface().(time.Time)
+	updatedEntity, err := g.Repository.Update(g.Context, entity)
 	if err != nil {
 		return fmt.Errorf("update failed:  %s", err)
 	}
-	updatedEntity, err := g.Repository.GetByID(g.Context, g.InsertedID)
-	if err != nil {
-		return fmt.Errorf("get by id failed:  %s", err)
-	}
-	expectedName := reflect.ValueOf(entity).FieldByName("Name").String()
-	obtainedName := reflect.ValueOf(*updatedEntity).FieldByName("Name").String()
-	if obtainedName != expectedName {
-		return fmt.Errorf("unexpected name %s, expect %s", obtainedName, expectedName)
+	afterUpdTime := reflect.ValueOf(updatedEntity).FieldByName("UpdatedAt").Interface().(time.Time)
+	if !beforeUpdTime.Before(afterUpdTime) {
+		return fmt.Errorf("entity was not updated")
 	}
 	return nil
 }
@@ -84,8 +85,8 @@ func (g *GenericRepositoryTest[EntityType]) GenericRepositoryGetList() error {
 	if err != nil {
 		return fmt.Errorf("get list failed:  %s", err)
 	}
-	if len(*entityArr) != 1 {
-		return fmt.Errorf("array length %d, expect 1", len(*entityArr))
+	if len(entityArr) != 1 {
+		return fmt.Errorf("array length %d, expect 1", len(entityArr))
 	}
 	return nil
 }
@@ -105,22 +106,22 @@ func (g *GenericRepositoryTest[EntityType]) GenericRepositoryPagination(page, si
 	if err != nil {
 		return fmt.Errorf("get list failed: %s", err)
 	}
-	if len(*entityArrFirstPage) != size {
-		return fmt.Errorf("array length on %d page %d, expect %d", page, len(*entityArrFirstPage), size)
+	if len(entityArrFirstPage) != size {
+		return fmt.Errorf("array length on %d page %d, expect %d", page, len(entityArrFirstPage), size)
 	}
 	entityArrSecondPage, err := g.Repository.GetList(g.Context, "created_at", "asc", page+1, size, nil)
 	if err != nil {
 		return fmt.Errorf("get list failed: %s", err)
 	}
-	if len(*entityArrSecondPage) != size {
-		return fmt.Errorf("array length on next page %d, expect %d", len(*entityArrSecondPage), size)
+	if len(entityArrSecondPage) != size {
+		return fmt.Errorf("array length on next page %d, expect %d", len(entityArrSecondPage), size)
 	}
-	firstPageValue := reflect.ValueOf(*entityArrFirstPage).Index(0).FieldByName("ID")
+	firstPageValue := reflect.ValueOf(entityArrFirstPage).Index(0).FieldByName("ID")
 	firstPageID, err := getUUIDFromReflectArray(firstPageValue)
 	if err != nil {
 		return fmt.Errorf("convert reflect array to uuid failed: %s", err)
 	}
-	secondPageValue := reflect.ValueOf(*entityArrSecondPage).Index(0).FieldByName("ID")
+	secondPageValue := reflect.ValueOf(entityArrSecondPage).Index(0).FieldByName("ID")
 	secondPageID, err := getUUIDFromReflectArray(secondPageValue)
 	if err != nil {
 		return fmt.Errorf("convert reflect array to uuid failed: %s", err)
@@ -137,16 +138,18 @@ func (g *GenericRepositoryTest[EntityType]) GenericRepositorySort() error {
 	if err != nil {
 		return fmt.Errorf("get list failed: %s", err)
 	}
-	if len(*entityArr) != 10 {
-		return fmt.Errorf("array length %d, expect 10", len(*entityArr))
+	if len(entityArr) != 10 {
+		return fmt.Errorf("array length %d, expect 10", len(entityArr))
 	}
-	index := len(*entityArr) / 2
-	name := reflect.ValueOf(*entityArr).Index(index).FieldByName("Name").String()
+	index := len(entityArr) / 2
+	firstTime := reflect.ValueOf(entityArr).Index(index).FieldByName("CreatedAt").Interface().(time.Time)
+	secondTime := reflect.ValueOf(entityArr).Index(index - 1).FieldByName("CreatedAt").Interface().(time.Time)
+	diff := secondTime.Sub(firstTime)
 
-	if name != fmt.Sprintf("AutoTesting_%d", index) {
-		return fmt.Errorf("sort failed: got %s name, expect AutoTesting_%d", name, index)
+	if diff.Seconds() >= 1 && diff.Seconds() < 2 {
+		return nil
 	}
-	return nil
+	return fmt.Errorf("sort failed: CreatedAt difference is bigger than 1 sec")
 }
 
 //GenericRepositoryFilter test filter
@@ -155,8 +158,8 @@ func (g *GenericRepositoryTest[EntityType]) GenericRepositoryFilter(queryBuilder
 	if err != nil {
 		return fmt.Errorf("get list failed: %s", err)
 	}
-	if len(*entityArr) != 1 {
-		return fmt.Errorf("array length %d, expect 1", len(*entityArr))
+	if len(entityArr) != 1 {
+		return fmt.Errorf("array length %d, expect 1", len(entityArr))
 	}
 	return nil
 }

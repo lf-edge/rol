@@ -17,9 +17,9 @@ type IGenericRepository[EntityType IEntityModel] interface {
 	//	size - size of the page
 	//	queryBuilder - QueryBuilder is repo.NewQueryBuilder()
 	//Return
-	//	 *[]EntityType - pointer to array of the entities.
+	//	 []EntityType - array of the entities.
 	//	error - if an error occurred, otherwise nil
-	GetList(ctx context.Context, orderBy string, orderDirection string, page int, size int, queryBuilder IQueryBuilder) (*[]EntityType, error)
+	GetList(ctx context.Context, orderBy string, orderDirection string, page int, size int, queryBuilder IQueryBuilder) ([]EntityType, error)
 	//Count
 	// Get count of entities with filtering
 	//Params
@@ -42,26 +42,27 @@ type IGenericRepository[EntityType IEntityModel] interface {
 	//	ctx - context
 	//	id - entity id
 	//Return
-	//  *EntityType - pointer to the entity.
+	//  EntityType - entity from repository
 	//	error - if an error occurred, otherwise nil
-	GetByID(ctx context.Context, id uuid.UUID) (*EntityType, error)
+	GetByID(ctx context.Context, id uuid.UUID) (EntityType, error)
 	//GetByIDExtended Get entity by ID and query from repository
 	//Params
 	//	ctx - context is used only for logging
 	//	id - entity id
 	//	queryBuilder - extended query conditions
 	//Return
-	//	*EntityType - point to entity if existed, otherwise nil
+	//  EntityType - entity from repository
 	//	error - if an error occurs, otherwise nil
-	GetByIDExtended(ctx context.Context, id uuid.UUID, queryBuilder IQueryBuilder) (*EntityType, error)
+	GetByIDExtended(ctx context.Context, id uuid.UUID, queryBuilder IQueryBuilder) (EntityType, error)
 	//Update
 	//	Save the changes to the existing entity in the repository.
 	//Params
 	//	ctx - context
 	//  entity - pointer to the entity.
 	//Return
+	//	EntityType - updated entity
 	//	error - if an error occurred, otherwise nil
-	Update(ctx context.Context, entity *EntityType) error
+	Update(ctx context.Context, entity EntityType) (EntityType, error)
 	//Insert
 	//	Add entity to the repository.
 	//Params
@@ -70,7 +71,7 @@ type IGenericRepository[EntityType IEntityModel] interface {
 	//Return
 	//	uuid.UUID - entity id
 	//	error - if an error occurred, otherwise nil
-	Insert(ctx context.Context, entity EntityType) (uuid.UUID, error)
+	Insert(ctx context.Context, entity EntityType) (EntityType, error)
 	//Delete
 	//	Mark an entity as deleted in the repository.
 	//Params

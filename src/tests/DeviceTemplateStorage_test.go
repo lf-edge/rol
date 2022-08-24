@@ -40,7 +40,7 @@ func Test_DeviceTemplateStorage_GetByName(t *testing.T) {
 	if err != nil {
 		t.Errorf("get by name failed: %s", err)
 	}
-	obtainedName := reflect.ValueOf(*template).FieldByName("Name").String()
+	obtainedName := reflect.ValueOf(template).FieldByName("Name").String()
 	if obtainedName != name {
 		t.Errorf("unexpected name %s, expect %s", obtainedName, name)
 	}
@@ -51,8 +51,8 @@ func Test_DeviceTemplateStorage_GetList(t *testing.T) {
 	if err != nil {
 		t.Errorf("get list failed:  %s", err)
 	}
-	if len(*templatesArr) != storageTemplatesCount {
-		t.Errorf("array length %d, expect %d", len(*templatesArr), storageTemplatesCount)
+	if len(templatesArr) != storageTemplatesCount {
+		t.Errorf("array length %d, expect %d", len(templatesArr), storageTemplatesCount)
 	}
 }
 
@@ -63,19 +63,19 @@ func Test_DeviceTemplateStorage_Pagination(t *testing.T) {
 	if err != nil {
 		t.Errorf("get list failed: %s", err)
 	}
-	if len(*templatesArrFirstPage) != pageSize {
-		t.Errorf("array length on %d page %d, expect %d", page, len(*templatesArrFirstPage), pageSize)
+	if len(templatesArrFirstPage) != pageSize {
+		t.Errorf("array length on %d page %d, expect %d", page, len(templatesArrFirstPage), pageSize)
 	}
 	templatesArrSecondPage, err := storage.GetList(context.TODO(), "CPUCount", "asc", page+1, pageSize, nil)
 	if err != nil {
 		t.Errorf("get list failed: %s", err)
 	}
-	if len(*templatesArrSecondPage) != pageSize {
-		t.Errorf("array length on next page %d, expect %d", len(*templatesArrSecondPage), pageSize)
+	if len(templatesArrSecondPage) != pageSize {
+		t.Errorf("array length on next page %d, expect %d", len(templatesArrSecondPage), pageSize)
 	}
 
-	firstPageValue := reflect.ValueOf(*templatesArrFirstPage).Index(0)
-	secondPageValue := reflect.ValueOf(*templatesArrSecondPage).Index(0)
+	firstPageValue := reflect.ValueOf(templatesArrFirstPage).Index(0)
+	secondPageValue := reflect.ValueOf(templatesArrSecondPage).Index(0)
 
 	firstPageValueName := firstPageValue.FieldByName("Name").String()
 	secondPageValueName := secondPageValue.FieldByName("Name").String()
@@ -95,11 +95,11 @@ func Test_DeviceTemplateStorage_Sort(t *testing.T) {
 	if err != nil {
 		t.Errorf("get list failed: %s", err)
 	}
-	if len(*templatesArr) != storageTemplatesCount {
-		t.Errorf("array length %d, expect %d", len(*templatesArr), storageTemplatesCount)
+	if len(templatesArr) != storageTemplatesCount {
+		t.Errorf("array length %d, expect %d", len(templatesArr), storageTemplatesCount)
 	}
 	index := storageTemplatesCount / 2
-	name := reflect.ValueOf(*templatesArr).Index(index - 1).FieldByName("Name").String()
+	name := reflect.ValueOf(templatesArr).Index(index - 1).FieldByName("Name").String()
 
 	if name != fmt.Sprintf("AutoTesting_%d", index) {
 		t.Errorf("sort failed: got %s name, expect AutoTesting_%d", name, index)
@@ -121,8 +121,8 @@ func Test_DeviceTemplateStorage_Filter(t *testing.T) {
 	} else {
 		expectedCount = storageTemplatesCount / 2
 	}
-	if len(*templatesArr) != expectedCount {
-		t.Errorf("array length %d, expect %d", len(*templatesArr), expectedCount)
+	if len(templatesArr) != expectedCount {
+		t.Errorf("array length %d, expect %d", len(templatesArr), expectedCount)
 	}
 }
 

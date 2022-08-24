@@ -10,13 +10,14 @@ import (
 	"reflect"
 	"rol/app/interfaces"
 	"strings"
+	"time"
 )
 
 //GenericServiceTest generic test for generic service
 type GenericServiceTest[DtoType interface{},
-CreateDtoType interface{},
-UpdateDtoType interface{},
-EntityType interfaces.IEntityModel] struct {
+	CreateDtoType interface{},
+	UpdateDtoType interface{},
+	EntityType interfaces.IEntityModel] struct {
 	Service interfaces.IGenericService[
 		DtoType,
 		CreateDtoType,
@@ -31,13 +32,13 @@ EntityType interfaces.IEntityModel] struct {
 
 //NewGenericServiceTest GenericServiceTest constructor
 func NewGenericServiceTest[DtoType interface{},
-CreateDtoType interface{},
-UpdateDtoType interface{},
-EntityType interfaces.IEntityModel](
+	CreateDtoType interface{},
+	UpdateDtoType interface{},
+	EntityType interfaces.IEntityModel](
 	service interfaces.IGenericService[DtoType,
-	CreateDtoType,
-	UpdateDtoType,
-	EntityType],
+		CreateDtoType,
+		UpdateDtoType,
+		EntityType],
 	repo interfaces.IGenericRepository[EntityType], dbName string) *GenericServiceTest[DtoType, CreateDtoType, UpdateDtoType, EntityType] {
 	return &GenericServiceTest[DtoType, CreateDtoType, UpdateDtoType, EntityType]{
 		Service:    service,
@@ -49,7 +50,7 @@ EntityType interfaces.IEntityModel](
 }
 
 //GenericServiceCreate test create entity
-func (g *GenericServiceTest[DtoType, CreateDtoType, UpdateDtoType, EntityType]) GenericServiceCreate(dto CreateDtoType) (uuid.UUID, error) {
+func (g *GenericServiceTest[DtoType, CreateDtoType, UpdateDtoType, EntityType]) GenericServiceCreate(dto CreateDtoType) (DtoType, error) {
 	return g.Service.Create(g.Context, dto)
 }
 
@@ -59,10 +60,7 @@ func (g *GenericServiceTest[DtoType, CreateDtoType, UpdateDtoType, EntityType]) 
 	if err != nil {
 		return fmt.Errorf("get by id failed: %s", err)
 	}
-	if dto == nil {
-		return fmt.Errorf("no entity with such id")
-	}
-	value := reflect.ValueOf(*dto).FieldByName("ID")
+	value := reflect.ValueOf(dto).FieldByName("ID")
 
 	obtainedID, err := getUUIDFromReflectArray(value)
 	if err != nil {
@@ -76,7 +74,12 @@ func (g *GenericServiceTest[DtoType, CreateDtoType, UpdateDtoType, EntityType]) 
 
 //GenericServiceUpdate test update entity
 func (g *GenericServiceTest[DtoType, CreateDtoType, UpdateDtoType, EntityType]) GenericServiceUpdate(dto UpdateDtoType, id uuid.UUID) error {
-	err := g.Service.Update(g.Context, dto, id)
+	entity, err := g.Repository.GetByID(g.Context, g.InsertedID)
+	if err != nil {
+		return err
+	}
+	beforeUpdTime := reflect.ValueOf(entity).FieldByName("UpdatedAt").Interface().(time.Time)
+	_, err = g.Service.Update(g.Context, dto, id)
 	if err != nil {
 		return fmt.Errorf("get by id failed: %s", err)
 	}
@@ -84,48 +87,35 @@ func (g *GenericServiceTest[DtoType, CreateDtoType, UpdateDtoType, EntityType]) 
 	if err != nil {
 		return fmt.Errorf("get by id failed: %s", err)
 	}
-	expectedName := reflect.ValueOf(dto).FieldByName("Name").String()
-	obtainedName := reflect.ValueOf(*obtainedDto).FieldByName("Name").String()
-
-	if obtainedName != expectedName {
-		return fmt.Errorf("unexpected entity name %q, expect %q", obtainedName, expectedName)
+	afterUpdTime := reflect.ValueOf(obtainedDto).FieldByName("UpdatedAt").Interface().(time.Time)
+	if !beforeUpdTime.Before(afterUpdTime) {
+		return fmt.Errorf("entity was not updated")
 	}
 	return nil
 }
 
 //GenericServiceDelete test delete entity
 func (g *GenericServiceTest[DtoType, CreateDtoType, UpdateDtoType, EntityType]) GenericServiceDelete(id uuid.UUID) error {
-	err := g.Service.Delete(g.Context, id)
-	if err != nil {
-		return fmt.Errorf("delete failed: %s", err)
-	}
-	dto, err := g.Service.GetByID(g.Context, id)
-	if err != nil {
-		return err
-	}
-	if dto != nil {
-		return fmt.Errorf("unexpected entity %v, expect nil", dto)
-	}
-	return nil
+	return g.Service.Delete(g.Context, id)
 }
 
 //GenericServiceGetList test get list of entities
-func (g *GenericServiceTest[DtoType, CreateDtoType, UpdateDtoType, EntityType]) GenericServiceGetList(total int64, page, size int) error {
+func (g *GenericServiceTest[DtoType, CreateDtoType, UpdateDtoType, EntityType]) GenericServiceGetList(total, page, size int) error {
 	data, err := g.Service.GetList(g.Context, "", "CreatedAt", "desc", page, size)
 	if err != nil {
 		return fmt.Errorf("get list failed: %s", err)
 	}
-	if data.Total != total {
-		return fmt.Errorf("get list failed: total items %d, expect %d", data.Total, total)
+	if data.Pagination.TotalCount != total {
+		return fmt.Errorf("get list failed: total items %d, expect %d", data.Pagination.TotalCount, total)
 	}
-	if data.Page != page {
-		return fmt.Errorf("get list failed: page %d, expect %d", data.Page, page)
+	if data.Pagination.Page != page {
+		return fmt.Errorf("get list failed: page %d, expect %d", data.Pagination.Page, page)
 	}
-	if data.Size != size {
-		return fmt.Errorf("get list failed: size %d, expect %d", data.Size, size)
+	if data.Pagination.Size != size {
+		return fmt.Errorf("get list failed: size %d, expect %d", data.Pagination.Size, size)
 	}
 
-	item := (*data.Items)[0]
+	item := data.Items[0]
 	itemName := reflect.ValueOf(item).FieldByName("Name").String()
 	expectedName := fmt.Sprintf("AutoTesting_%d", total)
 	if itemName != expectedName {
@@ -140,10 +130,10 @@ func (g *GenericServiceTest[DtoType, CreateDtoType, UpdateDtoType, EntityType]) 
 	if err != nil {
 		return fmt.Errorf("get list failed: %s", err)
 	}
-	if len(*data.Items) < 1 {
+	if len(data.Items) < 1 {
 		return errors.New("wasn't found any entries")
 	}
-	item := (*data.Items)[0]
+	item := data.Items[0]
 
 	if containsInReflectStruct(item, search) {
 		return nil

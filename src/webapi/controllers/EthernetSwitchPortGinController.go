@@ -4,7 +4,6 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
 	"github.com/sirupsen/logrus"
-	"net/http"
 	"rol/app/services"
 	"rol/dtos"
 	"rol/webapi"
@@ -47,63 +46,50 @@ func RegisterEthernetSwitchPortController(controller *EthernetSwitchPortGinContr
 //Params
 //	ctx - gin context
 // @Summary Gets ethernet switch port by id
-// @version 1.0
-// @Tags ethernet-switch
-// @Accept  json
-// @Produce  json
-// @param	 id	    path	string		true	"Ethernet switch ID"
-// @param	 portID path	string		true	"Ethernet switch port ID"
-// @Success 200 {object} dtos.ResponseDataDto{data=dtos.EthernetSwitchPortDto}
+// @version	1.0
+// @Tags	ethernet-switch
+// @Accept	json
+// @Produce	json
+// @param	id		path		string		true	"Ethernet switch ID"
+// @param	portID	path		string		true	"Ethernet switch port ID"
+// @Success	200		{object}	dtos.EthernetSwitchPortDto
+// @Failure	404		"Not Found"
+// @Failure	500		"Internal Server Error"
 // @router /ethernet-switch/{id}/port/{portID} [get]
 func (e *EthernetSwitchPortGinController) GetPortByID(ctx *gin.Context) {
 	strID := ctx.Param("portID")
 	id, err := uuid.Parse(strID)
 	if err != nil {
-		controllerErr := ctx.AbortWithError(http.StatusNotFound, err)
-		if controllerErr != nil {
-			e.logger.Errorf("%s : %s", err, controllerErr)
-		}
+		abortWithStatusByErrorType(ctx, err)
+		return
 	}
 	strSwitchID := ctx.Param("id")
 	switchID, err := uuid.Parse(strSwitchID)
 	if err != nil {
-		ctx.AbortWithStatus(http.StatusNotFound)
+		abortWithStatusByErrorType(ctx, err)
+		return
 	}
 	dto, err := e.service.GetPortByID(ctx, switchID, id)
-	if err != nil {
-		controllerErr := ctx.AbortWithError(http.StatusBadRequest, err)
-		if controllerErr != nil {
-			e.logger.Errorf("%s : %s", err, controllerErr)
-		}
-	}
-	if dto == nil {
-		ctx.AbortWithStatus(http.StatusNotFound)
-	}
-	responseDto := &dtos.ResponseDataDto{
-		Status: dtos.ResponseStatusDto{
-			Code:    0,
-			Message: "",
-		},
-		Data: dto,
-	}
-	ctx.JSON(http.StatusOK, responseDto)
+	handleWithData(ctx, err, dto)
 }
 
 //GetPorts Get list of elements with search and pagination
 //Params
 //	ctx - gin context
-// @Summary Gets paginated list of ethernet switch ports
-// @version 1.0
-// @Tags ethernet-switch
+// @Summary	Gets paginated list of ethernet switch ports
+// @version	1.0
+// @Tags	ethernet-switch
 // @Accept  json
-// @Produce json
-// @param	 id	            path	string	true	"Ethernet switch ID"
-// @param	 orderBy		query	string	false	"Order by field"
-// @param	 orderDirection		query	string	false	"'asc' or 'desc' for ascending or descending order"
-// @param	 search			query	string	false	"Searchable value in entity"
-// @param	 page			query	int		false	"Page number"
-// @param	 pageSize		query	int		false	"Number of entities per page"
-// @Success 200 {object} dtos.ResponseDataDto{data=dtos.PaginatedListDto{items=[]dtos.EthernetSwitchPortDto}} "desc"
+// @Produce	json
+// @param	id				path	string	true	"Ethernet switch ID"
+// @param	orderBy			query	string	false	"Order by field"
+// @param	orderDirection	query	string	false	"'asc' or 'desc' for ascending or descending order"
+// @param	search			query	string	false	"Searchable value in entity"
+// @param	page			query	int		false	"Page number"
+// @param	pageSize		query	int		false	"Number of entities per page"
+// @Success	200		{object}	dtos.PaginatedItemsDto[dtos.EthernetSwitchPortDto]
+// @Failure	404		"Not Found"
+// @Failure	500		"Internal Server Error"
 // @router /ethernet-switch/{id}/port/ [get]
 func (e *EthernetSwitchPortGinController) GetPorts(ctx *gin.Context) {
 	orderBy := ctx.DefaultQuery("orderBy", "Name")
@@ -119,28 +105,14 @@ func (e *EthernetSwitchPortGinController) GetPorts(ctx *gin.Context) {
 	if err != nil {
 		pageSizeInt64 = 10
 	}
-	strSwitchID := ctx.Param("id")
-	switchID, err := uuid.Parse(strSwitchID)
+	switchID, err := parseUUIDParam(ctx, "id")
 	if err != nil {
-		ctx.AbortWithStatus(http.StatusNotFound)
+		abortWithStatusByErrorType(ctx, err)
+		return
 	}
 
 	paginatedList, err := e.service.GetPorts(ctx, switchID, search, orderBy, orderDirection, int(pageInt64), int(pageSizeInt64))
-	if err != nil {
-		controllerErr := ctx.AbortWithError(http.StatusBadRequest, err)
-		if controllerErr != nil {
-			e.logger.Errorf("%s : %s", err, controllerErr)
-		}
-		return
-	}
-	responseDto := &dtos.ResponseDataDto{
-		Status: dtos.ResponseStatusDto{
-			Code:    0,
-			Message: "",
-		},
-		Data: paginatedList,
-	}
-	ctx.JSON(http.StatusOK, responseDto)
+	handleWithData(ctx, err, paginatedList)
 }
 
 //CreatePort new ethernet switch port
@@ -149,45 +121,28 @@ func (e *EthernetSwitchPortGinController) GetPorts(ctx *gin.Context) {
 // @Summary Creates new ethernet switch port
 // @version 1.0
 // @Tags ethernet-switch
-// @Accept  json
-// @Produce  json
-// @param id	    path	string		                        true	"Ethernet switch ID"
-// @Param request   body    dtos.EthernetSwitchPortCreateDto    true    "Ethernet switch port fields"
-// @Success 200 {object} dtos.ResponseDataDto{data=uuid.UUID}
+// @Accept	json
+// @Produce	json
+// @param	id		path		string		                        true	"Ethernet switch ID"
+// @Param	request	body		dtos.EthernetSwitchPortCreateDto    true    "Ethernet switch port fields"
+// @Success	200		{object}	dtos.EthernetSwitchPortDto
+// @Failure	400		{object}	dtos.ValidationErrorDto
+// @Failure	404		"Not Found"
+// @Failure	500		"Internal Server Error"
 // @router /ethernet-switch/{id}/port/ [post]
 func (e *EthernetSwitchPortGinController) CreatePort(ctx *gin.Context) {
-	reqDto := new(dtos.EthernetSwitchPortCreateDto)
-	err := ctx.ShouldBindJSON(&reqDto)
+	reqDto, err := getRequestDtoAndRestoreBody[dtos.EthernetSwitchPortCreateDto](ctx)
 	if err != nil {
-		ctx.AbortWithStatus(http.StatusBadRequest)
-	}
-
-	// Restoring body in gin.Context for logging it later in middleware
-	err = RestoreBody(reqDto, ctx)
-	if err != nil {
-		ctx.AbortWithStatus(http.StatusInternalServerError)
-	}
-	strSwitchID := ctx.Param("id")
-	switchID, err := uuid.Parse(strSwitchID)
-	if err != nil {
-		ctx.AbortWithStatus(http.StatusNotFound)
-	}
-	id, err := e.service.CreatePort(ctx, switchID, *reqDto)
-	if err != nil {
-		controllerErr := ctx.AbortWithError(http.StatusBadRequest, err)
-		if controllerErr != nil {
-			e.logger.Errorf("%s : %s", err, controllerErr)
-		}
+		abortWithStatusByErrorType(ctx, err)
 		return
 	}
-	responseDto := dtos.ResponseDataDto{
-		Status: dtos.ResponseStatusDto{
-			Code:    0,
-			Message: "",
-		},
-		Data: id,
+	switchID, err := parseUUIDParam(ctx, "id")
+	if err != nil {
+		abortWithStatusByErrorType(ctx, err)
+		return
 	}
-	ctx.JSON(http.StatusOK, responseDto)
+	dto, err := e.service.CreatePort(ctx, switchID, reqDto)
+	handleWithData(ctx, err, dto)
 }
 
 //UpdatePort Update Ethernet switch port by id
@@ -201,44 +156,29 @@ func (e *EthernetSwitchPortGinController) CreatePort(ctx *gin.Context) {
 // @param       id          path    string		                        true	"Ethernet switch ID"
 // @param       portID      path    string		                        true	"Ethernet switch port ID"
 // @Param       request     body    dtos.EthernetSwitchPortUpdateDto    true    "Ethernet switch port fields"
-// @Success     200         {object} dtos.ResponseDto
+// @Success		200		{object}	dtos.EthernetSwitchPortDto
+// @Failure		400		{object}	dtos.ValidationErrorDto
+// @Failure		404		"Not Found"
+// @Failure		500		"Internal Server Error"
 // @router /ethernet-switch/{id}/port/{portID} [put]
 func (e *EthernetSwitchPortGinController) UpdatePort(ctx *gin.Context) {
-	reqDto := new(dtos.EthernetSwitchPortUpdateDto)
-	err := ctx.ShouldBindJSON(reqDto)
+	reqDto, err := getRequestDtoAndRestoreBody[dtos.EthernetSwitchPortUpdateDto](ctx)
 	if err != nil {
-		ctx.AbortWithStatus(http.StatusBadRequest)
+		abortWithStatusByErrorType(ctx, err)
+		return
 	}
-
-	// Restoring body in gin.Context for logging it later in middleware
-	err = RestoreBody(reqDto, ctx)
+	switchID, err := parseUUIDParam(ctx, "id")
 	if err != nil {
-		ctx.AbortWithStatus(http.StatusInternalServerError)
+		abortWithStatusByErrorType(ctx, err)
+		return
 	}
-
-	strSwitchID := ctx.Param("id")
-	switchID, err := uuid.Parse(strSwitchID)
+	portID, err := parseUUIDParam(ctx, "portID")
 	if err != nil {
-		ctx.AbortWithStatus(http.StatusNotFound)
+		abortWithStatusByErrorType(ctx, err)
+		return
 	}
-
-	strPortID := ctx.Param("portID")
-	portID, err := uuid.Parse(strPortID)
-	if err != nil {
-		ctx.AbortWithStatus(http.StatusNotFound)
-	}
-
-	err = e.service.UpdatePort(ctx, switchID, portID, *reqDto)
-	if err != nil {
-		ctx.AbortWithStatus(http.StatusInternalServerError)
-	}
-	responseDto := &dtos.ResponseDto{
-		Status: dtos.ResponseStatusDto{
-			Code:    0,
-			Message: "",
-		},
-	}
-	ctx.JSON(http.StatusOK, responseDto)
+	dto, err := e.service.UpdatePort(ctx, switchID, portID, reqDto)
+	handleWithData(ctx, err, dto)
 }
 
 //DeletePort deleting ethernet switch port
@@ -247,34 +187,25 @@ func (e *EthernetSwitchPortGinController) UpdatePort(ctx *gin.Context) {
 // @Summary Delete ethernet switch port by id
 // @version 1.0
 // @Tags ethernet-switch
-// @Accept  json
-// @Produce  json
-// @param       id          path    string		                        true	"Ethernet switch ID"
-// @param       portID      path    string		                        true	"Ethernet switch port ID"
-// @Success 200 {object} dtos.ResponseDto
+// @Accept	json
+// @Produce	json
+// @param	id		path					string	true	"Ethernet switch ID"
+// @param	portID	path					string	true	"Ethernet switch port ID"
+// @Success	204		"OK, but No Content"
+// @Failure	404		"Not Found"
+// @Failure	500		"Internal Server Error"
 // @router /ethernet-switch/{id}/port/{portID} [delete]
 func (e *EthernetSwitchPortGinController) DeletePort(ctx *gin.Context) {
-	strSwitchID := ctx.Param("id")
-	switchID, err := uuid.Parse(strSwitchID)
+	switchID, err := parseUUIDParam(ctx, "id")
 	if err != nil {
-		ctx.AbortWithStatus(http.StatusNotFound)
+		abortWithStatusByErrorType(ctx, err)
+		return
 	}
-
-	strPortID := ctx.Param("portID")
-	portID, err := uuid.Parse(strPortID)
+	portID, err := parseUUIDParam(ctx, "portID")
 	if err != nil {
-		ctx.AbortWithStatus(http.StatusNotFound)
+		abortWithStatusByErrorType(ctx, err)
+		return
 	}
-
 	err = e.service.DeletePort(ctx, switchID, portID)
-	if err != nil {
-		ctx.AbortWithStatus(http.StatusBadRequest)
-	}
-	responseDto := &dtos.ResponseDto{
-		Status: dtos.ResponseStatusDto{
-			Code:    0,
-			Message: "",
-		},
-	}
-	ctx.JSON(http.StatusOK, responseDto)
+	handle(ctx, err)
 }

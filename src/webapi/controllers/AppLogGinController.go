@@ -31,16 +31,17 @@ func RegisterAppLogController(controller *AppLogGinController, server *webapi.Gi
 //	Params
 //	ctx - gin context
 // @Summary Gets paginated list of app logs
-// @version 1.0
-// @Tags app log
-// @Accept  json
-// @Produce  json
-// @param	 orderBy		 query	string	false	"Order by field"
-// @param	 orderDirection		 query	string	false	"'asc' or 'desc' for ascending or descending order"
-// @param	 search			 query	string	false	"searchable value in entity"
-// @param	 page			 query	int		false	"page number"
-// @param	 pageSize		 query	int		false	"number of entities per page"
-// @Success 200 {object} dtos.ResponseDataDto{data=dtos.PaginatedListDto{items=[]dtos.AppLogDto}} ""
+// @version	1.0
+// @Tags	log
+// @Accept	json
+// @Produce	json
+// @param	orderBy			query		string	false	"Order by field"
+// @param	orderDirection	query		string	false	"'asc' or 'desc' for ascending or descending order"
+// @param	search			query		string	false	"searchable value in entity"
+// @param	page			query		int		false	"page number"
+// @param	pageSize		query		int		false	"number of entities per page"
+// @Success	200				{object}	dtos.PaginatedItemsDto[dtos.AppLogDto]
+// @Failure	500				"Internal Server Error"
 // @router /log/app/ [get]
 func (a *AppLogGinController) GetList(ctx *gin.Context) {
 	a.GinGenericController.GetList(ctx)
@@ -50,12 +51,14 @@ func (a *AppLogGinController) GetList(ctx *gin.Context) {
 //	Params
 //	ctx - gin context
 // @Summary Gets http app by id
-// @version 1.0
-// @Tags app log
-// @Accept  json
-// @Produce  json
-// @param	 id	path	string		true	"log id"
-// @Success 200 {object} dtos.ResponseDataDto{data=dtos.AppLogDto}
+// @version	1.0
+// @Tags	log
+// @Accept	json
+// @Produce	json
+// @param	id		path					string			true	"log id"
+// @Success	200		{object}				dtos.AppLogDto
+// @Failure	404		"Not Found"
+// @Failure	500		"Internal Server Error"
 // @router /log/app/{id} [get]
 func (a *AppLogGinController) GetByID(ctx *gin.Context) {
 	a.GinGenericController.GetByID(ctx)

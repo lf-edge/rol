@@ -13,7 +13,7 @@ type IGenericTemplateStorage[TemplateType interface{}] interface {
 	//Return
 	//	*TemplateType - pointer to the struct
 	//	error - if an error occurred, otherwise nil
-	GetByName(ctx context.Context, templateName string) (*TemplateType, error)
+	GetByName(ctx context.Context, templateName string) (TemplateType, error)
 	//GetList get list of templates with pagination.
 	//Params
 	//	ctx - usually http context gin.Context
@@ -25,7 +25,7 @@ type IGenericTemplateStorage[TemplateType interface{}] interface {
 	//Return
 	//	*[]TemplateType - pointer to the struct with pagination info and entities
 	//	error - if an error occurred, otherwise nil
-	GetList(ctx context.Context, orderBy, orderDirection string, page, pageSize int, queryBuilder IQueryBuilder) (*[]TemplateType, error)
+	GetList(ctx context.Context, orderBy, orderDirection string, page, pageSize int, queryBuilder IQueryBuilder) ([]TemplateType, error)
 	//Count
 	// Get count of entities with filtering
 	//Params

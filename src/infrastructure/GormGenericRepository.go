@@ -2,6 +2,7 @@ package infrastructure
 
 import (
 	"context"
+	def_err "errors"
 	"fmt"
 	"reflect"
 	"rol/app/errors"
@@ -121,10 +122,10 @@ func generateOrderString(orderBy string, orderDirection string) string {
 //Return
 //	*[]EntityType - pointer to array of entities
 //	error - if an error occurs, otherwise nil
-func (g *GormGenericRepository[EntityType]) GetList(ctx context.Context, orderBy string, orderDirection string, page int, size int, queryBuilder interfaces.IQueryBuilder) (*[]EntityType, error) {
+func (g *GormGenericRepository[EntityType]) GetList(ctx context.Context, orderBy string, orderDirection string, page int, size int, queryBuilder interfaces.IQueryBuilder) ([]EntityType, error) {
 	g.log(ctx, "debug", fmt.Sprintf("GetList: IN: orderBy=%s, orderDirection=%s, page=%d, size=%d, queryBuilder=%s", orderBy, orderDirection, page, size, queryBuilder))
 	model := new(EntityType)
-	entities := &[]EntityType{}
+	entities := []EntityType{}
 	offset := int64((page - 1) * size)
 	if len(orderBy) > 1 {
 		orderBy = ToSnakeCase(orderBy)
@@ -135,7 +136,7 @@ func (g *GormGenericRepository[EntityType]) GetList(ctx context.Context, orderBy
 	if err != nil {
 		return nil, errors.Internal.Wrap(err, "adding query to gorm failed")
 	}
-	err = gormQuery.Offset(int(offset)).Limit(size).Find(entities).Error
+	err = gormQuery.Offset(int(offset)).Limit(size).Find(&entities).Error
 	if err != nil {
 		return nil, errors.Internal.Wrap(err, "error finding entities with gorm query")
 	}
@@ -175,15 +176,18 @@ func (g *GormGenericRepository[EntityType]) Count(ctx context.Context, queryBuil
 //Return
 //	*EntityType - point to entity
 //	error - if an error occurs, otherwise nil
-func (g *GormGenericRepository[EntityType]) GetByID(ctx context.Context, id uuid.UUID) (*EntityType, error) {
+func (g *GormGenericRepository[EntityType]) GetByID(ctx context.Context, id uuid.UUID) (EntityType, error) {
 	g.log(ctx, "debug", fmt.Sprintf("GetByID: id=%d", id))
 	entity := new(EntityType)
 	err := g.Db.First(entity, id).Error
 	if err != nil {
-		return nil, errors.Internal.Wrap(err, "error finding first record")
+		if def_err.Is(err, gorm.ErrRecordNotFound) {
+			return *new(EntityType), errors.NotFound.New("entity not found in database")
+		}
+		return *new(EntityType), errors.Internal.Wrap(err, "error finding first record")
 	}
 	g.log(ctx, "debug", fmt.Sprintf("GetByID: entity=%+v", entity))
-	return entity, nil
+	return *entity, nil
 }
 
 //GetByIDExtended Get entity by ID and query from repository
@@ -194,7 +198,7 @@ func (g *GormGenericRepository[EntityType]) GetByID(ctx context.Context, id uuid
 //Return
 //	*EntityType - point to entity
 //	error - if an error occurs, otherwise nil
-func (g *GormGenericRepository[EntityType]) GetByIDExtended(ctx context.Context, id uuid.UUID, queryBuilder interfaces.IQueryBuilder) (*EntityType, error) {
+func (g *GormGenericRepository[EntityType]) GetByIDExtended(ctx context.Context, id uuid.UUID, queryBuilder interfaces.IQueryBuilder) (EntityType, error) {
 	g.log(ctx, "debug", fmt.Sprintf("GetByIDExtended: id=%s, query builder: %s", id, queryBuilder))
 	model := new(EntityType)
 	gormQuery := g.Db.Model(model)
@@ -205,20 +209,18 @@ func (g *GormGenericRepository[EntityType]) GetByIDExtended(ctx context.Context,
 	}
 	err := g.addQueryToGorm(gormQuery, fullQueryBuilder)
 	if err != nil {
-		return nil, errors.Internal.Wrap(err, "failed add query to gorm query")
+		return *new(EntityType), errors.Internal.Wrap(err, "failed add query to gorm query")
 	}
 	entities := &[]EntityType{}
-	var entity *EntityType
 	err = gormQuery.Find(entities).Error
 	if err != nil {
-		return nil, errors.Internal.Wrap(err, "error finding entities with gorm query")
+		return *new(EntityType), errors.Internal.Wrap(err, "error finding entities with gorm query")
 	}
 	if len(*entities) < 1 {
-		return nil, nil
+		return *new(EntityType), errors.NotFound.New("entity is not exist in repository")
 	}
-	entity = &(*entities)[0]
-	g.log(ctx, "debug", fmt.Sprintf("GetByID: entity=%+v", entity))
-	return entity, nil
+	g.log(ctx, "debug", fmt.Sprintf("GetByIDExtended: entity=%+v", (*entities)[0]))
+	return (*entities)[0], nil
 }
 
 //Update
@@ -227,14 +229,18 @@ func (g *GormGenericRepository[EntityType]) GetByIDExtended(ctx context.Context,
 //	ctx - context is used only for logging
 //	entity - updated entity to save
 //Return
+//	EntityType - updated entity
 //	error - if an error occurs, otherwise nil
-func (g *GormGenericRepository[EntityType]) Update(ctx context.Context, entity *EntityType) error {
+func (g *GormGenericRepository[EntityType]) Update(ctx context.Context, entity EntityType) (EntityType, error) {
 	g.log(ctx, "debug", fmt.Sprintf("Update: entity=%+v", entity))
-	err := g.Db.Save(entity).Error
+	err := g.Db.Save(&entity).Error
 	if err != nil {
-		return errors.Internal.Wrap(err, "error saving entity")
+		if def_err.As(err, &gorm.ErrRecordNotFound) {
+			return *new(EntityType), errors.NotFound.New("entity not found in database")
+		}
+		return *new(EntityType), errors.Internal.Wrap(err, "error finding first record")
 	}
-	return nil
+	return entity, nil
 }
 
 //Insert
@@ -243,15 +249,15 @@ func (g *GormGenericRepository[EntityType]) Update(ctx context.Context, entity *
 //	ctx - context is used only for logging
 //	entity - entity to save
 //Return
-//	uuid.UUID - new entity id
+//	EntityType - created entity
 //	error - if an error occurs, otherwise nil
-func (g *GormGenericRepository[EntityType]) Insert(ctx context.Context, entity EntityType) (uuid.UUID, error) {
+func (g *GormGenericRepository[EntityType]) Insert(ctx context.Context, entity EntityType) (EntityType, error) {
 	g.log(ctx, "debug", fmt.Sprintf("Insert: entity=%+v", entity))
 	if err := g.Db.Create(&entity).Error; err != nil {
-		return uuid.UUID{}, errors.Internal.Wrap(err, "gorm failed create entity")
+		return *new(EntityType), errors.Internal.Wrap(err, "gorm failed create entity")
 	}
 	g.log(ctx, "debug", fmt.Sprintf("Insert: newID=%d", entity.GetID()))
-	return entity.GetID(), nil
+	return entity, nil
 }
 
 //Delete entity from the database

@@ -24,7 +24,7 @@ type YamlGenericTemplateStorage[TemplateType interface{}] struct {
 	TemplatesDirectory string
 	logger             *logrus.Logger
 	logSourceName      string
-	Templates          *[]TemplateType
+	Templates          []TemplateType
 }
 
 //QueryUnit represents bracketed expression that is part of query string
@@ -53,7 +53,7 @@ func NewYamlGenericTemplateStorage[TemplateType interface{}](dirName string, log
 		TemplatesDirectory: templatesDirectory,
 		logger:             log,
 		logSourceName:      fmt.Sprintf("YamlGenericTemplateStorage<%s>", reflect.TypeOf(*model).Name()),
-		Templates:          &[]TemplateType{},
+		Templates:          []TemplateType{},
 	}
 	err := storage.reloadFromFiles()
 	if err != nil {
@@ -63,7 +63,7 @@ func NewYamlGenericTemplateStorage[TemplateType interface{}](dirName string, log
 }
 
 func (y *YamlGenericTemplateStorage[TemplateType]) reloadFromFiles() error {
-	y.Templates = &[]TemplateType{}
+	y.Templates = []TemplateType{}
 
 	files, err := ioutil.ReadDir(y.TemplatesDirectory)
 	if err != nil {
@@ -74,7 +74,7 @@ func (y *YamlGenericTemplateStorage[TemplateType]) reloadFromFiles() error {
 		if err != nil {
 			return errors.Internal.Wrap(err, "yaml parsing error")
 		}
-		*y.Templates = append(*y.Templates, *template)
+		y.Templates = append(y.Templates, *template)
 	}
 	return nil
 }
@@ -146,23 +146,23 @@ func (y *YamlGenericTemplateStorage[TemplateType]) sortTemplatesSlice(templates 
 //Return:
 //	*TemplateType - pointer to template
 //	error - if an error occurs, otherwise nil
-func (y *YamlGenericTemplateStorage[TemplateType]) GetByName(ctx context.Context, templateName string) (*TemplateType, error) {
+func (y *YamlGenericTemplateStorage[TemplateType]) GetByName(ctx context.Context, templateName string) (TemplateType, error) {
 	y.log(ctx, logrus.DebugLevel, fmt.Sprintf("GetByName: name = %s", templateName))
 	queryBuilder := NewYamlQueryBuilder()
 	queryBuilder.Where("Name", "==", templateName)
 	query, err := queryBuilder.Build()
 	if err != nil {
-		return nil, errors.Internal.Wrap(err, "query building error")
+		return *new(TemplateType), errors.Internal.Wrap(err, "query building error")
 	}
 	queryArr := query.([]interface{})
-	templates, err := y.handleQuery(*y.Templates, queryArr...)
+	templates, err := y.handleQuery(y.Templates, queryArr...)
 	if err != nil {
-		return nil, errors.Internal.Wrap(err, "query handling error")
+		return *new(TemplateType), errors.Internal.Wrap(err, "query handling error")
 	}
-	if len(*templates) == 1 {
-		return &(*templates)[0], nil
+	if len(templates) == 1 {
+		return (templates)[0], nil
 	}
-	return nil, nil
+	return *new(TemplateType), errors.NotFound.New("template is not exist")
 }
 
 //GetList gets list of templates with filtering and pagination
@@ -177,10 +177,10 @@ func (y *YamlGenericTemplateStorage[TemplateType]) GetByName(ctx context.Context
 //Return:
 //	*[]TemplateType - pointer to array of templates
 //	error - if an error occurs, otherwise nil
-func (y *YamlGenericTemplateStorage[TemplateType]) GetList(ctx context.Context, orderBy, orderDirection string, page, pageSize int, queryBuilder interfaces.IQueryBuilder) (*[]TemplateType, error) {
+func (y *YamlGenericTemplateStorage[TemplateType]) GetList(ctx context.Context, orderBy, orderDirection string, page, pageSize int, queryBuilder interfaces.IQueryBuilder) ([]TemplateType, error) {
 	y.log(ctx, logrus.DebugLevel, fmt.Sprintf("GetList: IN: orderBy=%s, orderDirection=%s, page=%d, size=%d, queryBuilder=%s", orderBy, orderDirection, page, pageSize, queryBuilder))
 	var (
-		templates *[]TemplateType
+		templates []TemplateType
 		queryArr  []interface{}
 		err       error
 	)
@@ -193,7 +193,7 @@ func (y *YamlGenericTemplateStorage[TemplateType]) GetList(ctx context.Context, 
 		queryArr = query.([]interface{})
 	}
 	if len(queryArr) > 1 {
-		templates, err = y.handleQuery(*y.Templates, queryArr...)
+		templates, err = y.handleQuery(y.Templates, queryArr...)
 		if err != nil {
 			return nil, errors.Internal.Wrap(err, "query handling error")
 		}
@@ -201,16 +201,16 @@ func (y *YamlGenericTemplateStorage[TemplateType]) GetList(ctx context.Context, 
 		templates = y.Templates
 	}
 
-	err = y.sortTemplatesSlice(templates, orderBy, orderDirection)
+	err = y.sortTemplatesSlice(&templates, orderBy, orderDirection)
 	if err != nil {
 		return nil, errors.Internal.Wrap(err, "templates sorting error")
 	}
-	paginatedSlice, err := y.getPaginatedSlice(*templates, offset, pageSize)
+	paginatedSlice, err := y.getPaginatedSlice(templates, offset, pageSize)
 	if err != nil {
 		return nil, errors.Internal.Wrap(err, "templates pagination error")
 	}
 
-	return &paginatedSlice, nil
+	return paginatedSlice, nil
 }
 
 func (y *YamlGenericTemplateStorage[TemplateType]) getPaginatedSlice(templates []TemplateType, offset, limit int) ([]TemplateType, error) {
@@ -254,7 +254,7 @@ func (y *YamlGenericTemplateStorage[TemplateType]) Count(ctx context.Context, qu
 	if err != nil {
 		return 0, errors.Internal.Wrap(err, "query handling error")
 	}
-	count := int64(len(*foundTemplates))
+	count := int64(len(foundTemplates))
 	y.log(ctx, logrus.DebugLevel, fmt.Sprintf("Count: OUT: count=%d", count))
 	return count, nil
 }
@@ -293,13 +293,13 @@ func (y *YamlGenericTemplateStorage[TemplateType]) NewQueryBuilder(ctx context.C
 	return NewYamlQueryBuilder()
 }
 
-func (y *YamlGenericTemplateStorage[TemplateType]) handleQuery(templatesSlice []TemplateType, args ...interface{}) (*[]TemplateType, error) {
+func (y *YamlGenericTemplateStorage[TemplateType]) handleQuery(templatesSlice []TemplateType, args ...interface{}) ([]TemplateType, error) {
 	if len(args) < 1 {
-		return &templatesSlice, nil
+		return templatesSlice, nil
 	}
 	query := replaceQuestionsToIndexes(args[0].(string))
 	queryValues := args[1:]
-	finalSlice := &[]TemplateType{}
+	finalSlice := []TemplateType{}
 	for _, template := range templatesSlice {
 		queryForTemplate := query
 		startIndex, endIndex := findLowerQueryIndexes(queryForTemplate)
@@ -323,7 +323,7 @@ func (y *YamlGenericTemplateStorage[TemplateType]) handleQuery(templatesSlice []
 			return nil, errors.Internal.Wrap(err, "simple query handling error")
 		}
 		if result {
-			*finalSlice = append(*finalSlice, template)
+			finalSlice = append(finalSlice, template)
 		}
 	}
 	return finalSlice, nil

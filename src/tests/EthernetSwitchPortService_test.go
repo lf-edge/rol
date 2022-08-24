@@ -67,10 +67,11 @@ func Test_EthernetSwitchPortService_Prepare(t *testing.T) {
 		//  pragma: allowlist nextline secret
 		Password: "AutoTesting",
 	}
-	ethernetSwitchID, err = switchRepo.Insert(context.TODO(), switchEntity)
+	entity, err := switchRepo.Insert(context.TODO(), switchEntity)
 	if err != nil {
 		t.Errorf("create switch failed: %s", err)
 	}
+	ethernetSwitchID = entity.ID
 }
 
 func Test_EthernetSwitchPortService_CreatePortWithoutSwitch(t *testing.T) {
@@ -92,10 +93,11 @@ func Test_EthernetSwitchPortService_CreatePort(t *testing.T) {
 	}}
 	service := switchPortService.(*services.EthernetSwitchPortService)
 	var err error
-	portID, err = service.CreatePort(context.TODO(), ethernetSwitchID, dto)
+	port, err := service.CreatePort(context.TODO(), ethernetSwitchID, dto)
 	if err != nil {
 		t.Errorf("create port failed: %s", err)
 	}
+	portID = port.ID
 }
 
 func Test_EthernetSwitchPortService_CreateFailByNonUniqueName(t *testing.T) {
@@ -128,7 +130,7 @@ func Test_EthernetSwitchPortService_UpdatePort(t *testing.T) {
 		Name:    "AutoPort2.0",
 	}}
 	service := switchPortService.(*services.EthernetSwitchPortService)
-	err := service.UpdatePort(context.TODO(), ethernetSwitchID, portID, dto)
+	_, err := service.UpdatePort(context.TODO(), ethernetSwitchID, portID, dto)
 	if err != nil {
 		t.Errorf("update port failed: %s", err)
 	}
@@ -159,8 +161,8 @@ func Test_EthernetSwitchPortService_GetPorts(t *testing.T) {
 	if err != nil {
 		t.Errorf("get ports failed: %s", err)
 	}
-	if len(*ports.Items) != 10 {
-		t.Errorf("get ports failed: wrong number of items, got %d, expect 10", len(*ports.Items))
+	if len(ports.Items) != 10 {
+		t.Errorf("get ports failed: wrong number of items, got %d, expect 10", len(ports.Items))
 	}
 }
 
@@ -171,11 +173,11 @@ func Test_EthernetSwitchPortService_Search(t *testing.T) {
 	if err != nil {
 		t.Errorf("get ports failed: %s", err)
 	}
-	if len(*ports.Items) != 1 {
-		t.Errorf("get ports failed: wrong number of items, got %d, expect 1", len(*ports.Items))
+	if len(ports.Items) != 1 {
+		t.Errorf("get ports failed: wrong number of items, got %d, expect 1", len(ports.Items))
 	}
-	if (*ports.Items)[0].Name != "AutoPort2.0" {
-		t.Errorf("get port by ID failed: unexpected name, got '%s', expect 'AutoPort2.0'", (*ports.Items)[0].Name)
+	if (ports.Items)[0].Name != "AutoPort2.0" {
+		t.Errorf("get port by ID failed: unexpected name, got '%s', expect 'AutoPort2.0'", (ports.Items)[0].Name)
 	}
 }
 

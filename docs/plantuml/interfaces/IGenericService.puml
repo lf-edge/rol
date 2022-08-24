@@ -2,13 +2,13 @@
 
 package app {
     interface IGenericService<EntityType, CreateDtoType, UpdateDtoType, DtoType> {
-        +GetList(ctx context.Context, search, orderBy, orderDirection string, page, pageSize int) (*dtos.PaginatedListDto[DtoType], error)
+        +GetList(ctx context.Context, search, orderBy, orderDirection string, page, pageSize int) (dtos.PaginatedItemsDto[DtoType], error)
         --
-        +GetById(ctx context.Context, id uuid.UUID) (*DtoType, error)
+        +GetById(ctx context.Context, id uuid.UUID) (DtoType, error)
         --
-        +Update(ctx context.Context, updateDto UpdateDtoType, id uuid.UUID) error
+        +Update(ctx context.Context, updateDto UpdateDtoType, id uuid.UUID) (DtoType, error)
         --
-        +Create(ctx context.Context, createDto CreateDtoType) (uuid.UUID, error)
+        +Create(ctx context.Context, createDto CreateDtoType) (DtoType, error)
         --
         +Delete(ctx context.Context, id uuid.UUID) error
     }

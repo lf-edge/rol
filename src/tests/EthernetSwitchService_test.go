@@ -69,9 +69,9 @@ func Test_EthernetSwitchService_CreateFailByWrongModel(t *testing.T) {
 		//  pragma: allowlist nextline secret
 		Password: "AutoPass",
 	}
-	id, err := testerSwitchService.GenericServiceCreate(createDto)
+	ethSwitch, err := testerSwitchService.GenericServiceCreate(createDto)
 	if err == nil {
-		err = testerSwitchService.GenericServiceDelete(id)
+		err = testerSwitchService.GenericServiceDelete(ethSwitch.ID)
 		if err != nil {
 			t.Error(err)
 		}
@@ -100,11 +100,11 @@ func Test_EthernetSwitchService_CreateOK(t *testing.T) {
 		//  pragma: allowlist nextline secret
 		Password: "AutoPass",
 	}
-	id, err := testerSwitchService.GenericServiceCreate(createDto)
+	entity, err := testerSwitchService.GenericServiceCreate(createDto)
 	if err != nil {
 		t.Error(err)
 	} else {
-		testerSwitchService.InsertedID = id
+		testerSwitchService.InsertedID = entity.ID
 	}
 }
 
@@ -120,9 +120,9 @@ func Test_EthernetSwitchService_CreateFailByNotUniqueSerial(t *testing.T) {
 		//  pragma: allowlist nextline secret
 		Password: "AutoPass",
 	}
-	id, err := testerSwitchService.GenericServiceCreate(createDto)
+	entity, err := testerSwitchService.GenericServiceCreate(createDto)
 	if err == nil {
-		secondErr := testerSwitchService.GenericServiceDelete(id)
+		secondErr := testerSwitchService.GenericServiceDelete(entity.ID)
 		if secondErr != nil {
 			t.Error(err, secondErr)
 		}
@@ -142,9 +142,9 @@ func Test_EthernetSwitchService_CreateFailByNotUniqueAddress(t *testing.T) {
 		//  pragma: allowlist nextline secret
 		Password: "AutoPass",
 	}
-	id, err := testerSwitchService.GenericServiceCreate(createDto)
+	entity, err := testerSwitchService.GenericServiceCreate(createDto)
 	if err == nil {
-		secondErr := testerSwitchService.GenericServiceDelete(id)
+		secondErr := testerSwitchService.GenericServiceDelete(entity.ID)
 		if secondErr != nil {
 			t.Error(err, secondErr)
 		}
@@ -184,7 +184,7 @@ func Test_EthernetSwitchService_Delete(t *testing.T) {
 		EthernetSwitchID: testerSwitchService.InsertedID,
 		POEType:          "poe",
 	}
-	switchPortID, err := switchPortRepository.Insert(context.TODO(), portCreateDto)
+	switchPort, err := switchPortRepository.Insert(context.TODO(), portCreateDto)
 	if err != nil {
 		t.Error(err)
 	}
@@ -195,7 +195,7 @@ func Test_EthernetSwitchService_Delete(t *testing.T) {
 		t.Error(err)
 	}
 	//check port cascade deleting
-	_, err = switchPortRepository.GetByID(context.TODO(), switchPortID)
+	_, err = switchPortRepository.GetByID(context.TODO(), switchPort.GetID())
 	if err == nil {
 		t.Error("successfully get removed switch")
 	}

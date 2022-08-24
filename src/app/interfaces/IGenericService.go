@@ -20,30 +20,31 @@ type IGenericService[DtoType interface{},
 	//	page - number of the page
 	//	pageSize - size of the page
 	//Return
-	//	*dtos.PaginatedListDto[DtoType] - pointer to the struct with pagination info and entities
+	//	dtos.PaginatedItemsDto[DtoType] - pointer to the struct with pagination info and entities
 	//	error - if an error occurred, otherwise nil
-	GetList(ctx context.Context, search, orderBy, orderDirection string, page, pageSize int) (*dtos.PaginatedListDto[DtoType], error)
+	GetList(ctx context.Context, search, orderBy, orderDirection string, page, pageSize int) (dtos.PaginatedItemsDto[DtoType], error)
 	//GetByID Get entity by ID from service.
 	//Params
 	//	id - entity id
 	//Return
 	//	*DtoType - pointer to the entity DTO.
 	//	error - if an error occurred, otherwise nil
-	GetByID(ctx context.Context, id uuid.UUID) (*DtoType, error)
+	GetByID(ctx context.Context, id uuid.UUID) (DtoType, error)
 	//Update Save the changes to the existing entity in the service.
 	//Params
 	//  updateDto - pointer to the entity DTO.
 	//	id - entity id
 	//Return
+	// 	DtoType - updated entity dto
 	//	error - if an error occurred, otherwise nil
-	Update(ctx context.Context, updateDto UpdateDtoType, id uuid.UUID) error
+	Update(ctx context.Context, updateDto UpdateDtoType, id uuid.UUID) (DtoType, error)
 	//Create Add entity to the service.
 	//Params
 	//  createDto - pointer to the entity DTO.
 	//Return
-	//	uuid.UUID - entity id
+	// 	DtoType - created entity dto
 	//	error - if an error occurred, otherwise nil
-	Create(ctx context.Context, createDto CreateDtoType) (uuid.UUID, error)
+	Create(ctx context.Context, createDto CreateDtoType) (DtoType, error)
 	//Delete entity from the service.
 	//Params
 	//	id - entity id

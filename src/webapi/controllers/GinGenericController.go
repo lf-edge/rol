@@ -1,9 +1,7 @@
 package controllers
 
 import (
-	"net/http"
 	"rol/app/interfaces"
-	"rol/dtos"
 	"strconv"
 
 	"github.com/gin-gonic/gin"
@@ -63,20 +61,7 @@ func (g *GinGenericController[DtoType, CreateDtoType, UpdateDtoType, EntityType]
 		pageSizeInt64 = 10
 	}
 	paginatedList, err := g.service.GetList(ctx, search, orderBy, orderDirection, int(pageInt64), int(pageSizeInt64))
-	if err != nil {
-		controllerErr := ctx.AbortWithError(http.StatusBadRequest, err)
-		if controllerErr != nil {
-			g.logger.Errorf("%s : %s", err, controllerErr)
-		}
-	}
-	responseDto := &dtos.ResponseDataDto{
-		Status: dtos.ResponseStatusDto{
-			Code:    0,
-			Message: "",
-		},
-		Data: paginatedList,
-	}
-	ctx.JSON(http.StatusOK, responseDto)
+	handleWithData(ctx, err, paginatedList)
 }
 
 //GetByID Get entity by id
@@ -88,33 +73,11 @@ func (g *GinGenericController[DtoType, CreateDtoType, UpdateDtoType, EntityType]
 	strID := ctx.Param("id")
 	id, err := uuid.Parse(strID)
 	if err != nil {
-		controllerErr := ctx.AbortWithError(http.StatusBadRequest, err)
-		if controllerErr != nil {
-			g.logger.Errorf("%s : %s", err, controllerErr)
-		}
+		abortWithStatusByErrorType(ctx, err)
 		return
 	}
-
 	dto, err := g.service.GetByID(ctx, id)
-	if err != nil {
-		controllerErr := ctx.AbortWithError(http.StatusBadRequest, err)
-		if controllerErr != nil {
-			g.logger.Errorf("%s : %s", err, controllerErr)
-		}
-		return
-	}
-	if dto == nil {
-		ctx.AbortWithStatus(http.StatusNotFound)
-		return
-	}
-	responseDto := &dtos.ResponseDataDto{
-		Status: dtos.ResponseStatusDto{
-			Code:    0,
-			Message: "",
-		},
-		Data: dto,
-	}
-	ctx.JSON(http.StatusOK, responseDto)
+	handleWithData(ctx, err, dto)
 }
 
 //Create new entity
@@ -123,81 +86,35 @@ func (g *GinGenericController[DtoType, CreateDtoType, UpdateDtoType, EntityType]
 //Return
 //	Returns http status code and response dto
 func (g *GinGenericController[DtoType, CreateDtoType, UpdateDtoType, EntityType]) Create(ctx *gin.Context) {
-	reqDto := new(CreateDtoType)
-	err := ctx.ShouldBindJSON(&reqDto)
+	reqDto, err := getRequestDtoAndRestoreBody[CreateDtoType](ctx)
 	if err != nil {
-		controllerErr := ctx.AbortWithError(http.StatusBadRequest, err)
-		if controllerErr != nil {
-			g.logger.Errorf("%s : %s", err, controllerErr)
-		}
+		abortWithStatusByErrorType(ctx, err)
 		return
 	}
 
-	// Restoring body in gin.Context for logging it later in middleware
-	err = RestoreBody(reqDto, ctx)
-	if err != nil {
-		ctx.AbortWithStatus(http.StatusInternalServerError)
-	}
-
-	id, err := g.service.Create(ctx, *reqDto)
-	if err != nil {
-		controllerErr := ctx.AbortWithError(http.StatusBadRequest, err)
-		if controllerErr != nil {
-			g.logger.Errorf("%s : %s", err, controllerErr)
-		}
-		return
-	}
-	responseDto := dtos.ResponseDataDto{
-		Status: dtos.ResponseStatusDto{
-			Code:    0,
-			Message: "",
-		},
-		Data: id,
-	}
-	ctx.JSON(http.StatusOK, responseDto)
+	dto, err := g.service.Create(ctx, reqDto)
+	handleWithData(ctx, err, dto)
 }
 
-//Update
-//	Update entity in database by id
+//Update entity in database by id
 //Params
 //	ctx - gin context
 //Return
 //	Returns http status code and response dto
 func (g *GinGenericController[DtoType, CreateDtoType, UpdateDtoType, EntityType]) Update(ctx *gin.Context) {
-	reqDto := new(UpdateDtoType)
-	err := ctx.ShouldBindJSON(reqDto)
+	reqDto, err := getRequestDtoAndRestoreBody[UpdateDtoType](ctx)
 	if err != nil {
-		controllerErr := ctx.AbortWithError(http.StatusBadRequest, err)
-		if controllerErr != nil {
-			g.logger.Errorf("%s : %s", err, controllerErr)
-		}
+		abortWithStatusByErrorType(ctx, err)
+		return
+	}
+	id, err := parseUUIDParam(ctx, "id")
+	if err != nil {
+		abortWithStatusByErrorType(ctx, err)
 		return
 	}
 
-	// Restoring body in gin.Context for logging it later in middleware
-	err = RestoreBody(reqDto, ctx)
-	if err != nil {
-		ctx.AbortWithStatus(http.StatusInternalServerError)
-	}
-
-	strID := ctx.Param("id")
-	id := uuid.MustParse(strID)
-
-	err = g.service.Update(ctx, *reqDto, id)
-	if err != nil {
-		controllerErr := ctx.AbortWithError(http.StatusBadRequest, err)
-		if controllerErr != nil {
-			g.logger.Errorf("%s : %s", err, controllerErr)
-		}
-		return
-	}
-	responseDto := &dtos.ResponseDto{
-		Status: dtos.ResponseStatusDto{
-			Code:    0,
-			Message: "",
-		},
-	}
-	ctx.JSON(http.StatusOK, responseDto)
+	dto, err := g.service.Update(ctx, reqDto, id)
+	handleWithData(ctx, err, dto)
 }
 
 //Delete
@@ -210,22 +127,10 @@ func (g *GinGenericController[DtoType, CreateDtoType, UpdateDtoType, EntityType]
 	strID := ctx.Param("id")
 	id, err := uuid.Parse(strID)
 	if err != nil {
-		ctx.AbortWithStatus(http.StatusNotFound)
+		abortWithStatusByErrorType(ctx, err)
+		return
 	}
 
 	err = g.service.Delete(ctx, id)
-	if err != nil {
-		controllerErr := ctx.AbortWithError(http.StatusBadRequest, err)
-		if controllerErr != nil {
-			g.logger.Errorf("%s : %s", err, controllerErr)
-		}
-		return
-	}
-	responseDto := &dtos.ResponseDto{
-		Status: dtos.ResponseStatusDto{
-			Code:    0,
-			Message: "",
-		},
-	}
-	ctx.JSON(http.StatusOK, responseDto)
+	handle(ctx, err)
 }

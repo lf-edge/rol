@@ -36,15 +36,16 @@ func RegisterEthernetSwitchController(controller *EthernetSwitchGinController, s
 //	ctx - gin context
 // @Summary Get paginated list of switches
 // @version 1.0
-// @Tags ethernet-switch
+// @Tags	ethernet-switch
 // @Accept  json
 // @Produce json
-// @param	 orderBy		 query	string	false	"Order by field"
-// @param	 orderDirection		 query	string	false	"'asc' or 'desc' for ascending or descending order"
-// @param	 search			 query	string	false	"Searchable value in entity"
-// @param	 page			 query	int		false	"Page number"
-// @param	 pageSize		 query	int		false	"Number of entities per page"
-// @Success 200 {object} dtos.ResponseDataDto{data=dtos.PaginatedListDto{items=[]dtos.EthernetSwitchDto}}
+// @param	orderBy			query	string	false	"Order by field"
+// @param	orderDirection	query	string	false	"'asc' or 'desc' for ascending or descending order"
+// @param	search			query	string	false	"Searchable value in entity"
+// @param	page			query	int		false	"Page number"
+// @param	pageSize		query	int		false	"Number of entities per page"
+// @Success	200		{object}	dtos.PaginatedItemsDto[dtos.EthernetSwitchDto]
+// @Failure	500		"Internal Server Error"
 // @router /ethernet-switch/ [get]
 func (e *EthernetSwitchGinController) GetList(ctx *gin.Context) {
 	e.GinGenericController.GetList(ctx)
@@ -53,13 +54,15 @@ func (e *EthernetSwitchGinController) GetList(ctx *gin.Context) {
 //GetByID get switch by id
 //	Params
 //	ctx - gin context
-// @Summary Get ethernet switch by id
+// @Summary	Get ethernet switch by id
 // @version 1.0
-// @Tags ethernet-switch
-// @Accept  json
-// @Produce  json
-// @param	 id	path	string		true	"Ethernet switch ID"
-// @Success 200 {object} dtos.ResponseDataDto{data=dtos.EthernetSwitchDto}
+// @Tags	ethernet-switch
+// @Accept	json
+// @Produce	json
+// @param	id		path		string		true	"Ethernet switch ID"
+// @Success	200		{object}	dtos.EthernetSwitchDto
+// @Failure	404		"Not Found"
+// @Failure	500		"Internal Server Error"
 // @router /ethernet-switch/{id} [get]
 func (e *EthernetSwitchGinController) GetByID(ctx *gin.Context) {
 	e.GinGenericController.GetByID(ctx)
@@ -68,13 +71,15 @@ func (e *EthernetSwitchGinController) GetByID(ctx *gin.Context) {
 //Create new switch
 //	Params
 //	ctx - gin context
-// @Summary Create new ethernet switch
-// @version 1.0
-// @Tags ethernet-switch
-// @Accept  json
-// @Produce  json
-// @Param request body dtos.EthernetSwitchCreateDto true "Ethernet switch fields"
-// @Success 200 {object} dtos.ResponseDataDto{data=uuid.UUID}
+// @Summary	Create new ethernet switch
+// @version	1.0
+// @Tags	ethernet-switch
+// @Accept	json
+// @Produce	json
+// @Param	request	body		dtos.EthernetSwitchCreateDto	true	"Ethernet switch fields"
+// @Success	200		{object}	dtos.EthernetSwitchDto
+// @Failure	400		{object}	dtos.ValidationErrorDto
+// @Failure	500		"Internal Server Error"
 // @router /ethernet-switch/ [post]
 func (e *EthernetSwitchGinController) Create(ctx *gin.Context) {
 	e.GinGenericController.Create(ctx)
@@ -83,14 +88,17 @@ func (e *EthernetSwitchGinController) Create(ctx *gin.Context) {
 //Update switch by id
 //	Params
 //	ctx - gin context
-// @Summary Updates ethernet switch by id
-// @version 1.0
-// @Tags ethernet-switch
-// @Accept  json
-// @Produce  json
-// @param	 id	path	string		true	"Ethernet switch ID"
-// @Param request body dtos.EthernetSwitchUpdateDto true "Ethernet switch fields"
-// @Success 200 {object} dtos.ResponseDto
+// @Summary	Updates ethernet switch by id
+// @version	1.0
+// @Tags	ethernet-switch
+// @Accept	json
+// @Produce	json
+// @param	id		path		string		true	"Ethernet switch ID"
+// @Param	request	body		dtos.EthernetSwitchUpdateDto true "Ethernet switch fields"
+// @Success	200		{object}	dtos.EthernetSwitchDto
+// @Failure	400		{object}	dtos.ValidationErrorDto
+// @Failure	404		"Not Found"
+// @Failure	500		"Internal Server Error"
 // @router /ethernet-switch/{id} [put]
 func (e *EthernetSwitchGinController) Update(ctx *gin.Context) {
 	e.GinGenericController.Update(ctx)
@@ -99,13 +107,15 @@ func (e *EthernetSwitchGinController) Update(ctx *gin.Context) {
 //Delete soft deleting switch in database
 //	Params
 //	ctx - gin context
-// @Summary Delete ethernet switch by id
-// @version 1.0
-// @Tags ethernet-switch
-// @Accept  json
-// @Produce  json
-// @param	 id	path	string		true	"Ethernet switch ID"
-// @Success 200 {object} dtos.ResponseDto
+// @Summary	Delete ethernet switch by id
+// @version	1.0
+// @Tags	ethernet-switch
+// @Accept	json
+// @Produce	json
+// @param	id		path	string		true	"Ethernet switch ID"
+// @Success	204		"OK, but No Content"
+// @Failure	404		"Not Found"
+// @Failure	500		"Internal Server Error"
 // @router /ethernet-switch/{id} [delete]
 func (e *EthernetSwitchGinController) Delete(ctx *gin.Context) {
 	e.GinGenericController.Delete(ctx)
@@ -114,12 +124,12 @@ func (e *EthernetSwitchGinController) Delete(ctx *gin.Context) {
 //GetSupportedModels Get supported switch models
 //	Params
 //	ctx - gin context
-// @Summary Get ethernet switch supported models
-// @version 1.0
-// @Tags ethernet-switch
-// @Accept  json
-// @Produce  json
-// @Success 200 {object} []dtos.EthernetSwitchModelDto
+// @Summary	Get ethernet switch supported models
+// @version	1.0
+// @Tags	ethernet-switch
+// @Accept	json
+// @Produce	json
+// @Success	200		{object} []dtos.EthernetSwitchModelDto
 // @router /ethernet-switch/models [get]
 func (e *EthernetSwitchGinController) GetSupportedModels(ctx *gin.Context) {
 	service := e.GinGenericController.service.(*services.EthernetSwitchService)

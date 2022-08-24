@@ -84,7 +84,7 @@ func (h *HostNetworkVlanService) GetByName(vlanName string) (dtos.HostNetworkVla
 //Params:
 //	vlan - vlan create dto
 //Return:
-//	string - new vlan name that will be rol.{master}.{vlanID}
+//	dtos.HostNetworkVlanDto - created host network vlan
 //	error - if an error occurs, otherwise nil
 func (h *HostNetworkVlanService) Create(createDto dtos.HostNetworkVlanCreateDto) (dtos.HostNetworkVlanDto, error) {
 	dto := dtos.HostNetworkVlanDto{}
@@ -175,6 +175,7 @@ func (h *HostNetworkVlanService) syncAddresses(link interfaces.IHostNetworkLink,
 //	vlanName - vlan name
 //	updateDto - vlan update dto
 //Return:
+//	dtos.HostNetworkVlanDto - updated host network vlan
 //	error - if an error occurs, otherwise nil
 func (h *HostNetworkVlanService) Update(vlanName string, updateDto dtos.HostNetworkVlanUpdateDto) (dtos.HostNetworkVlanDto, error) {
 	dto := dtos.HostNetworkVlanDto{}

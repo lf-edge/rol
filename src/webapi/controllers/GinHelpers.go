@@ -4,20 +4,20 @@ import (
 	"bytes"
 	"encoding/json"
 	"github.com/gin-gonic/gin"
+	"github.com/google/uuid"
 	"io/ioutil"
 	"net/http"
 	"rol/app/errors"
 	"rol/dtos"
 )
 
-//RestoreBody restore body in gin.Context for logging it later in middleware
-func RestoreBody(body interface{}, ctx *gin.Context) error {
-	buf, err := json.Marshal(body)
+func parseUUIDParam(ctx *gin.Context, paramName string) (uuid.UUID, error) {
+	uuidStr := ctx.Param(paramName)
+	uuid, err := uuid.Parse(uuidStr)
 	if err != nil {
-		return err
+		return [16]byte{}, errors.NotFound.New("incorrect format for entity uuid")
 	}
-	ctx.Request.Body = ioutil.NopCloser(bytes.NewBuffer(buf))
-	return nil
+	return uuid, nil
 }
 
 //getRequestDtoAndRestoreBody parse json body to dto object and restore body in context

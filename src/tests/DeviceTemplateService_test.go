@@ -42,7 +42,7 @@ func Test_DeviceTemplateService_GetByName(t *testing.T) {
 	if err != nil {
 		t.Errorf("get by name failed: %s", err)
 	}
-	obtainedName := reflect.ValueOf(*template).FieldByName("Name").String()
+	obtainedName := reflect.ValueOf(template).FieldByName("Name").String()
 	if obtainedName != name {
 		t.Errorf("unexpected name %s, expect %s", obtainedName, name)
 	}
@@ -53,15 +53,8 @@ func Test_DeviceTemplateService_GetList(t *testing.T) {
 	if err != nil {
 		t.Errorf("get list failed: %s", err)
 	}
-	if templates == nil {
-		t.Error("failed get paginated list")
-		return
-	}
-	if templates.Items == nil {
-		t.Error("templates not found")
-	}
-	if len(*templates.Items) != serviceTemplatesCount {
-		t.Errorf("unexpected templates count: %d, expect %d", len(*templates.Items), serviceTemplatesCount)
+	if len(templates.Items) != serviceTemplatesCount {
+		t.Errorf("unexpected templates count: %d, expect %d", len(templates.Items), serviceTemplatesCount)
 	}
 }
 
@@ -73,7 +66,7 @@ func Test_DeviceTemplateService_Search(t *testing.T) {
 	if templates.Items == nil {
 		t.Error("templates not found")
 	}
-	if len(*templates.Items) != 1 {
+	if len(templates.Items) != 1 {
 		t.Error("search failed")
 	}
 }

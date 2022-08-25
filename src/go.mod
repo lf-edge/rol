@@ -3,6 +3,7 @@ module rol
 go 1.18
 
 require (
+	github.com/Azure/go-asynctask v1.1.1
 	github.com/gin-gonic/gin v1.7.7
 	github.com/go-ozzo/ozzo-validation v3.6.0+incompatible
 	github.com/sirupsen/logrus v1.8.1

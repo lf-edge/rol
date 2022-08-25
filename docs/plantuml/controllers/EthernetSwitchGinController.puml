@@ -1,10 +1,20 @@
 @startuml
-!include GinGenericController.puml
 !include ../services/EthernetSwitchService.puml
 
 package controllers {
     class EthernetSwitchGinController {
         -service interfaces.IGenericService[EthernetSwitchDto, EthernetSwitchCreateDto, EthernetSwitchUpdateDto, EthernetSwitch]
+        --
+        +GetList(ctx *gin.Context)
+        --
+        +GetByID(ctx *gin.Context)
+        --
+        +Create(ctx *gin.Context)
+        --
+        +Update(ctx *gin.Context)
+        --
+        +Delete(ctx *gin.Context)
+        --
         +GetSupportedModels(ctx *gin.Context)
     }
 
@@ -12,9 +22,6 @@ package controllers {
     Get supported switch models
     end note
 
-    GinGenericController *-up- EthernetSwitchGinController
-
-    GinGenericController .[hidden]down. EthernetSwitchUpdateDto
     EthernetSwitchGinController .up. EthernetSwitchServiceTypes
     EthernetSwitchService -left- EthernetSwitchGinController::service
 

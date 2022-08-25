@@ -2,29 +2,39 @@ package controllers
 
 import (
 	"github.com/gin-gonic/gin"
-	"rol/app/interfaces"
-	"rol/domain"
-	"rol/dtos"
+	"github.com/google/uuid"
+	"rol/app/services"
 	"rol/webapi"
+	"strconv"
 
 	"github.com/sirupsen/logrus"
 )
 
 //AppLogGinController Application log GIN controller constructor
 type AppLogGinController struct {
-	GinGenericController[dtos.AppLogDto,
-		dtos.AppLogDto,
-		dtos.AppLogDto,
-		domain.AppLog]
+	service *services.AppLogService
+	logger  *logrus.Logger
 }
 
 //RegisterAppLogController registers controller for getting application logs via api on path /api/v1/applog/
 func RegisterAppLogController(controller *AppLogGinController, server *webapi.GinHTTPServer) {
-
 	groupRoute := server.Engine.Group("/api/v1")
-
 	groupRoute.GET("/log/app/", controller.GetList)
 	groupRoute.GET("/log/app/:id", controller.GetByID)
+}
+
+//NewAppLogGinController app log controller constructor. Parameters pass through DI
+//Params
+//	service - generic service
+//	log - logrus logger
+//Return
+//	*GinGenericController - instance of generic controller for app logs
+func NewAppLogGinController(service *services.AppLogService, log *logrus.Logger) *AppLogGinController {
+	logContr := &AppLogGinController{
+		service: service,
+		logger:  log,
+	}
+	return logContr
 }
 
 //GetList get list of logs with search and pagination
@@ -44,7 +54,21 @@ func RegisterAppLogController(controller *AppLogGinController, server *webapi.Gi
 // @Failure	500				"Internal Server Error"
 // @router /log/app/ [get]
 func (a *AppLogGinController) GetList(ctx *gin.Context) {
-	a.GinGenericController.GetList(ctx)
+	orderBy := ctx.DefaultQuery("orderBy", "id")
+	orderDirection := ctx.DefaultQuery("orderDirection", "asc")
+	search := ctx.DefaultQuery("search", "")
+	page := ctx.DefaultQuery("page", "1")
+	pageInt64, err := strconv.ParseInt(page, 10, 64)
+	if err != nil {
+		pageInt64 = 1
+	}
+	pageSize := ctx.DefaultQuery("pageSize", "10")
+	pageSizeInt64, err := strconv.ParseInt(pageSize, 10, 64)
+	if err != nil {
+		pageSizeInt64 = 10
+	}
+	paginatedList, err := a.service.GetList(ctx, search, orderBy, orderDirection, int(pageInt64), int(pageSizeInt64))
+	handleWithData(ctx, err, paginatedList)
 }
 
 //GetByID get log by id
@@ -61,22 +85,12 @@ func (a *AppLogGinController) GetList(ctx *gin.Context) {
 // @Failure	500		"Internal Server Error"
 // @router /log/app/{id} [get]
 func (a *AppLogGinController) GetByID(ctx *gin.Context) {
-	a.GinGenericController.GetByID(ctx)
-}
-
-//NewAppLogGinController app log controller constructor. Parameters pass through DI
-//Params
-//	service - generic service
-//	log - logrus logger
-//Return
-//	*GinGenericController - instance of generic controller for app logs
-func NewAppLogGinController(service interfaces.IGenericService[dtos.AppLogDto,
-	dtos.AppLogDto,
-	dtos.AppLogDto,
-	domain.AppLog], log *logrus.Logger) *AppLogGinController {
-	genContr := NewGinGenericController(service, log)
-	logContr := &AppLogGinController{
-		GinGenericController: *genContr,
+	strID := ctx.Param("id")
+	id, err := uuid.Parse(strID)
+	if err != nil {
+		abortWithStatusByErrorType(ctx, err)
+		return
 	}
-	return logContr
+	dto, err := a.service.GetByID(ctx, id)
+	handleWithData(ctx, err, dto)
 }

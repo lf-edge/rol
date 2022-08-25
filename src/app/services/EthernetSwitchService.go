@@ -25,11 +25,7 @@ type EthernetSwitchService struct {
 //Return
 //	New ethernet switch service
 func NewEthernetSwitchService(switchRepo interfaces.IGenericRepository[domain.EthernetSwitch],
-	portRepo interfaces.IGenericRepository[domain.EthernetSwitchPort]) (interfaces.IGenericService[
-	dtos.EthernetSwitchDto,
-	dtos.EthernetSwitchCreateDto,
-	dtos.EthernetSwitchUpdateDto,
-	domain.EthernetSwitch], error) {
+	portRepo interfaces.IGenericRepository[domain.EthernetSwitchPort]) (*EthernetSwitchService, error) {
 	ethernetSwitchService := &EthernetSwitchService{
 		switchRepo:    switchRepo,
 		portRepo:      portRepo,
@@ -209,17 +205,9 @@ func (e *EthernetSwitchService) Create(ctx context.Context, createDto dtos.Ether
 //Return
 //	error - if an error occurs, otherwise nil
 func (e *EthernetSwitchService) Delete(ctx context.Context, id uuid.UUID) error {
-	queryBuilder := e.portRepo.NewQueryBuilder(ctx)
-	queryBuilder.Where("EthernetSwitchID", "=", id)
-	ports, err := e.portRepo.GetList(ctx, "", "", 1, 100, queryBuilder)
+	err := e.deleteAllPortsBySwitchID(ctx, id)
 	if err != nil {
-		return errors.Internal.Wrap(err, "failed to get list of ports")
-	}
-	for _, port := range ports {
-		err = e.portRepo.Delete(ctx, port.ID)
-		if err != nil {
-			return errors.Internal.Wrap(err, "service failed to update entity")
-		}
+		return errors.Internal.Wrap(err, "failed to remove switch ports")
 	}
 	err = e.switchRepo.Delete(ctx, id)
 	if err != nil {
@@ -239,4 +227,15 @@ func (e *EthernetSwitchService) GetSupportedModels() *[]dtos.EthernetSwitchModel
 		supportedModelsDtos = append(supportedModelsDtos, modelDto)
 	}
 	return &supportedModelsDtos
+}
+
+func (e *EthernetSwitchService) switchIsExist(ctx context.Context, switchID uuid.UUID) (bool, error) {
+	_, err := e.GetByID(ctx, switchID)
+	if err != nil {
+		if !errors.As(err, errors.NotFound) {
+			return false, errors.Internal.Wrap(err, "repository failed to get ethernet switch")
+		}
+		return false, nil
+	}
+	return true, nil
 }

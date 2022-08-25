@@ -57,7 +57,6 @@ func main() {
 			services.NewEthernetSwitchService,
 			services.NewHTTPLogService,
 			services.NewAppLogService,
-			services.NewEthernetSwitchPortService,
 			services.NewDeviceTemplateService,
 			services.NewHostNetworkVlanService,
 			// WEB API -> GIN Server

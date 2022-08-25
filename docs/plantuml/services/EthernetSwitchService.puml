@@ -1,5 +1,4 @@
 @startuml
-!include ../interfaces/IGenericService.puml
 !include ../repositories/EthernetSwitchRepository.puml
 !include ../repositories/EthernetSwitchPortRepository.puml
 !include ../dto/EthernetSwitch/EthernetSwitchCreateDto.puml
@@ -16,6 +15,16 @@ package app {
         --
         -portRepo interfaces.IGenericRepository[domain.EthernetSwitchPort]
         --
+        +GetList(ctx context.Context, search, orderBy, orderDirection string, page, pageSize int) (dtos.PaginatedItemsDto[dtos.EthernetSwitchDto], error)
+        --
+        +GetByID(ctx context.Context, id uuid.UUID) (dtos.EthernetSwitchDto, error)
+        --
+        +Create(ctx context.Context, createDto dtos.EthernetSwitchCreateDto) (dtos.EthernetSwitchDto, error)
+        --
+        +Update(ctx context.Context, updateDto dtos.EthernetSwitchUpdateDto, id uuid.UUID) (dtos.EthernetSwitchDto, error)
+        --
+        +Delete(ctx context.Context, id uuid.UUID) error
+        --
         +GetSupportedModels() []dtos.EthernetSwitchModelDto
         --
         +GetPortByID(ctx context.Context, switchID, id uuid.UUID) (dtos.EthernetSwitchPortDto, error)
@@ -28,7 +37,6 @@ package app {
         --
         +DeletePort(ctx context.Context, switchID, id uuid.UUID) error
     }
-    EthernetSwitchService .down.|> IGenericService
 
     note left of EthernetSwitchService::GetSupportedModels
     Get ethernet switch models that supported by system
@@ -55,7 +63,6 @@ package app {
     end note
 
     EthernetSwitchService .down. EthernetSwitchServiceTypes
-    IGenericService <.up. EthernetSwitchServiceTypes
 
     EthernetSwitchServiceTypes .. EthernetSwitchCreateDto
     EthernetSwitchServiceTypes .. EthernetSwitchUpdateDto

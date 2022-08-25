@@ -1,35 +1,24 @@
 @startuml
 
-!include GenericService.puml
 !include ../repositories/HTTPLogRepository.puml
 !include ../dto/HTTPLog/HTTPLogDto.puml
 
 package app {
     class HTTPLogService {
         -repository IGenericRepository<HTTPLog>
+        --
+        +GetList(ctx context.Context, search string, orderBy string, orderDirection string, page int, pageSize int) (dtos.PaginatedItemsDto[dtos.HTTPLogDto], error)
+        --
+        +GetByID(ctx context.Context, id uuid.UUID) (dtos.HTTPLogDto, error)
     }
 
     HTTPLogService .[hidden]up. IGenericRepository
 
     HTTPLogRepository -right- HTTPLogService::repository
-    GenericService *-up- HTTPLogService
 
     note left of HTTPLogService
         Advanced business logic for HTTPLog entity
     end note
-
-    note as HTTPLogServiceTypes
-        EntityType is HTTPLog
-        CreateDtoType is HTTPLogDto
-        UpdateDtoType is HTTPLogDto
-        DtoType is HTTPLogDto
-        Because the service is read-only
-    end note
-
-    HTTPLogService .down. HTTPLogServiceTypes
-    GenericService <.up. HTTPLogServiceTypes
-
-    HTTPLogServiceTypes .. HTTPLogDto
 }
 
 @enduml

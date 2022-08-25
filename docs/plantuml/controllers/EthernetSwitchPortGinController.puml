@@ -1,5 +1,5 @@
 @startuml
-!include ../services/EthernetSwitchPortService.puml
+!include ../services/EthernetSwitchService.puml
 !include ../dto/EthernetSwitchPort/EthernetSwitchPortCreateDto.puml
 !include ../dto/EthernetSwitchPort/EthernetSwitchPortUpdateDto.puml
 !include ../dto/EthernetSwitchPort/EthernetSwitchPortDto.puml
@@ -42,8 +42,7 @@ package controllers {
     end note
 
     EthernetSwitchPortGinController .[hidden]up. EthernetSwitchPort
-    EthernetSwitchPortGinController .up. EthernetSwitchPortServiceTypes
-    EthernetSwitchPortService -left- EthernetSwitchPortGinController::service
+    EthernetSwitchService -left- EthernetSwitchPortGinController::service
 }
 
 @enduml

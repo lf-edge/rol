@@ -35,8 +35,13 @@ func NewEthernetSwitchService(switchRepo interfaces.IGenericRepository[domain.Et
 		portRepo:      portRepo,
 		supportedList: &[]domain.EthernetSwitchModel{},
 	}
-	ethernetSwitchService.initSupportedList()
 	return ethernetSwitchService, nil
+}
+
+//EthernetSwitchServiceInit do all that we need to do after dependency init
+func EthernetSwitchServiceInit(service *EthernetSwitchService) error {
+	service.initSupportedList()
+	return nil
 }
 
 func (e *EthernetSwitchService) initSupportedList() {

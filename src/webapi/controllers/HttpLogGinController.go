@@ -1,31 +1,40 @@
 package controllers
 
 import (
-	"rol/app/interfaces"
-	"rol/domain"
-	"rol/dtos"
+	"github.com/google/uuid"
+	"github.com/sirupsen/logrus"
+	"rol/app/services"
 	"rol/webapi"
+	"strconv"
 
 	"github.com/gin-gonic/gin"
-
-	"github.com/sirupsen/logrus"
 )
 
 //HTTPLogGinController HTTP log controller structure for domain.HTTPLog
 type HTTPLogGinController struct {
-	GinGenericController[dtos.HTTPLogDto,
-		dtos.HTTPLogDto,
-		dtos.HTTPLogDto,
-		domain.HTTPLog]
+	service *services.HTTPLogService
+	logger  *logrus.Logger
 }
 
 //RegisterHTTPLogController registers controller for getting http logs via api on path /api/v1/httplog/
 func RegisterHTTPLogController(controller *HTTPLogGinController, server *webapi.GinHTTPServer) {
-
 	groupRoute := server.Engine.Group("/api/v1")
-
 	groupRoute.GET("/log/http/", controller.GetList)
 	groupRoute.GET("/log/http/:id", controller.GetByID)
+}
+
+//NewHTTPLogGinController HTTP log controller constructor. Parameters pass through DI
+//Params
+//	service - generic service
+//	log - logrus logger
+//Return
+//	*GinGenericController - instance of generic controller for http logs
+func NewHTTPLogGinController(service *services.HTTPLogService, log *logrus.Logger) *HTTPLogGinController {
+	logContr := &HTTPLogGinController{
+		service: service,
+		logger:  log,
+	}
+	return logContr
 }
 
 //GetList get list of http logs with search and pagination
@@ -45,7 +54,21 @@ func RegisterHTTPLogController(controller *HTTPLogGinController, server *webapi.
 // @Failure	500		"Internal Server Error"
 // @router /log/http/ [get]
 func (h *HTTPLogGinController) GetList(ctx *gin.Context) {
-	h.GinGenericController.GetList(ctx)
+	orderBy := ctx.DefaultQuery("orderBy", "id")
+	orderDirection := ctx.DefaultQuery("orderDirection", "asc")
+	search := ctx.DefaultQuery("search", "")
+	page := ctx.DefaultQuery("page", "1")
+	pageInt64, err := strconv.ParseInt(page, 10, 64)
+	if err != nil {
+		pageInt64 = 1
+	}
+	pageSize := ctx.DefaultQuery("pageSize", "10")
+	pageSizeInt64, err := strconv.ParseInt(pageSize, 10, 64)
+	if err != nil {
+		pageSizeInt64 = 10
+	}
+	paginatedList, err := h.service.GetList(ctx, search, orderBy, orderDirection, int(pageInt64), int(pageSizeInt64))
+	handleWithData(ctx, err, paginatedList)
 }
 
 //GetByID get http log by id
@@ -62,22 +85,12 @@ func (h *HTTPLogGinController) GetList(ctx *gin.Context) {
 // @Failure	500		"Internal Server Error"
 // @router /log/http/{id} [get]
 func (h *HTTPLogGinController) GetByID(ctx *gin.Context) {
-	h.GinGenericController.GetByID(ctx)
-}
-
-//NewHTTPLogGinController HTTP log controller constructor. Parameters pass through DI
-//Params
-//	service - generic service
-//	log - logrus logger
-//Return
-//	*GinGenericController - instance of generic controller for http logs
-func NewHTTPLogGinController(service interfaces.IGenericService[dtos.HTTPLogDto,
-	dtos.HTTPLogDto,
-	dtos.HTTPLogDto,
-	domain.HTTPLog], log *logrus.Logger) *HTTPLogGinController {
-	genContr := NewGinGenericController(service, log)
-	logContr := &HTTPLogGinController{
-		GinGenericController: *genContr,
+	strID := ctx.Param("id")
+	id, err := uuid.Parse(strID)
+	if err != nil {
+		abortWithStatusByErrorType(ctx, err)
+		return
 	}
-	return logContr
+	dto, err := h.service.GetByID(ctx, id)
+	handleWithData(ctx, err, dto)
 }

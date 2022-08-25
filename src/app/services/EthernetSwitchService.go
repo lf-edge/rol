@@ -219,14 +219,14 @@ func (e *EthernetSwitchService) Delete(ctx context.Context, id uuid.UUID) error 
 //GetSupportedModels Get supported switch models
 //Return
 //	*[]dtos.EthernetSwitchModelDto - Ethernet switch model DTO's that supported by system
-func (e *EthernetSwitchService) GetSupportedModels() *[]dtos.EthernetSwitchModelDto {
+func (e *EthernetSwitchService) GetSupportedModels() []dtos.EthernetSwitchModelDto {
 	supportedModelsDtos := []dtos.EthernetSwitchModelDto{}
 	for _, model := range *e.supportedList {
 		modelDto := dtos.EthernetSwitchModelDto{}
 		mappers.MapEthernetSwitchModelToDto(model, &modelDto)
 		supportedModelsDtos = append(supportedModelsDtos, modelDto)
 	}
-	return &supportedModelsDtos
+	return supportedModelsDtos
 }
 
 func (e *EthernetSwitchService) switchIsExist(ctx context.Context, switchID uuid.UUID) (bool, error) {

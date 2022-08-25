@@ -20,10 +20,10 @@ import (
 )
 
 var (
-	testerSwitchService    *GenericServiceTest[dtos.EthernetSwitchDto, dtos.EthernetSwitchCreateDto, dtos.EthernetSwitchUpdateDto, domain.EthernetSwitch]
 	ethSwitchService       *services.EthernetSwitchService
 	ethSwitchRepo          interfaces.IGenericRepository[domain.EthernetSwitch]
 	ethSwitchPortRepo      interfaces.IGenericRepository[domain.EthernetSwitchPort]
+	ethSwitchID            uuid.UUID
 	createdEthSwitchPortID uuid.UUID
 )
 
@@ -64,9 +64,6 @@ func Test_EthernetSwitchService_Prepare(t *testing.T) {
 	if err != nil {
 		t.Errorf("init service failed:  %q", err)
 	}
-	var service interfaces.IGenericService[dtos.EthernetSwitchDto, dtos.EthernetSwitchCreateDto, dtos.EthernetSwitchUpdateDto, domain.EthernetSwitch]
-	service = ethSwitchService
-	testerSwitchService = NewGenericServiceTest(service, ethSwitchRepo, dbFileName)
 }
 
 func Test_EthernetSwitchService_CreateFailByWrongModel(t *testing.T) {
@@ -81,9 +78,11 @@ func Test_EthernetSwitchService_CreateFailByWrongModel(t *testing.T) {
 		//  pragma: allowlist nextline secret
 		Password: "AutoPass",
 	}
-	ethSwitch, err := testerSwitchService.GenericServiceCreate(createDto)
+	ctx := context.TODO()
+	ethSwitch, err := ethSwitchService.Create(ctx, createDto)
+
 	if err == nil {
-		err = testerSwitchService.GenericServiceDelete(ethSwitch.ID)
+		err = ethSwitchService.Delete(ctx, ethSwitch.ID)
 		if err != nil {
 			t.Error(err)
 		}
@@ -94,9 +93,9 @@ func Test_EthernetSwitchService_CreateFailByWrongModel(t *testing.T) {
 		if _, ok := cont["SwitchModel"]; ok {
 			return
 		}
-		t.Error("awaiting switch model validation error")
+		t.Error("expect switch model validation error")
 	} else {
-		t.Error("awaiting validation error")
+		t.Error("expect validation error")
 	}
 }
 
@@ -107,16 +106,17 @@ func Test_EthernetSwitchService_CreateOK(t *testing.T) {
 			Serial:      "test_serial",
 			SwitchModel: "unifi_switch_us-24-250w",
 			Address:     "123.123.123.123",
-			Username:    "AutoUser",
+			Username:    "UserNameSearch",
 		},
 		//  pragma: allowlist nextline secret
 		Password: "AutoPass",
 	}
-	entity, err := testerSwitchService.GenericServiceCreate(createDto)
+	ctx := context.TODO()
+	ethSwitch, err := ethSwitchService.Create(ctx, createDto)
 	if err != nil {
 		t.Error(err)
 	} else {
-		testerSwitchService.InsertedID = entity.ID
+		ethSwitchID = ethSwitch.ID
 	}
 }
 
@@ -132,13 +132,23 @@ func Test_EthernetSwitchService_CreateFailByNotUniqueSerial(t *testing.T) {
 		//  pragma: allowlist nextline secret
 		Password: "AutoPass",
 	}
-	entity, err := testerSwitchService.GenericServiceCreate(createDto)
+	ctx := context.TODO()
+	ethSwitch, err := ethSwitchService.Create(ctx, createDto)
 	if err == nil {
-		secondErr := testerSwitchService.GenericServiceDelete(entity.ID)
+		secondErr := ethSwitchService.Delete(ctx, ethSwitch.ID)
 		if secondErr != nil {
 			t.Error(err, secondErr)
 		}
 		t.Error("created switch with duplicate serial number")
+	}
+	if errors.As(err, errors.Validation) {
+		cont := errors.GetErrorContext(err)
+		if _, ok := cont["Serial"]; ok {
+			return
+		}
+		t.Error("expect switch serial validation error")
+	} else {
+		t.Error("expect validation error")
 	}
 }
 
@@ -154,20 +164,34 @@ func Test_EthernetSwitchService_CreateFailByNotUniqueAddress(t *testing.T) {
 		//  pragma: allowlist nextline secret
 		Password: "AutoPass",
 	}
-	entity, err := testerSwitchService.GenericServiceCreate(createDto)
+	ctx := context.TODO()
+	ethSwitch, err := ethSwitchService.Create(ctx, createDto)
 	if err == nil {
-		secondErr := testerSwitchService.GenericServiceDelete(entity.ID)
+		secondErr := ethSwitchService.Delete(ctx, ethSwitch.ID)
 		if secondErr != nil {
 			t.Error(err, secondErr)
 		}
 		t.Error("created switch with duplicate address")
 	}
+	if errors.As(err, errors.Validation) {
+		cont := errors.GetErrorContext(err)
+		if _, ok := cont["Address"]; ok {
+			return
+		}
+		t.Error("expect switch address validation error")
+	} else {
+		t.Error("expect validation error")
+	}
 }
 
 func Test_EthernetSwitchService_GetByID(t *testing.T) {
-	err := testerSwitchService.GenericServiceGetByID(testerSwitchService.InsertedID)
+	ctx := context.TODO()
+	ethSwitch, err := ethSwitchService.GetByID(ctx, ethSwitchID)
 	if err != nil {
 		t.Error(err)
+	}
+	if ethSwitch.Name != "Auto Testing" {
+		t.Error("unexpected switch name")
 	}
 }
 
@@ -178,20 +202,23 @@ func Test_EthernetSwitchService_Update(t *testing.T) {
 			Serial:      "101",
 			SwitchModel: "unifi_switch_us-24-250w",
 			Address:     "123.123.123.123",
-			Username:    "Test",
+			Username:    "UserNameSearch",
 		},
 		//  pragma: allowlist nextline secret
 		Password: "AutoPass",
 	}
-	err := testerSwitchService.GenericServiceUpdate(updateDto, testerSwitchService.InsertedID)
+	ctx := context.TODO()
+	ethSwitch, err := ethSwitchService.Update(ctx, updateDto, ethSwitchID)
 	if err != nil {
 		t.Error(err)
 	}
+	if ethSwitch.Name != "AutoTestingUpdated" {
+		t.Error("unexpected switch name")
+	}
 }
 
-func Test_EthernetSwitchService_Create19(t *testing.T) {
-	//we already have one switch
-	for i := 2; i <= 20; i++ {
+func Test_EthernetSwitchService_Create20(t *testing.T) {
+	for i := 1; i <= 20; i++ {
 		createDto := dtos.EthernetSwitchCreateDto{
 			EthernetSwitchBaseDto: dtos.EthernetSwitchBaseDto{
 				Name:        fmt.Sprintf("AutoTesting_%d", i),
@@ -203,7 +230,8 @@ func Test_EthernetSwitchService_Create19(t *testing.T) {
 			//  pragma: allowlist nextline secret
 			Password: "AutoPass",
 		}
-		_, err := testerSwitchService.GenericServiceCreate(createDto)
+		ctx := context.TODO()
+		_, err := ethSwitchService.Create(ctx, createDto)
 		if err != nil {
 			t.Error(err)
 		}
@@ -211,37 +239,56 @@ func Test_EthernetSwitchService_Create19(t *testing.T) {
 }
 
 func Test_EthernetSwitchService_GetList(t *testing.T) {
-	err := testerSwitchService.GenericServiceGetList(20, 1, 10)
+	ctx := context.TODO()
+	list, err := ethSwitchService.GetList(ctx, "", "Name", "DESC", 1, 15)
 	if err != nil {
 		t.Error(err)
+	}
+	if list.Pagination.Size != 15 {
+		t.Error("unexpected page size")
+	}
+	if len(list.Items) != 15 {
+		t.Error("unexpected items count")
+	}
+	if list.Items[0].Name != "AutoTesting_9" {
+		t.Error("list ordering failed")
 	}
 }
 
 func Test_EthernetSwitchService_Search(t *testing.T) {
-	err := testerSwitchService.GenericServiceSearch("AutoUser")
+	ctx := context.TODO()
+	list, err := ethSwitchService.GetList(ctx, "UserNameSearch", "", "", 1, 10)
 	if err != nil {
 		t.Error(err)
+	}
+	if len(list.Items) != 1 {
+		t.Error("unexpected items count")
+	}
+	if list.Items[0].Username != "UserNameSearch" {
+		t.Error("search failed")
 	}
 }
 
 func Test_EthernetSwitchService_CreatePortWithoutSwitch(t *testing.T) {
+	ctx := context.TODO()
 	dto := dtos.EthernetSwitchPortCreateDto{EthernetSwitchPortBaseDto: dtos.EthernetSwitchPortBaseDto{
 		POEType: "poe",
 		Name:    "AutoPort",
 	}}
-	_, err := ethSwitchService.CreatePort(context.TODO(), uuid.New(), dto)
+	_, err := ethSwitchService.CreatePort(ctx, uuid.New(), dto)
 	if err == nil {
 		t.Errorf("nil error, expected: error when checking the existence of the switch: switch not found")
 	}
 }
 
 func Test_EthernetSwitchService_CreatePort(t *testing.T) {
+	ctx := context.TODO()
 	dto := dtos.EthernetSwitchPortCreateDto{EthernetSwitchPortBaseDto: dtos.EthernetSwitchPortBaseDto{
 		POEType: "poe",
 		Name:    "AutoPort",
 	}}
 	var err error
-	port, err := ethSwitchService.CreatePort(context.TODO(), testerSwitchService.InsertedID, dto)
+	port, err := ethSwitchService.CreatePort(ctx, ethSwitchID, dto)
 	if err != nil {
 		t.Errorf("create port failed: %s", err)
 	}
@@ -249,38 +296,41 @@ func Test_EthernetSwitchService_CreatePort(t *testing.T) {
 }
 
 func Test_EthernetSwitchService_CreatePortFailByNonUniqueName(t *testing.T) {
+	ctx := context.TODO()
 	dto := dtos.EthernetSwitchPortCreateDto{EthernetSwitchPortBaseDto: dtos.EthernetSwitchPortBaseDto{
 		POEType: "poe",
 		Name:    "AutoPort",
 	}}
-	_, err := ethSwitchService.CreatePort(context.TODO(), testerSwitchService.InsertedID, dto)
+	_, err := ethSwitchService.CreatePort(ctx, ethSwitchID, dto)
 	if err == nil {
 		t.Errorf("nil error, expected: name uniqueness check error")
 	}
 }
 
 func Test_EthernetSwitchService_CreatePortFailByBadPOEType(t *testing.T) {
+	ctx := context.TODO()
 	dto := dtos.EthernetSwitchPortCreateDto{EthernetSwitchPortBaseDto: dtos.EthernetSwitchPortBaseDto{
 		POEType: "poe_",
 		Name:    "AutoPort",
 	}}
-	_, err := ethSwitchService.CreatePort(context.TODO(), testerSwitchService.InsertedID, dto)
+	_, err := ethSwitchService.CreatePort(ctx, ethSwitchID, dto)
 	if err == nil {
 		t.Errorf("nil error, expected: dto POEType field validation error")
 	}
 }
 
 func Test_EthernetSwitchService_UpdatePort(t *testing.T) {
+	ctx := context.TODO()
 	dto := dtos.EthernetSwitchPortUpdateDto{EthernetSwitchPortBaseDto: dtos.EthernetSwitchPortBaseDto{
 		POEType: "poe",
 		Name:    "AutoPort2.0",
 	}}
-	_, err := ethSwitchService.UpdatePort(context.TODO(), testerSwitchService.InsertedID, createdEthSwitchPortID, dto)
+	_, err := ethSwitchService.UpdatePort(ctx, ethSwitchID, createdEthSwitchPortID, dto)
 	if err != nil {
 		t.Errorf("update port failed: %s", err)
 	}
 
-	port, err := ethSwitchService.GetPortByID(context.TODO(), testerSwitchService.InsertedID, createdEthSwitchPortID)
+	port, err := ethSwitchService.GetPortByID(ctx, ethSwitchID, createdEthSwitchPortID)
 	if err != nil {
 		t.Errorf("failed to get port: %s", err)
 	}
@@ -290,18 +340,19 @@ func Test_EthernetSwitchService_UpdatePort(t *testing.T) {
 }
 
 func Test_EthernetSwitchService_GetPorts(t *testing.T) {
+	ctx := context.TODO()
 	for i := 1; i < 10; i++ {
 		dto := dtos.EthernetSwitchPortCreateDto{EthernetSwitchPortBaseDto: dtos.EthernetSwitchPortBaseDto{
 			POEType: "poe",
 			Name:    fmt.Sprintf("AutoPort_%d", i),
 		}}
-		_, err := ethSwitchService.CreatePort(context.TODO(), testerSwitchService.InsertedID, dto)
+		_, err := ethSwitchService.CreatePort(ctx, ethSwitchID, dto)
 		if err != nil {
 			t.Errorf("create port failed: %s", err)
 		}
 	}
 
-	ports, err := ethSwitchService.GetPorts(context.TODO(), testerSwitchService.InsertedID, "", "", "", 1, 10)
+	ports, err := ethSwitchService.GetPorts(ctx, ethSwitchID, "", "", "", 1, 10)
 	if err != nil {
 		t.Errorf("get ports failed: %s", err)
 	}
@@ -311,7 +362,8 @@ func Test_EthernetSwitchService_GetPorts(t *testing.T) {
 }
 
 func Test_EthernetSwitchService_SearchPort(t *testing.T) {
-	ports, err := ethSwitchService.GetPorts(context.TODO(), testerSwitchService.InsertedID, "Port2.0", "", "", 1, 10)
+	ctx := context.TODO()
+	ports, err := ethSwitchService.GetPorts(ctx, ethSwitchID, "Port2.0", "", "", 1, 10)
 	if err != nil {
 		t.Errorf("get ports failed: %s", err)
 	}
@@ -324,7 +376,8 @@ func Test_EthernetSwitchService_SearchPort(t *testing.T) {
 }
 
 func Test_EthernetSwitchService_GetPortByID(t *testing.T) {
-	port, err := ethSwitchService.GetPortByID(context.TODO(), testerSwitchService.InsertedID, createdEthSwitchPortID)
+	ctx := context.TODO()
+	port, err := ethSwitchService.GetPortByID(ctx, ethSwitchID, createdEthSwitchPortID)
 	if err != nil {
 		t.Errorf("get ports failed: %s", err)
 	}
@@ -334,13 +387,15 @@ func Test_EthernetSwitchService_GetPortByID(t *testing.T) {
 }
 
 func Test_EthernetSwitchService_DeletePort(t *testing.T) {
-	err := ethSwitchService.DeletePort(context.TODO(), testerSwitchService.InsertedID, createdEthSwitchPortID)
+	ctx := context.TODO()
+	err := ethSwitchService.DeletePort(ctx, ethSwitchID, createdEthSwitchPortID)
 	if err != nil {
 		t.Errorf("port deletion failed : %s", err)
 	}
 }
 
 func Test_EthernetSwitchService_Delete(t *testing.T) {
+	ctx := context.TODO()
 	// here we create a switch port, to make sure it is removed along with the switch
 	portCreateDto := dtos.EthernetSwitchPortCreateDto{
 		EthernetSwitchPortBaseDto: dtos.EthernetSwitchPortBaseDto{
@@ -348,18 +403,18 @@ func Test_EthernetSwitchService_Delete(t *testing.T) {
 			Name:    "AutoTestingPort",
 		},
 	}
-	switchPort, err := ethSwitchService.CreatePort(context.TODO(), testerSwitchService.InsertedID, portCreateDto)
+	switchPort, err := ethSwitchService.CreatePort(ctx, ethSwitchID, portCreateDto)
 	if err != nil {
 		t.Error(err)
 	}
 
 	// this is where the deletion takes place
-	err = testerSwitchService.GenericServiceDelete(testerSwitchService.InsertedID)
+	err = ethSwitchService.Delete(ctx, ethSwitchID)
 	if err != nil {
 		t.Error(err)
 	}
 	//check port deleting
-	_, err = ethSwitchService.GetPortByID(context.TODO(), testerSwitchService.InsertedID, switchPort.ID)
+	_, err = ethSwitchService.GetPortByID(ctx, ethSwitchID, switchPort.ID)
 	if err == nil {
 		t.Error("successfully get removed switch")
 	}

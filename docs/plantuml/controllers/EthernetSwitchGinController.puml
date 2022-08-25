@@ -1,9 +1,6 @@
 @startuml
 !include GinGenericController.puml
 !include ../services/EthernetSwitchService.puml
-!include ../dto/EthernetSwitch/EthernetSwitchCreateDto.puml
-!include ../dto/EthernetSwitch/EthernetSwitchUpdateDto.puml
-!include ../dto/EthernetSwitch/EthernetSwitchDto.puml
 
 package controllers {
     class EthernetSwitchGinController {

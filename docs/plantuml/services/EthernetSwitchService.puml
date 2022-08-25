@@ -1,37 +1,48 @@
 @startuml
-!include GenericService.puml
+!include ../interfaces/IGenericService.puml
 !include ../repositories/EthernetSwitchRepository.puml
 !include ../repositories/EthernetSwitchPortRepository.puml
 !include ../dto/EthernetSwitch/EthernetSwitchCreateDto.puml
 !include ../dto/EthernetSwitch/EthernetSwitchUpdateDto.puml
 !include ../dto/EthernetSwitch/EthernetSwitchDto.puml
+!include ../dto/EthernetSwitch/EthernetSwitchModelDto.puml
+!include ../dto/EthernetSwitchPort/EthernetSwitchPortCreateDto.puml
+!include ../dto/EthernetSwitchPort/EthernetSwitchPortUpdateDto.puml
+!include ../dto/EthernetSwitchPort/EthernetSwitchPortDto.puml
 
 package app {
     class EthernetSwitchService {
-        -repository IGenericRepository<EthernetSwitch>
+        -switchRepo interfaces.IGenericRepository[domain.EthernetSwitch]
         --
-        -switchPortRepository interfaces.IGenericRepository[domain.EthernetSwitchPort]
+        -portRepo interfaces.IGenericRepository[domain.EthernetSwitchPort]
         --
-        +GetSupportedModels()
+        +GetSupportedModels() []dtos.EthernetSwitchModelDto
+        --
+        +GetPortByID(ctx context.Context, switchID, id uuid.UUID) (dtos.EthernetSwitchPortDto, error)
+        --
+        +CreatePort(ctx context.Context, switchID uuid.UUID, createDto dtos.EthernetSwitchPortCreateDto) (dtos.EthernetSwitchPortDto, error)
+        --
+        +UpdatePort(ctx context.Context, switchID, id uuid.UUID, updateDto dtos.EthernetSwitchPortUpdateDto) (dtos.EthernetSwitchPortDto, error)
+        --
+        +GetPorts(ctx context.Context, switchID uuid.UUID, search, orderBy, orderDirection string, page, pageSize int) (dtos.PaginatedItemsDto[dtos.EthernetSwitchPortDto], error)
+        --
+        +DeletePort(ctx context.Context, switchID, id uuid.UUID) error
     }
-    note left of EthernetSwitchService::switchPortRepository
-    Used to remove ports when removing a switch
-    end note
+    EthernetSwitchService .down.|> IGenericService
 
     note left of EthernetSwitchService::GetSupportedModels
     Get ethernet switch models that supported by system
     end note
 
-    note right of EthernetSwitchService
+    note left of EthernetSwitchService
         Advanced business logic for EthernetSwitch entity:
         DTO Validation
         Checking the uniqueness of serial numbers
         Checking the uniqueness of addresses
     end note
 
-    EthernetSwitchRepository -right- EthernetSwitchService::repository
-    EthernetSwitchPortRepository -right- EthernetSwitchService::switchPortRepository
-    GenericService *-up- EthernetSwitchService
+    EthernetSwitchRepository -right- EthernetSwitchService::switchRepo
+    EthernetSwitchPortRepository -right- EthernetSwitchService::portRepo
 
     EthernetSwitchService .[hidden]up. IGenericRepository
     EthernetSwitchPortRepository .[hidden]down. EthernetSwitchRepository
@@ -44,7 +55,7 @@ package app {
     end note
 
     EthernetSwitchService .down. EthernetSwitchServiceTypes
-    GenericService <.up. EthernetSwitchServiceTypes
+    IGenericService <.up. EthernetSwitchServiceTypes
 
     EthernetSwitchServiceTypes .. EthernetSwitchCreateDto
     EthernetSwitchServiceTypes .. EthernetSwitchUpdateDto

@@ -1,0 +1,13 @@
+@startuml
+
+package dtos {
+    class EthernetSwitchModelDto {
+        +Code string
+        --
+        +Manufacturer string
+        --
+        +Model string
+    }
+}
+
+@enduml

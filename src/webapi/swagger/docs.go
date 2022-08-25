@@ -1242,7 +1242,7 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "model": {
-                    "description": "Series - Switch model",
+                    "description": "Model - Switch model",
                     "type": "string"
                 }
             }

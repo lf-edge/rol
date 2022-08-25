@@ -191,7 +191,7 @@ definitions:
         description: Manufacturer - Switch model manufacturer
         type: string
       model:
-        description: Series - Switch model
+        description: Model - Switch model
         type: string
     type: object
   dtos.EthernetSwitchPortCreateDto:

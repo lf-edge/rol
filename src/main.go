@@ -73,6 +73,8 @@ func main() {
 		fx.Invoke(
 			//Register logrus hooks
 			infrastructure.RegisterLogHooks,
+			//Services initialization
+			services.EthernetSwitchServiceInit,
 			//GIN Controllers registration
 			controllers.RegisterEthernetSwitchController,
 			controllers.RegisterHTTPLogController,

@@ -3,6 +3,7 @@ package tests
 import (
 	"context"
 	"fmt"
+	"github.com/google/uuid"
 	"github.com/sirupsen/logrus"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
@@ -19,7 +20,11 @@ import (
 )
 
 var (
-	testerSwitchService *GenericServiceTest[dtos.EthernetSwitchDto, dtos.EthernetSwitchCreateDto, dtos.EthernetSwitchUpdateDto, domain.EthernetSwitch]
+	testerSwitchService    *GenericServiceTest[dtos.EthernetSwitchDto, dtos.EthernetSwitchCreateDto, dtos.EthernetSwitchUpdateDto, domain.EthernetSwitch]
+	ethSwitchService       *services.EthernetSwitchService
+	ethSwitchRepo          interfaces.IGenericRepository[domain.EthernetSwitch]
+	ethSwitchPortRepo      interfaces.IGenericRepository[domain.EthernetSwitchPort]
+	createdEthSwitchPortID uuid.UUID
 )
 
 func Test_EthernetSwitchService_Prepare(t *testing.T) {
@@ -46,15 +51,22 @@ func Test_EthernetSwitchService_Prepare(t *testing.T) {
 	}
 
 	logger := logrus.New()
-	var repo interfaces.IGenericRepository[domain.EthernetSwitch]
-	repo = infrastructure.NewGormGenericRepository[domain.EthernetSwitch](testGenDb, logger)
-	var service interfaces.IGenericService[dtos.EthernetSwitchDto, dtos.EthernetSwitchCreateDto, dtos.EthernetSwitchUpdateDto, domain.EthernetSwitch]
-	switchPortRepository = infrastructure.NewGormGenericRepository[domain.EthernetSwitchPort](testGenDb, logger)
-	service, err = services.NewEthernetSwitchService(repo, switchPortRepository)
+	ethSwitchRepo = infrastructure.NewGormGenericRepository[domain.EthernetSwitch](testGenDb, logger)
+	ethSwitchPortRepo = infrastructure.NewGormGenericRepository[domain.EthernetSwitchPort](testGenDb, logger)
+	if err != nil {
+		t.Error("failed to create switch port repository")
+	}
+	ethSwitchService, err = services.NewEthernetSwitchService(ethSwitchRepo, ethSwitchPortRepo)
 	if err != nil {
 		t.Errorf("create new service failed:  %q", err)
 	}
-	testerSwitchService = NewGenericServiceTest(service, repo, dbFileName)
+	err = services.EthernetSwitchServiceInit(ethSwitchService)
+	if err != nil {
+		t.Errorf("init service failed:  %q", err)
+	}
+	var service interfaces.IGenericService[dtos.EthernetSwitchDto, dtos.EthernetSwitchCreateDto, dtos.EthernetSwitchUpdateDto, domain.EthernetSwitch]
+	service = ethSwitchService
+	testerSwitchService = NewGenericServiceTest(service, ethSwitchRepo, dbFileName)
 }
 
 func Test_EthernetSwitchService_CreateFailByWrongModel(t *testing.T) {
@@ -177,32 +189,9 @@ func Test_EthernetSwitchService_Update(t *testing.T) {
 	}
 }
 
-func Test_EthernetSwitchService_Delete(t *testing.T) {
-	// here we create a switch port, to make sure it is removed along with the switch
-	portCreateDto := domain.EthernetSwitchPort{
-		Name:             "AutoTestingPort",
-		EthernetSwitchID: testerSwitchService.InsertedID,
-		POEType:          "poe",
-	}
-	switchPort, err := switchPortRepository.Insert(context.TODO(), portCreateDto)
-	if err != nil {
-		t.Error(err)
-	}
-
-	// this is where the deletion takes place
-	err = testerSwitchService.GenericServiceDelete(testerSwitchService.InsertedID)
-	if err != nil {
-		t.Error(err)
-	}
-	//check port cascade deleting
-	_, err = switchPortRepository.GetByID(context.TODO(), switchPort.GetID())
-	if err == nil {
-		t.Error("successfully get removed switch")
-	}
-}
-
-func Test_EthernetSwitchService_Create20(t *testing.T) {
-	for i := 1; i <= 20; i++ {
+func Test_EthernetSwitchService_Create19(t *testing.T) {
+	//we already have one switch
+	for i := 2; i <= 20; i++ {
 		createDto := dtos.EthernetSwitchCreateDto{
 			EthernetSwitchBaseDto: dtos.EthernetSwitchBaseDto{
 				Name:        fmt.Sprintf("AutoTesting_%d", i),
@@ -235,9 +224,155 @@ func Test_EthernetSwitchService_Search(t *testing.T) {
 	}
 }
 
-func Test_EthernetSwitchService_CloseConnectionAndRemoveDb(t *testing.T) {
-	err := testerSwitchService.GenericServiceCloseConnectionAndRemoveDb()
+func Test_EthernetSwitchService_CreatePortWithoutSwitch(t *testing.T) {
+	dto := dtos.EthernetSwitchPortCreateDto{EthernetSwitchPortBaseDto: dtos.EthernetSwitchPortBaseDto{
+		POEType: "poe",
+		Name:    "AutoPort",
+	}}
+	_, err := ethSwitchService.CreatePort(context.TODO(), uuid.New(), dto)
+	if err == nil {
+		t.Errorf("nil error, expected: error when checking the existence of the switch: switch not found")
+	}
+}
+
+func Test_EthernetSwitchService_CreatePort(t *testing.T) {
+	dto := dtos.EthernetSwitchPortCreateDto{EthernetSwitchPortBaseDto: dtos.EthernetSwitchPortBaseDto{
+		POEType: "poe",
+		Name:    "AutoPort",
+	}}
+	var err error
+	port, err := ethSwitchService.CreatePort(context.TODO(), testerSwitchService.InsertedID, dto)
+	if err != nil {
+		t.Errorf("create port failed: %s", err)
+	}
+	createdEthSwitchPortID = port.ID
+}
+
+func Test_EthernetSwitchService_CreatePortFailByNonUniqueName(t *testing.T) {
+	dto := dtos.EthernetSwitchPortCreateDto{EthernetSwitchPortBaseDto: dtos.EthernetSwitchPortBaseDto{
+		POEType: "poe",
+		Name:    "AutoPort",
+	}}
+	_, err := ethSwitchService.CreatePort(context.TODO(), testerSwitchService.InsertedID, dto)
+	if err == nil {
+		t.Errorf("nil error, expected: name uniqueness check error")
+	}
+}
+
+func Test_EthernetSwitchService_CreatePortFailByBadPOEType(t *testing.T) {
+	dto := dtos.EthernetSwitchPortCreateDto{EthernetSwitchPortBaseDto: dtos.EthernetSwitchPortBaseDto{
+		POEType: "poe_",
+		Name:    "AutoPort",
+	}}
+	_, err := ethSwitchService.CreatePort(context.TODO(), testerSwitchService.InsertedID, dto)
+	if err == nil {
+		t.Errorf("nil error, expected: dto POEType field validation error")
+	}
+}
+
+func Test_EthernetSwitchService_UpdatePort(t *testing.T) {
+	dto := dtos.EthernetSwitchPortUpdateDto{EthernetSwitchPortBaseDto: dtos.EthernetSwitchPortBaseDto{
+		POEType: "poe",
+		Name:    "AutoPort2.0",
+	}}
+	_, err := ethSwitchService.UpdatePort(context.TODO(), testerSwitchService.InsertedID, createdEthSwitchPortID, dto)
+	if err != nil {
+		t.Errorf("update port failed: %s", err)
+	}
+
+	port, err := ethSwitchService.GetPortByID(context.TODO(), testerSwitchService.InsertedID, createdEthSwitchPortID)
+	if err != nil {
+		t.Errorf("failed to get port: %s", err)
+	}
+	if port.Name != "AutoPort2.0" {
+		t.Errorf("update port failed: unexpected name, got '%s', expect 'AutoPort2.0'", port.Name)
+	}
+}
+
+func Test_EthernetSwitchService_GetPorts(t *testing.T) {
+	for i := 1; i < 10; i++ {
+		dto := dtos.EthernetSwitchPortCreateDto{EthernetSwitchPortBaseDto: dtos.EthernetSwitchPortBaseDto{
+			POEType: "poe",
+			Name:    fmt.Sprintf("AutoPort_%d", i),
+		}}
+		_, err := ethSwitchService.CreatePort(context.TODO(), testerSwitchService.InsertedID, dto)
+		if err != nil {
+			t.Errorf("create port failed: %s", err)
+		}
+	}
+
+	ports, err := ethSwitchService.GetPorts(context.TODO(), testerSwitchService.InsertedID, "", "", "", 1, 10)
+	if err != nil {
+		t.Errorf("get ports failed: %s", err)
+	}
+	if len(ports.Items) != 10 {
+		t.Errorf("get ports failed: wrong number of items, got %d, expect 10", len(ports.Items))
+	}
+}
+
+func Test_EthernetSwitchService_SearchPort(t *testing.T) {
+	ports, err := ethSwitchService.GetPorts(context.TODO(), testerSwitchService.InsertedID, "Port2.0", "", "", 1, 10)
+	if err != nil {
+		t.Errorf("get ports failed: %s", err)
+	}
+	if len(ports.Items) != 1 {
+		t.Errorf("get ports failed: wrong number of items, got %d, expect 1", len(ports.Items))
+	}
+	if (ports.Items)[0].Name != "AutoPort2.0" {
+		t.Errorf("get port by ID failed: unexpected name, got '%s', expect 'AutoPort2.0'", (ports.Items)[0].Name)
+	}
+}
+
+func Test_EthernetSwitchService_GetPortByID(t *testing.T) {
+	port, err := ethSwitchService.GetPortByID(context.TODO(), testerSwitchService.InsertedID, createdEthSwitchPortID)
+	if err != nil {
+		t.Errorf("get ports failed: %s", err)
+	}
+	if port.Name != "AutoPort2.0" {
+		t.Errorf("get port by ID failed: unexpected name, got '%s', expect 'AutoPort2.0'", port.Name)
+	}
+}
+
+func Test_EthernetSwitchService_DeletePort(t *testing.T) {
+	err := ethSwitchService.DeletePort(context.TODO(), testerSwitchService.InsertedID, createdEthSwitchPortID)
+	if err != nil {
+		t.Errorf("port deletion failed : %s", err)
+	}
+}
+
+func Test_EthernetSwitchService_Delete(t *testing.T) {
+	// here we create a switch port, to make sure it is removed along with the switch
+	portCreateDto := dtos.EthernetSwitchPortCreateDto{
+		EthernetSwitchPortBaseDto: dtos.EthernetSwitchPortBaseDto{
+			POEType: "poe",
+			Name:    "AutoTestingPort",
+		},
+	}
+	switchPort, err := ethSwitchService.CreatePort(context.TODO(), testerSwitchService.InsertedID, portCreateDto)
 	if err != nil {
 		t.Error(err)
+	}
+
+	// this is where the deletion takes place
+	err = testerSwitchService.GenericServiceDelete(testerSwitchService.InsertedID)
+	if err != nil {
+		t.Error(err)
+	}
+	//check port deleting
+	_, err = ethSwitchService.GetPortByID(context.TODO(), testerSwitchService.InsertedID, switchPort.ID)
+	if err == nil {
+		t.Error("successfully get removed switch")
+	}
+}
+
+func Test_EthernetSwitchService_CloseConnectionAndRemoveDb(t *testing.T) {
+	if err := ethSwitchRepo.CloseDb(); err != nil {
+		t.Errorf("close db failed:  %s", err)
+	}
+	if err := ethSwitchPortRepo.CloseDb(); err != nil {
+		t.Errorf("close db failed:  %s", err)
+	}
+	if err := os.Remove("ethernetSwitchService_test.db"); err != nil {
+		t.Errorf("remove db failed:  %s", err)
 	}
 }

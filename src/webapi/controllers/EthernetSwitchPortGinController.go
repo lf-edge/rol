@@ -12,7 +12,7 @@ import (
 
 //EthernetSwitchPortGinController Ethernet switch port API controller for domain.EthernetSwitchPort entity
 type EthernetSwitchPortGinController struct {
-	service *services.EthernetSwitchPortService
+	service *services.EthernetSwitchService
 	logger  *logrus.Logger
 }
 
@@ -22,7 +22,7 @@ type EthernetSwitchPortGinController struct {
 //	log - logrus logger
 //Return
 //	*GinGenericController - instance of generic controller for http logs
-func NewEthernetSwitchPortGinController(service *services.EthernetSwitchPortService, log *logrus.Logger) *EthernetSwitchPortGinController {
+func NewEthernetSwitchPortGinController(service *services.EthernetSwitchService, log *logrus.Logger) *EthernetSwitchPortGinController {
 	ethernetSwitchPortController := &EthernetSwitchPortGinController{
 		service: service,
 		logger:  log,

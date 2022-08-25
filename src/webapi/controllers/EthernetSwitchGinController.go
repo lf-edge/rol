@@ -3,7 +3,6 @@ package controllers
 import (
 	"github.com/gin-gonic/gin"
 	"net/http"
-	"rol/app/interfaces"
 	"rol/app/services"
 	"rol/domain"
 	"rol/dtos"
@@ -143,11 +142,11 @@ func (e *EthernetSwitchGinController) GetSupportedModels(ctx *gin.Context) {
 //	log - logrus logger
 //Return
 //	*GinGenericController - instance of generic controller for ethernet switches
-func NewEthernetSwitchGinController(service interfaces.IGenericService[dtos.EthernetSwitchDto,
-	dtos.EthernetSwitchCreateDto,
-	dtos.EthernetSwitchUpdateDto,
-	domain.EthernetSwitch], log *logrus.Logger) *EthernetSwitchGinController {
-	genContr := NewGinGenericController(service, log)
+func NewEthernetSwitchGinController(service *services.EthernetSwitchService, log *logrus.Logger) *EthernetSwitchGinController {
+	genContr := NewGinGenericController[dtos.EthernetSwitchDto,
+		dtos.EthernetSwitchCreateDto,
+		dtos.EthernetSwitchUpdateDto,
+		domain.EthernetSwitch](service, log)
 	switchContr := &EthernetSwitchGinController{
 		GinGenericController: *genContr,
 	}

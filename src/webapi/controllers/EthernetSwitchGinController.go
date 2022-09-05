@@ -3,13 +3,11 @@ package controllers
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
+	"github.com/sirupsen/logrus"
 	"net/http"
 	"rol/app/services"
 	"rol/dtos"
 	"rol/webapi"
-	"strconv"
-
-	"github.com/sirupsen/logrus"
 )
 
 //EthernetSwitchGinController ethernet switch GIN controller constructor
@@ -51,8 +49,8 @@ func NewEthernetSwitchGinController(service *services.EthernetSwitchService, log
 // @Tags	ethernet-switch
 // @Accept  json
 // @Produce json
-// @param	orderBy			query	string	false	"Order by field"
-// @param	orderDirection	query	string	false	"'asc' or 'desc' for ascending or descending order"
+// @param	orderBy			query	string	false	"Order by field, default value - Name"
+// @param	orderDirection	query	string	false	"'asc' or 'desc' for ascending or descending order, asc by default"
 // @param	search			query	string	false	"Searchable value in entity"
 // @param	page			query	int		false	"Page number"
 // @param	pageSize		query	int		false	"Number of entities per page"
@@ -60,20 +58,14 @@ func NewEthernetSwitchGinController(service *services.EthernetSwitchService, log
 // @Failure	500		"Internal Server Error"
 // @router /ethernet-switch/ [get]
 func (e *EthernetSwitchGinController) GetList(ctx *gin.Context) {
-	orderBy := ctx.DefaultQuery("orderBy", "id")
-	orderDirection := ctx.DefaultQuery("orderDirection", "asc")
-	search := ctx.DefaultQuery("search", "")
-	page := ctx.DefaultQuery("page", "1")
-	pageInt64, err := strconv.ParseInt(page, 10, 64)
+	req := newPaginatedRequestStructForParsing(1, 10, "Name", "asc", "")
+	err := parseGinRequest(ctx, &req)
 	if err != nil {
-		pageInt64 = 1
+		abortWithStatusByErrorType(ctx, err)
+		return
 	}
-	pageSize := ctx.DefaultQuery("pageSize", "10")
-	pageSizeInt64, err := strconv.ParseInt(pageSize, 10, 64)
-	if err != nil {
-		pageSizeInt64 = 10
-	}
-	paginatedList, err := e.service.GetList(ctx, search, orderBy, orderDirection, int(pageInt64), int(pageSizeInt64))
+	paginatedList, err := e.service.GetList(ctx, req.Search, req.OrderBy, req.OrderDirection,
+		req.Page, req.PageSize)
 	handleWithData(ctx, err, paginatedList)
 }
 

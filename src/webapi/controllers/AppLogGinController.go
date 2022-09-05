@@ -3,11 +3,9 @@ package controllers
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
+	"github.com/sirupsen/logrus"
 	"rol/app/services"
 	"rol/webapi"
-	"strconv"
-
-	"github.com/sirupsen/logrus"
 )
 
 //AppLogGinController Application log GIN controller constructor
@@ -54,20 +52,14 @@ func NewAppLogGinController(service *services.AppLogService, log *logrus.Logger)
 // @Failure	500				"Internal Server Error"
 // @router /log/app/ [get]
 func (a *AppLogGinController) GetList(ctx *gin.Context) {
-	orderBy := ctx.DefaultQuery("orderBy", "id")
-	orderDirection := ctx.DefaultQuery("orderDirection", "asc")
-	search := ctx.DefaultQuery("search", "")
-	page := ctx.DefaultQuery("page", "1")
-	pageInt64, err := strconv.ParseInt(page, 10, 64)
+	req := newPaginatedRequestStructForParsing(1, 10, "CreatedAt", "desc", "")
+	err := parseGinRequest(ctx, &req)
 	if err != nil {
-		pageInt64 = 1
+		abortWithStatusByErrorType(ctx, err)
+		return
 	}
-	pageSize := ctx.DefaultQuery("pageSize", "10")
-	pageSizeInt64, err := strconv.ParseInt(pageSize, 10, 64)
-	if err != nil {
-		pageSizeInt64 = 10
-	}
-	paginatedList, err := a.service.GetList(ctx, search, orderBy, orderDirection, int(pageInt64), int(pageSizeInt64))
+	paginatedList, err := a.service.GetList(ctx, req.Search, req.OrderBy, req.OrderDirection,
+		req.Page, req.PageSize)
 	handleWithData(ctx, err, paginatedList)
 }
 

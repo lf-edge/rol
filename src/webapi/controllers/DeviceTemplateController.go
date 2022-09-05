@@ -5,7 +5,6 @@ import (
 	"github.com/sirupsen/logrus"
 	"rol/app/services"
 	"rol/webapi"
-	"strconv"
 )
 
 //DeviceTemplateController device template controller structure
@@ -52,20 +51,14 @@ func RegisterDeviceTemplateController(controller *DeviceTemplateController, serv
 // @Failure	500		"Internal Server Error"
 // @router /template/device/ [get]
 func (d *DeviceTemplateController) GetList(ctx *gin.Context) {
-	orderBy := ctx.DefaultQuery("orderBy", "Name")
-	orderDirection := ctx.DefaultQuery("orderDirection", "asc")
-	search := ctx.DefaultQuery("search", "")
-	page := ctx.DefaultQuery("page", "1")
-	pageInt64, err := strconv.ParseInt(page, 10, 64)
+	req := newPaginatedRequestStructForParsing(1, 10, "Name", "asc", "")
+	err := parseGinRequest(ctx, &req)
 	if err != nil {
-		pageInt64 = 1
+		abortWithStatusByErrorType(ctx, err)
+		return
 	}
-	pageSize := ctx.DefaultQuery("pageSize", "10")
-	pageSizeInt64, err := strconv.ParseInt(pageSize, 10, 64)
-	if err != nil {
-		pageSizeInt64 = 10
-	}
-	paginatedList, err := d.service.GetList(ctx, search, orderBy, orderDirection, int(pageInt64), int(pageSizeInt64))
+	paginatedList, err := d.service.GetList(ctx, req.Search, req.OrderBy, req.OrderDirection,
+		req.Page, req.PageSize)
 	handleWithData(ctx, err, paginatedList)
 }
 

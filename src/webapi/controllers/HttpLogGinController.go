@@ -1,13 +1,10 @@
 package controllers
 
 import (
-	"github.com/google/uuid"
+	"github.com/gin-gonic/gin"
 	"github.com/sirupsen/logrus"
 	"rol/app/services"
 	"rol/webapi"
-	"strconv"
-
-	"github.com/gin-gonic/gin"
 )
 
 //HTTPLogGinController HTTP log controller structure for domain.HTTPLog
@@ -54,20 +51,14 @@ func NewHTTPLogGinController(service *services.HTTPLogService, log *logrus.Logge
 // @Failure	500		"Internal Server Error"
 // @router /log/http/ [get]
 func (h *HTTPLogGinController) GetList(ctx *gin.Context) {
-	orderBy := ctx.DefaultQuery("orderBy", "id")
-	orderDirection := ctx.DefaultQuery("orderDirection", "asc")
-	search := ctx.DefaultQuery("search", "")
-	page := ctx.DefaultQuery("page", "1")
-	pageInt64, err := strconv.ParseInt(page, 10, 64)
+	req := newPaginatedRequestStructForParsing(1, 10, "CreatedAt", "desc", "")
+	err := parseGinRequest(ctx, &req)
 	if err != nil {
-		pageInt64 = 1
+		abortWithStatusByErrorType(ctx, err)
+		return
 	}
-	pageSize := ctx.DefaultQuery("pageSize", "10")
-	pageSizeInt64, err := strconv.ParseInt(pageSize, 10, 64)
-	if err != nil {
-		pageSizeInt64 = 10
-	}
-	paginatedList, err := h.service.GetList(ctx, search, orderBy, orderDirection, int(pageInt64), int(pageSizeInt64))
+	paginatedList, err := h.service.GetList(ctx, req.Search, req.OrderBy, req.OrderDirection,
+		req.Page, req.PageSize)
 	handleWithData(ctx, err, paginatedList)
 }
 
@@ -85,8 +76,7 @@ func (h *HTTPLogGinController) GetList(ctx *gin.Context) {
 // @Failure	500		"Internal Server Error"
 // @router /log/http/{id} [get]
 func (h *HTTPLogGinController) GetByID(ctx *gin.Context) {
-	strID := ctx.Param("id")
-	id, err := uuid.Parse(strID)
+	id, err := parseUUIDParam(ctx, "id")
 	if err != nil {
 		abortWithStatusByErrorType(ctx, err)
 		return

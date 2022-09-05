@@ -7,7 +7,6 @@ import (
 	"rol/app/services"
 	"rol/dtos"
 	"rol/webapi"
-	"strconv"
 )
 
 //EthernetSwitchPortGinController Ethernet switch port API controller for domain.EthernetSwitchPort entity
@@ -82,28 +81,21 @@ func (e *EthernetSwitchPortGinController) GetPortByID(ctx *gin.Context) {
 // @Accept  json
 // @Produce	json
 // @param	id				path	string	true	"Ethernet switch ID"
-// @param	orderBy			query	string	false	"Order by field"
-// @param	orderDirection	query	string	false	"'asc' or 'desc' for ascending or descending order"
-// @param	search			query	string	false	"Searchable value in entity"
-// @param	page			query	int		false	"Page number"
-// @param	pageSize		query	int		false	"Number of entities per page"
+// @param	orderBy			query	string	false	"Order by field, default - Name"
+// @param	orderDirection	query	string	false	"'asc' or 'desc' for ascending or descending order, default - asc"
+// @param	search			query	string	false	"Searchable value in entity, default - """
+// @param	page			query	int		false	"Page number, default - 1"
+// @param	pageSize		query	int		false	"Number of entities per page, default - 10"
 // @Success	200		{object}	dtos.PaginatedItemsDto[dtos.EthernetSwitchPortDto]
 // @Failure	404		"Not Found"
 // @Failure	500		"Internal Server Error"
 // @router /ethernet-switch/{id}/port/ [get]
 func (e *EthernetSwitchPortGinController) GetPorts(ctx *gin.Context) {
-	orderBy := ctx.DefaultQuery("orderBy", "Name")
-	orderDirection := ctx.DefaultQuery("orderDirection", "asc")
-	search := ctx.DefaultQuery("search", "")
-	page := ctx.DefaultQuery("page", "1")
-	pageInt64, err := strconv.ParseInt(page, 10, 64)
+	req := newPaginatedRequestStructForParsing(1, 10, "Name", "asc", "")
+	err := parseGinRequest(ctx, &req)
 	if err != nil {
-		pageInt64 = 1
-	}
-	pageSize := ctx.DefaultQuery("pageSize", "10")
-	pageSizeInt64, err := strconv.ParseInt(pageSize, 10, 64)
-	if err != nil {
-		pageSizeInt64 = 10
+		abortWithStatusByErrorType(ctx, err)
+		return
 	}
 	switchID, err := parseUUIDParam(ctx, "id")
 	if err != nil {
@@ -111,7 +103,8 @@ func (e *EthernetSwitchPortGinController) GetPorts(ctx *gin.Context) {
 		return
 	}
 
-	paginatedList, err := e.service.GetPorts(ctx, switchID, search, orderBy, orderDirection, int(pageInt64), int(pageSizeInt64))
+	paginatedList, err := e.service.GetPorts(ctx, switchID, req.Search, req.OrderBy, req.OrderDirection,
+		req.Page, req.PageSize)
 	handleWithData(ctx, err, paginatedList)
 }
 

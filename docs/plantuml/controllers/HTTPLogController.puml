@@ -1,0 +1,17 @@
+@startuml
+!include ../services/HTTPLogService.puml
+
+package controllers{
+    class HTTPLogController{
+        -service *services.HTTPLogService
+        --
+        -logger  *logrus.Logger
+        --
+        +GetList(ctx *gin.Context)
+        --
+        +GetByID(ctx *gin.Context)
+    }
+}
+
+HTTPLogController::service -- HTTPLogService
+@enduml

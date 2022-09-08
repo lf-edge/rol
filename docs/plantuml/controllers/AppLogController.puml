@@ -1,0 +1,17 @@
+@startuml
+!include ../services/LogService.puml
+
+package controllers{
+    class AppLogController{
+        -service *services.AppLogService
+        --
+        -logger  *logrus.Logger
+        --
+        +GetList(ctx *gin.Context)
+        --
+        +GetByID(ctx *gin.Context)
+    }
+}
+
+AppLogController::service -- LogService
+@enduml

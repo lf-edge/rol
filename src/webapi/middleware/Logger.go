@@ -57,7 +57,17 @@ func Logger(logger logrus.FieldLogger, notLogged ...string) gin.HandlerFunc {
 		start := time.Now()
 		blw := &bodyLogWriter{body: bytes.NewBufferString(""), ResponseWriter: c.Writer}
 		c.Writer = blw
+
+		var bodyBytes []byte
+		if c.Request.Body != nil {
+			bodyBytes, _ = ioutil.ReadAll(c.Request.Body)
+		}
+		reqBody := string(bodyBytes)
+		// Restore the io.ReadCloser to its original state
+		c.Request.Body = ioutil.NopCloser(bytes.NewBuffer(bodyBytes))
+
 		c.Next()
+
 		if strings.Contains(path, "/swagger/") {
 			return
 		}
@@ -67,6 +77,7 @@ func Logger(logger logrus.FieldLogger, notLogged ...string) gin.HandlerFunc {
 		clientIP := c.ClientIP()
 		clientUserAgent := c.Request.UserAgent()
 		referer := c.Request.Referer()
+		respBody := blw.body.String()
 
 		if _, ok := skip[path]; ok {
 			return
@@ -108,15 +119,6 @@ func Logger(logger logrus.FieldLogger, notLogged ...string) gin.HandlerFunc {
 		}
 		domain := c.Request.Host
 
-		var bodyBytes []byte
-		if c.Request.Body != nil {
-			bodyBytes, _ = ioutil.ReadAll(c.Request.Body)
-		}
-		// Restore the io.ReadCloser to its original state
-		c.Request.Body = ioutil.NopCloser(bytes.NewBuffer(bodyBytes))
-
-		respBody := blw.body.String()
-
 		var respHeadersArr []string
 		for header := range c.Writer.Header() {
 			respHeadersArr = append(respHeadersArr, header)
@@ -138,7 +140,7 @@ func Logger(logger logrus.FieldLogger, notLogged ...string) gin.HandlerFunc {
 			"userAgent":       clientUserAgent,
 			"queryParams":     queryParams,
 			"headers":         headersString,
-			"requestBody":     string(bodyBytes),
+			"requestBody":     reqBody,
 			"requestID":       requestID,
 			"customHeaders":   customHeadersString,
 			"responseBody":    respBody,

@@ -1,11 +1,8 @@
 package controllers
 
 import (
-	"bytes"
-	"encoding/json"
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
-	"io/ioutil"
 	"net/http"
 	"rol/app/errors"
 	"rol/dtos"
@@ -20,19 +17,14 @@ func parseUUIDParam(ctx *gin.Context, paramName string) (uuid.UUID, error) {
 	return uuid, nil
 }
 
-//getRequestDtoAndRestoreBody parse json body to dto object and restore body in context
+//getRequestDto parse json body to dto object and restore body in context
 //for logging it later in middleware
-func getRequestDtoAndRestoreBody[reqDtoType any](ctx *gin.Context) (reqDtoType, error) {
+func getRequestDto[reqDtoType any](ctx *gin.Context) (reqDtoType, error) {
 	reqDto := new(reqDtoType)
 	err := ctx.ShouldBindJSON(reqDto)
 	if err != nil {
 		return *reqDto, errors.Validation.New("incorrect json")
 	}
-	buf, err := json.Marshal(reqDto)
-	if err != nil {
-		return *reqDto, errors.Internal.New("failed to marshal object back tp json for logging")
-	}
-	ctx.Request.Body = ioutil.NopCloser(bytes.NewBuffer(buf))
 	return *reqDto, nil
 }
 

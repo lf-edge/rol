@@ -6,7 +6,7 @@ package domain {
     class HostNetworkVlan {
         +VlanID int
         --
-        +Master string
+        +Parent string
     }
 
     HostNetworkVlan --* HostNetworkLink

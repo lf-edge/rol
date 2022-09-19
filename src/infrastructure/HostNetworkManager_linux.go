@@ -54,7 +54,7 @@ func (h *HostNetworkManager) parseLinkAddr(link netlink.Link) ([]net.IPNet, erro
 	return out, nil
 }
 
-func (h *HostNetworkManager) getMasterName(link netlink.Link) (string, error) {
+func (h *HostNetworkManager) getParentName(link netlink.Link) (string, error) {
 	parent, err := netlink.LinkByIndex(link.Attrs().ParentIndex)
 	if err != nil {
 		return "", errors.Internal.Wrap(err, "get host interface by index failed")
@@ -80,7 +80,7 @@ func (h *HostNetworkManager) mapLink(link netlink.Link) (interfaces.IHostNetwork
 		if err != nil {
 			return nil, errors.Internal.Wrap(err, "error parsing link addresses")
 		}
-		master, err := h.getMasterName(link)
+		parent, err := h.getParentName(link)
 		if err != nil {
 			return nil, errors.Internal.Wrap(err, "error getting parent name")
 		}
@@ -91,7 +91,7 @@ func (h *HostNetworkManager) mapLink(link netlink.Link) (interfaces.IHostNetwork
 				Addresses: addresses,
 			},
 			VlanID: link.(*netlink.Vlan).VlanId,
-			Master: master,
+			Parent: parent,
 		}
 		return vlan, nil
 	}
@@ -349,7 +349,7 @@ func (h *HostNetworkManager) loadVlanConfiguration(config domain.HostNetworkConf
 		}
 		vlanExist := h.vlanExistOnHost(hostLinks, vlan.Name)
 		if !vlanExist {
-			vlanName, err := h.CreateVlan(vlan.Master, vlan.VlanID)
+			vlanName, err := h.CreateVlan(vlan.Parent, vlan.VlanID)
 			if err != nil {
 				return errors.Internal.Wrap(err, "error when creating a vlan")
 			}

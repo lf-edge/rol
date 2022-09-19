@@ -12,7 +12,7 @@ import (
 )
 
 const vlanNotFound = "vlan is not exist on the host"
-const masterNotFound = "master interface is not exist on the host"
+const parentNotFound = "parent interface is not exist on the host"
 const setAddressesFailed = "set addresses to the vlan fail"
 
 //HostNetworkVlanService is a struct for host network vlan service
@@ -92,15 +92,15 @@ func (h *HostNetworkVlanService) Create(createDto dtos.HostNetworkVlanCreateDto)
 	if err != nil {
 		return dto, err
 	}
-	_, err = h.manager.GetByName(createDto.Master)
+	_, err = h.manager.GetByName(createDto.Parent)
 	if err != nil {
 		if !errors.As(err, errors.NotFound) {
 			return dto, errors.Internal.Wrap(err, "failed to check existence of master vlan interface")
 		}
 		err1 := errors.Validation.New(errors.ValidationErrorMessage)
-		return dto, errors.AddErrorContext(err1, "Master", masterNotFound)
+		return dto, errors.AddErrorContext(err1, "Parent", parentNotFound)
 	}
-	vlanName, err := h.manager.CreateVlan(createDto.Master, createDto.VlanID)
+	vlanName, err := h.manager.CreateVlan(createDto.Parent, createDto.VlanID)
 	if err != nil {
 		return dto, errors.Internal.Wrap(err, "error creating vlan")
 	}

@@ -8,6 +8,6 @@ type HostNetworkVlanDto struct {
 	Addresses []string
 	//VlanID id of the vlan
 	VlanID int
-	//Master interface name
-	Master string
+	//Parent interface name
+	Parent string
 }

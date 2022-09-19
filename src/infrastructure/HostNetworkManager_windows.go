@@ -50,6 +50,16 @@ func (h *HostNetworkManager) CreateVlan(_ string, _ int) (string, error) {
 	panic("not implemented")
 }
 
+//SetLinkUp enables the link
+//
+//Params:
+//	linkName - name of the link
+//Return:
+//	error - if an error occurs, otherwise nil
+func (h *HostNetworkManager) SetLinkUp(_ string) error {
+	panic("not implemented")
+}
+
 //DeleteLinkByName deletes interface on host by its name
 //
 //Params:

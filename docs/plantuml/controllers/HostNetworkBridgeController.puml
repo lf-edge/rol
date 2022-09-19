@@ -1,0 +1,49 @@
+@startuml
+
+!include ../services/HostNetworkService.puml
+remove HostNetworkVlanDto
+remove HostNetworkVlanUpdateDto
+remove HostNetworkVlanCreateDto
+
+package controllers {
+    class HostNetworkBridgeController {
+        -service *services.HostNetworkService
+        --
+        -logger  *logrus.Logger
+        --
+        +GetList(ctx *gin.Context)
+        --
+        +GetByName(ctx *gin.Context)
+        --
+        +Create(ctx *gin.Context)
+        --
+        +Update(ctx *gin.Context)
+        --
+        +Delete(ctx *gin.Context)
+    }
+
+    note left of HostNetworkBridgeController::GetList
+    Get list of bridges on the host
+    end note
+
+    note left of HostNetworkBridgeController::GetByName
+    Get bridge by interface full name on the host
+    end note
+
+    note left of HostNetworkBridgeController::Create
+    Create new bridge on the host
+    end note
+
+    note left of HostNetworkBridgeController::Update
+    Update bridge on the host
+    end note
+
+    note left of HostNetworkBridgeController::Delete
+    Delete bridge interface on the host
+    end note
+
+
+    HostNetworkService -up- HostNetworkBridgeController::service
+}
+
+@enduml

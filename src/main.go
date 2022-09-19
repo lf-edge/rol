@@ -58,7 +58,7 @@ func main() {
 			services.NewHTTPLogService,
 			services.NewAppLogService,
 			services.NewDeviceTemplateService,
-			services.NewHostNetworkVlanService,
+			services.NewHostNetworkService,
 			// WEB API -> GIN Server
 			webapi.NewGinHTTPServer,
 			// WEB API -> GIN Controllers

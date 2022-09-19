@@ -1,10 +1,10 @@
 @startuml
 
-!include ../services/HostNetworkVlanService.puml
+!include ../services/HostNetworkService.puml
 
 package controllers {
     class HostNetworkVlanController {
-        -service *services.HostNetworkVlanService
+        -service *services.HostNetworkService
         --
         -logger  *logrus.Logger
         --
@@ -40,7 +40,7 @@ package controllers {
     end note
 
 
-    HostNetworkVlanService -up- HostNetworkVlanController::service
+    HostNetworkService -up- HostNetworkVlanController::service
 }
 
 @enduml

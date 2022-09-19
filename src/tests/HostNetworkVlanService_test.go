@@ -66,7 +66,7 @@ func Test_HostNetworkVlanService_CreateVlan(t *testing.T) {
 func Test_HostNetworkVlanService_CreateVlanWithIncorrectID(t *testing.T) {
 	createDto := dtos.HostNetworkVlanCreateDto{
 		VlanID:    5000,
-		Master:    serviceMasterInterface,
+		Parent:    serviceMasterInterface,
 		Addresses: []string{},
 	}
 	dto, err := vlanService.Create(createDto)
@@ -79,7 +79,7 @@ func Test_HostNetworkVlanService_CreateVlanWithIncorrectID(t *testing.T) {
 func Test_HostNetworkVlanService_CreateVlanWithIncorrectMasterName(t *testing.T) {
 	createDto := dtos.HostNetworkVlanCreateDto{
 		VlanID:    133,
-		Master:    " incorrect",
+		Parent:    " incorrect",
 		Addresses: []string{},
 	}
 	dto, err := vlanService.Create(createDto)
@@ -96,7 +96,7 @@ func Test_HostNetworkVlanService_CreateVlanWithIncorrectMasterName(t *testing.T)
 func Test_HostNetworkVlanService_CreateVlanWithNotExistedMasterInterface(t *testing.T) {
 	createDto := dtos.HostNetworkVlanCreateDto{
 		VlanID:    133,
-		Master:    "notexisted",
+		Parent:    "notexisted",
 		Addresses: []string{},
 	}
 	dto, err := vlanService.Create(createDto)

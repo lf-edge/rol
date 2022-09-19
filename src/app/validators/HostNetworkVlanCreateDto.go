@@ -15,7 +15,7 @@ func ValidateHostNetworkVlanCreateDto(dto dtos.HostNetworkVlanCreateDto) error {
 			validation.Max(4098),
 			validation.Min(1),
 		}...),
-		validation.Field(&dto.Master, []validation.Rule{
+		validation.Field(&dto.Parent, []validation.Rule{
 			validation.Required,
 			validation.By(trimValidation),
 			validation.By(containsSpacesValidation),

@@ -5,6 +5,6 @@ type HostNetworkVlan struct {
 	HostNetworkLink
 	//VlanID vlan ID
 	VlanID int
-	//Master name of master network interface
-	Master string
+	//Parent name of parent network interface
+	Parent string
 }

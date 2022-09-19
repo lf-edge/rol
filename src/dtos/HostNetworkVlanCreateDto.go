@@ -4,8 +4,8 @@ package dtos
 type HostNetworkVlanCreateDto struct {
 	//VlanID vlan id
 	VlanID int
-	//Master interface name
-	Master string
+	//Parent interface name
+	Parent string
 	//Addresses list
 	Addresses []string
 }

@@ -1,0 +1,11 @@
+@startuml HTTPLogDto
+
+package dtos {
+    class HostNetworkBridgeBaseDto {
+    +Addresses []string
+    --
+    +Slaves []string
+    }
+}
+
+@enduml

@@ -3,6 +3,10 @@
 !include ../dto/HostNetworkVlan/HostNetworkVlanDto.puml
 !include ../dto/HostNetworkVlan/HostNetworkVlanCreateDto.puml
 !include ../dto/HostNetworkVlan/HostNetworkVlanUpdateDto.puml
+!include ../dto/HostNetworkBridge/HostNetworkBridgeDto.puml
+!include ../dto/HostNetworkBridge/HostNetworkBridgeCreateDto.puml
+!include ../dto/HostNetworkBridge/HostNetworkBridgeUpdateDto.puml
+
 !include ../managers/HostNetworkManager.puml
 
 package app {
@@ -18,6 +22,16 @@ package app {
         +UpdateVlan(name string, updateDto HostNetworkVlanUpdateDto) (HostNetworkVlanDto, error)
         --
         +DeleteVlan(name string) error
+        --
+        +GetBridgeList() ([]HostNetworkBridgeDto, error)
+        --
+        +GetBridgeByName(name string) (dtos.HostNetworkBridgeDto, error)
+        --
+        +CreateBridge(createDto dtos.HostNetworkBridgeCreateDto) (dtos.HostNetworkBridgeDto, error)
+        --
+        +UpdateBridge(bridgeName string, updateDto dtos.HostNetworkBridgeUpdateDto) (dtos.HostNetworkBridgeDto, error)
+        --
+        +DeleteBridge(bridgeName string) error
     }
     HostNetworkService::manager -- HostNetworkManager
 
@@ -39,6 +53,26 @@ package app {
 
     note right of HostNetworkService::DeleteVlan
         Delete VLAN interface from host
+    end note
+
+    note right of HostNetworkService::GetBridgeList
+        Get list of bridge interfaces on the host
+    end note
+
+    note right of HostNetworkService::GetBridgeByName
+        Get bridge interface by Name
+    end note
+
+    note right of HostNetworkService::CreateBridge
+        Create new bridge interface on the host
+    end note
+
+    note right of HostNetworkService::UpdateBridge
+        Update bridge interface on the host
+    end note
+
+    note right of HostNetworkService::DeleteBridge
+        Delete bridge interface from host
     end note
 }
 

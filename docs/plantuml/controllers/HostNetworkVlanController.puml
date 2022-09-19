@@ -1,6 +1,10 @@
 @startuml
 
 !include ../services/HostNetworkService.puml
+remove HostNetworkBridgeDto
+remove HostNetworkBridgeUpdateDto
+remove HostNetworkBridgeCreateDto
+remove HostNetworkBridgeBaseDto
 
 package controllers {
     class HostNetworkVlanController {

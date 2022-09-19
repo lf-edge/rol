@@ -104,6 +104,10 @@ func (h *HostNetworkVlanService) Create(createDto dtos.HostNetworkVlanCreateDto)
 	if err != nil {
 		return dto, errors.Internal.Wrap(err, "error creating vlan")
 	}
+	err = h.manager.SetLinkUp(vlanName)
+	if err != nil {
+		return dto, errors.Internal.Wrap(err, "set vlan up failed")
+	}
 	link, err := h.manager.GetByName(vlanName)
 	if err != nil {
 		return dto, errors.Internal.Wrap(err, "error getting vlan by name")

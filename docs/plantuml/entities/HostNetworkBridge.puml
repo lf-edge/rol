@@ -1,0 +1,21 @@
+@startuml
+
+!include HostNetworkLink.puml
+
+package domain {
+    class HostNetworkBridge {
+        +Slaves []string
+        --
+        +GetSlaves() []string
+    }
+
+    HostNetworkBridge --* HostNetworkLink
+
+    note right of HostNetworkBridge::GetSlaves
+        Get an array of bridge slaves
+    end note
+}
+
+
+
+@enduml

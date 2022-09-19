@@ -50,6 +50,17 @@ func (h *HostNetworkManager) CreateVlan(_ string, _ int) (string, error) {
 	panic("not implemented")
 }
 
+//CreateBridge creates bridge on host
+//
+//Params:
+//	name - new bridge name
+//Return:
+//	string - new bridge name that will be rol.br.{name}
+//	error - if an error occurs, otherwise nil
+func (h *HostNetworkManager) CreateBridge(_ string) (string, error) {
+	panic("not implemented")
+}
+
 //SetLinkUp enables the link
 //
 //Params:
@@ -59,6 +70,34 @@ func (h *HostNetworkManager) CreateVlan(_ string, _ int) (string, error) {
 func (h *HostNetworkManager) SetLinkUp(_ string) error {
 	panic("not implemented")
 }
+
+//SetLinkMaster set master for link
+//
+//Params:
+//	slaveName - name of link that will be slave
+//	masterName - name of link that will be master for the slave
+//Return:
+//	error - if an error occurs, otherwise nil
+func (h *HostNetworkManager) SetLinkMaster(_, _ string) error {
+	panic("not implemented")
+}
+
+//UnsetLinkMaster removes the master of the link
+//
+//Params:
+//	linkName - name of the link
+//Return:
+//	error - if an error occurs, otherwise nil
+func (h *HostNetworkManager) UnsetLinkMaster(_ string) error {
+	panic("not implemented")
+}
+
+//DeleteLinkByName deletes interface on host by its name
+//
+//Params:
+//	name - interface name
+//Return
+//	error - if an error occurs, otherwise nil
 
 //DeleteLinkByName deletes interface on host by its name
 //

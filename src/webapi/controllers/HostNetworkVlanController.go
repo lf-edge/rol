@@ -10,7 +10,7 @@ import (
 
 //HostNetworkVlanController host network vlan API controller
 type HostNetworkVlanController struct {
-	service *services.HostNetworkVlanService
+	service *services.HostNetworkService
 	logger  *logrus.Logger
 }
 
@@ -21,7 +21,7 @@ type HostNetworkVlanController struct {
 //	log - logrus logger
 //Return:
 //	*HostNetworkVlanController - instance of host network vlan controller
-func NewHostNetworkVlanController(vlanService *services.HostNetworkVlanService, log *logrus.Logger) *HostNetworkVlanController {
+func NewHostNetworkVlanController(vlanService *services.HostNetworkService, log *logrus.Logger) *HostNetworkVlanController {
 	return &HostNetworkVlanController{
 		service: vlanService,
 		logger:  log,
@@ -53,7 +53,7 @@ func RegisterHostNetworkVlanController(controller *HostNetworkVlanController, se
 // @Failure	500		"Internal Server Error"
 // @router	/host/network/vlan/	[get]
 func (h *HostNetworkVlanController) GetList(ctx *gin.Context) {
-	vlanList, err := h.service.GetList()
+	vlanList, err := h.service.GetVlanList()
 	handleWithData(ctx, err, vlanList)
 }
 
@@ -74,7 +74,7 @@ func (h *HostNetworkVlanController) GetList(ctx *gin.Context) {
 // @router	/host/network/vlan/{name}	[get]
 func (h *HostNetworkVlanController) GetByName(ctx *gin.Context) {
 	name := ctx.Param("name")
-	vlan, err := h.service.GetByName(name)
+	vlan, err := h.service.GetVlanByName(name)
 	handleWithData(ctx, err, vlan)
 }
 
@@ -100,7 +100,7 @@ func (h *HostNetworkVlanController) Create(ctx *gin.Context) {
 		return
 	}
 
-	vlanDto, err := h.service.Create(reqDto)
+	vlanDto, err := h.service.CreateVlan(reqDto)
 	handleWithData(ctx, err, vlanDto)
 }
 
@@ -114,8 +114,8 @@ func (h *HostNetworkVlanController) Create(ctx *gin.Context) {
 // @Tags	host
 // @Accept	json
 // @Produce	json
+// @Param	name	path		string							true	"Vlan name"
 // @Param	request	body		dtos.HostNetworkVlanUpdateDto	true	"Host vlan fields"
-// @param	name	path		string							false	"Vlan name"
 // @Success	200		{object}	dtos.HostNetworkVlanDto
 // @Failure	400		{object}	dtos.ValidationErrorDto
 // @Failure	404		"Not Found"
@@ -128,7 +128,7 @@ func (h *HostNetworkVlanController) Update(ctx *gin.Context) {
 		return
 	}
 	name := ctx.Param("name")
-	vlanDto, err := h.service.Update(name, reqDto)
+	vlanDto, err := h.service.UpdateVlan(name, reqDto)
 	handleWithData(ctx, err, vlanDto)
 }
 
@@ -149,6 +149,6 @@ func (h *HostNetworkVlanController) Update(ctx *gin.Context) {
 // @router	/host/network/vlan/{name}	[delete]
 func (h *HostNetworkVlanController) Delete(ctx *gin.Context) {
 	name := ctx.Param("name")
-	err := h.service.Delete(name)
+	err := h.service.DeleteVlan(name)
 	handle(ctx, err)
 }

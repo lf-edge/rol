@@ -6,4 +6,6 @@ type HostNetworkConfig struct {
 	Devices []HostNetworkDevice
 	//Vlans slice of HostNetworkVlan
 	Vlans []HostNetworkVlan
+	//Bridges slice of HostNetworkBridge
+	Bridges []HostNetworkBridge
 }

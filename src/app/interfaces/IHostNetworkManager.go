@@ -27,6 +27,14 @@ type IHostNetworkManager interface {
 	//	string - new vlan name that will be {master}.{vlanID}
 	//	error - if an error occurs, otherwise nil
 	CreateVlan(master string, vlanID int) (string, error)
+	//CreateBridge creates bridge on host
+	//
+	//Params:
+	//	name - new bridge name
+	//Return:
+	//	string - new bridge name that will be rol.br.{name}
+	//	error - if an error occurs, otherwise nil
+	CreateBridge(name string) (string, error)
 	//SetLinkUp enables the link
 	//
 	//Params:
@@ -34,6 +42,21 @@ type IHostNetworkManager interface {
 	//Return:
 	//	error - if an error occurs, otherwise nil
 	SetLinkUp(linkName string) error
+	//SetLinkMaster set master for link
+	//
+	//Params:
+	//	slaveName - name of link that will be slave
+	//	masterName - name of link that will be slave
+	//Return:
+	//	error - if an error occurs, otherwise nil
+	SetLinkMaster(slaveName, masterName string) error
+	//UnsetLinkMaster removes the master of the link
+	//
+	//Params:
+	//	linkName - name of the link
+	//Return:
+	//	error - if an error occurs, otherwise nil
+	UnsetLinkMaster(linkName string) error
 	//DeleteLinkByName deletes interface on host by its name
 	//
 	//Params:

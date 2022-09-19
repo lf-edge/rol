@@ -2,16 +2,20 @@
 
 !include HostNetworkDevice.puml
 !include HostNetworkVlan.puml
+!include HostNetworkBridge.puml
 
 package domain {
     class HostNetworkConfig {
         +Devices []HostNetworkDevice
         --
         +Vlans   []HostNetworkVlan
+        --
+        +Bridges []HostNetworkBridge
     }
 
     HostNetworkConfig::Devices -- HostNetworkDevice
     HostNetworkConfig::Vlans -- HostNetworkVlan
+    HostNetworkConfig::Bridges -- HostNetworkBridge
 }
 
 @enduml

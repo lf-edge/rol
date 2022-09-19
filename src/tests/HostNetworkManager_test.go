@@ -13,6 +13,7 @@ import (
 )
 
 type networkManagerTester struct {
+	bridgeName     string
 	vlanName       string
 	vlanID         int
 	manager        interfaces.IHostNetworkManager
@@ -89,6 +90,48 @@ func Test_HostNetworkManager_CreateVlan(t *testing.T) {
 	}
 }
 
+func Test_HostNetworkManager_CreateBridge(t *testing.T) {
+	var err error
+	netManagerTester.bridgeName, err = netManagerTester.manager.CreateBridge("mtest")
+	if err != nil {
+		t.Errorf("error creating bridge: %s", err.Error())
+	}
+	links, err := netManagerTester.manager.GetList()
+	bridgeFound := false
+	for _, link := range links {
+		if link.GetName() == netManagerTester.bridgeName {
+			bridgeFound = true
+		}
+	}
+	if !bridgeFound {
+		t.Error("created bridge not found")
+	}
+	if !netManagerTester.manager.HasUnsavedChanges() {
+		t.Error("after creating bridge, we must have unsaved changes")
+	}
+}
+
+func Test_HostNetworkManager_VlanSetMaster(t *testing.T) {
+	err := netManagerTester.manager.SetLinkMaster(netManagerTester.vlanName, netManagerTester.bridgeName)
+	if err != nil {
+		t.Errorf("failed to set vlan master: %s", err.Error())
+	}
+	bridge, err := netManagerTester.manager.GetByName(netManagerTester.bridgeName)
+	if err != nil {
+		t.Errorf("error getting by name: %s", err.Error())
+	}
+	slaves := bridge.(domain.HostNetworkBridge).GetSlaves()
+	slaveFound := false
+	for _, slave := range slaves {
+		if slave == netManagerTester.vlanName {
+			slaveFound = true
+		}
+	}
+	if !slaveFound {
+		t.Error("the slave that was added was not found")
+	}
+}
+
 func Test_HostNetworkManager_VlanAddrAdd(t *testing.T) {
 	ip, ipNet, err := net.ParseCIDR("192.111.111.111/24")
 	if err != nil {
@@ -133,8 +176,32 @@ func Test_HostNetworkManager_SaveConfiguration(t *testing.T) {
 	if !vlanFound {
 		t.Error("created vlan not found in configuration file")
 	}
+	bridgeFound := false
+	for _, bridge := range conf.Bridges {
+		if bridge.Name == netManagerTester.bridgeName {
+			bridgeFound = true
+		}
+	}
+	if !bridgeFound {
+		t.Error("created bridge not found in configuration file")
+	}
 	if netManagerTester.manager.HasUnsavedChanges() {
 		t.Error("we shouldn't have unsaved changes after saving configuration")
+	}
+}
+
+func Test_HostNetworkManager_VlanSetNoMaster(t *testing.T) {
+	err := netManagerTester.manager.UnsetLinkMaster(netManagerTester.vlanName)
+	if err != nil {
+		t.Error("failed set no master for vlan")
+	}
+	bridge, err := netManagerTester.manager.GetByName(netManagerTester.bridgeName)
+	if err != nil {
+		t.Error("failed to get bridge")
+	}
+	slaves := bridge.(domain.HostNetworkBridge).GetSlaves()
+	if len(slaves) > 0 {
+		t.Error("bridge have slaves after vlan was set no master")
 	}
 }
 
@@ -161,11 +228,10 @@ func Test_HostNetworkManager_VlanAddrDelete(t *testing.T) {
 }
 
 func Test_HostNetworkManager_ResetChangesWithDeletedVlanAddrButNotSaved(t *testing.T) {
-	ip, ipNet, err := net.ParseCIDR("192.111.111.111/24")
+	ip, _, err := net.ParseCIDR("192.111.111.111/24")
 	if err != nil {
 		t.Errorf("parse CIDR failed: %s", err.Error())
 	}
-	ipNet.IP = ip
 
 	err = netManagerTester.manager.ResetChanges()
 	if err != nil {

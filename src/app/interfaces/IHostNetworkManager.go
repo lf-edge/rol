@@ -27,6 +27,13 @@ type IHostNetworkManager interface {
 	//	string - new vlan name that will be {master}.{vlanID}
 	//	error - if an error occurs, otherwise nil
 	CreateVlan(master string, vlanID int) (string, error)
+	//SetLinkUp enables the link
+	//
+	//Params:
+	//	linkName - name of the link
+	//Return:
+	//	error - if an error occurs, otherwise nil
+	SetLinkUp(linkName string) error
 	//DeleteLinkByName deletes interface on host by its name
 	//
 	//Params:

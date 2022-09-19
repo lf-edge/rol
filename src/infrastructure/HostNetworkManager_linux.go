@@ -183,6 +183,24 @@ func (h *HostNetworkManager) CreateVlan(master string, vlanID int) (string, erro
 	return vlanName, nil
 }
 
+//SetLinkUp enables the link
+//
+//Params:
+//	linkName - name of the link
+//Return:
+//	error - if an error occurs, otherwise nil
+func (h *HostNetworkManager) SetLinkUp(linkName string) error {
+	link, err := netlink.LinkByName(linkName)
+	if err != nil {
+		return errors.Internal.Wrap(err, "getting link by name failed")
+	}
+	err = netlink.LinkSetUp(link)
+	if err != nil {
+		return errors.Internal.Wrap(err, "link set up failed")
+	}
+	return nil
+}
+
 //DeleteLinkByName deletes interface on host by its name
 //
 //Params:

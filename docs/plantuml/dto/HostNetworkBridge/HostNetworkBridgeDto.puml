@@ -1,0 +1,12 @@
+@startuml HTTPLogDto
+
+!include HostNetworkBridgeBaseDto.puml
+
+package dtos {
+    class HostNetworkBridgeDto {
+        +Name string
+    }
+    HostNetworkBridgeDto --* HostNetworkBridgeBaseDto
+}
+
+@enduml

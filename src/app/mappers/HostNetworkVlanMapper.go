@@ -16,8 +16,8 @@ func MapHostNetworkVlanToDto(entity domain.HostNetworkVlan, dto *dtos.HostNetwor
 	dto.Parent = entity.Parent
 }
 
-//MapHostNetworkCreateDtoToEntity map HostNetworkCreateDto dto to entity
-func MapHostNetworkCreateDtoToEntity(dto dtos.HostNetworkVlanCreateDto, entity *domain.HostNetworkVlan) {
+//MapHostNetworkVlanCreateDtoToEntity map HostNetworkCreateDto dto to entity
+func MapHostNetworkVlanCreateDtoToEntity(dto dtos.HostNetworkVlanCreateDto, entity *domain.HostNetworkVlan) {
 	entity.VlanID = dto.VlanID
 	entity.Parent = dto.Parent
 	entity.Type = "vlan"
@@ -31,8 +31,8 @@ func MapHostNetworkCreateDtoToEntity(dto dtos.HostNetworkVlanCreateDto, entity *
 	}
 }
 
-//MapHostNetworkUpdateDtoToEntity map HostNetworkUpdateDto dto to entity
-func MapHostNetworkUpdateDtoToEntity(dto dtos.HostNetworkVlanUpdateDto, entity *domain.HostNetworkVlan) {
+//MapHostNetworkVlanUpdateDtoToEntity map HostNetworkUpdateDto dto to entity
+func MapHostNetworkVlanUpdateDtoToEntity(dto dtos.HostNetworkVlanUpdateDto, entity *domain.HostNetworkVlan) {
 	entity.Addresses = []net.IPNet{}
 	for _, addr := range dto.Addresses {
 		ip, address, err := net.ParseCIDR(addr)

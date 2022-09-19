@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="1202px" preserveAspectRatio="none" style="width:2809px;height:1202px;background:#FFFFFF;" version="1.1" viewBox="0 0 2809 1202" width="2809px" zoomAndPan="magnify"><defs/><g><!--MD5=[ac65c812e7532cbcd7b9effd958b962e]
+cluster dtos--><g id="cluster_dtos"><path d="M1446.5,30.5 L1478.5,30.5 A3.75,3.75 0 0 1 1481,33 L1488,54.1094 L2151.5,54.1094 A2.5,2.5 0 0 1 2154,56.6094 L2154,313.5 A2.5,2.5 0 0 1 2151.5,316 L1446.5,316 A2.5,2.5 0 0 1 1444,313.5 L1444,33 A2.5,2.5 0 0 1 1446.5,30.5 " style="stroke:#000000;stroke-width:1.5;fill:none;"/><line style="stroke:#000000;stroke-width:1.5;fill:none;" x1="1444" x2="1488" y1="54.1094" y2="54.1094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="31" x="1448" y="47.0332">dtos</text></g><!--MD5=[d5ac3844f66b12d9e08170e47495e096]
+cluster app--><g id="cluster_app"><path d="M64.5,634 L91.5,634 A3.75,3.75 0 0 1 94,636.5 L101,657.6094 L2799.5,657.6094 A2.5,2.5 0 0 1 2802,660.1094 L2802,1192.5 A2.5,2.5 0 0 1 2799.5,1195 L64.5,1195 A2.5,2.5 0 0 1 62,1192.5 L62,636.5 A2.5,2.5 0 0 1 64.5,634 " style="stroke:#000000;stroke-width:1.5;fill:none;"/><line style="stroke:#000000;stroke-width:1.5;fill:none;" x1="62" x2="101" y1="657.6094" y2="657.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="26" x="66" y="650.5332">app</text></g><!--MD5=[27f772719433d509ddbc20ff768eba08]
+cluster domain--><g id="cluster_domain"><path d="M8.5,6 L60.5,6 A3.75,3.75 0 0 1 63,8.5 L70,29.6094 L770.5,29.6094 A2.5,2.5 0 0 1 773,32.1094 L773,553 A2.5,2.5 0 0 1 770.5,555.5 L8.5,555.5 A2.5,2.5 0 0 1 6,553 L6,8.5 A2.5,2.5 0 0 1 8.5,6 " style="stroke:#000000;stroke-width:1.5;fill:none;"/><line style="stroke:#000000;stroke-width:1.5;fill:none;" x1="6" x2="70" y1="29.6094" y2="29.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="51" x="10" y="22.5332">domain</text></g><!--MD5=[77349be1bd27b81b697a0f9b3aded3c8]
+cluster infrastructure--><g id="cluster_infrastructure"><path d="M1000.5,404 L1098.5,404 A3.75,3.75 0 0 1 1101,406.5 L1108,427.6094 L1670.5,427.6094 A2.5,2.5 0 0 1 1673,430.1094 L1673,543.5 A2.5,2.5 0 0 1 1670.5,546 L1000.5,546 A2.5,2.5 0 0 1 998,543.5 L998,406.5 A2.5,2.5 0 0 1 1000.5,404 " style="stroke:#000000;stroke-width:1.5;fill:none;"/><line style="stroke:#000000;stroke-width:1.5;fill:none;" x1="998" x2="1108" y1="427.6094" y2="427.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="97" x="1002" y="420.5332">infrastructure</text></g><!--MD5=[f4e70ef68289585296b9045165e58692]
+cluster controllers--><g id="cluster_controllers"><path d="M1699.5,340 L1777.5,340 A3.75,3.75 0 0 1 1780,342.5 L1787,363.6094 L2316.5,363.6094 A2.5,2.5 0 0 1 2319,366.1094 L2319,607.5 A2.5,2.5 0 0 1 2316.5,610 L1699.5,610 A2.5,2.5 0 0 1 1697,607.5 L1697,342.5 A2.5,2.5 0 0 1 1699.5,340 " style="stroke:#000000;stroke-width:1.5;fill:none;"/><line style="stroke:#000000;stroke-width:1.5;fill:none;" x1="1697" x2="1787" y1="363.6094" y2="363.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="77" x="1701" y="356.5332">controllers</text></g><!--MD5=[2e53ace943225f2b23e15194d4a4abab]
+class HostNetworkBridgeBaseDto--><g id="elem_HostNetworkBridgeBaseDto"><rect codeLine="3" fill="#F1F1F1" height="83.2188" id="HostNetworkBridgeBaseDto" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="205" x="1675.5" y="217"/><ellipse cx="1690.5" cy="233" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1693.2656,228.875 Q1693.4219,228.6563 1693.6094,228.5469 Q1693.7969,228.4375 1694.0156,228.4375 Q1694.3906,228.4375 1694.625,228.7031 Q1694.8594,228.9531 1694.8594,229.5625 L1694.8594,231.0156 Q1694.8594,231.625 1694.625,231.8906 Q1694.3906,232.1563 1694.0156,232.1563 Q1693.6719,232.1563 1693.4688,231.9531 Q1693.2656,231.7656 1693.1563,231.25 Q1693.1094,230.8906 1692.9219,230.7031 Q1692.5938,230.3281 1691.9844,230.1094 Q1691.375,229.8906 1690.75,229.8906 Q1689.9844,229.8906 1689.3438,230.2188 Q1688.7188,230.5469 1688.2188,231.2969 Q1687.7344,232.0469 1687.7344,233.0781 L1687.7344,234.1719 Q1687.7344,235.4063 1688.625,236.2344 Q1689.5156,237.0469 1691.1094,237.0469 Q1692.0469,237.0469 1692.7031,236.7969 Q1693.0938,236.6406 1693.5156,236.2031 Q1693.7813,235.9375 1693.9219,235.8594 Q1694.0781,235.7813 1694.2813,235.7813 Q1694.6094,235.7813 1694.8594,236.0469 Q1695.125,236.2969 1695.125,236.6406 Q1695.125,236.9844 1694.7813,237.3906 Q1694.2813,237.9688 1693.4844,238.2969 Q1692.4063,238.75 1691.1094,238.75 Q1689.5938,238.75 1688.3906,238.125 Q1687.4063,237.625 1686.7188,236.5625 Q1686.0313,235.4844 1686.0313,234.2031 L1686.0313,233.0469 Q1686.0313,231.7188 1686.6406,230.5781 Q1687.2656,229.4219 1688.3594,228.8125 Q1689.4531,228.1875 1690.6875,228.1875 Q1691.4219,228.1875 1692.0625,228.3594 Q1692.7188,228.5156 1693.2656,228.875 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="173" x="1704.5" y="238.7285">HostNetworkBridgeBaseDto</text><line style="stroke:#181818;stroke-width:0.5;" x1="1676.5" x2="1879.5" y1="249" y2="249"/><ellipse cx="1686.5" cy="260" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="114" x="1695.5" y="267.5332">Addresses []string</text><line style="stroke:#181818;stroke-width:1.0;" x1="1676.5" x2="1879.5" y1="274.6094" y2="274.6094"/><ellipse cx="1686.5" cy="285.6094" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="89" x="1695.5" y="293.1426">Slaves []string</text></g><!--MD5=[959d98ef48e520040c0e0004800f4c9e]
+class HostNetworkBridgeDto--><g id="elem_HostNetworkBridgeDto"><rect codeLine="5" fill="#F1F1F1" height="65.6094" id="HostNetworkBridgeDto" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="173" x="1460.5" y="66.5"/><ellipse cx="1475.5" cy="82.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1478.2656,78.375 Q1478.4219,78.1563 1478.6094,78.0469 Q1478.7969,77.9375 1479.0156,77.9375 Q1479.3906,77.9375 1479.625,78.2031 Q1479.8594,78.4531 1479.8594,79.0625 L1479.8594,80.5156 Q1479.8594,81.125 1479.625,81.3906 Q1479.3906,81.6563 1479.0156,81.6563 Q1478.6719,81.6563 1478.4688,81.4531 Q1478.2656,81.2656 1478.1563,80.75 Q1478.1094,80.3906 1477.9219,80.2031 Q1477.5938,79.8281 1476.9844,79.6094 Q1476.375,79.3906 1475.75,79.3906 Q1474.9844,79.3906 1474.3438,79.7188 Q1473.7188,80.0469 1473.2188,80.7969 Q1472.7344,81.5469 1472.7344,82.5781 L1472.7344,83.6719 Q1472.7344,84.9063 1473.625,85.7344 Q1474.5156,86.5469 1476.1094,86.5469 Q1477.0469,86.5469 1477.7031,86.2969 Q1478.0938,86.1406 1478.5156,85.7031 Q1478.7813,85.4375 1478.9219,85.3594 Q1479.0781,85.2813 1479.2813,85.2813 Q1479.6094,85.2813 1479.8594,85.5469 Q1480.125,85.7969 1480.125,86.1406 Q1480.125,86.4844 1479.7813,86.8906 Q1479.2813,87.4688 1478.4844,87.7969 Q1477.4063,88.25 1476.1094,88.25 Q1474.5938,88.25 1473.3906,87.625 Q1472.4063,87.125 1471.7188,86.0625 Q1471.0313,84.9844 1471.0313,83.7031 L1471.0313,82.5469 Q1471.0313,81.2188 1471.6406,80.0781 Q1472.2656,78.9219 1473.3594,78.3125 Q1474.4531,77.6875 1475.6875,77.6875 Q1476.4219,77.6875 1477.0625,77.8594 Q1477.7188,78.0156 1478.2656,78.375 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="141" x="1489.5" y="88.2285">HostNetworkBridgeDto</text><line style="stroke:#181818;stroke-width:0.5;" x1="1461.5" x2="1632.5" y1="98.5" y2="98.5"/><ellipse cx="1471.5" cy="109.5" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="75" x="1480.5" y="117.0332">Name string</text><line style="stroke:#181818;stroke-width:0.5;" x1="1461.5" x2="1632.5" y1="124.1094" y2="124.1094"/></g><!--MD5=[be13ff517f65d25284e902b832f021d3]
+class HostNetworkBridgeCreateDto--><g id="elem_HostNetworkBridgeCreateDto"><rect codeLine="5" fill="#F1F1F1" height="65.6094" id="HostNetworkBridgeCreateDto" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="216" x="1922" y="66.5"/><ellipse cx="1937" cy="82.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1939.7656,78.375 Q1939.9219,78.1563 1940.1094,78.0469 Q1940.2969,77.9375 1940.5156,77.9375 Q1940.8906,77.9375 1941.125,78.2031 Q1941.3594,78.4531 1941.3594,79.0625 L1941.3594,80.5156 Q1941.3594,81.125 1941.125,81.3906 Q1940.8906,81.6563 1940.5156,81.6563 Q1940.1719,81.6563 1939.9688,81.4531 Q1939.7656,81.2656 1939.6563,80.75 Q1939.6094,80.3906 1939.4219,80.2031 Q1939.0938,79.8281 1938.4844,79.6094 Q1937.875,79.3906 1937.25,79.3906 Q1936.4844,79.3906 1935.8438,79.7188 Q1935.2188,80.0469 1934.7188,80.7969 Q1934.2344,81.5469 1934.2344,82.5781 L1934.2344,83.6719 Q1934.2344,84.9063 1935.125,85.7344 Q1936.0156,86.5469 1937.6094,86.5469 Q1938.5469,86.5469 1939.2031,86.2969 Q1939.5938,86.1406 1940.0156,85.7031 Q1940.2813,85.4375 1940.4219,85.3594 Q1940.5781,85.2813 1940.7813,85.2813 Q1941.1094,85.2813 1941.3594,85.5469 Q1941.625,85.7969 1941.625,86.1406 Q1941.625,86.4844 1941.2813,86.8906 Q1940.7813,87.4688 1939.9844,87.7969 Q1938.9063,88.25 1937.6094,88.25 Q1936.0938,88.25 1934.8906,87.625 Q1933.9063,87.125 1933.2188,86.0625 Q1932.5313,84.9844 1932.5313,83.7031 L1932.5313,82.5469 Q1932.5313,81.2188 1933.1406,80.0781 Q1933.7656,78.9219 1934.8594,78.3125 Q1935.9531,77.6875 1937.1875,77.6875 Q1937.9219,77.6875 1938.5625,77.8594 Q1939.2188,78.0156 1939.7656,78.375 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="184" x="1951" y="88.2285">HostNetworkBridgeCreateDto</text><line style="stroke:#181818;stroke-width:0.5;" x1="1923" x2="2137" y1="98.5" y2="98.5"/><ellipse cx="1933" cy="109.5" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="75" x="1942" y="117.0332">Name string</text><line style="stroke:#181818;stroke-width:0.5;" x1="1923" x2="2137" y1="124.1094" y2="124.1094"/></g><!--MD5=[5546c94c66db65c343af19ea8c2c4263]
+class HostNetworkBridgeUpdateDto--><g id="elem_HostNetworkBridgeUpdateDto"><rect codeLine="5" fill="#F1F1F1" height="48" id="HostNetworkBridgeUpdateDto" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="218" x="1669" y="75.5"/><ellipse cx="1684" cy="91.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1686.7656,87.375 Q1686.9219,87.1563 1687.1094,87.0469 Q1687.2969,86.9375 1687.5156,86.9375 Q1687.8906,86.9375 1688.125,87.2031 Q1688.3594,87.4531 1688.3594,88.0625 L1688.3594,89.5156 Q1688.3594,90.125 1688.125,90.3906 Q1687.8906,90.6563 1687.5156,90.6563 Q1687.1719,90.6563 1686.9688,90.4531 Q1686.7656,90.2656 1686.6563,89.75 Q1686.6094,89.3906 1686.4219,89.2031 Q1686.0938,88.8281 1685.4844,88.6094 Q1684.875,88.3906 1684.25,88.3906 Q1683.4844,88.3906 1682.8438,88.7188 Q1682.2188,89.0469 1681.7188,89.7969 Q1681.2344,90.5469 1681.2344,91.5781 L1681.2344,92.6719 Q1681.2344,93.9063 1682.125,94.7344 Q1683.0156,95.5469 1684.6094,95.5469 Q1685.5469,95.5469 1686.2031,95.2969 Q1686.5938,95.1406 1687.0156,94.7031 Q1687.2813,94.4375 1687.4219,94.3594 Q1687.5781,94.2813 1687.7813,94.2813 Q1688.1094,94.2813 1688.3594,94.5469 Q1688.625,94.7969 1688.625,95.1406 Q1688.625,95.4844 1688.2813,95.8906 Q1687.7813,96.4688 1686.9844,96.7969 Q1685.9063,97.25 1684.6094,97.25 Q1683.0938,97.25 1681.8906,96.625 Q1680.9063,96.125 1680.2188,95.0625 Q1679.5313,93.9844 1679.5313,92.7031 L1679.5313,91.5469 Q1679.5313,90.2188 1680.1406,89.0781 Q1680.7656,87.9219 1681.8594,87.3125 Q1682.9531,86.6875 1684.1875,86.6875 Q1684.9219,86.6875 1685.5625,86.8594 Q1686.2188,87.0156 1686.7656,87.375 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="186" x="1698" y="97.2285">HostNetworkBridgeUpdateDto</text><line style="stroke:#181818;stroke-width:0.5;" x1="1670" x2="1886" y1="107.5" y2="107.5"/><line style="stroke:#181818;stroke-width:0.5;" x1="1670" x2="1886" y1="115.5" y2="115.5"/></g><!--MD5=[7d972e8a870a7d3102e7596738050350]
+class IHostNetworkLink--><g id="elem_IHostNetworkLink"><rect codeLine="3" fill="#F1F1F1" height="108.8281" id="IHostNetworkLink" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="195" x="308.5" y="870"/><ellipse cx="346.45" cy="886" fill="#B4A7E5" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M347.4031,882.6406 L347.4031,889.2969 L349.1219,889.2969 Q349.7313,889.2969 349.9969,889.5313 Q350.2625,889.7656 350.2625,890.1563 Q350.2625,890.5313 349.9969,890.7656 Q349.7313,891 349.1219,891 L343.9813,891 Q343.3719,891 343.1063,890.7656 Q342.8406,890.5313 342.8406,890.1406 Q342.8406,889.7656 343.1063,889.5313 Q343.3719,889.2969 343.9813,889.2969 L345.7,889.2969 L345.7,882.6406 L343.9813,882.6406 Q343.3719,882.6406 343.1063,882.4063 Q342.8406,882.1719 342.8406,881.7813 Q342.8406,881.4063 343.1063,881.1719 Q343.3719,880.9375 343.9813,880.9375 L349.1219,880.9375 Q349.7313,880.9375 349.9969,881.1719 Q350.2625,881.4063 350.2625,881.7813 Q350.2625,882.1719 349.9969,882.4063 Q349.7313,882.6406 349.1219,882.6406 L347.4031,882.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="112" x="365.55" y="891.7285">IHostNetworkLink</text><line style="stroke:#181818;stroke-width:0.5;" x1="309.5" x2="502.5" y1="902" y2="902"/><ellipse cx="319.5" cy="913" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="108" x="328.5" y="920.5332">GetName() string</text><line style="stroke:#181818;stroke-width:1.0;" x1="309.5" x2="502.5" y1="927.6094" y2="927.6094"/><ellipse cx="319.5" cy="938.6094" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="104" x="328.5" y="946.1426">GetType() string</text><line style="stroke:#181818;stroke-width:1.0;" x1="309.5" x2="502.5" y1="953.2188" y2="953.2188"/><ellipse cx="319.5" cy="964.2188" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="169" x="328.5" y="971.752">GetAddresses() []net.IPNet</text></g><path d="M78.5,870 L78.5,896.3516 A0,0 0 0 0 78.5,896.3516 L245.5,896.3516 A0,0 0 0 0 245.5,896.3516 L245.5,888 L312.5,914.8047 L245.5,880 L245.5,880 L235.5,870 L78.5,870 A0,0 0 0 0 78.5,870 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M235.5,870 L235.5,880 L245.5,880 L235.5,870 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="146" x="84.5" y="888.4951">Gets host interface name</text><path d="M78.5,906.3516 L78.5,932.7031 A0,0 0 0 0 78.5,932.7031 L238.5,932.7031 A0,0 0 0 0 238.5,932.7031 L238.5,924.3516 L312.5,940.4141 L238.5,916.3516 L238.5,916.3516 L228.5,906.3516 L78.5,906.3516 A0,0 0 0 0 78.5,906.3516 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M228.5,906.3516 L228.5,916.3516 L238.5,916.3516 L228.5,906.3516 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="139" x="84.5" y="924.8467">Gets host interface type</text><path d="M78.5,942.7031 L78.5,969.0547 A0,0 0 0 0 78.5,969.0547 L273.5,969.0547 A0,0 0 0 0 273.5,969.0547 L273.5,960.7031 L312.5,966.0234 L273.5,952.7031 L273.5,952.7031 L263.5,942.7031 L78.5,942.7031 A0,0 0 0 0 78.5,942.7031 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M263.5,942.7031 L263.5,952.7031 L273.5,952.7031 L263.5,942.7031 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="174" x="84.5" y="961.1982">Gets host interface addresses</text><!--MD5=[eee03abc33d997fda74f03d63bc5bd12]
+class IHostNetworkManager--><g id="elem_IHostNetworkManager"><rect codeLine="5" fill="#F1F1F1" height="390.5313" id="IHostNetworkManager" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="356" x="1339" y="729"/><ellipse cx="1441.75" cy="745" fill="#B4A7E5" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1442.7031,741.6406 L1442.7031,748.2969 L1444.4219,748.2969 Q1445.0313,748.2969 1445.2969,748.5313 Q1445.5625,748.7656 1445.5625,749.1563 Q1445.5625,749.5313 1445.2969,749.7656 Q1445.0313,750 1444.4219,750 L1439.2813,750 Q1438.6719,750 1438.4063,749.7656 Q1438.1406,749.5313 1438.1406,749.1406 Q1438.1406,748.7656 1438.4063,748.5313 Q1438.6719,748.2969 1439.2813,748.2969 L1441,748.2969 L1441,741.6406 L1439.2813,741.6406 Q1438.6719,741.6406 1438.4063,741.4063 Q1438.1406,741.1719 1438.1406,740.7813 Q1438.1406,740.4063 1438.4063,740.1719 Q1438.6719,739.9375 1439.2813,739.9375 L1444.4219,739.9375 Q1445.0313,739.9375 1445.2969,740.1719 Q1445.5625,740.4063 1445.5625,740.7813 Q1445.5625,741.1719 1445.2969,741.4063 Q1445.0313,741.6406 1444.4219,741.6406 L1442.7031,741.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="142" x="1462.25" y="750.7285">IHostNetworkManager</text><line style="stroke:#181818;stroke-width:0.5;" x1="1340" x2="1694" y1="761" y2="761"/><ellipse cx="1350" cy="772" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="223" x="1359" y="779.5332">GetList() ([]IHostNetworkLink, error)</text><line style="stroke:#181818;stroke-width:1.0;" x1="1340" x2="1694" y1="786.6094" y2="786.6094"/><ellipse cx="1350" cy="797.6094" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="319" x="1359" y="805.1426">GetByName(name string) (IHostNetworkLink, error)</text><line style="stroke:#181818;stroke-width:1.0;" x1="1340" x2="1694" y1="812.2188" y2="812.2188"/><ellipse cx="1350" cy="823.2188" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="317" x="1359" y="830.752">CreateVlan(master string, vlanID int) (string, error)</text><line style="stroke:#181818;stroke-width:1.0;" x1="1340" x2="1694" y1="837.8281" y2="837.8281"/><ellipse cx="1350" cy="848.8281" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="256" x="1359" y="856.3613">CreateBridge(name string) (string, error)</text><line style="stroke:#181818;stroke-width:1.0;" x1="1340" x2="1694" y1="863.4375" y2="863.4375"/><ellipse cx="1350" cy="874.4375" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="330" x="1359" y="881.9707">SetLinkMaster(slaveName, masterName string) error</text><line style="stroke:#181818;stroke-width:1.0;" x1="1340" x2="1694" y1="889.0469" y2="889.0469"/><ellipse cx="1350" cy="900.0469" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="246" x="1359" y="907.5801">UnsetLinkMaster(linkName string) error</text><line style="stroke:#181818;stroke-width:1.0;" x1="1340" x2="1694" y1="914.6563" y2="914.6563"/><ellipse cx="1350" cy="925.6563" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="205" x="1359" y="933.1895">SetLinkUp(linkName string) error</text><line style="stroke:#181818;stroke-width:1.0;" x1="1340" x2="1694" y1="940.2656" y2="940.2656"/><ellipse cx="1350" cy="951.2656" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="238" x="1359" y="958.7988">DeleteLinkByName(name string) error</text><line style="stroke:#181818;stroke-width:1.0;" x1="1340" x2="1694" y1="965.875" y2="965.875"/><ellipse cx="1350" cy="976.875" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="294" x="1359" y="984.4082">AddrAdd(linkName string, addr net.IPNet) error</text><line style="stroke:#181818;stroke-width:1.0;" x1="1340" x2="1694" y1="991.4844" y2="991.4844"/><ellipse cx="1350" cy="1002.4844" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="310" x="1359" y="1010.0176">AddrDelete(linkName string, addr net.IPNet) error</text><line style="stroke:#181818;stroke-width:1.0;" x1="1340" x2="1694" y1="1017.0938" y2="1017.0938"/><ellipse cx="1350" cy="1028.0938" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="162" x="1359" y="1035.627">SaveConfiguration() error</text><line style="stroke:#181818;stroke-width:1.0;" x1="1340" x2="1694" y1="1042.7031" y2="1042.7031"/><ellipse cx="1350" cy="1053.7031" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="175" x="1359" y="1061.2363">RestoreFromBackup() error</text><line style="stroke:#181818;stroke-width:1.0;" x1="1340" x2="1694" y1="1068.3125" y2="1068.3125"/><ellipse cx="1350" cy="1079.3125" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="139" x="1359" y="1086.8457">ResetChanges() error</text><line style="stroke:#181818;stroke-width:1.0;" x1="1340" x2="1694" y1="1093.9219" y2="1093.9219"/><ellipse cx="1350" cy="1104.9219" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="177" x="1359" y="1112.4551">HasUnsavedChanges() bool</text></g><path d="M942.5,670 L942.5,696.3516 A0,0 0 0 0 942.5,696.3516 L1164.5,696.3516 A0,0 0 0 0 1164.5,696.3516 L1164.5,688 L1343,773.8047 L1164.5,680 L1164.5,680 L1154.5,670 L942.5,670 A0,0 0 0 0 942.5,670 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M1154.5,670 L1154.5,680 L1164.5,680 L1154.5,670 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="201" x="948.5" y="688.4951">Gets list of host network interfaces</text><path d="M942.5,706.3516 L942.5,732.7031 A0,0 0 0 0 942.5,732.7031 L1194.5,732.7031 A0,0 0 0 0 1194.5,732.7031 L1194.5,724.3516 L1343,799.4141 L1194.5,716.3516 L1194.5,716.3516 L1184.5,706.3516 L942.5,706.3516 A0,0 0 0 0 942.5,706.3516 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M1184.5,706.3516 L1184.5,716.3516 L1194.5,716.3516 L1184.5,706.3516 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="231" x="948.5" y="724.8467">Gets host network interface by its name</text><path d="M942.5,742.7031 L942.5,769.0547 A0,0 0 0 0 942.5,769.0547 L1292.5,769.0547 A0,0 0 0 0 1292.5,769.0547 L1292.5,760.7031 L1343,825.0234 L1292.5,752.7031 L1292.5,752.7031 L1282.5,742.7031 L942.5,742.7031 A0,0 0 0 0 942.5,742.7031 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M1282.5,742.7031 L1282.5,752.7031 L1292.5,752.7031 L1282.5,742.7031 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="329" x="948.5" y="761.1982">Create host vlan interface with name rol.{Master}.{VlanID}</text><path d="M942.5,779.0547 L942.5,805.4063 A0,0 0 0 0 942.5,805.4063 L1264.5,805.4063 A0,0 0 0 0 1264.5,805.4063 L1264.5,797.0547 L1343,850.6328 L1264.5,789.0547 L1264.5,789.0547 L1254.5,779.0547 L942.5,779.0547 A0,0 0 0 0 942.5,779.0547 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M1254.5,779.0547 L1254.5,789.0547 L1264.5,789.0547 L1254.5,779.0547 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="301" x="948.5" y="797.5498">Create host bridge interface with name rol.br.{Name}</text><path d="M942.5,815.4063 L942.5,841.7578 A0,0 0 0 0 942.5,841.7578 L1069.5,841.7578 A0,0 0 0 0 1069.5,841.7578 L1069.5,833.4063 L1343,876.2422 L1069.5,825.4063 L1069.5,825.4063 L1059.5,815.4063 L942.5,815.4063 A0,0 0 0 0 942.5,815.4063 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M1059.5,815.4063 L1059.5,825.4063 L1069.5,825.4063 L1059.5,815.4063 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="106" x="948.5" y="833.9014">Set master for link</text><path d="M942.5,851.7578 L942.5,878.1094 A0,0 0 0 0 942.5,878.1094 L1142.5,878.1094 A0,0 0 0 0 1142.5,878.1094 L1142.5,869.7578 L1343,901.8516 L1142.5,861.7578 L1142.5,861.7578 L1132.5,851.7578 L942.5,851.7578 A0,0 0 0 0 942.5,851.7578 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M1132.5,851.7578 L1132.5,861.7578 L1142.5,861.7578 L1132.5,851.7578 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="179" x="948.5" y="870.2529">Removes the master of the link</text><path d="M942.5,888.1094 L942.5,914.4609 A0,0 0 0 0 942.5,914.4609 L1103.5,914.4609 A0,0 0 0 0 1103.5,914.4609 L1103.5,906.1094 L1343,927.4609 L1103.5,898.1094 L1103.5,898.1094 L1093.5,888.1094 L942.5,888.1094 A0,0 0 0 0 942.5,888.1094 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M1093.5,888.1094 L1093.5,898.1094 L1103.5,898.1094 L1093.5,888.1094 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="140" x="948.5" y="906.6045">Enables the link on host</text><path d="M942.5,924.4609 L942.5,950.8125 A0,0 0 0 0 942.5,950.8125 L1179.5,950.8125 A0,0 0 0 0 1179.5,950.8125 L1179.5,942.4609 L1343,953.0703 L1179.5,934.4609 L1179.5,934.4609 L1169.5,924.4609 L942.5,924.4609 A0,0 0 0 0 942.5,924.4609 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M1169.5,924.4609 L1169.5,934.4609 L1179.5,934.4609 L1169.5,924.4609 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="216" x="948.5" y="942.9561">Deletes interface on host by its name</text><path d="M942.5,960.8125 L942.5,987.1641 A0,0 0 0 0 942.5,987.1641 L1197.5,987.1641 A0,0 0 0 0 1197.5,987.1641 L1197.5,978.8125 L1343,978.6797 L1197.5,970.8125 L1197.5,970.8125 L1187.5,960.8125 L942.5,960.8125 A0,0 0 0 0 942.5,960.8125 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M1187.5,960.8125 L1187.5,970.8125 L1197.5,970.8125 L1187.5,960.8125 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="234" x="948.5" y="979.3076">Add new ip address for network interface</text><path d="M942.5,997.1641 L942.5,1023.5156 A0,0 0 0 0 942.5,1023.5156 L1184.5,1023.5156 A0,0 0 0 0 1184.5,1023.5156 L1184.5,1015.1641 L1343,1004.2891 L1184.5,1007.1641 L1184.5,1007.1641 L1174.5,997.1641 L942.5,997.1641 A0,0 0 0 0 942.5,997.1641 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M1174.5,997.1641 L1174.5,1007.1641 L1184.5,1007.1641 L1174.5,997.1641 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="221" x="948.5" y="1015.6592">Delete ip address for network interface</text><path d="M942.5,1033.5156 L942.5,1059.8672 A0,0 0 0 0 942.5,1059.8672 L1274.5,1059.8672 A0,0 0 0 0 1274.5,1059.8672 L1274.5,1051.5156 L1343,1029.8984 L1274.5,1043.5156 L1274.5,1043.5156 L1264.5,1033.5156 L942.5,1033.5156 A0,0 0 0 0 942.5,1033.5156 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M1264.5,1033.5156 L1264.5,1043.5156 L1274.5,1043.5156 L1264.5,1033.5156 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="311" x="948.5" y="1052.0107">Save current host network configuration to the storage</text><path d="M942.5,1069.8672 L942.5,1096.2188 A0,0 0 0 0 942.5,1096.2188 L1298.5,1096.2188 A0,0 0 0 0 1298.5,1096.2188 L1298.5,1087.8672 L1343,1055.5078 L1298.5,1079.8672 L1298.5,1079.8672 L1288.5,1069.8672 L942.5,1069.8672 A0,0 0 0 0 942.5,1069.8672 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M1288.5,1069.8672 L1288.5,1079.8672 L1298.5,1079.8672 L1288.5,1069.8672 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="335" x="948.5" y="1088.3623">Restore and apply host network configuration from backup</text><path d="M942.5,1106.2188 L942.5,1132.5703 A0,0 0 0 0 942.5,1132.5703 L1303.5,1132.5703 A0,0 0 0 0 1303.5,1132.5703 L1303.5,1124.2188 L1343,1081.1172 L1303.5,1116.2188 L1303.5,1116.2188 L1293.5,1106.2188 L942.5,1106.2188 A0,0 0 0 0 942.5,1106.2188 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M1293.5,1106.2188 L1293.5,1116.2188 L1303.5,1116.2188 L1293.5,1106.2188 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="340" x="948.5" y="1124.7139">Reset all applied changes to state from saved configuration</text><path d="M942.5,1142.5703 L942.5,1168.9219 A0,0 0 0 0 942.5,1168.9219 L1166.5,1168.9219 A0,0 0 0 0 1166.5,1168.9219 L1166.5,1160.5703 L1343,1106.7266 L1166.5,1152.5703 L1166.5,1152.5703 L1156.5,1142.5703 L942.5,1142.5703 A0,0 0 0 0 942.5,1142.5703 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M1156.5,1142.5703 L1156.5,1152.5703 L1166.5,1152.5703 L1156.5,1142.5703 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="203" x="948.5" y="1161.0654">Gets a flag about unsaved changes</text><!--MD5=[de944ecaefb171a2f705a3207091d9ac]
+class IHostNetworkConfigStorage--><g id="elem_IHostNetworkConfigStorage"><rect codeLine="5" fill="#F1F1F1" height="108.8281" id="IHostNetworkConfigStorage" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="369" x="538.5" y="870"/><ellipse cx="630.75" cy="886" fill="#B4A7E5" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M631.7031,882.6406 L631.7031,889.2969 L633.4219,889.2969 Q634.0313,889.2969 634.2969,889.5313 Q634.5625,889.7656 634.5625,890.1563 Q634.5625,890.5313 634.2969,890.7656 Q634.0313,891 633.4219,891 L628.2813,891 Q627.6719,891 627.4063,890.7656 Q627.1406,890.5313 627.1406,890.1406 Q627.1406,889.7656 627.4063,889.5313 Q627.6719,889.2969 628.2813,889.2969 L630,889.2969 L630,882.6406 L628.2813,882.6406 Q627.6719,882.6406 627.4063,882.4063 Q627.1406,882.1719 627.1406,881.7813 Q627.1406,881.4063 627.4063,881.1719 Q627.6719,880.9375 628.2813,880.9375 L633.4219,880.9375 Q634.0313,880.9375 634.2969,881.1719 Q634.5625,881.4063 634.5625,881.7813 Q634.5625,882.1719 634.2969,882.4063 Q634.0313,882.6406 633.4219,882.6406 L631.7031,882.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="176" x="651.25" y="891.7285">IHostNetworkConfigStorage</text><line style="stroke:#181818;stroke-width:0.5;" x1="539.5" x2="906.5" y1="902" y2="902"/><ellipse cx="549.5" cy="913" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="329" x="558.5" y="920.5332">SaveConfig(config domain.HostNetworkConfig) error</text><line style="stroke:#181818;stroke-width:1.0;" x1="539.5" x2="906.5" y1="927.6094" y2="927.6094"/><ellipse cx="549.5" cy="938.6094" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="296" x="558.5" y="946.1426">GetConfig() (domain.HostNetworkConfig, error)</text><line style="stroke:#181818;stroke-width:1.0;" x1="539.5" x2="906.5" y1="953.2188" y2="953.2188"/><ellipse cx="549.5" cy="964.2188" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="343" x="558.5" y="971.752">GetBackupConfig() (domain.HostNetworkConfig, error)</text></g><!--MD5=[89e1dc34da2012e40760b5430ce1f530]
+class HostNetworkService--><g id="elem_HostNetworkService"><rect codeLine="12" fill="#F1F1F1" height="313.7031" id="HostNetworkService" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="757" x="1738.5" y="768"/><ellipse cx="2050.25" cy="784" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M2053.0156,779.875 Q2053.1719,779.6563 2053.3594,779.5469 Q2053.5469,779.4375 2053.7656,779.4375 Q2054.1406,779.4375 2054.375,779.7031 Q2054.6094,779.9531 2054.6094,780.5625 L2054.6094,782.0156 Q2054.6094,782.625 2054.375,782.8906 Q2054.1406,783.1563 2053.7656,783.1563 Q2053.4219,783.1563 2053.2188,782.9531 Q2053.0156,782.7656 2052.9063,782.25 Q2052.8594,781.8906 2052.6719,781.7031 Q2052.3438,781.3281 2051.7344,781.1094 Q2051.125,780.8906 2050.5,780.8906 Q2049.7344,780.8906 2049.0938,781.2188 Q2048.4688,781.5469 2047.9688,782.2969 Q2047.4844,783.0469 2047.4844,784.0781 L2047.4844,785.1719 Q2047.4844,786.4063 2048.375,787.2344 Q2049.2656,788.0469 2050.8594,788.0469 Q2051.7969,788.0469 2052.4531,787.7969 Q2052.8438,787.6406 2053.2656,787.2031 Q2053.5313,786.9375 2053.6719,786.8594 Q2053.8281,786.7813 2054.0313,786.7813 Q2054.3594,786.7813 2054.6094,787.0469 Q2054.875,787.2969 2054.875,787.6406 Q2054.875,787.9844 2054.5313,788.3906 Q2054.0313,788.9688 2053.2344,789.2969 Q2052.1563,789.75 2050.8594,789.75 Q2049.3438,789.75 2048.1406,789.125 Q2047.1563,788.625 2046.4688,787.5625 Q2045.7813,786.4844 2045.7813,785.2031 L2045.7813,784.0469 Q2045.7813,782.7188 2046.3906,781.5781 Q2047.0156,780.4219 2048.1094,779.8125 Q2049.2031,779.1875 2050.4375,779.1875 Q2051.1719,779.1875 2051.8125,779.3594 Q2052.4688,779.5156 2053.0156,779.875 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="125" x="2070.75" y="789.7285">HostNetworkService</text><line style="stroke:#181818;stroke-width:0.5;" x1="1739.5" x2="2494.5" y1="800" y2="800"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1746.5" y="808"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="197" x="1758.5" y="818.5332">manager IHostNetworkManager</text><line style="stroke:#181818;stroke-width:1.0;" x1="1739.5" x2="2494.5" y1="825.6094" y2="825.6094"/><ellipse cx="1749.5" cy="836.6094" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="272" x="1758.5" y="844.1426">GetVlanList() ([]HostNetworkVlanDto, error)</text><line style="stroke:#181818;stroke-width:1.0;" x1="1739.5" x2="2494.5" y1="851.2188" y2="851.2188"/><ellipse cx="1749.5" cy="862.2188" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="368" x="1758.5" y="869.752">GetVlanByName(name string) (HostNetworkVlanDto, error)</text><line style="stroke:#181818;stroke-width:1.0;" x1="1739.5" x2="2494.5" y1="876.8281" y2="876.8281"/><ellipse cx="1749.5" cy="887.8281" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="499" x="1758.5" y="895.3613">CreateVlan(createDto HostNetworkVlanCreateDto) (HostNetworkVlanDto, error)</text><line style="stroke:#181818;stroke-width:1.0;" x1="1739.5" x2="2494.5" y1="902.4375" y2="902.4375"/><ellipse cx="1749.5" cy="913.4375" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="589" x="1758.5" y="920.9707">UpdateVlan(name string, updateDto HostNetworkVlanUpdateDto) (HostNetworkVlanDto, error)</text><line style="stroke:#181818;stroke-width:1.0;" x1="1739.5" x2="2494.5" y1="928.0469" y2="928.0469"/><ellipse cx="1749.5" cy="939.0469" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="188" x="1758.5" y="946.5801">DeleteVlan(name string) error</text><line style="stroke:#181818;stroke-width:1.0;" x1="1739.5" x2="2494.5" y1="953.6563" y2="953.6563"/><ellipse cx="1749.5" cy="964.6563" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="298" x="1758.5" y="972.1895">GetBridgeList() ([]HostNetworkBridgeDto, error)</text><line style="stroke:#181818;stroke-width:1.0;" x1="1739.5" x2="2494.5" y1="979.2656" y2="979.2656"/><ellipse cx="1749.5" cy="990.2656" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="425" x="1758.5" y="997.7988">GetBridgeByName(name string) (dtos.HostNetworkBridgeDto, error)</text><line style="stroke:#181818;stroke-width:1.0;" x1="1739.5" x2="2494.5" y1="1004.875" y2="1004.875"/><ellipse cx="1749.5" cy="1015.875" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="600" x="1758.5" y="1023.4082">CreateBridge(createDto dtos.HostNetworkBridgeCreateDto) (dtos.HostNetworkBridgeDto, error)</text><line style="stroke:#181818;stroke-width:1.0;" x1="1739.5" x2="2494.5" y1="1030.4844" y2="1030.4844"/><ellipse cx="1749.5" cy="1041.4844" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="731" x="1758.5" y="1049.0176">UpdateBridge(bridgeName string, updateDto dtos.HostNetworkBridgeUpdateDto) (dtos.HostNetworkBridgeDto, error)</text><line style="stroke:#181818;stroke-width:1.0;" x1="1739.5" x2="2494.5" y1="1056.0938" y2="1056.0938"/><ellipse cx="1749.5" cy="1067.0938" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="242" x="1758.5" y="1074.627">DeleteBridge(bridgeName string) error</text></g><path d="M2538.5,742.5 L2538.5,751.6758 L2030.5,838.4141 L2538.5,759.6758 L2538.5,768.8516 A0,0 0 0 0 2538.5,768.8516 L2782.5,768.8516 A0,0 0 0 0 2782.5,768.8516 L2782.5,752.5 L2772.5,742.5 L2538.5,742.5 A0,0 0 0 0 2538.5,742.5 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M2772.5,742.5 L2772.5,752.5 L2782.5,752.5 L2772.5,742.5 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="223" x="2544.5" y="760.9951">Get list of VLAN interfaces on the host</text><path d="M2538.5,778.8516 L2538.5,788.0273 L2126.5,864.0234 L2538.5,796.0273 L2538.5,805.2031 A0,0 0 0 0 2538.5,805.2031 L2727.5,805.2031 A0,0 0 0 0 2727.5,805.2031 L2727.5,788.8516 L2717.5,778.8516 L2538.5,778.8516 A0,0 0 0 0 2538.5,778.8516 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M2717.5,778.8516 L2717.5,788.8516 L2727.5,788.8516 L2717.5,778.8516 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="168" x="2544.5" y="797.3467">Get VLAN interface by Name</text><path d="M2538.5,815.2031 L2538.5,824.3789 L2257.5,889.6328 L2538.5,832.3789 L2538.5,841.5547 A0,0 0 0 0 2538.5,841.5547 L2784.5,841.5547 A0,0 0 0 0 2784.5,841.5547 L2784.5,825.2031 L2774.5,815.2031 L2538.5,815.2031 A0,0 0 0 0 2538.5,815.2031 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M2774.5,815.2031 L2774.5,825.2031 L2784.5,825.2031 L2774.5,815.2031 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="225" x="2544.5" y="833.6982">Create new VLAN interface on the host</text><path d="M2538.5,851.5547 L2538.5,860.7305 L2347.5,915.2422 L2538.5,868.7305 L2538.5,877.9063 A0,0 0 0 0 2538.5,877.9063 L2760.5,877.9063 A0,0 0 0 0 2760.5,877.9063 L2760.5,861.5547 L2750.5,851.5547 L2538.5,851.5547 A0,0 0 0 0 2538.5,851.5547 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M2750.5,851.5547 L2750.5,861.5547 L2760.5,861.5547 L2750.5,851.5547 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="201" x="2544.5" y="870.0498">Update VLAN interface on the host</text><path d="M2538.5,887.9063 L2538.5,897.082 L1946.5,940.8516 L2538.5,905.082 L2538.5,914.2578 A0,0 0 0 0 2538.5,914.2578 L2745.5,914.2578 A0,0 0 0 0 2745.5,914.2578 L2745.5,897.9063 L2735.5,887.9063 L2538.5,887.9063 A0,0 0 0 0 2538.5,887.9063 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M2735.5,887.9063 L2735.5,897.9063 L2745.5,897.9063 L2735.5,887.9063 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="186" x="2544.5" y="906.4014">Delete VLAN interface from host</text><path d="M2538.5,924.2578 L2538.5,933.4336 L2056.5,966.4609 L2538.5,941.4336 L2538.5,950.6094 A0,0 0 0 0 2538.5,950.6094 L2783.5,950.6094 A0,0 0 0 0 2783.5,950.6094 L2783.5,934.2578 L2773.5,924.2578 L2538.5,924.2578 A0,0 0 0 0 2538.5,924.2578 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M2773.5,924.2578 L2773.5,934.2578 L2783.5,934.2578 L2773.5,924.2578 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="224" x="2544.5" y="942.7529">Get list of bridge interfaces on the host</text><path d="M2538.5,960.6094 L2538.5,969.7852 L2183.5,992.0703 L2538.5,977.7852 L2538.5,986.9609 A0,0 0 0 0 2538.5,986.9609 L2728.5,986.9609 A0,0 0 0 0 2728.5,986.9609 L2728.5,970.6094 L2718.5,960.6094 L2538.5,960.6094 A0,0 0 0 0 2538.5,960.6094 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M2718.5,960.6094 L2718.5,970.6094 L2728.5,970.6094 L2718.5,960.6094 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="169" x="2544.5" y="979.1045">Get bridge interface by Name</text><path d="M2538.5,996.9609 L2538.5,1006.1367 L2358.5,1017.6797 L2538.5,1014.1367 L2538.5,1023.3125 A0,0 0 0 0 2538.5,1023.3125 L2785.5,1023.3125 A0,0 0 0 0 2785.5,1023.3125 L2785.5,1006.9609 L2775.5,996.9609 L2538.5,996.9609 A0,0 0 0 0 2538.5,996.9609 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M2775.5,996.9609 L2775.5,1006.9609 L2785.5,1006.9609 L2775.5,996.9609 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="226" x="2544.5" y="1015.4561">Create new bridge interface on the host</text><path d="M2538.5,1033.3125 L2538.5,1042.4883 L2489.5,1043.2891 L2538.5,1050.4883 L2538.5,1059.6641 A0,0 0 0 0 2538.5,1059.6641 L2761.5,1059.6641 A0,0 0 0 0 2761.5,1059.6641 L2761.5,1043.3125 L2751.5,1033.3125 L2538.5,1033.3125 A0,0 0 0 0 2538.5,1033.3125 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M2751.5,1033.3125 L2751.5,1043.3125 L2761.5,1043.3125 L2751.5,1033.3125 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="202" x="2544.5" y="1051.8076">Update bridge interface on the host</text><path d="M2538.5,1069.6641 L2538.5,1078.8398 L2000.5,1068.8984 L2538.5,1086.8398 L2538.5,1096.0156 A0,0 0 0 0 2538.5,1096.0156 L2746.5,1096.0156 A0,0 0 0 0 2746.5,1096.0156 L2746.5,1079.6641 L2736.5,1069.6641 L2538.5,1069.6641 A0,0 0 0 0 2538.5,1069.6641 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M2736.5,1069.6641 L2736.5,1079.6641 L2746.5,1079.6641 L2736.5,1069.6641 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="187" x="2544.5" y="1088.1592">Delete bridge interface from host</text><!--MD5=[e5fff6262f684687265fbe09f1b48075]
+class HostNetworkLink--><g id="elem_HostNetworkLink"><rect codeLine="5" fill="#F1F1F1" height="108.8281" id="HostNetworkLink" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="162" x="325" y="430.5"/><ellipse cx="351.7" cy="446.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M354.4656,442.375 Q354.6219,442.1563 354.8094,442.0469 Q354.9969,441.9375 355.2156,441.9375 Q355.5906,441.9375 355.825,442.2031 Q356.0594,442.4531 356.0594,443.0625 L356.0594,444.5156 Q356.0594,445.125 355.825,445.3906 Q355.5906,445.6563 355.2156,445.6563 Q354.8719,445.6563 354.6688,445.4531 Q354.4656,445.2656 354.3563,444.75 Q354.3094,444.3906 354.1219,444.2031 Q353.7938,443.8281 353.1844,443.6094 Q352.575,443.3906 351.95,443.3906 Q351.1844,443.3906 350.5438,443.7188 Q349.9188,444.0469 349.4188,444.7969 Q348.9344,445.5469 348.9344,446.5781 L348.9344,447.6719 Q348.9344,448.9063 349.825,449.7344 Q350.7156,450.5469 352.3094,450.5469 Q353.2469,450.5469 353.9031,450.2969 Q354.2938,450.1406 354.7156,449.7031 Q354.9813,449.4375 355.1219,449.3594 Q355.2781,449.2813 355.4813,449.2813 Q355.8094,449.2813 356.0594,449.5469 Q356.325,449.7969 356.325,450.1406 Q356.325,450.4844 355.9813,450.8906 Q355.4813,451.4688 354.6844,451.7969 Q353.6063,452.25 352.3094,452.25 Q350.7938,452.25 349.5906,451.625 Q348.6063,451.125 347.9188,450.0625 Q347.2313,448.9844 347.2313,447.7031 L347.2313,446.5469 Q347.2313,445.2188 347.8406,444.0781 Q348.4656,442.9219 349.5594,442.3125 Q350.6531,441.6875 351.8875,441.6875 Q352.6219,441.6875 353.2625,441.8594 Q353.9188,442.0156 354.4656,442.375 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="104" x="368.3" y="452.2285">HostNetworkLink</text><line style="stroke:#181818;stroke-width:0.5;" x1="326" x2="486" y1="462.5" y2="462.5"/><ellipse cx="336" cy="473.5" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="75" x="345" y="481.0332">Name string</text><line style="stroke:#181818;stroke-width:1.0;" x1="326" x2="486" y1="488.1094" y2="488.1094"/><ellipse cx="336" cy="499.1094" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="136" x="345" y="506.6426">Addresses []net.IPNet</text><line style="stroke:#181818;stroke-width:1.0;" x1="326" x2="486" y1="513.7188" y2="513.7188"/><ellipse cx="336" cy="524.7188" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="71" x="345" y="532.252">Type string</text></g><path d="M22.5,440.5 L22.5,466.8516 A0,0 0 0 0 22.5,466.8516 L257.5,466.8516 A0,0 0 0 0 257.5,466.8516 L257.5,458.5 L329,475.3047 L257.5,450.5 L257.5,450.5 L247.5,440.5 L22.5,440.5 A0,0 0 0 0 22.5,440.5 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M247.5,440.5 L247.5,450.5 L257.5,450.5 L247.5,440.5 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="214" x="28.5" y="458.9951">Unique name of the network interface</text><path d="M22.5,476.8516 L22.5,519.5547 A0,0 0 0 0 22.5,519.5547 L289.5,519.5547 A0,0 0 0 0 289.5,519.5547 L289.5,502.2031 L329,526.5234 L289.5,494.2031 L289.5,486.8516 L279.5,476.8516 L22.5,476.8516 A0,0 0 0 0 22.5,476.8516 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M279.5,476.8516 L279.5,486.8516 L289.5,486.8516 L279.5,476.8516 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="129" x="28.5" y="495.3467">Default value is "none"</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="246" x="28.5" y="511.6982">because HostNetworkLink is a basic class</text><!--MD5=[b17b81604319b97b33af23212dfcf2f4]
+class HostNetworkDevice--><g id="elem_HostNetworkDevice"><rect codeLine="5" fill="#F1F1F1" height="48" id="HostNetworkDevice" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="153" x="603.5" y="234.5"/><ellipse cx="618.5" cy="250.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M621.2656,246.375 Q621.4219,246.1563 621.6094,246.0469 Q621.7969,245.9375 622.0156,245.9375 Q622.3906,245.9375 622.625,246.2031 Q622.8594,246.4531 622.8594,247.0625 L622.8594,248.5156 Q622.8594,249.125 622.625,249.3906 Q622.3906,249.6563 622.0156,249.6563 Q621.6719,249.6563 621.4688,249.4531 Q621.2656,249.2656 621.1563,248.75 Q621.1094,248.3906 620.9219,248.2031 Q620.5938,247.8281 619.9844,247.6094 Q619.375,247.3906 618.75,247.3906 Q617.9844,247.3906 617.3438,247.7188 Q616.7188,248.0469 616.2188,248.7969 Q615.7344,249.5469 615.7344,250.5781 L615.7344,251.6719 Q615.7344,252.9063 616.625,253.7344 Q617.5156,254.5469 619.1094,254.5469 Q620.0469,254.5469 620.7031,254.2969 Q621.0938,254.1406 621.5156,253.7031 Q621.7813,253.4375 621.9219,253.3594 Q622.0781,253.2813 622.2813,253.2813 Q622.6094,253.2813 622.8594,253.5469 Q623.125,253.7969 623.125,254.1406 Q623.125,254.4844 622.7813,254.8906 Q622.2813,255.4688 621.4844,255.7969 Q620.4063,256.25 619.1094,256.25 Q617.5938,256.25 616.3906,255.625 Q615.4063,255.125 614.7188,254.0625 Q614.0313,252.9844 614.0313,251.7031 L614.0313,250.5469 Q614.0313,249.2188 614.6406,248.0781 Q615.2656,246.9219 616.3594,246.3125 Q617.4531,245.6875 618.6875,245.6875 Q619.4219,245.6875 620.0625,245.8594 Q620.7188,246.0156 621.2656,246.375 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="121" x="632.5" y="256.2285">HostNetworkDevice</text><line style="stroke:#181818;stroke-width:0.5;" x1="604.5" x2="755.5" y1="266.5" y2="266.5"/><line style="stroke:#181818;stroke-width:0.5;" x1="604.5" x2="755.5" y1="274.5" y2="274.5"/></g><!--MD5=[7708bf2b3811a61fdbad496487474248]
+class HostNetworkVlan--><g id="elem_HostNetworkVlan"><rect codeLine="5" fill="#F1F1F1" height="83.2188" id="HostNetworkVlan" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="138" x="209" y="217"/><ellipse cx="224" cy="233" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M226.7656,228.875 Q226.9219,228.6563 227.1094,228.5469 Q227.2969,228.4375 227.5156,228.4375 Q227.8906,228.4375 228.125,228.7031 Q228.3594,228.9531 228.3594,229.5625 L228.3594,231.0156 Q228.3594,231.625 228.125,231.8906 Q227.8906,232.1563 227.5156,232.1563 Q227.1719,232.1563 226.9688,231.9531 Q226.7656,231.7656 226.6563,231.25 Q226.6094,230.8906 226.4219,230.7031 Q226.0938,230.3281 225.4844,230.1094 Q224.875,229.8906 224.25,229.8906 Q223.4844,229.8906 222.8438,230.2188 Q222.2188,230.5469 221.7188,231.2969 Q221.2344,232.0469 221.2344,233.0781 L221.2344,234.1719 Q221.2344,235.4063 222.125,236.2344 Q223.0156,237.0469 224.6094,237.0469 Q225.5469,237.0469 226.2031,236.7969 Q226.5938,236.6406 227.0156,236.2031 Q227.2813,235.9375 227.4219,235.8594 Q227.5781,235.7813 227.7813,235.7813 Q228.1094,235.7813 228.3594,236.0469 Q228.625,236.2969 228.625,236.6406 Q228.625,236.9844 228.2813,237.3906 Q227.7813,237.9688 226.9844,238.2969 Q225.9063,238.75 224.6094,238.75 Q223.0938,238.75 221.8906,238.125 Q220.9063,237.625 220.2188,236.5625 Q219.5313,235.4844 219.5313,234.2031 L219.5313,233.0469 Q219.5313,231.7188 220.1406,230.5781 Q220.7656,229.4219 221.8594,228.8125 Q222.9531,228.1875 224.1875,228.1875 Q224.9219,228.1875 225.5625,228.3594 Q226.2188,228.5156 226.7656,228.875 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="106" x="238" y="238.7285">HostNetworkVlan</text><line style="stroke:#181818;stroke-width:0.5;" x1="210" x2="346" y1="249" y2="249"/><ellipse cx="220" cy="260" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="60" x="229" y="267.5332">VlanID int</text><line style="stroke:#181818;stroke-width:1.0;" x1="210" x2="346" y1="274.6094" y2="274.6094"/><ellipse cx="220" cy="285.6094" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="81" x="229" y="293.1426">Parent string</text></g><!--MD5=[bd56b3e5eb0134b68fc9951038656522]
+class HostNetworkBridge--><g id="elem_HostNetworkBridge"><rect codeLine="5" fill="#F1F1F1" height="83.2188" id="HostNetworkBridge" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="151" x="22.5" y="217"/><ellipse cx="37.5" cy="233" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M40.2656,228.875 Q40.4219,228.6563 40.6094,228.5469 Q40.7969,228.4375 41.0156,228.4375 Q41.3906,228.4375 41.625,228.7031 Q41.8594,228.9531 41.8594,229.5625 L41.8594,231.0156 Q41.8594,231.625 41.625,231.8906 Q41.3906,232.1563 41.0156,232.1563 Q40.6719,232.1563 40.4688,231.9531 Q40.2656,231.7656 40.1563,231.25 Q40.1094,230.8906 39.9219,230.7031 Q39.5938,230.3281 38.9844,230.1094 Q38.375,229.8906 37.75,229.8906 Q36.9844,229.8906 36.3438,230.2188 Q35.7188,230.5469 35.2188,231.2969 Q34.7344,232.0469 34.7344,233.0781 L34.7344,234.1719 Q34.7344,235.4063 35.625,236.2344 Q36.5156,237.0469 38.1094,237.0469 Q39.0469,237.0469 39.7031,236.7969 Q40.0938,236.6406 40.5156,236.2031 Q40.7813,235.9375 40.9219,235.8594 Q41.0781,235.7813 41.2813,235.7813 Q41.6094,235.7813 41.8594,236.0469 Q42.125,236.2969 42.125,236.6406 Q42.125,236.9844 41.7813,237.3906 Q41.2813,237.9688 40.4844,238.2969 Q39.4063,238.75 38.1094,238.75 Q36.5938,238.75 35.3906,238.125 Q34.4063,237.625 33.7188,236.5625 Q33.0313,235.4844 33.0313,234.2031 L33.0313,233.0469 Q33.0313,231.7188 33.6406,230.5781 Q34.2656,229.4219 35.3594,228.8125 Q36.4531,228.1875 37.6875,228.1875 Q38.4219,228.1875 39.0625,228.3594 Q39.7188,228.5156 40.2656,228.875 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="119" x="51.5" y="238.7285">HostNetworkBridge</text><line style="stroke:#181818;stroke-width:0.5;" x1="23.5" x2="172.5" y1="249" y2="249"/><ellipse cx="33.5" cy="260" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="89" x="42.5" y="267.5332">Slaves []string</text><line style="stroke:#181818;stroke-width:1.0;" x1="23.5" x2="172.5" y1="274.6094" y2="274.6094"/><ellipse cx="33.5" cy="285.6094" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="122" x="42.5" y="293.1426">GetSlaves() []string</text></g><path d="M382,240.5 L382,249.6758 L164.5,287.4141 L382,257.6758 L382,266.8516 A0,0 0 0 0 382,266.8516 L568,266.8516 A0,0 0 0 0 568,266.8516 L568,250.5 L558,240.5 L382,240.5 A0,0 0 0 0 382,240.5 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M558,240.5 L558,250.5 L568,250.5 L558,240.5 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="165" x="388" y="258.9951">Get an array of bridge slaves</text><!--MD5=[58987b0398bdf5010f5174b6a6feac3c]
+class HostNetworkConfig--><g id="elem_HostNetworkConfig"><rect codeLine="7" fill="#F1F1F1" height="108.8281" id="HostNetworkConfig" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="209" x="172.5" y="46"/><ellipse cx="213.6" cy="62" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M216.3656,57.875 Q216.5219,57.6563 216.7094,57.5469 Q216.8969,57.4375 217.1156,57.4375 Q217.4906,57.4375 217.725,57.7031 Q217.9594,57.9531 217.9594,58.5625 L217.9594,60.0156 Q217.9594,60.625 217.725,60.8906 Q217.4906,61.1563 217.1156,61.1563 Q216.7719,61.1563 216.5688,60.9531 Q216.3656,60.7656 216.2563,60.25 Q216.2094,59.8906 216.0219,59.7031 Q215.6938,59.3281 215.0844,59.1094 Q214.475,58.8906 213.85,58.8906 Q213.0844,58.8906 212.4438,59.2188 Q211.8188,59.5469 211.3188,60.2969 Q210.8344,61.0469 210.8344,62.0781 L210.8344,63.1719 Q210.8344,64.4063 211.725,65.2344 Q212.6156,66.0469 214.2094,66.0469 Q215.1469,66.0469 215.8031,65.7969 Q216.1938,65.6406 216.6156,65.2031 Q216.8813,64.9375 217.0219,64.8594 Q217.1781,64.7813 217.3813,64.7813 Q217.7094,64.7813 217.9594,65.0469 Q218.225,65.2969 218.225,65.6406 Q218.225,65.9844 217.8813,66.3906 Q217.3813,66.9688 216.5844,67.2969 Q215.5063,67.75 214.2094,67.75 Q212.6938,67.75 211.4906,67.125 Q210.5063,66.625 209.8188,65.5625 Q209.1313,64.4844 209.1313,63.2031 L209.1313,62.0469 Q209.1313,60.7188 209.7406,59.5781 Q210.3656,58.4219 211.4594,57.8125 Q212.5531,57.1875 213.7875,57.1875 Q214.5219,57.1875 215.1625,57.3594 Q215.8188,57.5156 216.3656,57.875 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="119" x="233.4" y="67.7285">HostNetworkConfig</text><line style="stroke:#181818;stroke-width:0.5;" x1="173.5" x2="380.5" y1="78" y2="78"/><ellipse cx="183.5" cy="89" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="183" x="192.5" y="96.5332">Devices []HostNetworkDevice</text><line style="stroke:#181818;stroke-width:1.0;" x1="173.5" x2="380.5" y1="103.6094" y2="103.6094"/><ellipse cx="183.5" cy="114.6094" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="161" x="192.5" y="122.1426">Vlans   []HostNetworkVlan</text><line style="stroke:#181818;stroke-width:1.0;" x1="173.5" x2="380.5" y1="129.2188" y2="129.2188"/><ellipse cx="183.5" cy="140.2188" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="179" x="192.5" y="147.752">Bridges []HostNetworkBridge</text></g><!--MD5=[0ef4b9020a0ab381891be386a00db524]
+class YamlHostNetworkConfigStorage--><g id="elem_YamlHostNetworkConfigStorage"><rect codeLine="5" fill="#F1F1F1" height="65.6094" id="YamlHostNetworkConfigStorage" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="232" x="1014" y="452"/><ellipse cx="1029" cy="468" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1031.7656,463.875 Q1031.9219,463.6563 1032.1094,463.5469 Q1032.2969,463.4375 1032.5156,463.4375 Q1032.8906,463.4375 1033.125,463.7031 Q1033.3594,463.9531 1033.3594,464.5625 L1033.3594,466.0156 Q1033.3594,466.625 1033.125,466.8906 Q1032.8906,467.1563 1032.5156,467.1563 Q1032.1719,467.1563 1031.9688,466.9531 Q1031.7656,466.7656 1031.6563,466.25 Q1031.6094,465.8906 1031.4219,465.7031 Q1031.0938,465.3281 1030.4844,465.1094 Q1029.875,464.8906 1029.25,464.8906 Q1028.4844,464.8906 1027.8438,465.2188 Q1027.2188,465.5469 1026.7188,466.2969 Q1026.2344,467.0469 1026.2344,468.0781 L1026.2344,469.1719 Q1026.2344,470.4063 1027.125,471.2344 Q1028.0156,472.0469 1029.6094,472.0469 Q1030.5469,472.0469 1031.2031,471.7969 Q1031.5938,471.6406 1032.0156,471.2031 Q1032.2813,470.9375 1032.4219,470.8594 Q1032.5781,470.7813 1032.7813,470.7813 Q1033.1094,470.7813 1033.3594,471.0469 Q1033.625,471.2969 1033.625,471.6406 Q1033.625,471.9844 1033.2813,472.3906 Q1032.7813,472.9688 1031.9844,473.2969 Q1030.9063,473.75 1029.6094,473.75 Q1028.0938,473.75 1026.8906,473.125 Q1025.9063,472.625 1025.2188,471.5625 Q1024.5313,470.4844 1024.5313,469.2031 L1024.5313,468.0469 Q1024.5313,466.7188 1025.1406,465.5781 Q1025.7656,464.4219 1026.8594,463.8125 Q1027.9531,463.1875 1029.1875,463.1875 Q1029.9219,463.1875 1030.5625,463.3594 Q1031.2188,463.5156 1031.7656,463.875 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="200" x="1043" y="473.7285">YamlHostNetworkConfigStorage</text><line style="stroke:#181818;stroke-width:0.5;" x1="1015" x2="1245" y1="484" y2="484"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1022" y="492"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="129" x="1034" y="502.5332">configFilePath string</text><line style="stroke:#181818;stroke-width:0.5;" x1="1015" x2="1245" y1="509.6094" y2="509.6094"/></g><!--MD5=[9e1d7ce1192ca49e51cccbdad1af1931]
+class HostNetworkManager--><g id="elem_HostNetworkManager"><rect codeLine="7" fill="#F1F1F1" height="83.2188" id="HostNetworkManager" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="360" x="1289" y="444"/><ellipse cx="1397.75" cy="460" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1400.5156,455.875 Q1400.6719,455.6563 1400.8594,455.5469 Q1401.0469,455.4375 1401.2656,455.4375 Q1401.6406,455.4375 1401.875,455.7031 Q1402.1094,455.9531 1402.1094,456.5625 L1402.1094,458.0156 Q1402.1094,458.625 1401.875,458.8906 Q1401.6406,459.1563 1401.2656,459.1563 Q1400.9219,459.1563 1400.7188,458.9531 Q1400.5156,458.7656 1400.4063,458.25 Q1400.3594,457.8906 1400.1719,457.7031 Q1399.8438,457.3281 1399.2344,457.1094 Q1398.625,456.8906 1398,456.8906 Q1397.2344,456.8906 1396.5938,457.2188 Q1395.9688,457.5469 1395.4688,458.2969 Q1394.9844,459.0469 1394.9844,460.0781 L1394.9844,461.1719 Q1394.9844,462.4063 1395.875,463.2344 Q1396.7656,464.0469 1398.3594,464.0469 Q1399.2969,464.0469 1399.9531,463.7969 Q1400.3438,463.6406 1400.7656,463.2031 Q1401.0313,462.9375 1401.1719,462.8594 Q1401.3281,462.7813 1401.5313,462.7813 Q1401.8594,462.7813 1402.1094,463.0469 Q1402.375,463.2969 1402.375,463.6406 Q1402.375,463.9844 1402.0313,464.3906 Q1401.5313,464.9688 1400.7344,465.2969 Q1399.6563,465.75 1398.3594,465.75 Q1396.8438,465.75 1395.6406,465.125 Q1394.6563,464.625 1393.9688,463.5625 Q1393.2813,462.4844 1393.2813,461.2031 L1393.2813,460.0469 Q1393.2813,458.7188 1393.8906,457.5781 Q1394.5156,456.4219 1395.6094,455.8125 Q1396.7031,455.1875 1397.9375,455.1875 Q1398.6719,455.1875 1399.3125,455.3594 Q1399.9688,455.5156 1400.5156,455.875 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="134" x="1418.25" y="465.7285">HostNetworkManager</text><line style="stroke:#181818;stroke-width:0.5;" x1="1290" x2="1648" y1="476" y2="476"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1297" y="484"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="334" x="1309" y="494.5332">configStorage  interfaces.IHostNetworkConfigStorage</text><line style="stroke:#181818;stroke-width:1.0;" x1="1290" x2="1648" y1="501.6094" y2="501.6094"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1297" y="509.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="166" x="1309" y="520.1426">hasUnsavedChanges bool</text></g><!--MD5=[70c9174922475a82a23101ea344dc89c]
+class HostNetworkBridgeController--><g id="elem_HostNetworkBridgeController"><rect codeLine="8" fill="#F1F1F1" height="211.2656" id="HostNetworkBridgeController" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="261" x="2033.5" y="380"/><ellipse cx="2070.1" cy="396" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M2072.8656,391.875 Q2073.0219,391.6563 2073.2094,391.5469 Q2073.3969,391.4375 2073.6156,391.4375 Q2073.9906,391.4375 2074.225,391.7031 Q2074.4594,391.9531 2074.4594,392.5625 L2074.4594,394.0156 Q2074.4594,394.625 2074.225,394.8906 Q2073.9906,395.1563 2073.6156,395.1563 Q2073.2719,395.1563 2073.0688,394.9531 Q2072.8656,394.7656 2072.7563,394.25 Q2072.7094,393.8906 2072.5219,393.7031 Q2072.1938,393.3281 2071.5844,393.1094 Q2070.975,392.8906 2070.35,392.8906 Q2069.5844,392.8906 2068.9438,393.2188 Q2068.3188,393.5469 2067.8188,394.2969 Q2067.3344,395.0469 2067.3344,396.0781 L2067.3344,397.1719 Q2067.3344,398.4063 2068.225,399.2344 Q2069.1156,400.0469 2070.7094,400.0469 Q2071.6469,400.0469 2072.3031,399.7969 Q2072.6938,399.6406 2073.1156,399.2031 Q2073.3813,398.9375 2073.5219,398.8594 Q2073.6781,398.7813 2073.8813,398.7813 Q2074.2094,398.7813 2074.4594,399.0469 Q2074.725,399.2969 2074.725,399.6406 Q2074.725,399.9844 2074.3813,400.3906 Q2073.8813,400.9688 2073.0844,401.2969 Q2072.0063,401.75 2070.7094,401.75 Q2069.1938,401.75 2067.9906,401.125 Q2067.0063,400.625 2066.3188,399.5625 Q2065.6313,398.4844 2065.6313,397.2031 L2065.6313,396.0469 Q2065.6313,394.7188 2066.2406,393.5781 Q2066.8656,392.4219 2067.9594,391.8125 Q2069.0531,391.1875 2070.2875,391.1875 Q2071.0219,391.1875 2071.6625,391.3594 Q2072.3188,391.5156 2072.8656,391.875 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="181" x="2088.9" y="401.7285">HostNetworkBridgeController</text><line style="stroke:#181818;stroke-width:0.5;" x1="2034.5" x2="2293.5" y1="412" y2="412"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="2041.5" y="420"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="235" x="2053.5" y="430.5332">service *services.HostNetworkService</text><line style="stroke:#181818;stroke-width:1.0;" x1="2034.5" x2="2293.5" y1="437.6094" y2="437.6094"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="2041.5" y="445.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="141" x="2053.5" y="456.1426">logger  *logrus.Logger</text><line style="stroke:#181818;stroke-width:1.0;" x1="2034.5" x2="2293.5" y1="463.2188" y2="463.2188"/><ellipse cx="2044.5" cy="474.2188" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="152" x="2053.5" y="481.752">GetList(ctx *gin.Context)</text><line style="stroke:#181818;stroke-width:1.0;" x1="2034.5" x2="2293.5" y1="488.8281" y2="488.8281"/><ellipse cx="2044.5" cy="499.8281" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="182" x="2053.5" y="507.3613">GetByName(ctx *gin.Context)</text><line style="stroke:#181818;stroke-width:1.0;" x1="2034.5" x2="2293.5" y1="514.4375" y2="514.4375"/><ellipse cx="2044.5" cy="525.4375" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="150" x="2053.5" y="532.9707">Create(ctx *gin.Context)</text><line style="stroke:#181818;stroke-width:1.0;" x1="2034.5" x2="2293.5" y1="540.0469" y2="540.0469"/><ellipse cx="2044.5" cy="551.0469" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="152" x="2053.5" y="558.5801">Update(ctx *gin.Context)</text><line style="stroke:#181818;stroke-width:1.0;" x1="2034.5" x2="2293.5" y1="565.6563" y2="565.6563"/><ellipse cx="2044.5" cy="576.6563" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="148" x="2053.5" y="584.1895">Delete(ctx *gin.Context)</text></g><path d="M1713.5,394 L1713.5,420.3516 A0,0 0 0 0 1713.5,420.3516 L1905.5,420.3516 A0,0 0 0 0 1905.5,420.3516 L1905.5,412 L2037.5,476.0234 L1905.5,404 L1905.5,404 L1895.5,394 L1713.5,394 A0,0 0 0 0 1713.5,394 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M1895.5,394 L1895.5,404 L1905.5,404 L1895.5,394 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="171" x="1719.5" y="412.4951">Get list of bridges on the host</text><path d="M1713.5,430.3516 L1713.5,456.7031 A0,0 0 0 0 1713.5,456.7031 L1990.5,456.7031 A0,0 0 0 0 1990.5,456.7031 L1990.5,448.3516 L2037.5,501.6328 L1990.5,440.3516 L1990.5,440.3516 L1980.5,430.3516 L1713.5,430.3516 A0,0 0 0 0 1713.5,430.3516 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M1980.5,430.3516 L1980.5,440.3516 L1990.5,440.3516 L1980.5,430.3516 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="256" x="1719.5" y="448.8467">Get bridge by interface full name on the host</text><path d="M1713.5,466.7031 L1713.5,493.0547 A0,0 0 0 0 1713.5,493.0547 L1907.5,493.0547 A0,0 0 0 0 1907.5,493.0547 L1907.5,484.7031 L2037.5,527.2422 L1907.5,476.7031 L1907.5,476.7031 L1897.5,466.7031 L1713.5,466.7031 A0,0 0 0 0 1713.5,466.7031 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M1897.5,466.7031 L1897.5,476.7031 L1907.5,476.7031 L1897.5,466.7031 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="173" x="1719.5" y="485.1982">Create new bridge on the host</text><path d="M1713.5,503.0547 L1713.5,529.4063 A0,0 0 0 0 1713.5,529.4063 L1883.5,529.4063 A0,0 0 0 0 1883.5,529.4063 L1883.5,521.0547 L2037.5,552.8516 L1883.5,513.0547 L1883.5,513.0547 L1873.5,503.0547 L1713.5,503.0547 A0,0 0 0 0 1713.5,503.0547 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M1873.5,503.0547 L1873.5,513.0547 L1883.5,513.0547 L1873.5,503.0547 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="149" x="1719.5" y="521.5498">Update bridge on the host</text><path d="M1713.5,539.4063 L1713.5,565.7578 A0,0 0 0 0 1713.5,565.7578 L1932.5,565.7578 A0,0 0 0 0 1932.5,565.7578 L1932.5,557.4063 L2037.5,578.4609 L1932.5,549.4063 L1932.5,549.4063 L1922.5,539.4063 L1713.5,539.4063 A0,0 0 0 0 1713.5,539.4063 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M1922.5,539.4063 L1922.5,549.4063 L1932.5,549.4063 L1922.5,539.4063 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="198" x="1719.5" y="557.9014">Delete bridge interface on the host</text><!--MD5=[d88daa471e26b068a6e4189ed66f50d4]
+link HostNetworkBridgeDto to HostNetworkBridgeBaseDto--><g id="link_HostNetworkBridgeDto_HostNetworkBridgeBaseDto"><path codeLine="8" d="M1594.3,132.65 C1626.72,154.68 1670.31,184.3 1706.88,209.17 " fill="none" id="HostNetworkBridgeDto-to-HostNetworkBridgeBaseDto" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1717.99,216.72,1715.2774,210.0385,1708.0666,209.9726,1710.7792,216.6541,1717.99,216.72" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[fe0b0e021486c635104b475f09ef6f0f]
+link HostNetworkBridgeCreateDto to HostNetworkBridgeBaseDto--><g id="link_HostNetworkBridgeCreateDto_HostNetworkBridgeBaseDto"><path codeLine="8" d="M1978.4,132.65 C1942.73,154.87 1894.66,184.82 1854.55,209.81 " fill="none" id="HostNetworkBridgeCreateDto-to-HostNetworkBridgeBaseDto" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1843.46,216.72,1850.6677,216.9421,1853.6449,210.3742,1846.4372,210.1522,1843.46,216.72" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[8de1a797b6669b5354d8a6292df9a65b]
+link HostNetworkBridgeUpdateDto to HostNetworkBridgeBaseDto--><g id="link_HostNetworkBridgeUpdateDto_HostNetworkBridgeBaseDto"><path codeLine="6" d="M1778,123.67 C1778,144.61 1778,176.24 1778,203.49 " fill="none" id="HostNetworkBridgeUpdateDto-to-HostNetworkBridgeBaseDto" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1778,216.86,1782,210.86,1778,204.86,1774,210.86,1778,216.86" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[c7ae537b1fb1fd62da54845b02126a57]
+link HostNetworkLink to IHostNetworkLink--><g id="link_HostNetworkLink_IHostNetworkLink"><path codeLine="21" d="M406,539.65 C406,617.41 406,761.71 406,849.52 " fill="none" id="HostNetworkLink-to-IHostNetworkLink" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="none" points="413,849.76,406,869.76,399,849.76,413,849.76" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[7c0130aaa2dc79170695f96da00ebff9]
+link HostNetworkDevice to HostNetworkLink--><g id="link_HostNetworkDevice_HostNetworkLink"><path codeLine="7" d="M651.71,282.68 C611.93,315.27 538.04,375.81 481.64,422.03 " fill="none" id="HostNetworkDevice-to-HostNetworkLink" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="471.32,430.48,478.4961,429.7703,480.601,422.8733,473.4249,423.583,471.32,430.48" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[f741d5613818e7c6a8b6721c8e9fb611]
+link HostNetworkVlan to HostNetworkLink--><g id="link_HostNetworkVlan_HostNetworkLink"><path codeLine="11" d="M301.18,300.16 C319.98,333.13 346.85,380.26 368.68,418.55 " fill="none" id="HostNetworkVlan-to-HostNetworkLink" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="375.28,430.12,375.7791,422.9262,369.3306,419.6986,368.8315,426.8925,375.28,430.12" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[dba085063a1d972b71adca959eac56ab]
+link HostNetworkBridge to HostNetworkLink--><g id="link_HostNetworkBridge_HostNetworkLink"><path codeLine="11" d="M146.44,300.32 C160.06,309.71 175.43,318.53 191,324 C215.38,332.56 284.72,318.91 307,332 C339.99,351.38 363.96,386.59 380.05,418.25 " fill="none" id="HostNetworkBridge-to-HostNetworkLink" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="385.83,430.17,386.8123,423.0261,380.5957,419.3718,379.6134,426.5157,385.83,430.17" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[22922eb5c98d6328bffadf0fffe1f4a9]
+link HostNetworkConfig to HostNetworkDevice--><g id="link_HostNetworkConfig_HostNetworkDevice"><path codeLine="15" d="M383,90.5 C498.94,90.5 611.44,188.39 657.81,234.28 " fill="none" id="HostNetworkConfig-HostNetworkDevice" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[3939eded06239bcaaa875b04c4955c10]
+link HostNetworkConfig to HostNetworkVlan--><g id="link_HostNetworkConfig_HostNetworkVlan"><path codeLine="16" d="M383,116.5 C433.36,116.5 375.18,175.07 327.46,216.72 " fill="none" id="HostNetworkConfig-HostNetworkVlan" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[9daca89a698ab2c397b62c91a9aa8944]
+link HostNetworkConfig to HostNetworkBridge--><g id="link_HostNetworkConfig_HostNetworkBridge"><path codeLine="17" d="M172,141.5 C135.21,141.5 115.91,183.48 106.36,216.93 " fill="none" id="HostNetworkConfig-HostNetworkBridge" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[4b27b58a3dcdc7721ce2906e479ec2a1]
+link YamlHostNetworkConfigStorage to IHostNetworkConfigStorage--><g id="link_YamlHostNetworkConfigStorage_IHostNetworkConfigStorage"><path codeLine="9" d="M1070.87,518.24 C1027.39,543.79 968.52,582.36 925,626 C856.94,694.24 797.51,788.36 761.05,852.34 " fill="none" id="YamlHostNetworkConfigStorage-to-IHostNetworkConfigStorage" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="none" points="767.06,855.93,751.16,869.94,754.85,849.07,767.06,855.93" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[5a77e35d18a67292d31d635cffa38ea2]
+link HostNetworkManager to YamlHostNetworkConfigStorage--><g id="link_HostNetworkManager_YamlHostNetworkConfigStorage"><path codeLine="13" d="M1288,489 C1277.77,489 1267.17,488.91 1256.52,488.77 " fill="none" id="HostNetworkManager-YamlHostNetworkConfigStorage" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="1256.52" x2="1246.31" y1="488.77" y2="488.61"/></g><!--MD5=[8da93bdfc8a67e29cf06757d442ac4df]
+link YamlHostNetworkConfigStorage to HostNetworkManager--><!--MD5=[3dcecfe70558689b84244a7b11eaea24]
+link HostNetworkManager to IHostNetworkManager--><g id="link_HostNetworkManager_IHostNetworkManager"><path codeLine="14" d="M1473.87,530.36 C1478.56,573.16 1486.03,641.25 1493.45,708.82 " fill="none" id="HostNetworkManager-to-IHostNetworkManager" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="none" points="1500.41,708.15,1495.64,728.79,1486.5,709.68,1500.41,708.15" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[5f9b85877b9bbf6a61ca701029692ffc]
+link HostNetworkService to HostNetworkManager--><g id="link_HostNetworkService_HostNetworkManager"><path codeLine="35" d="M1738,812.5 C1696.18,812.5 1737.3,660.03 1713,626 C1708.38,619.53 1704,621.77 1697,618 C1644.76,589.85 1586.9,556.33 1542.54,530.11 " fill="none" id="HostNetworkService-HostNetworkManager" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[81d43c9b16da830d12e75b3be28890fa]
+link HostNetworkBridgeController to HostNetworkService--><g id="link_HostNetworkBridgeController_HostNetworkService"><path codeLine="45" d="M2033,424 C1995.22,424 2029.24,556.52 2034,594 C2041.12,650.03 2054.52,710.25 2068.51,763.67 " fill="none" id="HostNetworkBridgeController-HostNetworkService" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[331a6f2fe28492c9340363d1125b0846]
+@startuml
+
+!include ../services/HostNetworkService.puml
+remove HostNetworkVlanDto
+remove HostNetworkVlanUpdateDto
+remove HostNetworkVlanCreateDto
+
+package controllers {
+    class HostNetworkBridgeController {
+        -service *services.HostNetworkService
+        - -
+        -logger  *logrus.Logger
+        - -
+        +GetList(ctx *gin.Context)
+        - -
+        +GetByName(ctx *gin.Context)
+        - -
+        +Create(ctx *gin.Context)
+        - -
+        +Update(ctx *gin.Context)
+        - -
+        +Delete(ctx *gin.Context)
+    }
+
+    note left of HostNetworkBridgeController::GetList
+    Get list of bridges on the host
+    end note
+
+    note left of HostNetworkBridgeController::GetByName
+    Get bridge by interface full name on the host
+    end note
+
+    note left of HostNetworkBridgeController::Create
+    Create new bridge on the host
+    end note
+
+    note left of HostNetworkBridgeController::Update
+    Update bridge on the host
+    end note
+
+    note left of HostNetworkBridgeController::Delete
+    Delete bridge interface on the host
+    end note
+
+
+    HostNetworkService -up- HostNetworkBridgeController::service
+}
+
+@enduml
+
+@startuml
+
+
+
+package dtos {
+    class HostNetworkVlanDto {
+        +Name string
+        - -
+        +Addresses []string
+        - -
+        +VlanID int
+        - -
+        +Parent string
+    }
+}
+
+
+package dtos {
+    class HostNetworkVlanCreateDto {
+        +Addresses []string
+        - -
+        +VlanID int
+        - -
+        +Parent string
+    }
+}
+
+
+
+package dtos {
+    class HostNetworkVlanUpdateDto {
+        +Addresses []string
+    }
+}
+
+
+
+package dtos {
+    class HostNetworkBridgeBaseDto {
+    +Addresses []string
+    - -
+    +Slaves []string
+    }
+}
+
+
+package dtos {
+    class HostNetworkBridgeDto {
+        +Name string
+    }
+    HostNetworkBridgeDto - -* HostNetworkBridgeBaseDto
+}
+
+
+
+package dtos {
+    class HostNetworkBridgeCreateDto {
+        +Name string
+    }
+    HostNetworkBridgeCreateDto - -* HostNetworkBridgeBaseDto
+}
+
+
+
+package dtos {
+    class HostNetworkBridgeUpdateDto {}
+    HostNetworkBridgeUpdateDto - -* HostNetworkBridgeBaseDto
+}
+
+
+
+
+
+
+
+package app {
+    interface IHostNetworkLink {
+        +GetName() string
+        - -
+        +GetType() string
+        - -
+        +GetAddresses() []net.IPNet
+    }
+
+    note left of IHostNetworkLink::GetName
+    Gets host interface name
+    end note
+
+    note left of IHostNetworkLink::GetType
+    Gets host interface type
+    end note
+
+    note left of IHostNetworkLink::GetAddresses
+    Gets host interface addresses
+    end note
+}
+
+
+package domain {
+    class HostNetworkLink {
+        +Name string
+        - -
+        +Addresses []net.IPNet
+        - -
+        +Type string
+    }
+    note left of HostNetworkLink::Name
+    Unique name of the network interface
+    end note
+
+    note left of HostNetworkLink::Type
+    Default value is "none"
+    because HostNetworkLink is a basic class
+    end note
+
+    HostNetworkLink - -|> IHostNetworkLink
+}
+
+
+package domain {
+    class HostNetworkDevice
+
+    HostNetworkDevice - -* HostNetworkLink
+}
+
+
+
+package domain {
+    class HostNetworkVlan {
+        +VlanID int
+        - -
+        +Parent string
+    }
+
+    HostNetworkVlan - -* HostNetworkLink
+}
+
+
+
+package domain {
+    class HostNetworkBridge {
+        +Slaves []string
+        - -
+        +GetSlaves() []string
+    }
+
+    HostNetworkBridge - -* HostNetworkLink
+
+    note right of HostNetworkBridge::GetSlaves
+        Get an array of bridge slaves
+    end note
+}
+
+
+
+
+package domain {
+    class HostNetworkConfig {
+        +Devices []HostNetworkDevice
+        - -
+        +Vlans   []HostNetworkVlan
+        - -
+        +Bridges []HostNetworkBridge
+    }
+
+    HostNetworkConfig::Devices - - HostNetworkDevice
+    HostNetworkConfig::Vlans - - HostNetworkVlan
+    HostNetworkConfig::Bridges - - HostNetworkBridge
+}
+
+
+
+package app {
+    interface IHostNetworkManager {
+        +GetList() ([]IHostNetworkLink, error)
+        - -
+        +GetByName(name string) (IHostNetworkLink, error)
+        - -
+        +CreateVlan(master string, vlanID int) (string, error)
+        - -
+        +CreateBridge(name string) (string, error)
+        - -
+        +SetLinkMaster(slaveName, masterName string) error
+        - -
+        +UnsetLinkMaster(linkName string) error
+        - -
+        +SetLinkUp(linkName string) error
+        - -
+        +DeleteLinkByName(name string) error
+        - -
+        +AddrAdd(linkName string, addr net.IPNet) error
+        - -
+        +AddrDelete(linkName string, addr net.IPNet) error
+        - -
+        +SaveConfiguration() error
+        - -
+        +RestoreFromBackup() error
+        - -
+        +ResetChanges() error
+        - -
+        +HasUnsavedChanges() bool
+    }
+
+    note left of IHostNetworkManager::GetList
+    Gets list of host network interfaces
+    end note
+
+    note left of IHostNetworkManager::GetByName
+    Gets host network interface by its name
+    end note
+
+    note left of IHostNetworkManager::CreateVlan
+    Create host vlan interface with name rol.{Master}.{VlanID}
+    end note
+
+    note left of IHostNetworkManager::CreateBridge
+    Create host bridge interface with name rol.br.{Name}
+    end note
+
+    note left of IHostNetworkManager::SetLinkMaster
+    Set master for link
+    end note
+
+    note left of IHostNetworkManager::UnsetLinkMaster
+    Removes the master of the link
+    end note
+
+    note left of IHostNetworkManager::SetLinkUp
+    Enables the link on host
+    end note
+
+    note left of IHostNetworkManager::DeleteLinkByName
+    Deletes interface on host by its name
+    end note
+
+    note left of IHostNetworkManager::AddrAdd
+    Add new ip address for network interface
+    end note
+
+    note left of IHostNetworkManager::AddrDelete
+    Delete ip address for network interface
+    end note
+
+    note left of IHostNetworkManager::SaveConfiguration
+    Save current host network configuration to the storage
+    end note
+
+    note left of IHostNetworkManager::RestoreFromBackup
+    Restore and apply host network configuration from backup
+    end note
+
+    note left of IHostNetworkManager::ResetChanges
+    Reset all applied changes to state from saved configuration
+    end note
+
+    note left of IHostNetworkManager::HasUnsavedChanges
+    Gets a flag about unsaved changes
+    end note
+}
+
+
+
+
+package app {
+    interface IHostNetworkConfigStorage {
+        +SaveConfig(config domain.HostNetworkConfig) error
+        - -
+        +GetConfig() (domain.HostNetworkConfig, error)
+        - -
+        +GetBackupConfig() (domain.HostNetworkConfig, error)
+    }
+}
+
+
+package infrastructure {
+    class YamlHostNetworkConfigStorage {
+        -configFilePath string
+    }
+
+    YamlHostNetworkConfigStorage - -|> IHostNetworkConfigStorage
+}
+
+
+package infrastructure {
+    class HostNetworkManager {
+        -configStorage  interfaces.IHostNetworkConfigStorage
+        - -
+        -hasUnsavedChanges bool
+    }
+
+    HostNetworkManager::configStorage - - YamlHostNetworkConfigStorage
+    HostNetworkManager -down-|> IHostNetworkManager
+    HostNetworkManager -[hidden]left- YamlHostNetworkConfigStorage
+}
+
+
+package app {
+    class HostNetworkService {
+        -manager IHostNetworkManager
+        - -
+        +GetVlanList() ([]HostNetworkVlanDto, error)
+        - -
+        +GetVlanByName(name string) (HostNetworkVlanDto, error)
+        - -
+        +CreateVlan(createDto HostNetworkVlanCreateDto) (HostNetworkVlanDto, error)
+        - -
+        +UpdateVlan(name string, updateDto HostNetworkVlanUpdateDto) (HostNetworkVlanDto, error)
+        - -
+        +DeleteVlan(name string) error
+        - -
+        +GetBridgeList() ([]HostNetworkBridgeDto, error)
+        - -
+        +GetBridgeByName(name string) (dtos.HostNetworkBridgeDto, error)
+        - -
+        +CreateBridge(createDto dtos.HostNetworkBridgeCreateDto) (dtos.HostNetworkBridgeDto, error)
+        - -
+        +UpdateBridge(bridgeName string, updateDto dtos.HostNetworkBridgeUpdateDto) (dtos.HostNetworkBridgeDto, error)
+        - -
+        +DeleteBridge(bridgeName string) error
+    }
+    HostNetworkService::manager - - HostNetworkManager
+
+    note right of HostNetworkService::GetVlanList
+        Get list of VLAN interfaces on the host
+    end note
+
+    note right of HostNetworkService::GetVlanByName
+        Get VLAN interface by Name
+    end note
+
+    note right of HostNetworkService::CreateVlan
+        Create new VLAN interface on the host
+    end note
+
+    note right of HostNetworkService::UpdateVlan
+        Update VLAN interface on the host
+    end note
+
+    note right of HostNetworkService::DeleteVlan
+        Delete VLAN interface from host
+    end note
+
+    note right of HostNetworkService::GetBridgeList
+        Get list of bridge interfaces on the host
+    end note
+
+    note right of HostNetworkService::GetBridgeByName
+        Get bridge interface by Name
+    end note
+
+    note right of HostNetworkService::CreateBridge
+        Create new bridge interface on the host
+    end note
+
+    note right of HostNetworkService::UpdateBridge
+        Update bridge interface on the host
+    end note
+
+    note right of HostNetworkService::DeleteBridge
+        Delete bridge interface from host
+    end note
+}
+
+remove HostNetworkVlanDto
+remove HostNetworkVlanUpdateDto
+remove HostNetworkVlanCreateDto
+
+package controllers {
+    class HostNetworkBridgeController {
+        -service *services.HostNetworkService
+        - -
+        -logger  *logrus.Logger
+        - -
+        +GetList(ctx *gin.Context)
+        - -
+        +GetByName(ctx *gin.Context)
+        - -
+        +Create(ctx *gin.Context)
+        - -
+        +Update(ctx *gin.Context)
+        - -
+        +Delete(ctx *gin.Context)
+    }
+
+    note left of HostNetworkBridgeController::GetList
+    Get list of bridges on the host
+    end note
+
+    note left of HostNetworkBridgeController::GetByName
+    Get bridge by interface full name on the host
+    end note
+
+    note left of HostNetworkBridgeController::Create
+    Create new bridge on the host
+    end note
+
+    note left of HostNetworkBridgeController::Update
+    Update bridge on the host
+    end note
+
+    note left of HostNetworkBridgeController::Delete
+    Delete bridge interface on the host
+    end note
+
+
+    HostNetworkService -up- HostNetworkBridgeController::service
+}
+
+@enduml
+
+PlantUML version 1.2022.6(Tue Jun 21 20:34:49 MSK 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1251
+Language: ru
+Country: RU
+--></g></svg>

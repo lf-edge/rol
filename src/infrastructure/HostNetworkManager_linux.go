@@ -175,11 +175,6 @@ func (h *HostNetworkManager) CreateVlan(master string, vlanID int) (string, erro
 
 	h.hasUnsavedChanges = true
 
-	err = netlink.LinkSetUp(vlan)
-	if err != nil {
-		return "", errors.Internal.Wrap(err, "vlan link set up failed")
-	}
-
 	return vlanName, nil
 }
 

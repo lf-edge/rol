@@ -6,6 +6,7 @@ require (
 	github.com/Azure/go-asynctask v1.1.1
 	github.com/gin-gonic/gin v1.7.7
 	github.com/go-ozzo/ozzo-validation v3.6.0+incompatible
+	github.com/reiver/go-telnet v0.0.0-20180421082511-9ff0b2ab096e
 	github.com/sirupsen/logrus v1.8.1
 	github.com/swaggo/swag v1.8.1
 	github.com/vishvananda/netlink v1.1.0
@@ -25,6 +26,7 @@ require (
 	github.com/go-openapi/swag v0.21.1 // indirect
 	github.com/josharian/intern v1.0.0 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
+	github.com/reiver/go-oi v1.0.0 // indirect
 	github.com/vishvananda/netns v0.0.0-20191106174202-0a2b9b5464df // indirect
 	golang.org/x/net v0.0.0-20220418201149-a630d4f3e7a2 // indirect
 	golang.org/x/tools v0.1.10 // indirect

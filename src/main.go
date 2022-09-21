@@ -53,6 +53,7 @@ func main() {
 			infrastructure.NewDeviceTemplateStorage,
 			infrastructure.NewYamlHostNetworkConfigStorage,
 			infrastructure.NewHostNetworkManager,
+			infrastructure.NewEthernetSwitchVLANRepository,
 			infrastructure.NewEthernetSwitchManagerProvider,
 			// Application logic
 			services.NewEthernetSwitchService,

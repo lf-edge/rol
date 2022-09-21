@@ -1,0 +1,27 @@
+@startuml
+
+!include Entity.puml
+
+package domain {
+    class EthernetSwitchVLAN {
+        +VlanID int
+        --
+        +EthernetSwitchID uuid.UUID `gorm:"index;size:36"`
+        --
+        +UntaggedPorts string `gorm:"type:text"`
+        --
+        +TaggedPorts string `gorm:"type:text"`
+    }
+
+    EthernetSwitchVLAN -down-* Entity
+
+    note left of EthernetSwitchVLAN::UntaggedPorts
+        UUID's of untagged ports separated with ';'
+    end note
+
+    note left of EthernetSwitchVLAN::TaggedPorts
+      UUID's of tagged ports separated with ';'
+    end note
+}
+
+@enduml

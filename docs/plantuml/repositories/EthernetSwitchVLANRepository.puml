@@ -1,0 +1,19 @@
+@startuml
+
+!include ../entities/EthernetSwitchVLAN.puml
+!include GormGenericRepository.puml
+
+package infrastructure {
+    class EthernetSwitchVLANRepository
+
+    EthernetSwitchVLANRepository -down-* GormGenericRepository
+
+
+    note "EntityType is EthernetSwitchVLAN" as EthernetSwitchVLANTypeNote
+
+    EthernetSwitchVLANRepository .down. EthernetSwitchVLANTypeNote
+    GormGenericRepository <.up. EthernetSwitchVLANTypeNote
+    EthernetSwitchVLAN .. EthernetSwitchVLANTypeNote
+}
+
+@enduml

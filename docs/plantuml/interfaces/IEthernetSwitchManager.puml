@@ -1,0 +1,78 @@
+@startuml
+
+package app {
+    interface IEthernetSwitchManager {
+        +GetVLANs() ([]int, error)
+        --
+        +GetVLANsOnPort(portName string) (int, []int, error)
+        --
+        +AddTaggedVLANOnPort(portName string, vlanID int) error
+        --
+        +AddUntaggedVLANOnPort(portName string, vlanID int) error
+        --
+        +RemoveVLANFromPort(portName string, vlanID int) error
+        --
+        +SetPortPVID(portName string, vlanID int) error
+        --
+        +DeleteVLAN(vlanID int) error
+        --
+        +CreateVLAN(vlanID int) error
+        --
+        +GetPOEPortStatus(portName string) (string, error)
+        --
+        +EnablePOEPort(portName, poeType string) error
+        --
+        +DisablePOEPort(portName string) error
+        --
+        +SaveConfig() error
+    }
+
+    note left of IEthernetSwitchManager::GetVLANs
+    Gets list of switch VLANs IDs on switch
+    end note
+
+    note left of IEthernetSwitchManager::GetVLANsOnPort
+    Gets list of switch VLANs IDs on given port
+    end note
+
+    note left of IEthernetSwitchManager::AddTaggedVLANOnPort
+    Add tagged VLAN on port
+    end note
+
+    note left of IEthernetSwitchManager::AddUntaggedVLANOnPort
+    Add untagged VLAN on port
+    end note
+
+    note left of IEthernetSwitchManager::RemoveVLANFromPort
+    Remove VLAN from port
+    end note
+
+    note left of IEthernetSwitchManager::SetPortPVID
+    Set PVID for port
+    end note
+
+    note left of IEthernetSwitchManager::DeleteVLAN
+    Delete VLAN on switch
+    end note
+
+    note left of IEthernetSwitchManager::CreateVLAN
+    Create VLAN on switch
+    end note
+
+    note left of IEthernetSwitchManager::GetPOEPortStatus
+    Get port POE status
+    end note
+
+    note left of IEthernetSwitchManager::EnablePOEPort
+    Enable POE on port
+    end note
+
+    note left of IEthernetSwitchManager::DisablePOEPort
+    Disable POE on port
+    end note
+
+    note left of IEthernetSwitchManager::SaveConfig
+    Save current settings on switch
+    end note
+}
+@enduml

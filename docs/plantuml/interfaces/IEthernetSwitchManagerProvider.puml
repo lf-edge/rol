@@ -1,0 +1,8 @@
+@startuml
+
+package app {
+    interface IEthernetSwitchManagerProvider {
+        +Get(ctx context.Context, switchId uuid.UUID) (interfaces.IEthernetSwitchManager, error)
+    }
+}
+@enduml

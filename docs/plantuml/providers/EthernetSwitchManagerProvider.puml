@@ -1,0 +1,18 @@
+@startuml
+!include ../interfaces/IEthernetSwitchManagerProvider.puml
+!include ../interfaces/IEthernetSwitchManager.puml
+!include ../repositories/EthernetSwitchRepository.puml
+!include ../managers/TPLinkEthernetSwitchManager.puml
+
+package infrastructure {
+    class EthernetSwitchManagerProvider {
+        -managers map[uuid.UUID]interfaces.IEthernetSwitchManager
+        --
+        -switchRepo interfaces.IGenericRepository[domain.EthernetSwitch]
+    }
+    EthernetSwitchManagerProvider --|> IEthernetSwitchManagerProvider
+    EthernetSwitchManagerProvider::managers -- TPLinkEthernetSwitchManager
+    EthernetSwitchManagerProvider::switchRepo -- EthernetSwitchRepository
+}
+
+@enduml

@@ -1,0 +1,18 @@
+@startuml
+
+!include ../interfaces/IEthernetSwitchManager.puml
+
+package infrastructure {
+    class TPLinkEthernetSwitchManager {
+        -telnetConn *TelnetConnection
+        --
+        -address    string
+        --
+        -login      string
+        --
+        -password   string
+    }
+    TPLinkEthernetSwitchManager --|> IEthernetSwitchManager
+}
+
+@enduml

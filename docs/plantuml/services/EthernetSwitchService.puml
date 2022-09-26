@@ -1,6 +1,8 @@
 @startuml
 !include ../repositories/EthernetSwitchRepository.puml
 !include ../repositories/EthernetSwitchPortRepository.puml
+!include ../repositories/EthernetSwitchVLANRepository.puml
+!include ../providers/EthernetSwitchManagerProvider.puml
 !include ../dto/EthernetSwitch/EthernetSwitchCreateDto.puml
 !include ../dto/EthernetSwitch/EthernetSwitchUpdateDto.puml
 !include ../dto/EthernetSwitch/EthernetSwitchDto.puml
@@ -8,12 +10,19 @@
 !include ../dto/EthernetSwitchPort/EthernetSwitchPortCreateDto.puml
 !include ../dto/EthernetSwitchPort/EthernetSwitchPortUpdateDto.puml
 !include ../dto/EthernetSwitchPort/EthernetSwitchPortDto.puml
+!include ../dto/EthernetSwitchVLAN/EthernetSwitchVLANDto.puml
+!include ../dto/EthernetSwitchVLAN/EthernetSwitchVLANCreateDto.puml
+!include ../dto/EthernetSwitchVLAN/EthernetSwitchVLANUpdateDto.puml
 
 package app {
     class EthernetSwitchService {
         -switchRepo interfaces.IGenericRepository[domain.EthernetSwitch]
         --
         -portRepo interfaces.IGenericRepository[domain.EthernetSwitchPort]
+        --
+        -vlanRepo interfaces.IGenericRepository[domain.EthernetSwitchVLAN]
+        --
+        -managers interfaces.IEthernetSwitchManagerProvider[domain.EthernetSwitchVLAN]
         --
         +GetList(ctx context.Context, search, orderBy, orderDirection string, page, pageSize int) (dtos.PaginatedItemsDto[dtos.EthernetSwitchDto], error)
         --
@@ -36,6 +45,16 @@ package app {
         +GetPorts(ctx context.Context, switchID uuid.UUID, search, orderBy, orderDirection string, page, pageSize int) (dtos.PaginatedItemsDto[dtos.EthernetSwitchPortDto], error)
         --
         +DeletePort(ctx context.Context, switchID, id uuid.UUID) error
+        --
+        +GetVLANByID(ctx context.Context, switchID, id uuid.UUID) (dtos.EthernetSwitchVLANDto, error)
+        --
+        +GetVLANs(ctx context.Context, switchID uuid.UUID, search, orderBy, orderDirection string, page, pageSize int) (dtos.PaginatedItemsDto[dtos.EthernetSwitchVLANDto], error)
+        --
+        +CreateVLAN(ctx context.Context, switchID uuid.UUID, createDto dtos.EthernetSwitchVLANCreateDto) (dtos.EthernetSwitchVLANDto, error)
+        --
+        +UpdateVLAN(ctx context.Context, switchID, id uuid.UUID, updateDto dtos.EthernetSwitchVLANUpdateDto) (dtos.EthernetSwitchVLANDto, error)
+        --
+        +DeleteVLAN(ctx context.Context, switchID, id uuid.UUID) error
     }
 
     note left of EthernetSwitchService::GetSupportedModels
@@ -51,7 +70,8 @@ package app {
 
     EthernetSwitchRepository -right- EthernetSwitchService::switchRepo
     EthernetSwitchPortRepository -right- EthernetSwitchService::portRepo
-
+    EthernetSwitchVLANRepository -right- EthernetSwitchService::vlanRepo
+    EthernetSwitchManagerProvider -- EthernetSwitchService::managers
     EthernetSwitchService .[hidden]up. IGenericRepository
     EthernetSwitchPortRepository .[hidden]down. EthernetSwitchRepository
 

@@ -7,4 +7,8 @@ type EthernetSwitchPortBaseDto struct {
 	POEType string
 	// Name for this port
 	Name string
+	//POEEnabled POE status on a port
+	POEEnabled bool
+	//PVID default VLAN id
+	PVID int
 }

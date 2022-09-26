@@ -1,0 +1,12 @@
+@startuml
+
+!include EthernetSwitchVLANBaseDto.puml
+
+package dtos {
+    class EthernetSwitchVLANUpdateDto {
+    }
+
+    EthernetSwitchVLANUpdateDto --* EthernetSwitchVLANBaseDto
+}
+
+@enduml

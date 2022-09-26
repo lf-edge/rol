@@ -5,6 +5,10 @@ package dtos {
         +POEType string
         --
         +Name string
+        --
+        +POEEnabled bool
+        --
+        +PVID int
     }
 }
 

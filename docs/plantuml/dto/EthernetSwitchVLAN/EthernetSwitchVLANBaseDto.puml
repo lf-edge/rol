@@ -1,0 +1,11 @@
+@startuml
+
+package dtos {
+    class EthernetSwitchVLANBaseDto {
+        +UntaggedPorts []uuid.UUID
+        --
+        +TaggedPorts []uuid.UUID
+    }
+}
+
+@enduml

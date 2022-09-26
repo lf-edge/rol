@@ -71,6 +71,7 @@ func main() {
 			controllers.NewDeviceTemplateController,
 			controllers.NewHostNetworkVlanController,
 			controllers.NewHostNetworkBridgeController,
+			controllers.NewEthernetSwitchVLANGinController,
 		),
 		fx.Invoke(
 			//Register logrus hooks
@@ -85,6 +86,7 @@ func main() {
 			controllers.RegisterDeviceTemplateController,
 			controllers.RegisterHostNetworkVlanController,
 			controllers.RegisterHostNetworkBridgeController,
+			controllers.RegisterEthernetSwitchVLANGinController,
 			//Start GIN http server
 			webapi.StartHTTPServer,
 		),

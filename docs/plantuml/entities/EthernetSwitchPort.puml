@@ -1,4 +1,4 @@
-@startuml EthernetSwitchPort
+@startuml
 
 !include Entity.puml
 
@@ -9,6 +9,10 @@ package domain {
         +POEType string
         --
         +Name string
+        --
+        +POEEnabled bool
+        --
+        +PVID int
     }
 
     EthernetSwitchPort -down-* Entity

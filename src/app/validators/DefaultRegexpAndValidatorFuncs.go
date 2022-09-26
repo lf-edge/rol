@@ -3,6 +3,7 @@ package validators
 import (
 	"fmt"
 	validation "github.com/go-ozzo/ozzo-validation"
+	"github.com/google/uuid"
 	"net"
 	"rol/app/errors"
 	"strings"
@@ -50,6 +51,30 @@ func containsSpacesValidation(value interface{}) error {
 	s, _ := value.(string)
 	if strings.Contains(s, " ") {
 		return errors.Validation.New("field cannot contain spaces")
+	}
+	return nil
+}
+
+func uuidSliceElemUniqueness(value interface{}) error {
+	s, _ := value.([]uuid.UUID)
+	keys := make(map[uuid.UUID]bool)
+	for _, entry := range s {
+		if _, found := keys[entry]; !found {
+			keys[entry] = true
+		} else {
+			return errors.Validation.New("slice can only contains unique UUIDs")
+		}
+	}
+	return nil
+}
+
+func uuidsUniqueWithinSlices(fSlice []uuid.UUID, sSlice []uuid.UUID) error {
+	for _, fElem := range fSlice {
+		for _, sElem := range sSlice {
+			if fElem == sElem {
+				return errors.Validation.New("uuid should be unique within both slices")
+			}
+		}
 	}
 	return nil
 }

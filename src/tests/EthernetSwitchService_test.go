@@ -23,8 +23,9 @@ var (
 	ethSwitchService       *services.EthernetSwitchService
 	ethSwitchRepo          interfaces.IGenericRepository[domain.EthernetSwitch]
 	ethSwitchPortRepo      interfaces.IGenericRepository[domain.EthernetSwitchPort]
-	ethSwitchID            uuid.UUID
+	ethSwitchVlanRepo      interfaces.IGenericRepository[domain.EthernetSwitchVLAN]
 	createdEthSwitchPortID uuid.UUID
+	ethSwitchID            uuid.UUID
 )
 
 func Test_EthernetSwitchService_Prepare(t *testing.T) {
@@ -45,6 +46,7 @@ func Test_EthernetSwitchService_Prepare(t *testing.T) {
 	err = testGenDb.AutoMigrate(
 		new(domain.EthernetSwitch),
 		new(domain.EthernetSwitchPort),
+		new(domain.EthernetSwitchVLAN),
 	)
 	if err != nil {
 		t.Errorf("migration failed: %v", err)
@@ -53,10 +55,12 @@ func Test_EthernetSwitchService_Prepare(t *testing.T) {
 	logger := logrus.New()
 	ethSwitchRepo = infrastructure.NewGormGenericRepository[domain.EthernetSwitch](testGenDb, logger)
 	ethSwitchPortRepo = infrastructure.NewGormGenericRepository[domain.EthernetSwitchPort](testGenDb, logger)
+	ethSwitchVlanRepo = infrastructure.NewGormGenericRepository[domain.EthernetSwitchVLAN](testGenDb, logger)
 	if err != nil {
 		t.Error("failed to create switch port repository")
 	}
-	ethSwitchService, err = services.NewEthernetSwitchService(ethSwitchRepo, ethSwitchPortRepo)
+	getter := infrastructure.NewEthernetSwitchManagerProvider(ethSwitchRepo)
+	ethSwitchService, err = services.NewEthernetSwitchService(ethSwitchRepo, ethSwitchPortRepo, ethSwitchVlanRepo, getter)
 	if err != nil {
 		t.Errorf("create new service failed:  %q", err)
 	}

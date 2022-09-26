@@ -1,5 +1,16 @@
 package utils
 
+//RemoveElementFromSlice remove element from slice by value
+func RemoveElementFromSlice[T comparable](slice []T, value T) []T {
+	for index, elem := range slice {
+		if elem == value {
+			slice[index] = slice[len(slice)-1]
+			return slice[:len(slice)-1]
+		}
+	}
+	return slice
+}
+
 //SliceContainsElement check what slice contains value
 func SliceContainsElement[T comparable](s []T, elem T) bool {
 	for _, a := range s {

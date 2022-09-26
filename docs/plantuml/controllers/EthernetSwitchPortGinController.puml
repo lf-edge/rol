@@ -6,7 +6,7 @@
 
 package controllers {
     class EthernetSwitchPortGinController {
-        -service *services.EthernetSwitchPortService
+        -service *services.EthernetSwitchService
         --
         -logger  *logrus.Logger
         --

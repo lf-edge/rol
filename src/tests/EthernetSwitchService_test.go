@@ -56,9 +56,6 @@ func Test_EthernetSwitchService_Prepare(t *testing.T) {
 	ethSwitchRepo = infrastructure.NewGormGenericRepository[domain.EthernetSwitch](testGenDb, logger)
 	ethSwitchPortRepo = infrastructure.NewGormGenericRepository[domain.EthernetSwitchPort](testGenDb, logger)
 	ethSwitchVlanRepo = infrastructure.NewGormGenericRepository[domain.EthernetSwitchVLAN](testGenDb, logger)
-	if err != nil {
-		t.Error("failed to create switch port repository")
-	}
 	getter := infrastructure.NewEthernetSwitchManagerProvider(ethSwitchRepo)
 	ethSwitchService, err = services.NewEthernetSwitchService(ethSwitchRepo, ethSwitchPortRepo, ethSwitchVlanRepo, getter)
 	if err != nil {

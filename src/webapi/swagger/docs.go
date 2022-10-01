@@ -39,13 +39,13 @@ const docTemplate = `{
                 "parameters": [
                     {
                         "type": "string",
-                        "description": "Order by field",
+                        "description": "Order by field, default value - Name",
                         "name": "orderBy",
                         "in": "query"
                     },
                     {
                         "type": "string",
-                        "description": "'asc' or 'desc' for ascending or descending order",
+                        "description": "'asc' or 'desc' for ascending or descending order, asc by default",
                         "name": "orderDirection",
                         "in": "query"
                     },
@@ -287,31 +287,31 @@ const docTemplate = `{
                     },
                     {
                         "type": "string",
-                        "description": "Order by field",
+                        "description": "Order by field, default - Name",
                         "name": "orderBy",
                         "in": "query"
                     },
                     {
                         "type": "string",
-                        "description": "'asc' or 'desc' for ascending or descending order",
+                        "description": "'asc' or 'desc' for ascending or descending order, default - asc",
                         "name": "orderDirection",
                         "in": "query"
                     },
                     {
                         "type": "string",
-                        "description": "Searchable value in entity",
+                        "description": "Searchable value in entity, default - ",
                         "name": "search",
                         "in": "query"
                     },
                     {
                         "type": "integer",
-                        "description": "Page number",
+                        "description": "Page number, default - 1",
                         "name": "page",
                         "in": "query"
                     },
                     {
                         "type": "integer",
-                        "description": "Number of entities per page",
+                        "description": "Number of entities per page, default - 10",
                         "name": "pageSize",
                         "in": "query"
                     }
@@ -522,6 +522,444 @@ const docTemplate = `{
                 }
             }
         },
+        "/ethernet-switch/{id}/vlan": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ethernet-switch"
+                ],
+                "summary": "Get paginated list of switch VLANs",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Ethernet switch ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Order by field",
+                        "name": "orderBy",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "'asc' or 'desc' for ascending or descending order",
+                        "name": "orderDirection",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "Searchable value in entity",
+                        "name": "search",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Page number",
+                        "name": "page",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Number of entities per page",
+                        "name": "pageSize",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.PaginatedItemsDto-dtos_EthernetSwitchVLANDto"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ethernet-switch"
+                ],
+                "summary": "Create new ethernet switch VLAN",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Ethernet switch ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "Ethernet switch VLAN fields",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dtos.EthernetSwitchVLANCreateDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.EthernetSwitchVLANDto"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.ValidationErrorDto"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/ethernet-switch/{id}/vlan/{vlanUUID}": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ethernet-switch"
+                ],
+                "summary": "Get ethernet switch VLAN by id",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Ethernet switch ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Ethernet switch VLAN UUID",
+                        "name": "vlanUUID",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.EthernetSwitchVLANDto"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "put": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ethernet-switch"
+                ],
+                "summary": "Updates ethernet switch VLAN by id",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Ethernet switch ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Ethernet switch VLAN UUID",
+                        "name": "vlanUUID",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "Ethernet switch fields",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dtos.EthernetSwitchVLANUpdateDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.EthernetSwitchVLANDto"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.ValidationErrorDto"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "delete": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ethernet-switch"
+                ],
+                "summary": "Delete ethernet switch VLAN by id",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Ethernet switch ID",
+                        "name": "id",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Ethernet switch VLAN UUID",
+                        "name": "vlanUUID",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "OK, but No Content"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/host/network/bridge/": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "host"
+                ],
+                "summary": "Get list of host network bridges",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/dtos.HostNetworkBridgeDto"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "host"
+                ],
+                "summary": "Create new host bridge",
+                "parameters": [
+                    {
+                        "description": "Host bridge fields",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dtos.HostNetworkBridgeCreateDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.HostNetworkBridgeDto"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.ValidationErrorDto"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/host/network/bridge/{name}": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "host"
+                ],
+                "summary": "Gets bridge port by name",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Bridge name",
+                        "name": "name",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.HostNetworkBridgeDto"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "put": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "host"
+                ],
+                "summary": "update host network bridge",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Bridge name",
+                        "name": "name",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "Host bridge fields",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dtos.HostNetworkBridgeUpdateDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.HostNetworkBridgeDto"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.ValidationErrorDto"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "delete": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "host"
+                ],
+                "summary": "Delete host network bridge by name",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Bridge name",
+                        "name": "name",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "OK, but No Content"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
         "/host/network/vlan/": {
             "get": {
                 "consumes": [
@@ -639,6 +1077,13 @@ const docTemplate = `{
                 "summary": "update host network vlan",
                 "parameters": [
                     {
+                        "type": "string",
+                        "description": "Vlan name",
+                        "name": "name",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
                         "description": "Host vlan fields",
                         "name": "request",
                         "in": "body",
@@ -646,12 +1091,6 @@ const docTemplate = `{
                         "schema": {
                             "$ref": "#/definitions/dtos.HostNetworkVlanUpdateDto"
                         }
-                    },
-                    {
-                        "type": "string",
-                        "description": "Vlan name",
-                        "name": "name",
-                        "in": "path"
                     }
                 ],
                 "responses": {
@@ -1254,9 +1693,17 @@ const docTemplate = `{
                     "description": "Name for this port",
                     "type": "string"
                 },
+                "poeenabled": {
+                    "description": "POEEnabled POE status on a port",
+                    "type": "boolean"
+                },
                 "poetype": {
                     "description": "POEType type of PoE for this port\ncan be: \"poe\", \"poe+\", \"passive24\", \"none\"",
                     "type": "string"
+                },
+                "pvid": {
+                    "description": "PVID default VLAN id",
+                    "type": "integer"
                 }
             }
         },
@@ -1275,9 +1722,17 @@ const docTemplate = `{
                     "description": "Name for this port",
                     "type": "string"
                 },
+                "poeenabled": {
+                    "description": "POEEnabled POE status on a port",
+                    "type": "boolean"
+                },
                 "poetype": {
                     "description": "POEType type of PoE for this port\ncan be: \"poe\", \"poe+\", \"passive24\", \"none\"",
                     "type": "string"
+                },
+                "pvid": {
+                    "description": "PVID default VLAN id",
+                    "type": "integer"
                 },
                 "updatedAt": {
                     "description": "UpdatedAt - entity update time",
@@ -1292,9 +1747,17 @@ const docTemplate = `{
                     "description": "Name for this port",
                     "type": "string"
                 },
+                "poeenabled": {
+                    "description": "POEEnabled POE status on a port",
+                    "type": "boolean"
+                },
                 "poetype": {
                     "description": "POEType type of PoE for this port\ncan be: \"poe\", \"poe+\", \"passive24\", \"none\"",
                     "type": "string"
+                },
+                "pvid": {
+                    "description": "PVID default VLAN id",
+                    "type": "integer"
                 }
             }
         },
@@ -1324,6 +1787,87 @@ const docTemplate = `{
                 "username": {
                     "description": "Username - switch admin username",
                     "type": "string"
+                }
+            }
+        },
+        "dtos.EthernetSwitchVLANCreateDto": {
+            "type": "object",
+            "properties": {
+                "taggedPorts": {
+                    "description": "TaggedPorts slice of tagged ports IDs",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "untaggedPorts": {
+                    "description": "UntaggedPorts slice of untagged ports IDs",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "vlanID": {
+                    "description": "VlanID VLAN ID",
+                    "type": "integer"
+                }
+            }
+        },
+        "dtos.EthernetSwitchVLANDto": {
+            "type": "object",
+            "properties": {
+                "createdAt": {
+                    "description": "CreatedAt - entity create time",
+                    "type": "string"
+                },
+                "ethernetSwitchID": {
+                    "description": "EthernetSwitchID ethernet switch ID",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "ID - unique identifier",
+                    "type": "string"
+                },
+                "taggedPorts": {
+                    "description": "TaggedPorts slice of tagged ports IDs",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "untaggedPorts": {
+                    "description": "UntaggedPorts slice of untagged ports IDs",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "updatedAt": {
+                    "description": "UpdatedAt - entity update time",
+                    "type": "string"
+                },
+                "vlanID": {
+                    "description": "VlanID VLAN ID",
+                    "type": "integer"
+                }
+            }
+        },
+        "dtos.EthernetSwitchVLANUpdateDto": {
+            "type": "object",
+            "properties": {
+                "taggedPorts": {
+                    "description": "TaggedPorts slice of tagged ports IDs",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "untaggedPorts": {
+                    "description": "UntaggedPorts slice of untagged ports IDs",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
                 }
             }
         },
@@ -1384,6 +1928,71 @@ const docTemplate = `{
                 }
             }
         },
+        "dtos.HostNetworkBridgeCreateDto": {
+            "type": "object",
+            "properties": {
+                "addresses": {
+                    "description": "Addresses list",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "name": {
+                    "description": "Name interface full name",
+                    "type": "string"
+                },
+                "slaves": {
+                    "description": "Slaves slice of slaves interfaces names",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "dtos.HostNetworkBridgeDto": {
+            "type": "object",
+            "properties": {
+                "addresses": {
+                    "description": "Addresses list",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "name": {
+                    "description": "Name interface full name",
+                    "type": "string"
+                },
+                "slaves": {
+                    "description": "Slaves slice of slaves interfaces names",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "dtos.HostNetworkBridgeUpdateDto": {
+            "type": "object",
+            "properties": {
+                "addresses": {
+                    "description": "Addresses list",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "slaves": {
+                    "description": "Slaves slice of slaves interfaces names",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
         "dtos.HostNetworkVlanCreateDto": {
             "type": "object",
             "properties": {
@@ -1394,8 +2003,8 @@ const docTemplate = `{
                         "type": "string"
                     }
                 },
-                "master": {
-                    "description": "Master interface name",
+                "parent": {
+                    "description": "Parent interface name",
                     "type": "string"
                 },
                 "vlanID": {
@@ -1414,12 +2023,12 @@ const docTemplate = `{
                         "type": "string"
                     }
                 },
-                "master": {
-                    "description": "Master interface name",
-                    "type": "string"
-                },
                 "name": {
                     "description": "Name interface full name",
+                    "type": "string"
+                },
+                "parent": {
+                    "description": "Parent interface name",
                     "type": "string"
                 },
                 "vlanID": {
@@ -1634,13 +2243,73 @@ const docTemplate = `{
                                 "description": "Name for this port",
                                 "type": "string"
                             },
+                            "poeenabled": {
+                                "description": "POEEnabled POE status on a port",
+                                "type": "boolean"
+                            },
                             "poetype": {
                                 "description": "POEType type of PoE for this port\ncan be: \"poe\", \"poe+\", \"passive24\", \"none\"",
                                 "type": "string"
                             },
+                            "pvid": {
+                                "description": "PVID default VLAN id",
+                                "type": "integer"
+                            },
                             "updatedAt": {
                                 "description": "UpdatedAt - entity update time",
                                 "type": "string"
+                            }
+                        }
+                    }
+                },
+                "pagination": {
+                    "description": "Pagination info about pagination",
+                    "$ref": "#/definitions/dtos.PaginationInfoDto"
+                }
+            }
+        },
+        "dtos.PaginatedItemsDto-dtos_EthernetSwitchVLANDto": {
+            "type": "object",
+            "properties": {
+                "items": {
+                    "description": "Items slice of items",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "createdAt": {
+                                "description": "CreatedAt - entity create time",
+                                "type": "string"
+                            },
+                            "ethernetSwitchID": {
+                                "description": "EthernetSwitchID ethernet switch ID",
+                                "type": "string"
+                            },
+                            "id": {
+                                "description": "ID - unique identifier",
+                                "type": "string"
+                            },
+                            "taggedPorts": {
+                                "description": "TaggedPorts slice of tagged ports IDs",
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "untaggedPorts": {
+                                "description": "UntaggedPorts slice of untagged ports IDs",
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "updatedAt": {
+                                "description": "UpdatedAt - entity update time",
+                                "type": "string"
+                            },
+                            "vlanID": {
+                                "description": "VlanID VLAN ID",
+                                "type": "integer"
                             }
                         }
                     }

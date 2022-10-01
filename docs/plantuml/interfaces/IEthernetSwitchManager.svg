@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="501px" preserveAspectRatio="none" style="width:754px;height:501px;background:#FFFFFF;" version="1.1" viewBox="0 0 754 501" width="754px" zoomAndPan="magnify"><defs/><g><!--MD5=[d5ac3844f66b12d9e08170e47495e096]
+cluster app--><g id="cluster_app"><path d="M8.5,6 L35.5,6 A3.75,3.75 0 0 1 38,8.5 L45,29.6094 L744.5,29.6094 A2.5,2.5 0 0 1 747,32.1094 L747,491.5 A2.5,2.5 0 0 1 744.5,494 L8.5,494 A2.5,2.5 0 0 1 6,491.5 L6,8.5 A2.5,2.5 0 0 1 8.5,6 " style="stroke:#000000;stroke-width:1.5;fill:none;"/><line style="stroke:#000000;stroke-width:1.5;fill:none;" x1="6" x2="45" y1="29.6094" y2="29.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="26" x="10" y="22.5332">app</text></g><!--MD5=[9ae3f312b0125047f5439c4b1261f3bc]
+class IEthernetSwitchManager--><g id="elem_IEthernetSwitchManager"><rect codeLine="3" fill="#F1F1F1" height="339.3125" id="IEthernetSwitchManager" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="403" x="327.5" y="90.5"/><ellipse cx="447.25" cy="106.5" fill="#B4A7E5" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M448.2031,103.1406 L448.2031,109.7969 L449.9219,109.7969 Q450.5313,109.7969 450.7969,110.0313 Q451.0625,110.2656 451.0625,110.6563 Q451.0625,111.0313 450.7969,111.2656 Q450.5313,111.5 449.9219,111.5 L444.7813,111.5 Q444.1719,111.5 443.9063,111.2656 Q443.6406,111.0313 443.6406,110.6406 Q443.6406,110.2656 443.9063,110.0313 Q444.1719,109.7969 444.7813,109.7969 L446.5,109.7969 L446.5,103.1406 L444.7813,103.1406 Q444.1719,103.1406 443.9063,102.9063 Q443.6406,102.6719 443.6406,102.2813 Q443.6406,101.9063 443.9063,101.6719 Q444.1719,101.4375 444.7813,101.4375 L449.9219,101.4375 Q450.5313,101.4375 450.7969,101.6719 Q451.0625,101.9063 451.0625,102.2813 Q451.0625,102.6719 450.7969,102.9063 Q450.5313,103.1406 449.9219,103.1406 L448.2031,103.1406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="155" x="467.75" y="112.2285">IEthernetSwitchManager</text><line style="stroke:#181818;stroke-width:0.5;" x1="328.5" x2="729.5" y1="122.5" y2="122.5"/><ellipse cx="338.5" cy="133.5" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="151" x="347.5" y="141.0332">GetVLANs() ([]int, error)</text><line style="stroke:#181818;stroke-width:1.0;" x1="328.5" x2="729.5" y1="148.1094" y2="148.1094"/><ellipse cx="338.5" cy="159.1094" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="319" x="347.5" y="166.6426">GetVLANsOnPort(portName string) (int, []int, error)</text><line style="stroke:#181818;stroke-width:1.0;" x1="328.5" x2="729.5" y1="173.7188" y2="173.7188"/><ellipse cx="338.5" cy="184.7188" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="365" x="347.5" y="192.252">AddTaggedVLANOnPort(portName string, vlanID int) error</text><line style="stroke:#181818;stroke-width:1.0;" x1="328.5" x2="729.5" y1="199.3281" y2="199.3281"/><ellipse cx="338.5" cy="210.3281" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="377" x="347.5" y="217.8613">AddUntaggedVLANOnPort(portName string, vlanID int) error</text><line style="stroke:#181818;stroke-width:1.0;" x1="328.5" x2="729.5" y1="224.9375" y2="224.9375"/><ellipse cx="338.5" cy="235.9375" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="357" x="347.5" y="243.4707">RemoveVLANFromPort(portName string, vlanID int) error</text><line style="stroke:#181818;stroke-width:1.0;" x1="328.5" x2="729.5" y1="250.5469" y2="250.5469"/><ellipse cx="338.5" cy="261.5469" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="289" x="347.5" y="269.0801">SetPortPVID(portName string, vlanID int) error</text><line style="stroke:#181818;stroke-width:1.0;" x1="328.5" x2="729.5" y1="276.1563" y2="276.1563"/><ellipse cx="338.5" cy="287.1563" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="179" x="347.5" y="294.6895">DeleteVLAN(vlanID int) error</text><line style="stroke:#181818;stroke-width:1.0;" x1="328.5" x2="729.5" y1="301.7656" y2="301.7656"/><ellipse cx="338.5" cy="312.7656" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="181" x="347.5" y="320.2988">CreateVLAN(vlanID int) error</text><line style="stroke:#181818;stroke-width:1.0;" x1="328.5" x2="729.5" y1="327.375" y2="327.375"/><ellipse cx="338.5" cy="338.375" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="316" x="347.5" y="345.9082">GetPOEPortStatus(portName string) (string, error)</text><line style="stroke:#181818;stroke-width:1.0;" x1="328.5" x2="729.5" y1="352.9844" y2="352.9844"/><ellipse cx="338.5" cy="363.9844" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="308" x="347.5" y="371.5176">EnablePOEPort(portName, poeType string) error</text><line style="stroke:#181818;stroke-width:1.0;" x1="328.5" x2="729.5" y1="378.5938" y2="378.5938"/><ellipse cx="338.5" cy="389.5938" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="247" x="347.5" y="397.127">DisablePOEPort(portName string) error</text><line style="stroke:#181818;stroke-width:1.0;" x1="328.5" x2="729.5" y1="404.2031" y2="404.2031"/><ellipse cx="338.5" cy="415.2031" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="118" x="347.5" y="422.7363">SaveConfig() error</text></g><path d="M22,42 L22,68.3516 A0,0 0 0 0 22,68.3516 L274,68.3516 A0,0 0 0 0 274,68.3516 L274,60 L331.5,135.3047 L274,52 L274,52 L264,42 L22,42 A0,0 0 0 0 22,42 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M264,42 L264,52 L274,52 L264,42 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="231" x="28" y="60.4951">Gets list of switch VLANs IDs on switch</text><path d="M22,78.3516 L22,104.7031 A0,0 0 0 0 22,104.7031 L292,104.7031 A0,0 0 0 0 292,104.7031 L292,96.3516 L331.5,160.9141 L292,88.3516 L292,88.3516 L282,78.3516 L22,78.3516 A0,0 0 0 0 22,78.3516 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M282,78.3516 L282,88.3516 L292,88.3516 L282,78.3516 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="249" x="28" y="96.8467">Gets list of switch VLANs IDs on given port</text><path d="M22,114.7031 L22,141.0547 A0,0 0 0 0 22,141.0547 L191,141.0547 A0,0 0 0 0 191,141.0547 L191,132.7031 L331.5,186.5234 L191,124.7031 L191,124.7031 L181,114.7031 L22,114.7031 A0,0 0 0 0 22,114.7031 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M181,114.7031 L181,124.7031 L191,124.7031 L181,114.7031 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="148" x="28" y="133.1982">Add tagged VLAN on port</text><path d="M22,151.0547 L22,177.4063 A0,0 0 0 0 22,177.4063 L205,177.4063 A0,0 0 0 0 205,177.4063 L205,169.0547 L331.5,212.1328 L205,161.0547 L205,161.0547 L195,151.0547 L22,151.0547 A0,0 0 0 0 22,151.0547 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M195,151.0547 L195,161.0547 L205,161.0547 L195,151.0547 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="162" x="28" y="169.5498">Add untagged VLAN on port</text><path d="M22,187.4063 L22,213.7578 A0,0 0 0 0 22,213.7578 L182,213.7578 A0,0 0 0 0 182,213.7578 L182,205.4063 L331.5,237.7422 L182,197.4063 L182,197.4063 L172,187.4063 L22,187.4063 A0,0 0 0 0 22,187.4063 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M172,187.4063 L172,197.4063 L182,197.4063 L172,187.4063 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="139" x="28" y="205.9014">Remove VLAN from port</text><path d="M22,223.7578 L22,250.1094 A0,0 0 0 0 22,250.1094 L141,250.1094 A0,0 0 0 0 141,250.1094 L141,241.7578 L331.5,263.3516 L141,233.7578 L141,233.7578 L131,223.7578 L22,223.7578 A0,0 0 0 0 22,223.7578 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M131,223.7578 L131,233.7578 L141,233.7578 L131,223.7578 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="98" x="28" y="242.2529">Set PVID for port</text><path d="M22,260.1094 L22,286.4609 A0,0 0 0 0 22,286.4609 L177,286.4609 A0,0 0 0 0 177,286.4609 L177,278.1094 L331.5,288.9609 L177,270.1094 L177,270.1094 L167,260.1094 L22,260.1094 A0,0 0 0 0 22,260.1094 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M167,260.1094 L167,270.1094 L177,270.1094 L167,260.1094 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="134" x="28" y="278.6045">Delete VLAN on switch</text><path d="M22,296.4609 L22,322.8125 A0,0 0 0 0 22,322.8125 L178,322.8125 A0,0 0 0 0 178,322.8125 L178,314.4609 L331.5,314.5703 L178,306.4609 L178,306.4609 L168,296.4609 L22,296.4609 A0,0 0 0 0 22,296.4609 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M168,296.4609 L168,306.4609 L178,306.4609 L168,296.4609 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="135" x="28" y="314.9561">Create VLAN on switch</text><path d="M22,332.8125 L22,359.1641 A0,0 0 0 0 22,359.1641 L162,359.1641 A0,0 0 0 0 162,359.1641 L162,350.8125 L331.5,340.1797 L162,342.8125 L162,342.8125 L152,332.8125 L22,332.8125 A0,0 0 0 0 22,332.8125 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M152,332.8125 L152,342.8125 L162,342.8125 L152,332.8125 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="119" x="28" y="351.3076">Get port POE status</text><path d="M22,369.1641 L22,395.5156 A0,0 0 0 0 22,395.5156 L159,395.5156 A0,0 0 0 0 159,395.5156 L159,387.1641 L331.5,365.7891 L159,379.1641 L159,379.1641 L149,369.1641 L22,369.1641 A0,0 0 0 0 22,369.1641 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M149,369.1641 L149,379.1641 L159,379.1641 L149,369.1641 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="116" x="28" y="387.6592">Enable POE on port</text><path d="M22,405.5156 L22,431.8672 A0,0 0 0 0 22,431.8672 L162,431.8672 A0,0 0 0 0 162,431.8672 L162,423.5156 L331.5,391.3984 L162,415.5156 L162,415.5156 L152,405.5156 L22,405.5156 A0,0 0 0 0 22,405.5156 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M152,405.5156 L152,415.5156 L162,415.5156 L152,405.5156 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="119" x="28" y="424.0107">Disable POE on port</text><path d="M22,441.8672 L22,468.2188 A0,0 0 0 0 22,468.2188 L224,468.2188 A0,0 0 0 0 224,468.2188 L224,459.8672 L331.5,417.0078 L224,451.8672 L224,451.8672 L214,441.8672 L22,441.8672 A0,0 0 0 0 22,441.8672 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M214,441.8672 L214,451.8672 L224,451.8672 L214,441.8672 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="181" x="28" y="460.3623">Save current settings on switch</text><!--MD5=[52c127aa967d13fddb77633653b5a2e3]
+@startuml
+
+package app {
+    interface IEthernetSwitchManager {
+        +GetVLANs() ([]int, error)
+        - -
+        +GetVLANsOnPort(portName string) (int, []int, error)
+        - -
+        +AddTaggedVLANOnPort(portName string, vlanID int) error
+        - -
+        +AddUntaggedVLANOnPort(portName string, vlanID int) error
+        - -
+        +RemoveVLANFromPort(portName string, vlanID int) error
+        - -
+        +SetPortPVID(portName string, vlanID int) error
+        - -
+        +DeleteVLAN(vlanID int) error
+        - -
+        +CreateVLAN(vlanID int) error
+        - -
+        +GetPOEPortStatus(portName string) (string, error)
+        - -
+        +EnablePOEPort(portName, poeType string) error
+        - -
+        +DisablePOEPort(portName string) error
+        - -
+        +SaveConfig() error
+    }
+
+    note left of IEthernetSwitchManager::GetVLANs
+    Gets list of switch VLANs IDs on switch
+    end note
+
+    note left of IEthernetSwitchManager::GetVLANsOnPort
+    Gets list of switch VLANs IDs on given port
+    end note
+
+    note left of IEthernetSwitchManager::AddTaggedVLANOnPort
+    Add tagged VLAN on port
+    end note
+
+    note left of IEthernetSwitchManager::AddUntaggedVLANOnPort
+    Add untagged VLAN on port
+    end note
+
+    note left of IEthernetSwitchManager::RemoveVLANFromPort
+    Remove VLAN from port
+    end note
+
+    note left of IEthernetSwitchManager::SetPortPVID
+    Set PVID for port
+    end note
+
+    note left of IEthernetSwitchManager::DeleteVLAN
+    Delete VLAN on switch
+    end note
+
+    note left of IEthernetSwitchManager::CreateVLAN
+    Create VLAN on switch
+    end note
+
+    note left of IEthernetSwitchManager::GetPOEPortStatus
+    Get port POE status
+    end note
+
+    note left of IEthernetSwitchManager::EnablePOEPort
+    Enable POE on port
+    end note
+
+    note left of IEthernetSwitchManager::DisablePOEPort
+    Disable POE on port
+    end note
+
+    note left of IEthernetSwitchManager::SaveConfig
+    Save current settings on switch
+    end note
+}
+@enduml
+
+PlantUML version 1.2022.6(Tue Jun 21 20:34:49 MSK 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1251
+Language: ru
+Country: RU
+--></g></svg>

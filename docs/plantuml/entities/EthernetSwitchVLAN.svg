@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="535px" preserveAspectRatio="none" style="width:684px;height:535px;background:#FFFFFF;" version="1.1" viewBox="0 0 684 535" width="684px" zoomAndPan="magnify"><defs/><g><!--MD5=[d5ac3844f66b12d9e08170e47495e096]
+cluster app--><g id="cluster_app"><path d="M408.5,410 L435.5,410 A3.75,3.75 0 0 1 438,412.5 L445,433.6094 L573.5,433.6094 A2.5,2.5 0 0 1 576,436.1094 L576,525.5 A2.5,2.5 0 0 1 573.5,528 L408.5,528 A2.5,2.5 0 0 1 406,525.5 L406,412.5 A2.5,2.5 0 0 1 408.5,410 " style="stroke:#000000;stroke-width:1.5;fill:none;"/><line style="stroke:#000000;stroke-width:1.5;fill:none;" x1="406" x2="445" y1="433.6094" y2="433.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="26" x="410" y="426.5332">app</text></g><!--MD5=[27f772719433d509ddbc20ff768eba08]
+cluster domain--><g id="cluster_domain"><path d="M8.5,6 L60.5,6 A3.75,3.75 0 0 1 63,8.5 L70,29.6094 L674.5,29.6094 A2.5,2.5 0 0 1 677,32.1094 L677,383.5 A2.5,2.5 0 0 1 674.5,386 L8.5,386 A2.5,2.5 0 0 1 6,383.5 L6,8.5 A2.5,2.5 0 0 1 8.5,6 " style="stroke:#000000;stroke-width:1.5;fill:none;"/><line style="stroke:#000000;stroke-width:1.5;fill:none;" x1="6" x2="70" y1="29.6094" y2="29.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="51" x="10" y="22.5332">domain</text></g><!--MD5=[2a39a5be1cc24ddddd6e6286e4ece992]
+class IEntityModel--><g id="elem_IEntityModel"><rect codeLine="3" fill="#F1F1F1" height="65.6094" id="IEntityModel" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="138" x="422" y="446"/><ellipse cx="449.6" cy="462" fill="#B4A7E5" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M450.5531,458.6406 L450.5531,465.2969 L452.2719,465.2969 Q452.8813,465.2969 453.1469,465.5313 Q453.4125,465.7656 453.4125,466.1563 Q453.4125,466.5313 453.1469,466.7656 Q452.8813,467 452.2719,467 L447.1313,467 Q446.5219,467 446.2563,466.7656 Q445.9906,466.5313 445.9906,466.1406 Q445.9906,465.7656 446.2563,465.5313 Q446.5219,465.2969 447.1313,465.2969 L448.85,465.2969 L448.85,458.6406 L447.1313,458.6406 Q446.5219,458.6406 446.2563,458.4063 Q445.9906,458.1719 445.9906,457.7813 Q445.9906,457.4063 446.2563,457.1719 Q446.5219,456.9375 447.1313,456.9375 L452.2719,456.9375 Q452.8813,456.9375 453.1469,457.1719 Q453.4125,457.4063 453.4125,457.7813 Q453.4125,458.1719 453.1469,458.4063 Q452.8813,458.6406 452.2719,458.6406 L450.5531,458.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="78" x="466.4" y="467.7285">IEntityModel</text><line style="stroke:#181818;stroke-width:0.5;" x1="423" x2="559" y1="478" y2="478"/><line style="stroke:#181818;stroke-width:0.5;" x1="423" x2="559" y1="486" y2="486"/><ellipse cx="433" cy="497" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="112" x="442" y="504.5332">GetID() uuid.UUID</text></g><!--MD5=[be996cdb8e6bf2fc7cb89c555f2cd144]
+class Entity--><g id="elem_Entity"><rect codeLine="5" fill="#F1F1F1" height="134.4375" id="Entity" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="283" x="349.5" y="236"/><ellipse cx="469.25" cy="252" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M472.0156,247.875 Q472.1719,247.6563 472.3594,247.5469 Q472.5469,247.4375 472.7656,247.4375 Q473.1406,247.4375 473.375,247.7031 Q473.6094,247.9531 473.6094,248.5625 L473.6094,250.0156 Q473.6094,250.625 473.375,250.8906 Q473.1406,251.1563 472.7656,251.1563 Q472.4219,251.1563 472.2188,250.9531 Q472.0156,250.7656 471.9063,250.25 Q471.8594,249.8906 471.6719,249.7031 Q471.3438,249.3281 470.7344,249.1094 Q470.125,248.8906 469.5,248.8906 Q468.7344,248.8906 468.0938,249.2188 Q467.4688,249.5469 466.9688,250.2969 Q466.4844,251.0469 466.4844,252.0781 L466.4844,253.1719 Q466.4844,254.4063 467.375,255.2344 Q468.2656,256.0469 469.8594,256.0469 Q470.7969,256.0469 471.4531,255.7969 Q471.8438,255.6406 472.2656,255.2031 Q472.5313,254.9375 472.6719,254.8594 Q472.8281,254.7813 473.0313,254.7813 Q473.3594,254.7813 473.6094,255.0469 Q473.875,255.2969 473.875,255.6406 Q473.875,255.9844 473.5313,256.3906 Q473.0313,256.9688 472.2344,257.2969 Q471.1563,257.75 469.8594,257.75 Q468.3438,257.75 467.1406,257.125 Q466.1563,256.625 465.4688,255.5625 Q464.7813,254.4844 464.7813,253.2031 L464.7813,252.0469 Q464.7813,250.7188 465.3906,249.5781 Q466.0156,248.4219 467.1094,247.8125 Q468.2031,247.1875 469.4375,247.1875 Q470.1719,247.1875 470.8125,247.3594 Q471.4688,247.5156 472.0156,247.875 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="35" x="489.75" y="257.7285">Entity</text><line style="stroke:#181818;stroke-width:0.5;" x1="350.5" x2="631.5" y1="268" y2="268"/><ellipse cx="360.5" cy="279" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="208" x="369.5" y="286.5332">ID uuid.UUID `gorm:"primarykey"`</text><line style="stroke:#181818;stroke-width:1.0;" x1="350.5" x2="631.5" y1="293.6094" y2="293.6094"/><ellipse cx="360.5" cy="304.6094" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="222" x="369.5" y="312.1426">CreatedAt time.Time `gorm:"index"`</text><line style="stroke:#181818;stroke-width:1.0;" x1="350.5" x2="631.5" y1="319.2188" y2="319.2188"/><ellipse cx="360.5" cy="330.2188" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="224" x="369.5" y="337.752">UpdatedAt time.Time `gorm:"index"`</text><line style="stroke:#181818;stroke-width:1.0;" x1="350.5" x2="631.5" y1="344.8281" y2="344.8281"/><ellipse cx="360.5" cy="355.8281" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="257" x="369.5" y="363.3613">DeletedAt gorm.DeletedAt `gorm:"index"`</text></g><!--MD5=[c9b588f89ecdeeb56fc45ced19c2779e]
+class EthernetSwitchVLAN--><g id="elem_EthernetSwitchVLAN"><rect codeLine="5" fill="#F1F1F1" height="134.4375" id="EthernetSwitchVLAN" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="340" x="321" y="42"/><ellipse cx="422.25" cy="58" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M425.0156,53.875 Q425.1719,53.6563 425.3594,53.5469 Q425.5469,53.4375 425.7656,53.4375 Q426.1406,53.4375 426.375,53.7031 Q426.6094,53.9531 426.6094,54.5625 L426.6094,56.0156 Q426.6094,56.625 426.375,56.8906 Q426.1406,57.1563 425.7656,57.1563 Q425.4219,57.1563 425.2188,56.9531 Q425.0156,56.7656 424.9063,56.25 Q424.8594,55.8906 424.6719,55.7031 Q424.3438,55.3281 423.7344,55.1094 Q423.125,54.8906 422.5,54.8906 Q421.7344,54.8906 421.0938,55.2188 Q420.4688,55.5469 419.9688,56.2969 Q419.4844,57.0469 419.4844,58.0781 L419.4844,59.1719 Q419.4844,60.4063 420.375,61.2344 Q421.2656,62.0469 422.8594,62.0469 Q423.7969,62.0469 424.4531,61.7969 Q424.8438,61.6406 425.2656,61.2031 Q425.5313,60.9375 425.6719,60.8594 Q425.8281,60.7813 426.0313,60.7813 Q426.3594,60.7813 426.6094,61.0469 Q426.875,61.2969 426.875,61.6406 Q426.875,61.9844 426.5313,62.3906 Q426.0313,62.9688 425.2344,63.2969 Q424.1563,63.75 422.8594,63.75 Q421.3438,63.75 420.1406,63.125 Q419.1563,62.625 418.4688,61.5625 Q417.7813,60.4844 417.7813,59.2031 L417.7813,58.0469 Q417.7813,56.7188 418.3906,55.5781 Q419.0156,54.4219 420.1094,53.8125 Q421.2031,53.1875 422.4375,53.1875 Q423.1719,53.1875 423.8125,53.3594 Q424.4688,53.5156 425.0156,53.875 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="129" x="442.75" y="63.7285">EthernetSwitchVLAN</text><line style="stroke:#181818;stroke-width:0.5;" x1="322" x2="660" y1="74" y2="74"/><ellipse cx="332" cy="85" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="60" x="341" y="92.5332">VlanID int</text><line style="stroke:#181818;stroke-width:1.0;" x1="322" x2="660" y1="99.6094" y2="99.6094"/><ellipse cx="332" cy="110.6094" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="314" x="341" y="118.1426">EthernetSwitchID uuid.UUID `gorm:"index;size:36"`</text><line style="stroke:#181818;stroke-width:1.0;" x1="322" x2="660" y1="125.2188" y2="125.2188"/><ellipse cx="332" cy="136.2188" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="246" x="341" y="143.752">UntaggedPorts string `gorm:"type:text"`</text><line style="stroke:#181818;stroke-width:1.0;" x1="322" x2="660" y1="150.8281" y2="150.8281"/><ellipse cx="332" cy="161.8281" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="234" x="341" y="169.3613">TaggedPorts string `gorm:"type:text"`</text></g><path d="M22,72.5 L22,98.8516 A0,0 0 0 0 22,98.8516 L286,98.8516 A0,0 0 0 0 286,98.8516 L286,90.5 L325,138.0234 L286,82.5 L286,82.5 L276,72.5 L22,72.5 A0,0 0 0 0 22,72.5 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M276,72.5 L276,82.5 L286,82.5 L276,72.5 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="243" x="28" y="90.9951">UUID's of untagged ports separated with ';'</text><path d="M22,108.8516 L22,135.2031 A0,0 0 0 0 22,135.2031 L272,135.2031 A0,0 0 0 0 272,135.2031 L272,126.8516 L325,163.6328 L272,118.8516 L272,118.8516 L262,108.8516 L22,108.8516 A0,0 0 0 0 22,108.8516 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M262,108.8516 L262,118.8516 L272,118.8516 L262,108.8516 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="229" x="28" y="127.3467">UUID's of tagged ports separated with ';'</text><!--MD5=[a6c7a0eda5b041e127f539f1664bb96a]
+link Entity to IEntityModel--><g id="link_Entity_IEntityModel"><path codeLine="14" d="M491,370.28 C491,388.61 491,408.25 491,425.67 " fill="none" id="Entity-to-IEntityModel" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="498,425.93,491,445.93,484,425.93,498,425.93" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[add5f10378b090c491592ef37928bfe6]
+link EthernetSwitchVLAN to Entity--><g id="link_EthernetSwitchVLAN_Entity"><path codeLine="15" d="M491,176.08 C491,191.01 491,207.02 491,222.44 " fill="none" id="EthernetSwitchVLAN-to-Entity" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="491,235.8,495,229.8,491,223.8,487,229.8,491,235.8" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[23e76c3d66e47c725d84f67bd40e6a4b]
+@startuml
+
+!include Entity.puml
+
+package domain {
+    class EthernetSwitchVLAN {
+        +VlanID int
+        - -
+        +EthernetSwitchID uuid.UUID `gorm:"index;size:36"`
+        - -
+        +UntaggedPorts string `gorm:"type:text"`
+        - -
+        +TaggedPorts string `gorm:"type:text"`
+    }
+
+    EthernetSwitchVLAN -down-* Entity
+
+    note left of EthernetSwitchVLAN::UntaggedPorts
+        UUID's of untagged ports separated with ';'
+    end note
+
+    note left of EthernetSwitchVLAN::TaggedPorts
+      UUID's of tagged ports separated with ';'
+    end note
+}
+
+@enduml
+
+@startuml
+
+
+
+package app {
+    interface IEntityModel {
+        +GetID() uuid.UUID
+    }
+}
+
+
+package domain {
+    class Entity {
+        +ID uuid.UUID `gorm:"primarykey"`
+        - -
+        +CreatedAt time.Time `gorm:"index"`
+        - -
+        +UpdatedAt time.Time `gorm:"index"`
+        - -
+        +DeletedAt gorm.DeletedAt `gorm:"index"`
+    }
+    Entity .down.|> IEntityModel
+}
+
+
+package domain {
+    class EthernetSwitchVLAN {
+        +VlanID int
+        - -
+        +EthernetSwitchID uuid.UUID `gorm:"index;size:36"`
+        - -
+        +UntaggedPorts string `gorm:"type:text"`
+        - -
+        +TaggedPorts string `gorm:"type:text"`
+    }
+
+    EthernetSwitchVLAN -down-* Entity
+
+    note left of EthernetSwitchVLAN::UntaggedPorts
+        UUID's of untagged ports separated with ';'
+    end note
+
+    note left of EthernetSwitchVLAN::TaggedPorts
+      UUID's of tagged ports separated with ';'
+    end note
+}
+
+@enduml
+
+PlantUML version 1.2022.6(Tue Jun 21 20:34:49 MSK 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1251
+Language: ru
+Country: RU
+--></g></svg>

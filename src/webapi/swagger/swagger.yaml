@@ -199,11 +199,17 @@ definitions:
       name:
         description: Name for this port
         type: string
+      poeenabled:
+        description: POEEnabled POE status on a port
+        type: boolean
       poetype:
         description: |-
           POEType type of PoE for this port
           can be: "poe", "poe+", "passive24", "none"
         type: string
+      pvid:
+        description: PVID default VLAN id
+        type: integer
     type: object
   dtos.EthernetSwitchPortDto:
     properties:
@@ -216,11 +222,17 @@ definitions:
       name:
         description: Name for this port
         type: string
+      poeenabled:
+        description: POEEnabled POE status on a port
+        type: boolean
       poetype:
         description: |-
           POEType type of PoE for this port
           can be: "poe", "poe+", "passive24", "none"
         type: string
+      pvid:
+        description: PVID default VLAN id
+        type: integer
       updatedAt:
         description: UpdatedAt - entity update time
         type: string
@@ -230,11 +242,17 @@ definitions:
       name:
         description: Name for this port
         type: string
+      poeenabled:
+        description: POEEnabled POE status on a port
+        type: boolean
       poetype:
         description: |-
           POEType type of PoE for this port
           can be: "poe", "poe+", "passive24", "none"
         type: string
+      pvid:
+        description: PVID default VLAN id
+        type: integer
     type: object
   dtos.EthernetSwitchUpdateDto:
     properties:
@@ -256,6 +274,63 @@ definitions:
       username:
         description: Username - switch admin username
         type: string
+    type: object
+  dtos.EthernetSwitchVLANCreateDto:
+    properties:
+      taggedPorts:
+        description: TaggedPorts slice of tagged ports IDs
+        items:
+          type: string
+        type: array
+      untaggedPorts:
+        description: UntaggedPorts slice of untagged ports IDs
+        items:
+          type: string
+        type: array
+      vlanID:
+        description: VlanID VLAN ID
+        type: integer
+    type: object
+  dtos.EthernetSwitchVLANDto:
+    properties:
+      createdAt:
+        description: CreatedAt - entity create time
+        type: string
+      ethernetSwitchID:
+        description: EthernetSwitchID ethernet switch ID
+        type: string
+      id:
+        description: ID - unique identifier
+        type: string
+      taggedPorts:
+        description: TaggedPorts slice of tagged ports IDs
+        items:
+          type: string
+        type: array
+      untaggedPorts:
+        description: UntaggedPorts slice of untagged ports IDs
+        items:
+          type: string
+        type: array
+      updatedAt:
+        description: UpdatedAt - entity update time
+        type: string
+      vlanID:
+        description: VlanID VLAN ID
+        type: integer
+    type: object
+  dtos.EthernetSwitchVLANUpdateDto:
+    properties:
+      taggedPorts:
+        description: TaggedPorts slice of tagged ports IDs
+        items:
+          type: string
+        type: array
+      untaggedPorts:
+        description: UntaggedPorts slice of untagged ports IDs
+        items:
+          type: string
+        type: array
     type: object
   dtos.HTTPLogDto:
     properties:
@@ -299,6 +374,51 @@ definitions:
         description: UpdatedAt - entity update time
         type: string
     type: object
+  dtos.HostNetworkBridgeCreateDto:
+    properties:
+      addresses:
+        description: Addresses list
+        items:
+          type: string
+        type: array
+      name:
+        description: Name interface full name
+        type: string
+      slaves:
+        description: Slaves slice of slaves interfaces names
+        items:
+          type: string
+        type: array
+    type: object
+  dtos.HostNetworkBridgeDto:
+    properties:
+      addresses:
+        description: Addresses list
+        items:
+          type: string
+        type: array
+      name:
+        description: Name interface full name
+        type: string
+      slaves:
+        description: Slaves slice of slaves interfaces names
+        items:
+          type: string
+        type: array
+    type: object
+  dtos.HostNetworkBridgeUpdateDto:
+    properties:
+      addresses:
+        description: Addresses list
+        items:
+          type: string
+        type: array
+      slaves:
+        description: Slaves slice of slaves interfaces names
+        items:
+          type: string
+        type: array
+    type: object
   dtos.HostNetworkVlanCreateDto:
     properties:
       addresses:
@@ -306,8 +426,8 @@ definitions:
         items:
           type: string
         type: array
-      master:
-        description: Master interface name
+      parent:
+        description: Parent interface name
         type: string
       vlanID:
         description: VlanID vlan id
@@ -320,11 +440,11 @@ definitions:
         items:
           type: string
         type: array
-      master:
-        description: Master interface name
-        type: string
       name:
         description: Name interface full name
+        type: string
+      parent:
+        description: Parent interface name
         type: string
       vlanID:
         description: VlanID id of the vlan
@@ -477,14 +597,57 @@ definitions:
             name:
               description: Name for this port
               type: string
+            poeenabled:
+              description: POEEnabled POE status on a port
+              type: boolean
             poetype:
               description: |-
                 POEType type of PoE for this port
                 can be: "poe", "poe+", "passive24", "none"
               type: string
+            pvid:
+              description: PVID default VLAN id
+              type: integer
             updatedAt:
               description: UpdatedAt - entity update time
               type: string
+          type: object
+        type: array
+      pagination:
+        $ref: '#/definitions/dtos.PaginationInfoDto'
+        description: Pagination info about pagination
+    type: object
+  dtos.PaginatedItemsDto-dtos_EthernetSwitchVLANDto:
+    properties:
+      items:
+        description: Items slice of items
+        items:
+          properties:
+            createdAt:
+              description: CreatedAt - entity create time
+              type: string
+            ethernetSwitchID:
+              description: EthernetSwitchID ethernet switch ID
+              type: string
+            id:
+              description: ID - unique identifier
+              type: string
+            taggedPorts:
+              description: TaggedPorts slice of tagged ports IDs
+              items:
+                type: string
+              type: array
+            untaggedPorts:
+              description: UntaggedPorts slice of untagged ports IDs
+              items:
+                type: string
+              type: array
+            updatedAt:
+              description: UpdatedAt - entity update time
+              type: string
+            vlanID:
+              description: VlanID VLAN ID
+              type: integer
           type: object
         type: array
       pagination:
@@ -596,11 +759,12 @@ paths:
       consumes:
       - application/json
       parameters:
-      - description: Order by field
+      - description: Order by field, default value - Name
         in: query
         name: orderBy
         type: string
-      - description: '''asc'' or ''desc'' for ascending or descending order'
+      - description: '''asc'' or ''desc'' for ascending or descending order, asc by
+          default'
         in: query
         name: orderDirection
         type: string
@@ -742,23 +906,24 @@ paths:
         name: id
         required: true
         type: string
-      - description: Order by field
+      - description: Order by field, default - Name
         in: query
         name: orderBy
         type: string
-      - description: '''asc'' or ''desc'' for ascending or descending order'
+      - description: '''asc'' or ''desc'' for ascending or descending order, default
+          - asc'
         in: query
         name: orderDirection
         type: string
-      - description: Searchable value in entity
+      - description: 'Searchable value in entity, default - '
         in: query
         name: search
         type: string
-      - description: Page number
+      - description: Page number, default - 1
         in: query
         name: page
         type: integer
-      - description: Number of entities per page
+      - description: Number of entities per page, default - 10
         in: query
         name: pageSize
         type: integer
@@ -902,6 +1067,172 @@ paths:
       summary: Updates ethernet switch port by id
       tags:
       - ethernet-switch
+  /ethernet-switch/{id}/vlan:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Ethernet switch ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Order by field
+        in: query
+        name: orderBy
+        type: string
+      - description: '''asc'' or ''desc'' for ascending or descending order'
+        in: query
+        name: orderDirection
+        type: string
+      - description: Searchable value in entity
+        in: query
+        name: search
+        type: string
+      - description: Page number
+        in: query
+        name: page
+        type: integer
+      - description: Number of entities per page
+        in: query
+        name: pageSize
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dtos.PaginatedItemsDto-dtos_EthernetSwitchVLANDto'
+        "500":
+          description: Internal Server Error
+      summary: Get paginated list of switch VLANs
+      tags:
+      - ethernet-switch
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Ethernet switch ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Ethernet switch VLAN fields
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dtos.EthernetSwitchVLANCreateDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dtos.EthernetSwitchVLANDto'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dtos.ValidationErrorDto'
+        "500":
+          description: Internal Server Error
+      summary: Create new ethernet switch VLAN
+      tags:
+      - ethernet-switch
+  /ethernet-switch/{id}/vlan/{vlanUUID}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: Ethernet switch ID
+        in: query
+        name: id
+        required: true
+        type: string
+      - description: Ethernet switch VLAN UUID
+        in: query
+        name: vlanUUID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: OK, but No Content
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+      summary: Delete ethernet switch VLAN by id
+      tags:
+      - ethernet-switch
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Ethernet switch ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Ethernet switch VLAN UUID
+        in: path
+        name: vlanUUID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dtos.EthernetSwitchVLANDto'
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+      summary: Get ethernet switch VLAN by id
+      tags:
+      - ethernet-switch
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Ethernet switch ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Ethernet switch VLAN UUID
+        in: path
+        name: vlanUUID
+        required: true
+        type: string
+      - description: Ethernet switch fields
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dtos.EthernetSwitchVLANUpdateDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dtos.EthernetSwitchVLANDto'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dtos.ValidationErrorDto'
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+      summary: Updates ethernet switch VLAN by id
+      tags:
+      - ethernet-switch
   /ethernet-switch/models:
     get:
       consumes:
@@ -918,6 +1249,128 @@ paths:
       summary: Get ethernet switch supported models
       tags:
       - ethernet-switch
+  /host/network/bridge/:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/dtos.HostNetworkBridgeDto'
+            type: array
+        "500":
+          description: Internal Server Error
+      summary: Get list of host network bridges
+      tags:
+      - host
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Host bridge fields
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dtos.HostNetworkBridgeCreateDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dtos.HostNetworkBridgeDto'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dtos.ValidationErrorDto'
+        "500":
+          description: Internal Server Error
+      summary: Create new host bridge
+      tags:
+      - host
+  /host/network/bridge/{name}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: Bridge name
+        in: path
+        name: name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: OK, but No Content
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+      summary: Delete host network bridge by name
+      tags:
+      - host
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Bridge name
+        in: path
+        name: name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dtos.HostNetworkBridgeDto'
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+      summary: Gets bridge port by name
+      tags:
+      - host
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Bridge name
+        in: path
+        name: name
+        required: true
+        type: string
+      - description: Host bridge fields
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dtos.HostNetworkBridgeUpdateDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dtos.HostNetworkBridgeDto'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dtos.ValidationErrorDto'
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+      summary: update host network bridge
+      tags:
+      - host
   /host/network/vlan/:
     get:
       consumes:
@@ -1011,16 +1464,17 @@ paths:
       consumes:
       - application/json
       parameters:
+      - description: Vlan name
+        in: path
+        name: name
+        required: true
+        type: string
       - description: Host vlan fields
         in: body
         name: request
         required: true
         schema:
           $ref: '#/definitions/dtos.HostNetworkVlanUpdateDto'
-      - description: Vlan name
-        in: path
-        name: name
-        type: string
       produces:
       - application/json
       responses:

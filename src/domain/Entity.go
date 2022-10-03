@@ -10,7 +10,7 @@ import (
 //Entity base entity structure
 type Entity struct {
 	//	ID - entity identifier
-	ID uuid.UUID `gorm:"primary_key;"`
+	ID uuid.UUID `gorm:"primary_key; type:varchar(36)"`
 	//	CreatedAt - time when the entity was created
 	CreatedAt time.Time `gorm:"index"`
 	//	UpdatedAt - time when the entity was updated

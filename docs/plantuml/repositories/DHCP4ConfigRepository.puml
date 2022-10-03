@@ -1,0 +1,17 @@
+@startuml
+!include ../entities/DHCP4Config.puml
+!include GormGenericRepository.puml
+
+package infrastructure {
+    class DHCP4ConfigRepository
+
+    DHCP4ConfigRepository -down-* GormGenericRepository
+
+    note "EntityType is DHCP4Config" as DHCP4ConfigTypeNote
+
+    DHCP4ConfigRepository .down. DHCP4ConfigTypeNote
+    GormGenericRepository <.up. DHCP4ConfigTypeNote
+    DHCP4Config .. DHCP4ConfigTypeNote
+}
+
+@enduml

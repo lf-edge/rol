@@ -46,6 +46,8 @@ func NewGormEntityDb(cfg *domain.AppConfig) (*gorm.DB, error) {
 		&domain.EthernetSwitch{},
 		&domain.EthernetSwitchPort{},
 		&domain.EthernetSwitchVLAN{},
+		&domain.DHCP4Config{},
+		&domain.DHCP4Lease{},
 	)
 	if err != nil {
 		return nil, errors.Internal.Wrap(err, "failed to apply db migrations")

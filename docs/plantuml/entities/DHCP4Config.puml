@@ -1,0 +1,36 @@
+@startuml
+
+!include Entity.puml
+
+package domain {
+    class DHCP4Config {
+        +Name string
+        --
+        +Range string
+        --
+        +Mask string
+        --
+        +NextServer string
+        --
+        +ServerID string
+        --
+        +Interface string
+        --
+        +Gateway string
+        --
+        +DNS string
+        --
+        +NTP string
+    }
+    DHCP4Config -down-* Entity
+
+    note left of DHCP4Config::Range
+    Start IP and End IP, that separated by "-"
+    end note
+
+    note left of DHCP4Config::ServerID
+    Server ID DHCP option, IP string.
+    end note
+}
+
+@enduml

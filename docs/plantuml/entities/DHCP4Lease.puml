@@ -1,0 +1,17 @@
+@startuml
+!include Entity.puml
+
+package domain {
+    class DHCP4Lease {
+        +ID uuid.UUID
+        --
+        +DHCP4ConfigID uuid.UUID
+        --
+        +IP string
+        --
+        +MAC string
+    }
+    DHCP4Lease -down-* Entity
+}
+
+@enduml

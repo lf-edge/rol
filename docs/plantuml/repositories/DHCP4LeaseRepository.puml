@@ -1,0 +1,17 @@
+@startuml
+!include ../entities/DHCP4Lease.puml
+!include GormGenericRepository.puml
+
+package infrastructure {
+    class DHCP4LeaseRepository
+
+    DHCP4LeaseRepository -down-* GormGenericRepository
+
+    note "EntityType is DHCP4Lease" as DHCP4LeaseTypeNote
+
+    DHCP4LeaseRepository .down. DHCP4LeaseTypeNote
+    GormGenericRepository <.up. DHCP4LeaseTypeNote
+    DHCP4Lease .. DHCP4LeaseTypeNote
+}
+
+@enduml

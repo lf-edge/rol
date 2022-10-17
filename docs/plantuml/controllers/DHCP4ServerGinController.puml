@@ -14,6 +14,16 @@ package controllers {
         +UpdateServer(ctx *gin.Context)
         --
         +DeleteServer(ctx *gin.Context)
+        --
+        +GetLeaseList(ctx *gin.Context)
+        --
+        +GetLeaseByID(ctx *gin.Context)
+        --
+        +CreateLease(ctx *gin.Context)
+        --
+        +UpdateLease(ctx *gin.Context)
+        --
+        +DeleteLease(ctx *gin.Context)
     }
     DHCP4ServerService -up- DHCP4ServerGinController::service
 

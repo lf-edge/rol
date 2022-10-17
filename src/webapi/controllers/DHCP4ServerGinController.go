@@ -22,6 +22,12 @@ func RegisterDHCP4ServerGinController(controller *DHCP4ServerGinController, serv
 	groupRoute.POST("/dhcp", controller.CreateServer)
 	groupRoute.PUT("/dhcp/:id", controller.UpdateServer)
 	groupRoute.DELETE("/dhcp/:id", controller.DeleteServer)
+	//Leases
+	groupRoute.GET("/dhcp/:id/lease", controller.GetLeaseList)
+	groupRoute.GET("/dhcp/:id/lease/:leaseID", controller.GetLeaseByID)
+	groupRoute.POST("/dhcp/:id/lease", controller.CreateLease)
+	groupRoute.PUT("/dhcp/:id/lease/:leaseID", controller.UpdateLease)
+	groupRoute.DELETE("/dhcp/:id/lease/:leaseID", controller.DeleteServer)
 }
 
 //NewDHCP4ServerGinController dhcp v4 server controller constructor. Parameters pass through DI
@@ -165,5 +171,165 @@ func (e *DHCP4ServerGinController) DeleteServer(ctx *gin.Context) {
 	}
 
 	err = e.service.DeleteServer(ctx, id)
+	handle(ctx, err)
+}
+
+//GetLeaseList get list of dhcp v4 leases with search and pagination
+//	Params
+//	ctx - gin context
+// @Summary Get paginated list of dhcp v4 server leases
+// @version 1.0
+// @Tags	dhcp
+// @Accept  json
+// @Produce json
+// @param	id				path	string	true	"DHCP v4 server ID"
+// @param	orderBy			query	string	false	"Order by field"
+// @param	orderDirection	query	string	false	"'asc' or 'desc' for ascending or descending order"
+// @param	search			query	string	false	"Searchable value in entity"
+// @param	page			query	int		false	"Page number"
+// @param	pageSize		query	int		false	"Number of entities per page"
+// @Success	200		{object}	dtos.PaginatedItemsDto[dtos.DHCP4LeaseDto]
+// @Failure	500		"Internal Server Error"
+// @router /dhcp/{id}/lease [get]
+func (e *DHCP4ServerGinController) GetLeaseList(ctx *gin.Context) {
+	req := newPaginatedRequestStructForParsing(1, 10, "CreatedAt", "asc", "")
+	err := parseGinRequest(ctx, &req)
+	if err != nil {
+		abortWithStatusByErrorType(ctx, err)
+		return
+	}
+	serverID, err := parseUUIDParam(ctx, "id")
+	if err != nil {
+		abortWithStatusByErrorType(ctx, err)
+		return
+	}
+	paginatedList, err := e.service.GetLeaseList(ctx, serverID, req.Search, req.OrderBy, req.OrderDirection,
+		req.Page, req.PageSize)
+	handleWithData(ctx, err, paginatedList)
+}
+
+//GetLeaseByID get dhcp v4 lease by id
+//	Params
+//	ctx - gin context
+// @Summary	Get dhcp v4 lease by id
+// @version 1.0
+// @Tags	dhcp
+// @Accept	json
+// @Produce	json
+// @param	id			path		string		true	"DHCP v4 server ID"
+// @param	leaseID		path		string		true	"DHCP v4 lease ID"
+// @Success	200			{object}	dtos.DHCP4LeaseDto
+// @Failure	404			"Not Found"
+// @Failure	500			"Internal Server Error"
+// @router /dhcp/{id}/lease/{leaseID} [get]
+func (e *DHCP4ServerGinController) GetLeaseByID(ctx *gin.Context) {
+	serverID, err := parseUUIDParam(ctx, "id")
+	if err != nil {
+		abortWithStatusByErrorType(ctx, err)
+		return
+	}
+	leaseID, err := parseUUIDParam(ctx, "leaseID")
+	if err != nil {
+		abortWithStatusByErrorType(ctx, err)
+		return
+	}
+	dto, err := e.service.GetLeaseByID(ctx, serverID, leaseID)
+	handleWithData(ctx, err, dto)
+}
+
+//CreateLease new DHCP v4 lease
+//	Params
+//	ctx - gin context
+// @Summary	Create DHCP v4 lease
+// @version	1.0
+// @Tags	dhcp
+// @Accept	json
+// @Produce	json
+// @param	id		path		string		true	"DHCP v4 server ID"
+// @Param	request	body		dtos.DHCP4LeaseCreateDto	true	"DHCP v4 lease fields"
+// @Success	200		{object}	dtos.DHCP4LeaseDto
+// @Failure	400		{object}	dtos.ValidationErrorDto
+// @Failure	500		"Internal Server Error"
+// @router /dhcp/{id}/lease [post]
+func (e *DHCP4ServerGinController) CreateLease(ctx *gin.Context) {
+	serverID, err := parseUUIDParam(ctx, "id")
+	if err != nil {
+		abortWithStatusByErrorType(ctx, err)
+		return
+	}
+	reqDto, err := getRequestDtoAndRestoreBody[dtos.DHCP4LeaseCreateDto](ctx)
+	if err != nil {
+		abortWithStatusByErrorType(ctx, err)
+		return
+	}
+
+	dto, err := e.service.CreateLease(ctx, serverID, reqDto)
+	handleWithData(ctx, err, dto)
+}
+
+//UpdateLease DHCP v4 lease by id
+//	Params
+//	ctx - gin context
+// @Summary	Updates DHCP v4 lease by id
+// @version	1.0
+// @Tags	dhcp
+// @Accept	json
+// @Produce	json
+// @param	id		path		string		true	"DHCP v4 server ID"
+// @param	leaseID	path		string		true	"DHCP v4 lease ID"
+// @Param	request	body		dtos.DHCP4LeaseUpdateDto true "DHCP v4 lease fields"
+// @Success	200		{object}	dtos.DHCP4LeaseDto
+// @Failure	400		{object}	dtos.ValidationErrorDto
+// @Failure	404		"Not Found"
+// @Failure	500		"Internal Server Error"
+// @router /dhcp/{id}/lease/{leaseID} [put]
+func (e *DHCP4ServerGinController) UpdateLease(ctx *gin.Context) {
+	reqDto, err := getRequestDtoAndRestoreBody[dtos.DHCP4LeaseUpdateDto](ctx)
+	if err != nil {
+		abortWithStatusByErrorType(ctx, err)
+		return
+	}
+	serverID, err := parseUUIDParam(ctx, "id")
+	if err != nil {
+		abortWithStatusByErrorType(ctx, err)
+		return
+	}
+	leaseID, err := parseUUIDParam(ctx, "leaseID")
+	if err != nil {
+		abortWithStatusByErrorType(ctx, err)
+		return
+	}
+
+	dto, err := e.service.UpdateLease(ctx, serverID, leaseID, reqDto)
+	handleWithData(ctx, err, dto)
+}
+
+//DeleteLease deleting dhcp v4 lease
+//	Params
+//	ctx - gin context
+// @Summary	Delete dhcp v4 lease by id
+// @version	1.0
+// @Tags	dhcp
+// @Accept	json
+// @Produce	json
+// @param	id		path	string		true	"DHCP v4 server ID"
+// @param	leaseID	path	string		true	"DHCP v4 lease ID"
+// @Success	204		"OK, but No Content"
+// @Failure	404		"Not Found"
+// @Failure	500		"Internal Server Error"
+// @router /dhcp/{id}/lease/{leaseID} [delete]
+func (e *DHCP4ServerGinController) DeleteLease(ctx *gin.Context) {
+	serverID, err := parseUUIDParam(ctx, "id")
+	if err != nil {
+		abortWithStatusByErrorType(ctx, err)
+		return
+	}
+	leaseID, err := parseUUIDParam(ctx, "leaseID")
+	if err != nil {
+		abortWithStatusByErrorType(ctx, err)
+		return
+	}
+
+	err = e.service.DeleteLease(ctx, serverID, leaseID)
 	handle(ctx, err)
 }

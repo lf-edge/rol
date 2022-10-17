@@ -57,6 +57,7 @@ func main() {
 			infrastructure.NewEthernetSwitchManagerProvider,
 			infrastructure.NewGormDHCP4LeaseRepository,
 			infrastructure.NewGormDHCP4ConfigRepository,
+			infrastructure.NewCoreDHCP4ServerFactory,
 			// Application logic
 			services.NewEthernetSwitchService,
 			services.NewHTTPLogService,

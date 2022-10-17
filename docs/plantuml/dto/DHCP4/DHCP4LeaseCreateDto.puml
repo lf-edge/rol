@@ -1,0 +1,13 @@
+@startuml
+
+package dtos {
+    class DHCP4LeaseCreateDto {
+        +IP string
+        --
+        +MAC string
+        --
+        +Expires time.Time
+    }
+}
+
+@enduml

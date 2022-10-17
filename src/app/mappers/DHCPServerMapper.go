@@ -56,3 +56,39 @@ func MapDHCP4ServerUpdateDtoToEntity(dto dtos.DHCP4ServerUpdateDto, entity *doma
 	entity.Enabled = dto.Enabled
 	entity.LeaseTime = dto.LeaseTime
 }
+
+//MapDHCP4LeaseToDto writes dhcp v4 lease fields to dto
+//
+//Params:
+//	entity - DHCP v4 lease entity
+//	*dto - DHCP v4 lease dto
+func MapDHCP4LeaseToDto(entity domain.DHCP4Lease, dto *dtos.DHCP4LeaseDto) {
+	dto.IP = entity.IP
+	dto.MAC = entity.MAC
+	dto.Expires = entity.Expires
+	dto.UpdatedAt = entity.UpdatedAt
+	dto.CreatedAt = entity.CreatedAt
+	dto.ID = entity.ID
+}
+
+//MapDHCP4LeaseCreateDtoToEntity writes dhcp v4 lease create dto fields to lease entity
+//
+//Params:
+// 	dto - DHCP v4 server lease create dto
+//	entity - DHCP v4 lease entity
+func MapDHCP4LeaseCreateDtoToEntity(dto dtos.DHCP4LeaseCreateDto, entity *domain.DHCP4Lease) {
+	entity.IP = dto.IP
+	entity.MAC = dto.MAC
+	entity.Expires = dto.Expires
+}
+
+//MapDHCP4LeaseUpdateDtoToEntity writes dhcp v4 lease update dto fields to lease entity
+//
+//Params:
+// 	dto - DHCP v4 server lease create dto
+//	entity - DHCP v4 lease entity
+func MapDHCP4LeaseUpdateDtoToEntity(dto dtos.DHCP4LeaseUpdateDto, entity *domain.DHCP4Lease) {
+	entity.IP = dto.IP
+	entity.MAC = dto.MAC
+	entity.Expires = dto.Expires
+}

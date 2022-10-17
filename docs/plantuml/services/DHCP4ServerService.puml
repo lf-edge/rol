@@ -6,6 +6,9 @@
 !include ../dto/DHCP4/DHCP4ServerDto.puml
 !include ../dto/DHCP4/DHCP4ServerCreateDto.puml
 !include ../dto/DHCP4/DHCP4ServerUpdateDto.puml
+!include ../dto/DHCP4/DHCP4LeaseDto.puml
+!include ../dto/DHCP4/DHCP4LeaseCreateDto.puml
+!include ../dto/DHCP4/DHCP4LeaseUpdateDto.puml
 
 package app {
     class DHCP4ServerService {
@@ -26,6 +29,16 @@ package app {
         +UpdateServer(ctx context.Context, id uuid.UUID, updateDto dtos.DHCP4ServerUpdateDto) (dtos.DHCP4ServerDto, error)
         --
         +DeleteServer(ctx context.Context, id uuid.UUID) error
+        --
+        +GetLeaseList(ctx context.Context, search string, orderBy string, orderDirection string, page int, pageSize int) (dtos.PaginatedItemsDto[dtos.DHCP4LeaseDto], error)
+        --
+        +GetLeaseByID(ctx context.Context, id uuid.UUID) (dtos.DHCP4LeaseDto, error)
+        --
+        +CreateLease(ctx context.Context, id uuid.UUID, createDto dtos.DHCP4LeaseCreateDto) (dtos.DHCP4LeaseDto, error)
+        --
+        +UpdateLease(ctx context.Context, id uuid.UUID, updateDto dtos.DHCP4LeaseUpdateDto) (dtos.DHCP4LeaseDto, error)
+        --
+        +DeleteLease(ctx context.Context, id uuid.UUID) error
     }
 
     DHCP4ServerService .[hidden]up. IGenericRepository

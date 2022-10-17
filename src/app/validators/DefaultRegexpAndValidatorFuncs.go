@@ -17,6 +17,9 @@ const regexpUsernameDesc = "From 2 to 20 characters long, it can contain Latin u
 const regexpIPv4 = `((25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(25[0-5]|2[0-4]\d|[01]?\d\d?)`
 const regexpIPv4Desc = "wrong IPv4 format"
 
+const regexpMac = `^([0-9A-Fa-f]{2}[:]){5}([0-9A-Fa-f]{2})$`
+const regexpMacDesc = "wrong mac address format, expect 0f:0f:f0:f0:f0"
+
 func convertOzzoErrorToValidationError(err error) error {
 	var custError error
 	if err != nil {

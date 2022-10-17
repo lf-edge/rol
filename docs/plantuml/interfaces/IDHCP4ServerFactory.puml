@@ -1,0 +1,13 @@
+@startuml
+
+package app {
+    interface IDHCP4ServerFactory {
+        +Create(config domain.DHCP4Config) (interfaces.IDHCP4Server, error)
+    }
+
+    note left of IDHCP4ServerFactory::Create
+    Create runtime DHCP v4 server
+    end note
+}
+
+@enduml

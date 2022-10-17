@@ -1,0 +1,17 @@
+@startuml
+
+package domain {
+    enum DHCPServerState {
+            DHCPStateLaunched
+            --
+            DHCPStateStopped
+            --
+            DHCPStateError
+            --
+            DHCPStateNone
+            --
+            +ToString()
+    }
+}
+
+@enduml

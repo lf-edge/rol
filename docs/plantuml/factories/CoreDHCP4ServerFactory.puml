@@ -1,0 +1,21 @@
+@startuml
+
+!include ../repositories/DHCP4LeaseRepository.puml
+!include ../interfaces/IDHCP4ServerFactory.puml
+!include ../interfaces/IDHCP4Server.puml
+
+package infrastructure {
+    class CoreDHCP4Server {
+    }
+    CoreDHCP4Server .down.|> IDHCP4Server
+
+    class CoreDHCP4ServerFactory {
+        -leasesRepo interfaces.IGenericRepository[domain.DHCP4Lease]
+    }
+    CoreDHCP4ServerFactory::leasesRepo -- DHCP4LeaseRepository
+    CoreDHCP4ServerFactory .down.|> IDHCP4ServerFactory
+
+    IDHCP4ServerFactory .[hidden]down. IDHCP4Server
+}
+
+@enduml

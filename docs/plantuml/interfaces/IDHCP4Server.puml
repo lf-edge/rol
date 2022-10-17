@@ -1,0 +1,33 @@
+@startuml
+
+!include ../entities/DHCPServerState.puml
+
+package app {
+    interface IDHCP4Server {
+        +ReloadConfiguration(dhcp4config domain.DHCP4Config) error
+        --
+        +Start() error
+        --
+        +Stop()
+        --
+        +GetState() domain.DHCP4ServerState
+    }
+
+    note left of IDHCP4Server::ReloadConfiguration
+    Reload configuration for DHCP v4 server from config
+    end note
+
+    note left of IDHCP4Server::Start
+    Start DHCP v4 server
+    end note
+
+    note left of IDHCP4Server::Stop
+    Stop DHCP v4 server
+    end note
+
+    note left of IDHCP4Server::GetState
+    Get current state of DHCP v4 server
+    end note
+}
+
+@enduml

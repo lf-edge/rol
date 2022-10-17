@@ -1,0 +1,33 @@
+@startuml
+
+!include ../BaseDto.puml
+
+package dtos {
+    class DHCP4ServerDto {
+        +Range string
+        --
+        +Mask string
+        --
+        +ServerID string
+        --
+        +Interface string
+        --
+        +Gateway string
+        --
+        +DNS string
+        --
+        +NTP string
+        --
+        +Enabled bool
+        --
+        +Port int
+        --
+        +LeaseTime int
+        --
+        +State string
+    }
+
+    DHCP4ServerDto --* BaseDto
+}
+
+@enduml

@@ -1,0 +1,17 @@
+@startuml
+
+!include ../BaseDto.puml
+
+package dtos {
+    class DHCP4LeaseDto {
+        +IP string
+        --
+        +MAC string
+        --
+        +Expires time.Time
+    }
+
+    DHCP4LeaseDto --* BaseDto
+}
+
+@enduml

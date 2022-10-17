@@ -64,6 +64,7 @@ func main() {
 			services.NewAppLogService,
 			services.NewDeviceTemplateService,
 			services.NewHostNetworkService,
+			services.NewDHCP4ServerService,
 			// WEB API -> GIN Server
 			webapi.NewGinHTTPServer,
 			// WEB API -> GIN Controllers
@@ -81,6 +82,7 @@ func main() {
 			infrastructure.RegisterLogHooks,
 			//Services initialization
 			services.EthernetSwitchServiceInit,
+			services.DHCP4ServerServiceInit,
 			//GIN Controllers registration
 			controllers.RegisterEthernetSwitchController,
 			controllers.RegisterHTTPLogController,

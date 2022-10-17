@@ -1,0 +1,42 @@
+@startuml
+
+!include ../repositories/DHCP4ConfigRepository.puml
+!include ../repositories/DHCP4LeaseRepository.puml
+!include ../factories/CoreDHCP4ServerFactory.puml
+!include ../dto/DHCP4/DHCP4ServerDto.puml
+!include ../dto/DHCP4/DHCP4ServerCreateDto.puml
+!include ../dto/DHCP4/DHCP4ServerUpdateDto.puml
+
+package app {
+    class DHCP4ServerService {
+        -leasesRepo IGenericRepository[domain.DHCP4Lease]
+        --
+        -configsRepo IGenericRepository[domain.DHCP4Config]
+        --
+        -factory IDHCP4ServerFactory
+        --
+        -servers map[uuid.UUID]IDHCP4Server
+        --
+        +GetServerList(ctx context.Context, search string, orderBy string, orderDirection string, page int, pageSize int) (dtos.PaginatedItemsDto[dtos.DHCP4ServerDto], error)
+        --
+        +GetServerByID(ctx context.Context, id uuid.UUID) (dtos.DHCP4ServerDto, error)
+        --
+        +CreateServer(ctx context.Context, id uuid.UUID, createDto dtos.DHCP4ServerCreateDto) (dtos.DHCP4ServerDto, error)
+        --
+        +UpdateServer(ctx context.Context, id uuid.UUID, updateDto dtos.DHCP4ServerUpdateDto) (dtos.DHCP4ServerDto, error)
+        --
+        +DeleteServer(ctx context.Context, id uuid.UUID) error
+    }
+
+    DHCP4ServerService .[hidden]up. IGenericRepository
+
+    DHCP4LeaseRepository -right- DHCP4ServerService::leasesRepo
+    DHCP4ConfigRepository -right- DHCP4ServerService::configsRepo
+    CoreDHCP4ServerFactory -right- DHCP4ServerService::factory
+
+    note left of DHCP4ServerService
+        Advanced business logic for DHCP4 server configs and leases entity
+    end note
+}
+
+@enduml

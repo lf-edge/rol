@@ -1,0 +1,17 @@
+@startuml
+
+package dtos {
+    class DHCP4ServerUpdateDto {
+        +DNS string
+        --
+        +NTP string
+        --
+        +Enabled bool
+        --
+        +Port int
+        --
+        +LeaseTime int
+    }
+}
+
+@enduml

@@ -76,6 +76,7 @@ func main() {
 			controllers.NewHostNetworkVlanController,
 			controllers.NewHostNetworkBridgeController,
 			controllers.NewEthernetSwitchVLANGinController,
+			controllers.NewDHCP4ServerGinController,
 		),
 		fx.Invoke(
 			//Register logrus hooks
@@ -92,6 +93,7 @@ func main() {
 			controllers.RegisterHostNetworkVlanController,
 			controllers.RegisterHostNetworkBridgeController,
 			controllers.RegisterEthernetSwitchVLANGinController,
+			controllers.RegisterDHCP4ServerGinController,
 			//Start GIN http server
 			webapi.StartHTTPServer,
 		),

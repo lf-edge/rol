@@ -1,0 +1,22 @@
+@startuml
+!include ../services/DHCP4ServerService.puml
+
+package controllers {
+    class DHCP4ServerGinController {
+        -service *DHCP4ServerService
+        --
+        +GetServerList(ctx *gin.Context)
+        --
+        +GetServerByID(ctx *gin.Context)
+        --
+        +CreateServer(ctx *gin.Context)
+        --
+        +UpdateServer(ctx *gin.Context)
+        --
+        +DeleteServer(ctx *gin.Context)
+    }
+    DHCP4ServerService -up- DHCP4ServerGinController::service
+
+}
+
+@enduml

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="225px" preserveAspectRatio="none" style="width:1019px;height:225px;background:#FFFFFF;" version="1.1" viewBox="0 0 1019 225" width="1019px" zoomAndPan="magnify"><defs/><g><!--MD5=[27f772719433d509ddbc20ff768eba08]
+cluster domain--><g id="cluster_domain"><path d="M836.5,6 L888.5,6 A3.75,3.75 0 0 1 891,8.5 L898,29.6094 L1009.5,29.6094 A2.5,2.5 0 0 1 1012,32.1094 L1012,215.5 A2.5,2.5 0 0 1 1009.5,218 L836.5,218 A2.5,2.5 0 0 1 834,215.5 L834,8.5 A2.5,2.5 0 0 1 836.5,6 " style="stroke:#000000;stroke-width:1.5;fill:none;"/><line style="stroke:#000000;stroke-width:1.5;fill:none;" x1="834" x2="898" y1="29.6094" y2="29.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="51" x="838" y="22.5332">domain</text></g><!--MD5=[d5ac3844f66b12d9e08170e47495e096]
+cluster app--><g id="cluster_app"><path d="M8.5,13.5 L35.5,13.5 A3.75,3.75 0 0 1 38,16 L45,37.1094 L807.5,37.1094 A2.5,2.5 0 0 1 810,39.6094 L810,208 A2.5,2.5 0 0 1 807.5,210.5 L8.5,210.5 A2.5,2.5 0 0 1 6,208 L6,16 A2.5,2.5 0 0 1 8.5,13.5 " style="stroke:#000000;stroke-width:1.5;fill:none;"/><line style="stroke:#000000;stroke-width:1.5;fill:none;" x1="6" x2="45" y1="37.1094" y2="37.1094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="26" x="10" y="30.0332">app</text></g><!--MD5=[4e6a87af6da6e423968b760502e86650]
+class DHCPServerState--><g id="elem_DHCPServerState"><rect codeLine="3" fill="#F1F1F1" height="160.0469" id="DHCPServerState" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="146" x="850" y="42"/><ellipse cx="865.45" cy="58" fill="#EB937F" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M864.3094,58.7969 L864.3094,61.2969 L868.6375,61.2969 L868.6375,60.375 Q868.6375,59.7656 868.8719,59.5 Q869.1219,59.2344 869.4969,59.2344 Q869.8719,59.2344 870.1063,59.5 Q870.3406,59.7656 870.3406,60.375 L870.3406,63 L862.3406,63 Q861.7156,63 861.45,62.7656 Q861.2,62.5313 861.2,62.1406 Q861.2,61.7656 861.4656,61.5313 Q861.7313,61.2969 862.3406,61.2969 L862.6063,61.2969 L862.6063,54.6406 L862.3406,54.6406 Q861.7156,54.6406 861.45,54.4063 Q861.2,54.1719 861.2,53.7813 Q861.2,53.4063 861.45,53.1719 Q861.7156,52.9375 862.3406,52.9375 L869.9656,52.9375 L869.9656,55.5313 Q869.9656,56.1406 869.7313,56.4063 Q869.5125,56.6563 869.1219,56.6563 Q868.7469,56.6563 868.5125,56.4063 Q868.2781,56.1406 868.2781,55.5313 L868.2781,54.6406 L864.3094,54.6406 L864.3094,57.0938 L865.7938,57.0938 Q865.7938,56.4375 865.9188,56.25 Q866.1844,55.8438 866.6531,55.8438 Q867.0281,55.8438 867.2625,56.1094 Q867.4969,56.3594 867.4969,56.9688 L867.4969,58.9375 Q867.4969,59.4844 867.3719,59.6719 Q867.1063,60.0625 866.6531,60.0625 Q866.1844,60.0625 865.9188,59.6563 Q865.7938,59.4688 865.7938,58.7969 L864.3094,58.7969 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="113" x="879.55" y="63.7285">DHCPServerState</text><line style="stroke:#181818;stroke-width:0.5;" x1="851" x2="995" y1="74" y2="74"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="134" x="856" y="92.5332">DHCPStateLaunched</text><line style="stroke:#181818;stroke-width:1.0;" x1="851" x2="995" y1="99.6094" y2="99.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="124" x="856" y="118.1426">DHCPStateStopped</text><line style="stroke:#181818;stroke-width:1.0;" x1="851" x2="995" y1="125.2188" y2="125.2188"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="103" x="856" y="143.752">DHCPStateError</text><line style="stroke:#181818;stroke-width:1.0;" x1="851" x2="995" y1="150.8281" y2="150.8281"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="104" x="856" y="169.3613">DHCPStateNone</text><line style="stroke:#181818;stroke-width:1.0;" x1="851" x2="995" y1="176.4375" y2="176.4375"/><ellipse cx="861" cy="187.4375" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="64" x="870" y="194.9707">ToString()</text></g><!--MD5=[66e4b79b8d04b3d0de0fbe34cd813b9a]
+class IDHCP4Server--><g id="elem_IDHCP4Server"><rect codeLine="5" fill="#F1F1F1" height="134.4375" id="IDHCP4Server" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="419" x="374.5" y="55"/><ellipse cx="533.75" cy="71" fill="#B4A7E5" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M534.7031,67.6406 L534.7031,74.2969 L536.4219,74.2969 Q537.0313,74.2969 537.2969,74.5313 Q537.5625,74.7656 537.5625,75.1563 Q537.5625,75.5313 537.2969,75.7656 Q537.0313,76 536.4219,76 L531.2813,76 Q530.6719,76 530.4063,75.7656 Q530.1406,75.5313 530.1406,75.1406 Q530.1406,74.7656 530.4063,74.5313 Q530.6719,74.2969 531.2813,74.2969 L533,74.2969 L533,67.6406 L531.2813,67.6406 Q530.6719,67.6406 530.4063,67.4063 Q530.1406,67.1719 530.1406,66.7813 Q530.1406,66.4063 530.4063,66.1719 Q530.6719,65.9375 531.2813,65.9375 L536.4219,65.9375 Q537.0313,65.9375 537.2969,66.1719 Q537.5625,66.4063 537.5625,66.7813 Q537.5625,67.1719 537.2969,67.4063 Q537.0313,67.6406 536.4219,67.6406 L534.7031,67.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="92" x="554.25" y="76.7285">IDHCP4Server</text><line style="stroke:#181818;stroke-width:0.5;" x1="375.5" x2="792.5" y1="87" y2="87"/><ellipse cx="385.5" cy="98" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="393" x="394.5" y="105.5332">ReloadConfiguration(dhcp4config domain.DHCP4Config) error</text><line style="stroke:#181818;stroke-width:1.0;" x1="375.5" x2="792.5" y1="112.6094" y2="112.6094"/><ellipse cx="385.5" cy="123.6094" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="75" x="394.5" y="131.1426">Start() error</text><line style="stroke:#181818;stroke-width:1.0;" x1="375.5" x2="792.5" y1="138.2188" y2="138.2188"/><ellipse cx="385.5" cy="149.2188" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="39" x="394.5" y="156.752">Stop()</text><line style="stroke:#181818;stroke-width:1.0;" x1="375.5" x2="792.5" y1="163.8281" y2="163.8281"/><ellipse cx="385.5" cy="174.8281" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="241" x="394.5" y="182.3613">GetState() domain.DHCP4ServerState</text></g><path d="M22.5,49.5 L22.5,75.8516 A0,0 0 0 0 22.5,75.8516 L339.5,75.8516 A0,0 0 0 0 339.5,75.8516 L339.5,67.5 L378.5,99.8047 L339.5,59.5 L339.5,59.5 L329.5,49.5 L22.5,49.5 A0,0 0 0 0 22.5,49.5 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M329.5,49.5 L329.5,59.5 L339.5,59.5 L329.5,49.5 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="296" x="28.5" y="67.9951">Reload configuration for DHCP v4 server from config</text><path d="M22.5,85.8516 L22.5,112.2031 A0,0 0 0 0 22.5,112.2031 L165.5,112.2031 A0,0 0 0 0 165.5,112.2031 L165.5,103.8516 L378.5,125.4141 L165.5,95.8516 L165.5,95.8516 L155.5,85.8516 L22.5,85.8516 A0,0 0 0 0 22.5,85.8516 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M155.5,85.8516 L155.5,95.8516 L165.5,95.8516 L155.5,85.8516 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="122" x="28.5" y="104.3467">Start DHCP v4 server</text><path d="M22.5,122.2031 L22.5,148.5547 A0,0 0 0 0 22.5,148.5547 L164.5,148.5547 A0,0 0 0 0 164.5,148.5547 L164.5,140.2031 L378.5,151.0234 L164.5,132.2031 L164.5,132.2031 L154.5,122.2031 L22.5,122.2031 A0,0 0 0 0 22.5,122.2031 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M154.5,122.2031 L154.5,132.2031 L164.5,132.2031 L154.5,122.2031 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="121" x="28.5" y="140.6982">Stop DHCP v4 server</text><path d="M22.5,158.5547 L22.5,184.9063 A0,0 0 0 0 22.5,184.9063 L249.5,184.9063 A0,0 0 0 0 249.5,184.9063 L249.5,176.5547 L378.5,176.6328 L249.5,168.5547 L249.5,168.5547 L239.5,158.5547 L22.5,158.5547 A0,0 0 0 0 22.5,158.5547 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M239.5,158.5547 L239.5,168.5547 L249.5,168.5547 L239.5,158.5547 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="206" x="28.5" y="177.0498">Get current state of DHCP v4 server</text><!--MD5=[5bf5aa013b23216c1f949c718a5d3287]
+@startuml
+
+!include ../entities/DHCPServerState.puml
+
+package app {
+    interface IDHCP4Server {
+        +ReloadConfiguration(dhcp4config domain.DHCP4Config) error
+        - -
+        +Start() error
+        - -
+        +Stop()
+        - -
+        +GetState() domain.DHCP4ServerState
+    }
+
+    note left of IDHCP4Server::ReloadConfiguration
+    Reload configuration for DHCP v4 server from config
+    end note
+
+    note left of IDHCP4Server::Start
+    Start DHCP v4 server
+    end note
+
+    note left of IDHCP4Server::Stop
+    Stop DHCP v4 server
+    end note
+
+    note left of IDHCP4Server::GetState
+    Get current state of DHCP v4 server
+    end note
+}
+
+@enduml
+
+@startuml
+
+
+package domain {
+    enum DHCPServerState {
+            DHCPStateLaunched
+            - -
+            DHCPStateStopped
+            - -
+            DHCPStateError
+            - -
+            DHCPStateNone
+            - -
+            +ToString()
+    }
+}
+
+
+package app {
+    interface IDHCP4Server {
+        +ReloadConfiguration(dhcp4config domain.DHCP4Config) error
+        - -
+        +Start() error
+        - -
+        +Stop()
+        - -
+        +GetState() domain.DHCP4ServerState
+    }
+
+    note left of IDHCP4Server::ReloadConfiguration
+    Reload configuration for DHCP v4 server from config
+    end note
+
+    note left of IDHCP4Server::Start
+    Start DHCP v4 server
+    end note
+
+    note left of IDHCP4Server::Stop
+    Stop DHCP v4 server
+    end note
+
+    note left of IDHCP4Server::GetState
+    Get current state of DHCP v4 server
+    end note
+}
+
+@enduml
+
+PlantUML version 1.2022.6(Tue Jun 21 20:34:49 MSK 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1251
+Language: ru
+Country: RU
+--></g></svg>

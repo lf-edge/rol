@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="131px" preserveAspectRatio="none" style="width:748px;height:131px;background:#FFFFFF;" version="1.1" viewBox="0 0 748 131" width="748px" zoomAndPan="magnify"><defs/><g><!--MD5=[d5ac3844f66b12d9e08170e47495e096]
+cluster app--><g id="cluster_app"><path d="M8.5,6 L35.5,6 A3.75,3.75 0 0 1 38,8.5 L45,29.6094 L738.5,29.6094 A2.5,2.5 0 0 1 741,32.1094 L741,121.5 A2.5,2.5 0 0 1 738.5,124 L8.5,124 A2.5,2.5 0 0 1 6,121.5 L6,8.5 A2.5,2.5 0 0 1 8.5,6 " style="stroke:#000000;stroke-width:1.5;fill:none;"/><line style="stroke:#000000;stroke-width:1.5;fill:none;" x1="6" x2="45" y1="29.6094" y2="29.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="26" x="10" y="22.5332">app</text></g><!--MD5=[deabb3312e0d912c67ee19f7c61ba907]
+class IDHCP4ServerFactory--><g id="elem_IDHCP4ServerFactory"><rect codeLine="3" fill="#F1F1F1" height="65.6094" id="IDHCP4ServerFactory" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="468" x="257" y="42"/><ellipse cx="416.75" cy="58" fill="#B4A7E5" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M417.7031,54.6406 L417.7031,61.2969 L419.4219,61.2969 Q420.0313,61.2969 420.2969,61.5313 Q420.5625,61.7656 420.5625,62.1563 Q420.5625,62.5313 420.2969,62.7656 Q420.0313,63 419.4219,63 L414.2813,63 Q413.6719,63 413.4063,62.7656 Q413.1406,62.5313 413.1406,62.1406 Q413.1406,61.7656 413.4063,61.5313 Q413.6719,61.2969 414.2813,61.2969 L416,61.2969 L416,54.6406 L414.2813,54.6406 Q413.6719,54.6406 413.4063,54.4063 Q413.1406,54.1719 413.1406,53.7813 Q413.1406,53.4063 413.4063,53.1719 Q413.6719,52.9375 414.2813,52.9375 L419.4219,52.9375 Q420.0313,52.9375 420.2969,53.1719 Q420.5625,53.4063 420.5625,53.7813 Q420.5625,54.1719 420.2969,54.4063 Q420.0313,54.6406 419.4219,54.6406 L417.7031,54.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="140" x="437.25" y="63.7285">IDHCP4ServerFactory</text><line style="stroke:#181818;stroke-width:0.5;" x1="258" x2="724" y1="74" y2="74"/><line style="stroke:#181818;stroke-width:0.5;" x1="258" x2="724" y1="82" y2="82"/><ellipse cx="268" cy="93" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="442" x="277" y="100.5332">Create(config domain.DHCP4Config) (interfaces.IDHCP4Server, error)</text></g><path d="M22,57 L22,83.3516 A0,0 0 0 0 22,83.3516 L222,83.3516 A0,0 0 0 0 222,83.3516 L222,75 L261,94.8047 L222,67 L222,67 L212,57 L22,57 A0,0 0 0 0 22,57 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M212,57 L212,67 L222,67 L212,57 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="179" x="28" y="75.4951">Create runtime DHCP v4 server</text><!--MD5=[7cffc9da8db3b5376fac054f5cb28e7b]
+@startuml
+
+package app {
+    interface IDHCP4ServerFactory {
+        +Create(config domain.DHCP4Config) (interfaces.IDHCP4Server, error)
+    }
+
+    note left of IDHCP4ServerFactory::Create
+    Create runtime DHCP v4 server
+    end note
+}
+
+@enduml
+
+PlantUML version 1.2022.6(Tue Jun 21 20:34:49 MSK 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1251
+Language: ru
+Country: RU
+--></g></svg>

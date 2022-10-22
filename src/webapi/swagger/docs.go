@@ -24,6 +24,473 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
+        "/dhcp/": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "dhcp"
+                ],
+                "summary": "Get paginated list of dhcp v4 servers",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Order by field",
+                        "name": "orderBy",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "'asc' or 'desc' for ascending or descending order",
+                        "name": "orderDirection",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "Searchable value in entity",
+                        "name": "search",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Page number",
+                        "name": "page",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Number of entities per page",
+                        "name": "pageSize",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.PaginatedItemsDto-dtos_DHCP4ServerDto"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "dhcp"
+                ],
+                "summary": "Create DHCP v4 server",
+                "parameters": [
+                    {
+                        "description": "DHCP v4 server fields",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dtos.DHCP4ServerCreateDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.DHCP4ServerDto"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.ValidationErrorDto"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/dhcp/{id}": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "dhcp"
+                ],
+                "summary": "Get dhcp v4 server by id",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "DHCP v4 server ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.DHCP4ServerDto"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "put": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "dhcp"
+                ],
+                "summary": "Updates DHCP v4 server by id",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "DHCP v4 server ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "DHCP v4 server fields",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dtos.DHCP4ServerUpdateDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.DHCP4ServerDto"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.ValidationErrorDto"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "delete": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "dhcp"
+                ],
+                "summary": "Delete dhcp v4 server by id",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "DHCP v4 server ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "OK, but No Content"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/dhcp/{id}/lease": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "dhcp"
+                ],
+                "summary": "Get paginated list of dhcp v4 server leases",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "DHCP v4 server ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Order by field",
+                        "name": "orderBy",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "'asc' or 'desc' for ascending or descending order",
+                        "name": "orderDirection",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "Searchable value in entity",
+                        "name": "search",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Page number",
+                        "name": "page",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Number of entities per page",
+                        "name": "pageSize",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.PaginatedItemsDto-dtos_DHCP4LeaseDto"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "dhcp"
+                ],
+                "summary": "Create DHCP v4 lease",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "DHCP v4 server ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "DHCP v4 lease fields",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dtos.DHCP4LeaseCreateDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.DHCP4LeaseDto"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.ValidationErrorDto"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/dhcp/{id}/lease/{leaseID}": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "dhcp"
+                ],
+                "summary": "Get dhcp v4 lease by id",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "DHCP v4 server ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "DHCP v4 lease ID",
+                        "name": "leaseID",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.DHCP4LeaseDto"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "put": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "dhcp"
+                ],
+                "summary": "Updates DHCP v4 lease by id",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "DHCP v4 server ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "DHCP v4 lease ID",
+                        "name": "leaseID",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "DHCP v4 lease fields",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dtos.DHCP4LeaseUpdateDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.DHCP4LeaseDto"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.ValidationErrorDto"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "delete": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "dhcp"
+                ],
+                "summary": "Delete dhcp v4 lease by id",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "DHCP v4 server ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "DHCP v4 lease ID",
+                        "name": "leaseID",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "OK, but No Content"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
         "/ethernet-switch/": {
             "get": {
                 "consumes": [
@@ -1463,6 +1930,200 @@ const docTemplate = `{
                 }
             }
         },
+        "dtos.DHCP4LeaseCreateDto": {
+            "type": "object",
+            "properties": {
+                "expires": {
+                    "description": "Expires datetime",
+                    "type": "string"
+                },
+                "ip": {
+                    "description": "IP address in ipv4 format",
+                    "type": "string"
+                },
+                "mac": {
+                    "description": "MAC address in format like this 00-00-00-00-00",
+                    "type": "string"
+                }
+            }
+        },
+        "dtos.DHCP4LeaseDto": {
+            "type": "object",
+            "properties": {
+                "createdAt": {
+                    "description": "CreatedAt - entity create time",
+                    "type": "string"
+                },
+                "expires": {
+                    "description": "Expires datetime",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "ID - unique identifier",
+                    "type": "string"
+                },
+                "ip": {
+                    "description": "IP address in ipv4 format",
+                    "type": "string"
+                },
+                "mac": {
+                    "description": "MAC address in format like this 00-00-00-00-00",
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "description": "UpdatedAt - entity update time",
+                    "type": "string"
+                }
+            }
+        },
+        "dtos.DHCP4LeaseUpdateDto": {
+            "type": "object",
+            "properties": {
+                "expires": {
+                    "description": "Expires datetime",
+                    "type": "string"
+                },
+                "ip": {
+                    "description": "IP address in ipv4 format",
+                    "type": "string"
+                },
+                "mac": {
+                    "description": "MAC address in format like this 00-00-00-00-00",
+                    "type": "string"
+                }
+            }
+        },
+        "dtos.DHCP4ServerCreateDto": {
+            "type": "object",
+            "properties": {
+                "dns": {
+                    "description": "DNS servers, separated by \";\"",
+                    "type": "string"
+                },
+                "enabled": {
+                    "description": "Enabled server or no",
+                    "type": "boolean"
+                },
+                "gateway": {
+                    "description": "Gateway in ipv4 format",
+                    "type": "string"
+                },
+                "interface": {
+                    "description": "Interface name",
+                    "type": "string"
+                },
+                "leaseTime": {
+                    "description": "LeaseTime for dhcp v4 server leases",
+                    "type": "integer"
+                },
+                "mask": {
+                    "description": "Mask for dhcp leases, for example: \"255.255.255.0\"",
+                    "type": "string"
+                },
+                "ntp": {
+                    "description": "NTP IP address or dns name of NTP server",
+                    "type": "string"
+                },
+                "port": {
+                    "description": "Port of DHCP server",
+                    "type": "integer"
+                },
+                "range": {
+                    "description": "Range of ip's for this dhcp v4 server, separated by \"-\", for example: \"10.10.10.2-10.10.10.22\"",
+                    "type": "string"
+                },
+                "serverID": {
+                    "description": "ServerID is a server_id dhcp option. Correct format is ipv4.",
+                    "type": "string"
+                }
+            }
+        },
+        "dtos.DHCP4ServerDto": {
+            "type": "object",
+            "properties": {
+                "createdAt": {
+                    "description": "CreatedAt - entity create time",
+                    "type": "string"
+                },
+                "dns": {
+                    "description": "DNS servers, separated by \";\"",
+                    "type": "string"
+                },
+                "enabled": {
+                    "description": "Enabled server or no",
+                    "type": "boolean"
+                },
+                "gateway": {
+                    "description": "Gateway in ipv4 format",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "ID - unique identifier",
+                    "type": "string"
+                },
+                "interface": {
+                    "description": "Interface name",
+                    "type": "string"
+                },
+                "leaseTime": {
+                    "description": "LeaseTime for dhcp v4 server leases",
+                    "type": "integer"
+                },
+                "mask": {
+                    "description": "Mask for dhcp leases, for example: \"255.255.255.0\"",
+                    "type": "string"
+                },
+                "ntp": {
+                    "description": "NTP IP address or dns name of NTP server",
+                    "type": "string"
+                },
+                "port": {
+                    "description": "Port of DHCP server",
+                    "type": "integer"
+                },
+                "range": {
+                    "description": "Range of ip's for this dhcp v4 server, separated by \"-\", for example: \"10.10.10.2-10.10.10.22\"",
+                    "type": "string"
+                },
+                "serverID": {
+                    "description": "ServerID is a server_id dhcp option. Correct format is ipv4.",
+                    "type": "string"
+                },
+                "state": {
+                    "description": "State current state of dhcp v4 server",
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "description": "UpdatedAt - entity update time",
+                    "type": "string"
+                }
+            }
+        },
+        "dtos.DHCP4ServerUpdateDto": {
+            "type": "object",
+            "properties": {
+                "dns": {
+                    "description": "DNS servers, separated by \";\"",
+                    "type": "string"
+                },
+                "enabled": {
+                    "description": "Enabled server or no",
+                    "type": "boolean"
+                },
+                "leaseTime": {
+                    "description": "LeaseTime for dhcp v4 server leases",
+                    "type": "integer"
+                },
+                "ntp": {
+                    "description": "NTP IP address or dns name of NTP server",
+                    "type": "string"
+                },
+                "port": {
+                    "description": "Port of DHCP server",
+                    "type": "integer"
+                }
+            }
+        },
         "dtos.DeviceTemplateBootStageDto": {
             "type": "object",
             "properties": {
@@ -2056,36 +2717,39 @@ const docTemplate = `{
                     "description": "Items slice of items",
                     "type": "array",
                     "items": {
-                        "type": "object",
-                        "properties": {
-                            "actionID": {
-                                "type": "string"
-                            },
-                            "createdAt": {
-                                "description": "CreatedAt - entity create time",
-                                "type": "string"
-                            },
-                            "id": {
-                                "description": "ID - unique identifier",
-                                "type": "string"
-                            },
-                            "level": {
-                                "description": "Level - level of the log",
-                                "type": "string"
-                            },
-                            "message": {
-                                "description": "Message - log message",
-                                "type": "string"
-                            },
-                            "source": {
-                                "description": "Source - method from which the log was obtained",
-                                "type": "string"
-                            },
-                            "updatedAt": {
-                                "description": "UpdatedAt - entity update time",
-                                "type": "string"
-                            }
-                        }
+                        "$ref": "#/definitions/dtos.AppLogDto"
+                    }
+                },
+                "pagination": {
+                    "description": "Pagination info about pagination",
+                    "$ref": "#/definitions/dtos.PaginationInfoDto"
+                }
+            }
+        },
+        "dtos.PaginatedItemsDto-dtos_DHCP4LeaseDto": {
+            "type": "object",
+            "properties": {
+                "items": {
+                    "description": "Items slice of items",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dtos.DHCP4LeaseDto"
+                    }
+                },
+                "pagination": {
+                    "description": "Pagination info about pagination",
+                    "$ref": "#/definitions/dtos.PaginationInfoDto"
+                }
+            }
+        },
+        "dtos.PaginatedItemsDto-dtos_DHCP4ServerDto": {
+            "type": "object",
+            "properties": {
+                "items": {
+                    "description": "Items slice of items",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dtos.DHCP4ServerDto"
                     }
                 },
                 "pagination": {
@@ -2101,69 +2765,7 @@ const docTemplate = `{
                     "description": "Items slice of items",
                     "type": "array",
                     "items": {
-                        "type": "object",
-                        "properties": {
-                            "control": {
-                                "description": "Control describes how we control the device",
-                                "$ref": "#/definitions/dtos.DeviceTemplateControlDto"
-                            },
-                            "cpucount": {
-                                "description": "CPUCount count of cpus",
-                                "type": "integer"
-                            },
-                            "cpumodel": {
-                                "description": "CPUModel model of cpu",
-                                "type": "string"
-                            },
-                            "description": {
-                                "description": "Description template description",
-                                "type": "string"
-                            },
-                            "discBootStages": {
-                                "description": "DiscBootStages slice of boot stage templates for disk boot",
-                                "type": "array",
-                                "items": {
-                                    "$ref": "#/definitions/dtos.DeviceTemplateBootStageDto"
-                                }
-                            },
-                            "manufacturer": {
-                                "description": "Manufacturer device manufacturer",
-                                "type": "string"
-                            },
-                            "model": {
-                                "description": "Model device model",
-                                "type": "string"
-                            },
-                            "name": {
-                                "description": "Name template name",
-                                "type": "string"
-                            },
-                            "netBootStages": {
-                                "description": "NetBootStages slice of boot stage templates for net boot",
-                                "type": "array",
-                                "items": {
-                                    "$ref": "#/definitions/dtos.DeviceTemplateBootStageDto"
-                                }
-                            },
-                            "networkInterfaces": {
-                                "description": "NetworkInterfaces slice of device network interfaces",
-                                "type": "array",
-                                "items": {
-                                    "$ref": "#/definitions/dtos.DeviceTemplateNetworkDto"
-                                }
-                            },
-                            "ram": {
-                                "description": "RAM the amount of RAM in GB",
-                                "type": "integer"
-                            },
-                            "usbbootStages": {
-                                "description": "USBBootStages slice of boot stage templates for usb boot",
-                                "type": "array",
-                                "items": {
-                                    "$ref": "#/definitions/dtos.DeviceTemplateBootStageDto"
-                                }
-                            }
-                        }
+                        "$ref": "#/definitions/dtos.DeviceTemplateDto"
                     }
                 },
                 "pagination": {
@@ -2179,41 +2781,7 @@ const docTemplate = `{
                     "description": "Items slice of items",
                     "type": "array",
                     "items": {
-                        "type": "object",
-                        "properties": {
-                            "address": {
-                                "description": "Address - switch ip address",
-                                "type": "string"
-                            },
-                            "createdAt": {
-                                "description": "CreatedAt - entity create time",
-                                "type": "string"
-                            },
-                            "id": {
-                                "description": "ID - unique identifier",
-                                "type": "string"
-                            },
-                            "name": {
-                                "description": "Name - switch name",
-                                "type": "string"
-                            },
-                            "serial": {
-                                "description": "Serial - switch serial number",
-                                "type": "string"
-                            },
-                            "switchModel": {
-                                "description": "SwitchModel - switch model",
-                                "type": "string"
-                            },
-                            "updatedAt": {
-                                "description": "UpdatedAt - entity update time",
-                                "type": "string"
-                            },
-                            "username": {
-                                "description": "Username - switch admin username",
-                                "type": "string"
-                            }
-                        }
+                        "$ref": "#/definitions/dtos.EthernetSwitchDto"
                     }
                 },
                 "pagination": {
@@ -2229,37 +2797,7 @@ const docTemplate = `{
                     "description": "Items slice of items",
                     "type": "array",
                     "items": {
-                        "type": "object",
-                        "properties": {
-                            "createdAt": {
-                                "description": "CreatedAt - entity create time",
-                                "type": "string"
-                            },
-                            "id": {
-                                "description": "ID - unique identifier",
-                                "type": "string"
-                            },
-                            "name": {
-                                "description": "Name for this port",
-                                "type": "string"
-                            },
-                            "poeenabled": {
-                                "description": "POEEnabled POE status on a port",
-                                "type": "boolean"
-                            },
-                            "poetype": {
-                                "description": "POEType type of PoE for this port\ncan be: \"poe\", \"poe+\", \"passive24\", \"none\"",
-                                "type": "string"
-                            },
-                            "pvid": {
-                                "description": "PVID default VLAN id",
-                                "type": "integer"
-                            },
-                            "updatedAt": {
-                                "description": "UpdatedAt - entity update time",
-                                "type": "string"
-                            }
-                        }
+                        "$ref": "#/definitions/dtos.EthernetSwitchPortDto"
                     }
                 },
                 "pagination": {
@@ -2275,43 +2813,7 @@ const docTemplate = `{
                     "description": "Items slice of items",
                     "type": "array",
                     "items": {
-                        "type": "object",
-                        "properties": {
-                            "createdAt": {
-                                "description": "CreatedAt - entity create time",
-                                "type": "string"
-                            },
-                            "ethernetSwitchID": {
-                                "description": "EthernetSwitchID ethernet switch ID",
-                                "type": "string"
-                            },
-                            "id": {
-                                "description": "ID - unique identifier",
-                                "type": "string"
-                            },
-                            "taggedPorts": {
-                                "description": "TaggedPorts slice of tagged ports IDs",
-                                "type": "array",
-                                "items": {
-                                    "type": "string"
-                                }
-                            },
-                            "untaggedPorts": {
-                                "description": "UntaggedPorts slice of untagged ports IDs",
-                                "type": "array",
-                                "items": {
-                                    "type": "string"
-                                }
-                            },
-                            "updatedAt": {
-                                "description": "UpdatedAt - entity update time",
-                                "type": "string"
-                            },
-                            "vlanID": {
-                                "description": "VlanID VLAN ID",
-                                "type": "integer"
-                            }
-                        }
+                        "$ref": "#/definitions/dtos.EthernetSwitchVLANDto"
                     }
                 },
                 "pagination": {
@@ -2327,61 +2829,7 @@ const docTemplate = `{
                     "description": "Items slice of items",
                     "type": "array",
                     "items": {
-                        "type": "object",
-                        "properties": {
-                            "clientIP": {
-                                "description": "ClientIP - client IP address",
-                                "type": "string"
-                            },
-                            "createdAt": {
-                                "description": "CreatedAt - entity create time",
-                                "type": "string"
-                            },
-                            "customRequestHeaders": {
-                                "description": "CustomRequestHeaders - custom headers of the request",
-                                "type": "string"
-                            },
-                            "domain": {
-                                "description": "Domain - domain that processed the request",
-                                "type": "string"
-                            },
-                            "httpmethod": {
-                                "description": "HTTPMethod - http method",
-                                "type": "string"
-                            },
-                            "id": {
-                                "description": "ID - unique identifier",
-                                "type": "string"
-                            },
-                            "latency": {
-                                "description": "Latency - latency in milliseconds",
-                                "type": "integer"
-                            },
-                            "queryParams": {
-                                "description": "QueryParams - query params passed",
-                                "type": "string"
-                            },
-                            "relativePath": {
-                                "description": "RelativePath - path to the endpoint",
-                                "type": "string"
-                            },
-                            "requestBody": {
-                                "description": "RequestBody - body of the request",
-                                "type": "string"
-                            },
-                            "requestHeaders": {
-                                "description": "RequestHeaders - headers of the request",
-                                "type": "string"
-                            },
-                            "responseBody": {
-                                "description": "ResponseBody - body of the response",
-                                "type": "string"
-                            },
-                            "updatedAt": {
-                                "description": "UpdatedAt - entity update time",
-                                "type": "string"
-                            }
-                        }
+                        "$ref": "#/definitions/dtos.HTTPLogDto"
                     }
                 },
                 "pagination": {

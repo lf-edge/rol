@@ -1427,6 +1427,22 @@ const docTemplate = `{
                 }
             }
         },
+        "/host/network/ping": {
+            "get": {
+                "tags": [
+                    "host"
+                ],
+                "summary": "Call the backend to notify that the current setting does not break the connection",
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
         "/host/network/vlan/": {
             "get": {
                 "consumes": [

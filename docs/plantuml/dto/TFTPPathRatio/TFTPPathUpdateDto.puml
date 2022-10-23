@@ -1,0 +1,11 @@
+@startuml
+
+!include TFTPPathBaseDto.puml
+
+package dtos {
+    class TFTPPathUpdateDto {}
+}
+
+TFTPPathUpdateDto --* TFTPPathBaseDto
+
+@enduml

@@ -1,0 +1,12 @@
+@startuml
+
+!include TFTPPathBaseDto.puml
+
+package dtos {
+    class TFTPPathCreateDto {}
+}
+
+TFTPPathCreateDto --* TFTPPathBaseDto
+
+@enduml
+

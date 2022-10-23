@@ -1,0 +1,14 @@
+@startuml
+
+package dtos {
+    class TFTPServerBaseDto {
+        +Address string
+        --
+        +Port string
+        --
+        +Enabled bool
+    }
+}
+
+@enduml
+

@@ -1,0 +1,12 @@
+@startuml
+
+package dtos {
+    class TFTPPathBaseDto {
+        +ActualPath  string
+        --
+        +VirtualPath string
+    }
+}
+
+@enduml
+

@@ -1,0 +1,17 @@
+@startuml
+
+package domain {
+    enum TFTPServerState {
+            TFTPStateLaunched
+            --
+            TFTPStateStopped
+            --
+            TFTPStateError
+            --
+            TFTPStateNone
+            --
+            +ToString()
+    }
+}
+
+@enduml

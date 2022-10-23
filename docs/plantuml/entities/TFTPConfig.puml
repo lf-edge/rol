@@ -1,0 +1,16 @@
+@startuml
+
+!include Entity.puml
+
+package domain {
+    class TFTPConfig {
+        +Address string
+        --
+        +Port string
+        --
+        +Enabled bool
+    }
+    TFTPConfig -down-* EntityUUID
+}
+
+@enduml

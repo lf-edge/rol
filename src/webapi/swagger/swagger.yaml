@@ -1371,6 +1371,17 @@ paths:
       summary: update host network bridge
       tags:
       - host
+  /host/network/ping:
+    get:
+      responses:
+        "204":
+          description: No Content
+        "500":
+          description: Internal Server Error
+      summary: Call the backend to notify that the current setting does not break
+        the connection
+      tags:
+      - host
   /host/network/vlan/:
     get:
       consumes:

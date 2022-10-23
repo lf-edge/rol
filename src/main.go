@@ -75,6 +75,7 @@ func main() {
 			controllers.NewDeviceTemplateController,
 			controllers.NewHostNetworkVlanController,
 			controllers.NewHostNetworkBridgeController,
+			controllers.NewHostNetworkController,
 			controllers.NewEthernetSwitchVLANGinController,
 			controllers.NewDHCP4ServerGinController,
 		),
@@ -92,6 +93,7 @@ func main() {
 			controllers.RegisterDeviceTemplateController,
 			controllers.RegisterHostNetworkVlanController,
 			controllers.RegisterHostNetworkBridgeController,
+			controllers.RegisterHostNetworkController,
 			controllers.RegisterEthernetSwitchVLANGinController,
 			controllers.RegisterDHCP4ServerGinController,
 			//Start GIN http server

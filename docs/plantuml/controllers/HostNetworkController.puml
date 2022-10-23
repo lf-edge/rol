@@ -1,0 +1,27 @@
+@startuml
+
+!include ../services/HostNetworkService.puml
+
+remove HostNetworkBridgeDto
+remove HostNetworkBridgeUpdateDto
+remove HostNetworkBridgeCreateDto
+remove HostNetworkBridgeBaseDto
+remove HostNetworkVlanDto
+remove HostNetworkVlanUpdateDto
+remove HostNetworkVlanCreateDto
+
+package controllers {
+    class HostNetworkController {
+        -service *services.HostNetworkService
+        --
+        +Ping(ctx *gin.Context)
+    }
+
+    note left of HostNetworkController::Ping
+    calls the backend to notify that the current setting does not break the connection
+    end note
+
+    HostNetworkService -up- HostNetworkController::service
+}
+
+@enduml

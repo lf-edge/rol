@@ -71,6 +71,7 @@ func main() {
 			controllers.NewDeviceTemplateController,
 			controllers.NewHostNetworkVlanController,
 			controllers.NewHostNetworkBridgeController,
+			controllers.NewHostNetworkController,
 			controllers.NewEthernetSwitchVLANGinController,
 		),
 		fx.Invoke(
@@ -86,6 +87,7 @@ func main() {
 			controllers.RegisterDeviceTemplateController,
 			controllers.RegisterHostNetworkVlanController,
 			controllers.RegisterHostNetworkBridgeController,
+			controllers.RegisterHostNetworkController,
 			controllers.RegisterEthernetSwitchVLANGinController,
 			//Start GIN http server
 			webapi.StartHTTPServer,

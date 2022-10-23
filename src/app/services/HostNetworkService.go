@@ -67,3 +67,14 @@ func (h *HostNetworkService) syncAddresses(link interfaces.IHostNetworkLink, add
 	}
 	return nil
 }
+
+//Ping method for checks that the current settings do not break the connection and saves current configuration
+func (h *HostNetworkService) Ping() error {
+	if h.manager.HasUnsavedChanges() {
+		err := h.manager.SaveConfiguration()
+		if err != nil {
+			return errors.Internal.Wrap(err, "failed to save network configuration")
+		}
+	}
+	return nil
+}

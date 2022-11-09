@@ -37,9 +37,9 @@ func (g *GormQueryBuilder) addQuery(condition, fieldName, comparator string, val
 		finComparator = "="
 	}
 	if value == nil {
-		if comparator == "=" {
+		if finComparator == "=" {
 			g.QueryString += fmt.Sprintf("%s IS NULL", ToSnakeCase(fieldName))
-		} else if comparator == "!=" {
+		} else if finComparator == "!=" {
 			g.QueryString += fmt.Sprintf("%s IS NOT NULL", ToSnakeCase(fieldName))
 		}
 		return g

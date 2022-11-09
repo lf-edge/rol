@@ -7,8 +7,8 @@ import (
 	"rol/domain"
 )
 
-//DeviceTemplateStorage storage for domain.DeviceTemplate
-type DeviceTemplateStorage struct {
+//YamlDeviceTemplateStorage storage for domain.DeviceTemplate
+type YamlDeviceTemplateStorage struct {
 	interfaces.IGenericTemplateStorage[domain.DeviceTemplate]
 }
 
@@ -18,7 +18,7 @@ func NewDeviceTemplateStorage(log *logrus.Logger) (interfaces.IGenericTemplateSt
 	if err != nil {
 		return nil, fmt.Errorf("device templates storage creating error: %s", err.Error())
 	}
-	return &DeviceTemplateStorage{
+	return &YamlDeviceTemplateStorage{
 		storage,
 	}, nil
 }

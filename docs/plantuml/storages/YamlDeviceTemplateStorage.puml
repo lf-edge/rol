@@ -6,10 +6,10 @@
 package infrastructure {
     note "TemplateType is DeviceTemplate" as DeviceTemplateTypeNote
 
-    class DeviceTemplateStorage
+    class YamlDeviceTemplateStorage
 
-    DeviceTemplateStorage --* YamlGenericTemplateStorage
-    DeviceTemplateStorage .down. DeviceTemplateTypeNote
+    YamlDeviceTemplateStorage --* YamlGenericTemplateStorage
+    YamlDeviceTemplateStorage .down. DeviceTemplateTypeNote
     YamlGenericTemplateStorage <.up. DeviceTemplateTypeNote
     DeviceTemplateTypeNote .. DeviceTemplate
 }

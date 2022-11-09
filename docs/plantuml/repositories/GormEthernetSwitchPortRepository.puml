@@ -4,14 +4,14 @@
 !include GormGenericRepository.puml
 
 package infrastructure {
-    class EthernetSwitchPortRepository
+    class GormEthernetSwitchPortRepository
 
-    EthernetSwitchPortRepository -down-* GormGenericRepository
+    GormEthernetSwitchPortRepository -down-* GormGenericRepository
 
 
     note "EntityType is EthernetSwitchPort \nIDType is uuid.UUID" as EthernetSwitchPortTypeNote
 
-    EthernetSwitchPortRepository .down. EthernetSwitchPortTypeNote
+    GormEthernetSwitchPortRepository .down. EthernetSwitchPortTypeNote
     GormGenericRepository <.up. EthernetSwitchPortTypeNote
     EthernetSwitchPort .. EthernetSwitchPortTypeNote
 }

@@ -4,14 +4,14 @@
 !include GormGenericRepository.puml
 
 package infrastructure {
-    class EthernetSwitchVLANRepository
+    class GormEthernetSwitchVLANRepository
 
-    EthernetSwitchVLANRepository -down-* GormGenericRepository
+    GormEthernetSwitchVLANRepository -down-* GormGenericRepository
 
 
     note "EntityType is EthernetSwitchVLAN \nIDType is uuid.UUID" as EthernetSwitchVLANTypeNote
 
-    EthernetSwitchVLANRepository .down. EthernetSwitchVLANTypeNote
+    GormEthernetSwitchVLANRepository .down. EthernetSwitchVLANTypeNote
     GormGenericRepository <.up. EthernetSwitchVLANTypeNote
     EthernetSwitchVLAN .. EthernetSwitchVLANTypeNote
 }

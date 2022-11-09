@@ -1,6 +1,6 @@
 @startuml
 
-!include ../repositories/DHCP4LeaseRepository.puml
+!include ../repositories/GormDHCP4LeaseRepository.puml
 !include ../interfaces/IDHCP4ServerFactory.puml
 !include ../interfaces/IDHCP4Server.puml
 

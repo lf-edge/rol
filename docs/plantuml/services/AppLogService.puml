@@ -1,10 +1,10 @@
 @startuml
 
-!include ../repositories/LogRepository.puml
+!include ../repositories/GormAppLogRepository.puml
 !include ../dto/Log/LogDto.puml
 
 package app {
-    class LogService {
+    class AppLogService {
         -repository IGenericRepository[uuid.UUID, domain.AppLog]
         --
         +GetList(ctx context.Context, search string, orderBy string, orderDirection string, page int, pageSize int) (dtos.PaginatedItemsDto[dtos.AppLogDto], error)
@@ -12,11 +12,11 @@ package app {
         +GetByID(ctx context.Context, id uuid.UUID) (dtos.AppLogDto, error)
     }
 
-    LogService .[hidden]up. IGenericRepository
+    AppLogService .[hidden]up. IGenericRepository
 
-    LogRepository -right- LogService::repository
+    GormAppLogRepository -right- AppLogService::repository
 
-    note left of LogService
+    note left of AppLogService
         Advanced business logic for Log entity
     end note
 }

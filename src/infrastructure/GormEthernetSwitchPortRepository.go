@@ -8,20 +8,21 @@ import (
 	"rol/domain"
 )
 
-//EthernetSwitchPortRepository repository for EthernetSwitchPort entity
-type EthernetSwitchPortRepository struct {
+//GormEthernetSwitchPortRepository repository for EthernetSwitchPort entity
+type GormEthernetSwitchPortRepository struct {
 	*GormGenericRepository[uuid.UUID, domain.EthernetSwitchPort]
 }
 
-//NewEthernetSwitchPortRepository constructor for domain.EthernetSwitch GORM generic repository
+//NewGormEthernetSwitchPortRepository constructor for domain.EthernetSwitch GORM generic repository
+//
 //Params
 //	db - gorm database
 //	log - logrus logger
 //Return
 //	generic.IGenericRepository[domain.EthernetSwitch] - new ethernet switch repository
-func NewEthernetSwitchPortRepository(db *gorm.DB, log *logrus.Logger) interfaces.IGenericRepository[uuid.UUID, domain.EthernetSwitchPort] {
+func NewGormEthernetSwitchPortRepository(db *gorm.DB, log *logrus.Logger) interfaces.IGenericRepository[uuid.UUID, domain.EthernetSwitchPort] {
 	genericRepository := NewGormGenericRepository[uuid.UUID, domain.EthernetSwitchPort](db, log)
-	return EthernetSwitchPortRepository{
+	return GormEthernetSwitchPortRepository{
 		genericRepository,
 	}
 }

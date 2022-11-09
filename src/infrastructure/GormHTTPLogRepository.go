@@ -7,21 +7,21 @@ import (
 	"rol/domain"
 )
 
-//HTTPLogRepository repository for HTTPLog entity
-type HTTPLogRepository struct {
+//GormHTTPLogRepository repository for HTTPLog entity
+type GormHTTPLogRepository struct {
 	*GormGenericRepository[uuid.UUID, domain.HTTPLog]
 }
 
-//NewHTTPLogRepository constructor for domain.HTTPLog GORM generic repository
+//NewGormHTTPLogRepository constructor for domain.HTTPLog GORM generic repository
 //Params
 //	dbShell - gorm database shell
 //	log - logrus logger
 //Return
 //	generic.IGenericRepository[domain.HTTPLog] - new http log repository
-func NewHTTPLogRepository(dbShell *GormFxShell, log *logrus.Logger) interfaces.IGenericRepository[uuid.UUID, domain.HTTPLog] {
+func NewGormHTTPLogRepository(dbShell *GormFxShell, log *logrus.Logger) interfaces.IGenericRepository[uuid.UUID, domain.HTTPLog] {
 	db := dbShell.GetDb()
 	genericRepository := NewGormGenericRepository[uuid.UUID, domain.HTTPLog](db, log)
-	return HTTPLogRepository{
+	return GormHTTPLogRepository{
 		genericRepository,
 	}
 }

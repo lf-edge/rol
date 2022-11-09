@@ -1,7 +1,7 @@
 @startuml
-!include ../repositories/EthernetSwitchRepository.puml
-!include ../repositories/EthernetSwitchPortRepository.puml
-!include ../repositories/EthernetSwitchVLANRepository.puml
+!include ../repositories/GormEthernetSwitchRepository.puml
+!include ../repositories/GormEthernetSwitchPortRepository.puml
+!include ../repositories/GormEthernetSwitchVLANRepository.puml
 !include ../providers/EthernetSwitchManagerProvider.puml
 !include ../dto/EthernetSwitch/EthernetSwitchCreateDto.puml
 !include ../dto/EthernetSwitch/EthernetSwitchUpdateDto.puml
@@ -75,12 +75,12 @@ package app {
         Checking the uniqueness of addresses
     end note
 
-    EthernetSwitchRepository -right- EthernetSwitchService::switchRepo
-    EthernetSwitchPortRepository -right- EthernetSwitchService::portRepo
-    EthernetSwitchVLANRepository -right- EthernetSwitchService::vlanRepo
+    GormEthernetSwitchRepository -right- EthernetSwitchService::switchRepo
+    GormEthernetSwitchPortRepository -right- EthernetSwitchService::portRepo
+    GormEthernetSwitchVLANRepository -right- EthernetSwitchService::vlanRepo
     EthernetSwitchManagerProvider -- EthernetSwitchService::managers
     EthernetSwitchService .[hidden]up. IGenericRepository
-    EthernetSwitchPortRepository .[hidden]down. EthernetSwitchRepository
+    GormEthernetSwitchPortRepository .[hidden]down. GormEthernetSwitchRepository
 
     note as EthernetSwitchServiceTypes
     EntityType is EthernetSwitch

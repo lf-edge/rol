@@ -1,7 +1,7 @@
 @startuml
 
-!include ../repositories/DHCP4ConfigRepository.puml
-!include ../repositories/DHCP4LeaseRepository.puml
+!include ../repositories/GormDHCP4ConfigRepository.puml
+!include ../repositories/GormDHCP4LeaseRepository.puml
 !include ../factories/CoreDHCP4ServerFactory.puml
 !include ../dto/DHCP4/DHCP4ServerDto.puml
 !include ../dto/DHCP4/DHCP4ServerCreateDto.puml

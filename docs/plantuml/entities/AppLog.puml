@@ -3,7 +3,7 @@
 !include Entity.puml
 
 package domain {
-    class Log {
+    class AppLog {
         +ActionID uuid.UUID `gorm:"index"`
         --
         +Level string
@@ -12,7 +12,7 @@ package domain {
         --
         +Message string
     }
-    Log -down-* EntityUUID
+    AppLog -down-* EntityUUID
 }
 
 @enduml

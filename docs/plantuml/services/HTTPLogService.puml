@@ -1,6 +1,6 @@
 @startuml
 
-!include ../repositories/HTTPLogRepository.puml
+!include ../repositories/GormHTTPLogRepository.puml
 !include ../dto/HTTPLog/HTTPLogDto.puml
 
 package app {
@@ -14,7 +14,7 @@ package app {
 
     HTTPLogService .[hidden]up. IGenericRepository
 
-    HTTPLogRepository -right- HTTPLogService::repository
+    GormHTTPLogRepository -right- HTTPLogService::repository
 
     note left of HTTPLogService
         Advanced business logic for HTTPLog entity

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="943px" preserveAspectRatio="none" style="width:1764px;height:943px;background:#FFFFFF;" version="1.1" viewBox="0 0 1764 943" width="1764px" zoomAndPan="magnify"><defs/><g><!--MD5=[d5ac3844f66b12d9e08170e47495e096]
+cluster app--><g id="cluster_app"><path d="M71.5,534 L101.5,534 A3.75,3.75 0 0 1 104,536.5 L111,556.2969 L1754.5,556.2969 A2.5,2.5 0 0 1 1757,558.7969 L1757,933.5 A2.5,2.5 0 0 1 1754.5,936 L71.5,936 A2.5,2.5 0 0 1 69,933.5 L69,536.5 A2.5,2.5 0 0 1 71.5,534 " style="stroke:#000000;stroke-width:1.5;fill:none;"/><line style="stroke:#000000;stroke-width:1.5;fill:none;" x1="69" x2="111" y1="556.2969" y2="556.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="29" x="73" y="548.9951">app</text></g><!--MD5=[27f772719433d509ddbc20ff768eba08]
+cluster domain--><g id="cluster_domain"><path d="M8.5,6 L66.5,6 A3.75,3.75 0 0 1 69,8.5 L76,28.2969 L743.5,28.2969 A2.5,2.5 0 0 1 746,30.7969 L746,498.5 A2.5,2.5 0 0 1 743.5,501 L8.5,501 A2.5,2.5 0 0 1 6,498.5 L6,8.5 A2.5,2.5 0 0 1 8.5,6 " style="stroke:#000000;stroke-width:1.5;fill:none;"/><line style="stroke:#000000;stroke-width:1.5;fill:none;" x1="6" x2="76" y1="28.2969" y2="28.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="57" x="10" y="20.9951">domain</text></g><!--MD5=[77349be1bd27b81b697a0f9b3aded3c8]
+cluster infrastructure--><g id="cluster_infrastructure"><path d="M987.5,46.5 L1098.5,46.5 A3.75,3.75 0 0 1 1101,49 L1108,68.7969 L1334.5,68.7969 A2.5,2.5 0 0 1 1337,71.2969 L1337,458 A2.5,2.5 0 0 1 1334.5,460.5 L987.5,460.5 A2.5,2.5 0 0 1 985,458 L985,49 A2.5,2.5 0 0 1 987.5,46.5 " style="stroke:#000000;stroke-width:1.5;fill:none;"/><line style="stroke:#000000;stroke-width:1.5;fill:none;" x1="985" x2="1108" y1="68.7969" y2="68.7969"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="110" x="989" y="61.4951">infrastructure</text></g><!--MD5=[2a39a5be1cc24ddddd6e6286e4ece992]
+class IEntityModel--><g id="elem_IEntityModel"><rect codeLine="3" fill="#F1F1F1" height="129.1875" id="IEntityModel" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="213" x="84.5" y="680"/><ellipse cx="121.55" cy="696" fill="#B4A7E5" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M117.4719,691.7656 L117.4719,689.6094 L124.8625,689.6094 L124.8625,691.7656 L122.3938,691.7656 L122.3938,699.8438 L124.8625,699.8438 L124.8625,702 L117.4719,702 L117.4719,699.8438 L119.9406,699.8438 L119.9406,691.7656 L117.4719,691.7656 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="85" x="140.45" y="700.8467">IEntityModel</text><rect fill="#FFFFFF" height="15.9688" style="stroke:#000000;stroke-width:1.0;stroke-dasharray:2.0,2.0;" width="45" x="255.5" y="677"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="43" x="256.5" y="689.1387">IDType</text><line style="stroke:#181818;stroke-width:0.5;" x1="85.5" x2="296.5" y1="712" y2="712"/><ellipse cx="95.5" cy="723" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="101" x="104.5" y="728.9951">GetID() IDType</text><line style="stroke:#181818;stroke-width:1.0;" x1="85.5" x2="296.5" y1="736.2969" y2="736.2969"/><ellipse cx="95.5" cy="747.2969" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="176" x="104.5" y="753.292">GetCreatedAt() time.Time</text><line style="stroke:#181818;stroke-width:1.0;" x1="85.5" x2="296.5" y1="760.5938" y2="760.5938"/><ellipse cx="95.5" cy="771.5938" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="187" x="104.5" y="777.5889">GetUpdatedAt() *time.Time</text><line style="stroke:#181818;stroke-width:1.0;" x1="85.5" x2="296.5" y1="784.8906" y2="784.8906"/><ellipse cx="95.5" cy="795.8906" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="183" x="104.5" y="801.8857">GetDeletedAt() *time.Time</text></g><!--MD5=[b3e0f8dcddb1b27f071a0303a68762bf]
+class IGenericRepository--><g id="elem_IGenericRepository"><rect codeLine="3" fill="#F1F1F1" height="274.9688" id="IGenericRepository" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="994" x="747" y="607"/><ellipse cx="1048.25" cy="623" fill="#B4A7E5" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1044.1719,618.7656 L1044.1719,616.6094 L1051.5625,616.6094 L1051.5625,618.7656 L1049.0938,618.7656 L1049.0938,626.8438 L1051.5625,626.8438 L1051.5625,629 L1044.1719,629 L1044.1719,626.8438 L1046.6406,626.8438 L1046.6406,618.7656 L1044.1719,618.7656 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="132" x="1068.75" y="627.8467">IGenericRepository</text><rect fill="#FFFFFF" height="15.9688" style="stroke:#000000;stroke-width:1.0;stroke-dasharray:2.0,2.0;" width="249" x="1495" y="604"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="247" x="1496" y="616.1387">IDType, interfaces.IEntityModel[IDType]</text><line style="stroke:#181818;stroke-width:0.5;" x1="748" x2="1740" y1="639" y2="639"/><ellipse cx="758" cy="650" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="968" x="767" y="655.9951">GetList(ctx context.Context, orderBy string, orderDirection string, page int, size int, queryBuilder interfaces.IQueryBuilder) ([]EntityType, error)</text><line style="stroke:#181818;stroke-width:1.0;" x1="748" x2="1740" y1="663.2969" y2="663.2969"/><ellipse cx="758" cy="674.2969" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="521" x="767" y="680.292">Count(ctx context.Context, queryBuilder interfaces.IQueryBuilder) (int, error)</text><line style="stroke:#181818;stroke-width:1.0;" x1="748" x2="1740" y1="687.5938" y2="687.5938"/><ellipse cx="758" cy="698.5938" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="607" x="767" y="704.5889">IsExist(ctx context.Context, id IDType, queryBuilder interfaces.IQueryBuilder) (bool, error)</text><line style="stroke:#181818;stroke-width:1.0;" x1="748" x2="1740" y1="711.8906" y2="711.8906"/><ellipse cx="758" cy="722.8906" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="431" x="767" y="728.8857">NewQueryBuilder(ctx context.Context) interfaces.IQueryBuilder</text><line style="stroke:#181818;stroke-width:1.0;" x1="748" x2="1740" y1="736.1875" y2="736.1875"/><ellipse cx="758" cy="747.1875" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="397" x="767" y="753.1826">GetById(ctx context.Context, id IDType) (EntityType, error)</text><line style="stroke:#181818;stroke-width:1.0;" x1="748" x2="1740" y1="760.4844" y2="760.4844"/><ellipse cx="758" cy="771.4844" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="443" x="767" y="777.4795">Update(ctx context.Context, entity EntityType) (EntityType, error)</text><line style="stroke:#181818;stroke-width:1.0;" x1="748" x2="1740" y1="784.7813" y2="784.7813"/><ellipse cx="758" cy="795.7813" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="432" x="767" y="801.7764">Insert(ctx context.Context, entity EntityType) (EntityType, error)</text><line style="stroke:#181818;stroke-width:1.0;" x1="748" x2="1740" y1="809.0781" y2="809.0781"/><ellipse cx="758" cy="820.0781" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="299" x="767" y="826.0732">Delete(ctx context.Context, id IDType) error</text><line style="stroke:#181818;stroke-width:1.0;" x1="748" x2="1740" y1="833.375" y2="833.375"/><ellipse cx="758" cy="844.375" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="505" x="767" y="850.3701">DeleteAll(ctx context.Context, queryBuilder interfaces.IQueryBuilder) error</text><line style="stroke:#181818;stroke-width:1.0;" x1="748" x2="1740" y1="857.6719" y2="857.6719"/><ellipse cx="758" cy="868.6719" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="104" x="767" y="874.667">Dispose() error</text></g><path d="M332.5,569 L332.5,594.1328 A0,0 0 0 0 332.5,594.1328 L657.5,594.1328 A0,0 0 0 0 657.5,594.1328 L657.5,587 L751,651.1484 L657.5,579 L657.5,579 L647.5,569 L332.5,569 A0,0 0 0 0 332.5,569 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M647.5,569 L647.5,579 L657.5,579 L647.5,569 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="304" x="338.5" y="586.0669">Get list of elements with filtering and pagination</text><path d="M332.5,604.1328 L332.5,629.2656 A0,0 0 0 0 332.5,629.2656 L563.5,629.2656 A0,0 0 0 0 563.5,629.2656 L563.5,622.1328 L751,675.4453 L563.5,614.1328 L563.5,614.1328 L553.5,604.1328 L332.5,604.1328 A0,0 0 0 0 332.5,604.1328 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M553.5,604.1328 L553.5,614.1328 L563.5,614.1328 L553.5,604.1328 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="210" x="338.5" y="621.1997">Get count of entities with filtering</text><path d="M332.5,639.2656 L332.5,664.3984 A0,0 0 0 0 332.5,664.3984 L689.5,664.3984 A0,0 0 0 0 689.5,664.3984 L689.5,657.2656 L751,699.7422 L689.5,649.2656 L689.5,649.2656 L679.5,639.2656 L332.5,639.2656 A0,0 0 0 0 332.5,639.2656 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M679.5,639.2656 L679.5,649.2656 L689.5,649.2656 L679.5,639.2656 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="336" x="338.5" y="656.3325">Checks that entity with selected conditions is existed</text><path d="M332.5,674.3984 L332.5,699.5313 A0,0 0 0 0 332.5,699.5313 L591.5,699.5313 A0,0 0 0 0 591.5,699.5313 L591.5,692.3984 L751,724.0391 L591.5,684.3984 L591.5,684.3984 L581.5,674.3984 L332.5,674.3984 A0,0 0 0 0 332.5,674.3984 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M581.5,674.3984 L581.5,684.3984 L591.5,684.3984 L581.5,674.3984 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="238" x="338.5" y="691.4653">Get new instance of the query builder</text><path d="M332.5,709.5313 L332.5,734.6641 A0,0 0 0 0 332.5,734.6641 L554.5,734.6641 A0,0 0 0 0 554.5,734.6641 L554.5,727.5313 L751,748.3359 L554.5,719.5313 L554.5,719.5313 L544.5,709.5313 L332.5,709.5313 A0,0 0 0 0 332.5,709.5313 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M544.5,709.5313 L544.5,719.5313 L554.5,719.5313 L544.5,709.5313 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="201" x="338.5" y="726.5981">Get entity by ID from repository</text><path d="M332.5,744.6641 L332.5,769.7969 A0,0 0 0 0 332.5,769.7969 L711.5,769.7969 A0,0 0 0 0 711.5,769.7969 L711.5,762.6641 L751,772.6328 L711.5,754.6641 L711.5,754.6641 L701.5,744.6641 L332.5,744.6641 A0,0 0 0 0 332.5,744.6641 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M701.5,744.6641 L701.5,754.6641 L711.5,754.6641 L701.5,744.6641 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="358" x="338.5" y="761.731">Save the changes to the existing entity in the repository</text><path d="M332.5,779.7969 L332.5,804.9297 A0,0 0 0 0 332.5,804.9297 L528.5,804.9297 A0,0 0 0 0 528.5,804.9297 L528.5,797.7969 L751,796.9297 L528.5,789.7969 L528.5,789.7969 L518.5,779.7969 L332.5,779.7969 A0,0 0 0 0 332.5,779.7969 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M518.5,779.7969 L518.5,789.7969 L528.5,789.7969 L518.5,779.7969 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="175" x="338.5" y="796.8638">Add entity to the repository</text><path d="M332.5,814.9297 L332.5,840.0625 A0,0 0 0 0 332.5,840.0625 L537.5,840.0625 A0,0 0 0 0 537.5,840.0625 L537.5,832.9297 L751,821.2266 L537.5,824.9297 L537.5,824.9297 L527.5,814.9297 L332.5,814.9297 A0,0 0 0 0 332.5,814.9297 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M527.5,814.9297 L527.5,824.9297 L537.5,824.9297 L527.5,814.9297 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="184" x="338.5" y="831.9966">Delete entity from repository</text><path d="M332.5,850.0625 L332.5,875.1953 A0,0 0 0 0 332.5,875.1953 L602.5,875.1953 A0,0 0 0 0 602.5,875.1953 L602.5,868.0625 L751,845.5234 L602.5,860.0625 L602.5,860.0625 L592.5,850.0625 L332.5,850.0625 A0,0 0 0 0 332.5,850.0625 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M592.5,850.0625 L592.5,860.0625 L602.5,860.0625 L592.5,850.0625 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="249" x="338.5" y="867.1294">Delete entities with selected conditions</text><path d="M332.5,885.1953 L332.5,910.3281 A0,0 0 0 0 332.5,910.3281 L517.5,910.3281 A0,0 0 0 0 517.5,910.3281 L517.5,903.1953 L751,869.8203 L517.5,895.1953 L517.5,895.1953 L507.5,885.1953 L332.5,885.1953 A0,0 0 0 0 332.5,885.1953 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M507.5,885.1953 L507.5,895.1953 L517.5,895.1953 L507.5,885.1953 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="164" x="338.5" y="902.2622">Dispose all allocated data</text><!--MD5=[1045d07ae824aea072cabb0fb8284887]
+class EntityUUID--><g id="elem_EntityUUID"><rect codeLine="5" fill="#F1F1F1" height="48" id="EntityUUID" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="104" x="356" y="231"/><ellipse cx="371" cy="247" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M373.9688,252.6406 Q373.3906,252.9375 372.75,253.0781 Q372.1094,253.2344 371.4063,253.2344 Q368.9063,253.2344 367.5781,251.5938 Q366.2656,249.9375 366.2656,246.8125 Q366.2656,243.6875 367.5781,242.0313 Q368.9063,240.375 371.4063,240.375 Q372.1094,240.375 372.75,240.5313 Q373.4063,240.6875 373.9688,240.9844 L373.9688,243.7031 Q373.3438,243.125 372.75,242.8594 Q372.1563,242.5781 371.5313,242.5781 Q370.1875,242.5781 369.5,243.6563 Q368.8125,244.7188 368.8125,246.8125 Q368.8125,248.9063 369.5,249.9844 Q370.1875,251.0469 371.5313,251.0469 Q372.1563,251.0469 372.75,250.7813 Q373.3438,250.5 373.9688,249.9219 L373.9688,252.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="72" x="385" y="251.8467">EntityUUID</text><line style="stroke:#181818;stroke-width:0.5;" x1="357" x2="459" y1="263" y2="263"/><line style="stroke:#181818;stroke-width:0.5;" x1="357" x2="459" y1="271" y2="271"/></g><!--MD5=[be996cdb8e6bf2fc7cb89c555f2cd144]
+class Entity--><g id="elem_Entity"><rect codeLine="8" fill="#F1F1F1" height="129.1875" id="Entity" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="208" x="196" y="356"/><ellipse cx="253.25" cy="372" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M256.2188,377.6406 Q255.6406,377.9375 255,378.0781 Q254.3594,378.2344 253.6563,378.2344 Q251.1563,378.2344 249.8281,376.5938 Q248.5156,374.9375 248.5156,371.8125 Q248.5156,368.6875 249.8281,367.0313 Q251.1563,365.375 253.6563,365.375 Q254.3594,365.375 255,365.5313 Q255.6563,365.6875 256.2188,365.9844 L256.2188,368.7031 Q255.5938,368.125 255,367.8594 Q254.4063,367.5781 253.7813,367.5781 Q252.4375,367.5781 251.75,368.6563 Q251.0625,369.7188 251.0625,371.8125 Q251.0625,373.9063 251.75,374.9844 Q252.4375,376.0469 253.7813,376.0469 Q254.4063,376.0469 255,375.7813 Q255.5938,375.5 256.2188,374.9219 L256.2188,377.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="38" x="273.75" y="376.8467">Entity</text><rect fill="#FFFFFF" height="15.9688" style="stroke:#000000;stroke-width:1.0;stroke-dasharray:2.0,2.0;" width="45" x="362" y="353"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="43" x="363" y="365.1387">IDType</text><line style="stroke:#181818;stroke-width:0.5;" x1="197" x2="403" y1="388" y2="388"/><ellipse cx="207" cy="399" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="66" x="216" y="404.9951">ID IDType</text><line style="stroke:#181818;stroke-width:1.0;" x1="197" x2="403" y1="412.2969" y2="412.2969"/><ellipse cx="207" cy="423.2969" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="141" x="216" y="429.292">CreatedAt time.Time</text><line style="stroke:#181818;stroke-width:1.0;" x1="197" x2="403" y1="436.5938" y2="436.5938"/><ellipse cx="207" cy="447.5938" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="152" x="216" y="453.5889">UpdatedAt *time.Time</text><line style="stroke:#181818;stroke-width:1.0;" x1="197" x2="403" y1="460.8906" y2="460.8906"/><ellipse cx="207" cy="471.8906" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="182" x="216" y="477.8857">DeletedAt gorm.DeletedAt</text></g><!--MD5=[c9b588f89ecdeeb56fc45ced19c2779e]
+class EthernetSwitchVLAN--><g id="elem_EthernetSwitchVLAN"><rect codeLine="5" fill="#F1F1F1" height="129.1875" id="EthernetSwitchVLAN" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="379" x="351.5" y="41"/><ellipse cx="466.75" cy="57" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M469.7188,62.6406 Q469.1406,62.9375 468.5,63.0781 Q467.8594,63.2344 467.1563,63.2344 Q464.6563,63.2344 463.3281,61.5938 Q462.0156,59.9375 462.0156,56.8125 Q462.0156,53.6875 463.3281,52.0313 Q464.6563,50.375 467.1563,50.375 Q467.8594,50.375 468.5,50.5313 Q469.1563,50.6875 469.7188,50.9844 L469.7188,53.7031 Q469.0938,53.125 468.5,52.8594 Q467.9063,52.5781 467.2813,52.5781 Q465.9375,52.5781 465.25,53.6563 Q464.5625,54.7188 464.5625,56.8125 Q464.5625,58.9063 465.25,59.9844 Q465.9375,61.0469 467.2813,61.0469 Q467.9063,61.0469 468.5,60.7813 Q469.0938,60.5 469.7188,59.9219 L469.7188,62.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="140" x="487.25" y="61.8467">EthernetSwitchVLAN</text><line style="stroke:#181818;stroke-width:0.5;" x1="352.5" x2="729.5" y1="73" y2="73"/><ellipse cx="362.5" cy="84" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="64" x="371.5" y="89.9951">VlanID int</text><line style="stroke:#181818;stroke-width:1.0;" x1="352.5" x2="729.5" y1="97.2969" y2="97.2969"/><ellipse cx="362.5" cy="108.2969" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="353" x="371.5" y="114.292">EthernetSwitchID uuid.UUID `gorm:"index;size:36"`</text><line style="stroke:#181818;stroke-width:1.0;" x1="352.5" x2="729.5" y1="121.5938" y2="121.5938"/><ellipse cx="362.5" cy="132.5938" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="277" x="371.5" y="138.5889">UntaggedPorts string `gorm:"type:text"`</text><line style="stroke:#181818;stroke-width:1.0;" x1="352.5" x2="729.5" y1="145.8906" y2="145.8906"/><ellipse cx="362.5" cy="156.8906" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="262" x="371.5" y="162.8857">TaggedPorts string `gorm:"type:text"`</text></g><path d="M22,70.5 L22,95.6328 A0,0 0 0 0 22,95.6328 L316,95.6328 A0,0 0 0 0 316,95.6328 L316,88.5 L355.5,133.7422 L316,80.5 L316,80.5 L306,70.5 L22,70.5 A0,0 0 0 0 22,70.5 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M306,70.5 L306,80.5 L316,80.5 L306,70.5 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="273" x="28" y="87.5669">UUID's of untagged ports separated with ';'</text><path d="M22,105.6328 L22,130.7656 A0,0 0 0 0 22,130.7656 L300,130.7656 A0,0 0 0 0 300,130.7656 L300,123.6328 L355.5,158.0391 L300,115.6328 L300,115.6328 L290,105.6328 L22,105.6328 A0,0 0 0 0 22,105.6328 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M290,105.6328 L290,115.6328 L300,115.6328 L290,105.6328 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="257" x="28" y="122.6997">UUID's of tagged ports separated with ';'</text><!--MD5=[27abfb56f32eefa7f07c83348fb1ee32]
+class GormGenericRepository--><g id="elem_GormGenericRepository"><rect codeLine="5" fill="#F1F1F1" height="48" id="GormGenericRepository" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="319" x="1001.5" y="396.5"/><ellipse cx="1016.5" cy="412.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1019.4688,418.1406 Q1018.8906,418.4375 1018.25,418.5781 Q1017.6094,418.7344 1016.9063,418.7344 Q1014.4063,418.7344 1013.0781,417.0938 Q1011.7656,415.4375 1011.7656,412.3125 Q1011.7656,409.1875 1013.0781,407.5313 Q1014.4063,405.875 1016.9063,405.875 Q1017.6094,405.875 1018.25,406.0313 Q1018.9063,406.1875 1019.4688,406.4844 L1019.4688,409.2031 Q1018.8438,408.625 1018.25,408.3594 Q1017.6563,408.0781 1017.0313,408.0781 Q1015.6875,408.0781 1015,409.1563 Q1014.3125,410.2188 1014.3125,412.3125 Q1014.3125,414.4063 1015,415.4844 Q1015.6875,416.5469 1017.0313,416.5469 Q1017.6563,416.5469 1018.25,416.2813 Q1018.8438,416 1019.4688,415.4219 L1019.4688,418.1406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="166" x="1030.5" y="417.3467">GormGenericRepository</text><rect fill="#FFFFFF" height="15.9688" style="stroke:#000000;stroke-width:1.0;stroke-dasharray:2.0,2.0;" width="119" x="1204.5" y="393.5"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="117" x="1205.5" y="405.6387">IDType, EntityType</text><line style="stroke:#181818;stroke-width:0.5;" x1="1002.5" x2="1319.5" y1="428.5" y2="428.5"/><line style="stroke:#181818;stroke-width:0.5;" x1="1002.5" x2="1319.5" y1="436.5" y2="436.5"/></g><!--MD5=[5084c314828a1706c6063fcd7c1ffb4b]
+class GormEthernetSwitchVLANRepository--><g id="elem_GormEthernetSwitchVLANRepository"><rect codeLine="6" fill="#F1F1F1" height="48" id="GormEthernetSwitchVLANRepository" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="284" x="1019" y="81.5"/><ellipse cx="1034" cy="97.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1036.9688,103.1406 Q1036.3906,103.4375 1035.75,103.5781 Q1035.1094,103.7344 1034.4063,103.7344 Q1031.9063,103.7344 1030.5781,102.0938 Q1029.2656,100.4375 1029.2656,97.3125 Q1029.2656,94.1875 1030.5781,92.5313 Q1031.9063,90.875 1034.4063,90.875 Q1035.1094,90.875 1035.75,91.0313 Q1036.4063,91.1875 1036.9688,91.4844 L1036.9688,94.2031 Q1036.3438,93.625 1035.75,93.3594 Q1035.1563,93.0781 1034.5313,93.0781 Q1033.1875,93.0781 1032.5,94.1563 Q1031.8125,95.2188 1031.8125,97.3125 Q1031.8125,99.4063 1032.5,100.4844 Q1033.1875,101.5469 1034.5313,101.5469 Q1035.1563,101.5469 1035.75,101.2813 Q1036.3438,101 1036.9688,100.4219 L1036.9688,103.1406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="252" x="1048" y="102.3467">GormEthernetSwitchVLANRepository</text><line style="stroke:#181818;stroke-width:0.5;" x1="1020" x2="1302" y1="113.5" y2="113.5"/><line style="stroke:#181818;stroke-width:0.5;" x1="1020" x2="1302" y1="121.5" y2="121.5"/></g><g id="elem_EthernetSwitchVLANTypeNote"><path d="M1001,235 L1001,275.2656 L1241,275.2656 L1241,245 L1231,235 L1001,235 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M1231,235 L1231,245 L1241,245 L1231,235 " fill="#FEFFDD" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="215" x="1007" y="252.0669">EntityType is EthernetSwitchVLAN</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="125" x="1007" y="267.1997">IDType is uuid.UUID</text></g><!--MD5=[4afd32b9c3a651e50eee9a88aa9ac7c6]
+link EntityUUID to Entity--><g id="link_EntityUUID_Entity"><path codeLine="7" d="M392.76,279.08 C381.31,296.41 364.95,321.17 349.16,345.08 " fill="none" id="EntityUUID-to-Entity" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="341.96,355.98,348.6019,353.1721,348.5646,345.9611,341.9226,348.769,341.96,355.98" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="125" x="370" y="322.0669">IDType is uuid.UUID</text></g><!--MD5=[a6c7a0eda5b041e127f539f1664bb96a]
+link Entity to IEntityModel--><g id="link_Entity_IEntityModel"><path codeLine="17" d="M278.47,485.12 C261.44,535.42 237.53,606.04 219.01,660.75 " fill="none" id="Entity-to-IEntityModel" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="225.63,663.04,212.58,679.74,212.37,658.55,225.63,663.04" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[817607d20ff43d8fb0cae2709849ae95]
+link EthernetSwitchVLAN to EntityUUID--><g id="link_EthernetSwitchVLAN_EntityUUID"><path codeLine="15" d="M483.44,170.34 C467.69,187.8 451.27,206.01 437.78,220.97 " fill="none" id="EthernetSwitchVLAN-to-EntityUUID" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="428.96,230.76,435.9478,228.9795,436.9919,221.8444,430.0041,223.6249,428.96,230.76" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[1b84833638557571905b03f54e842c8c]
+link GormGenericRepository to IGenericRepository--><g id="link_GormGenericRepository_IGenericRepository"><path codeLine="7" d="M1166.97,444.66 C1174.83,475.16 1189.35,531.48 1203.68,587.07 " fill="none" id="GormGenericRepository-to-IGenericRepository" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="1210.51,585.55,1208.73,606.66,1196.96,589.04,1210.51,585.55" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[5340c058456da90723a337c6efd0359e]
+link GormEthernetSwitchVLANRepository to GormGenericRepository--><g id="link_GormEthernetSwitchVLANRepository_GormGenericRepository"><path codeLine="8" d="M1189.05,129.57 C1224.04,161.32 1277.18,221.17 1259,279 C1246.09,320.08 1216.44,359.63 1193.11,386.24 " fill="none" id="GormEthernetSwitchVLANRepository-to-GormGenericRepository" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1184.21,396.13,1191.1965,394.3444,1192.2354,387.2085,1185.2489,388.9941,1184.21,396.13" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[00c04a740263e01b89d20c4c3da28961]
+link GormEthernetSwitchVLANRepository to EthernetSwitchVLANTypeNote--><g id="link_GormEthernetSwitchVLANRepository_EthernetSwitchVLANTypeNote"><path codeLine="13" d="M1154.75,129.55 C1146.88,158.55 1133.52,207.84 1126.19,234.87 " fill="none" id="GormEthernetSwitchVLANRepository-EthernetSwitchVLANTypeNote" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/></g><!--MD5=[038e769385e96f0abd660571a04612bb]
+link EthernetSwitchVLANTypeNote to GormGenericRepository--><g id="link_EthernetSwitchVLANTypeNote_GormGenericRepository"><path codeLine="14" d="M1125.67,275.08 C1132.67,303.7 1145.94,357.95 1154.08,391.2 " fill="none" id="EthernetSwitchVLANTypeNote-to-GormGenericRepository" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="1155.34,396.35,1157.0646,386.6533,1154.1408,391.4959,1149.2981,388.5721,1155.34,396.35" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[c956a8ffe63b36e8aa7cef90766573cf]
+link EthernetSwitchVLAN to EthernetSwitchVLANTypeNote--><g id="link_EthernetSwitchVLAN_EthernetSwitchVLANTypeNote"><path codeLine="15" d="M730.51,154.69 C838.08,182.05 966.7,214.76 1046.13,234.96 " fill="none" id="EthernetSwitchVLAN-EthernetSwitchVLANTypeNote" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/></g><!--MD5=[18b7fda7c38e03155b0b47f0a042f06d]
+@startuml
+
+!include ../entities/EthernetSwitchVLAN.puml
+!include GormGenericRepository.puml
+
+package infrastructure {
+    class GormEthernetSwitchVLANRepository
+
+    GormEthernetSwitchVLANRepository -down-* GormGenericRepository
+
+
+    note "EntityType is EthernetSwitchVLAN \nIDType is uuid.UUID" as EthernetSwitchVLANTypeNote
+
+    GormEthernetSwitchVLANRepository .down. EthernetSwitchVLANTypeNote
+    GormGenericRepository <.up. EthernetSwitchVLANTypeNote
+    EthernetSwitchVLAN .. EthernetSwitchVLANTypeNote
+}
+
+@enduml
+
+@startuml
+
+
+
+
+package app {
+    interface IEntityModel<IDType> {
+        +GetID() IDType
+        - -
+        +GetCreatedAt() time.Time
+        - -
+        +GetUpdatedAt() *time.Time
+        - -
+        +GetDeletedAt() *time.Time
+    }
+}
+
+
+package domain {
+    class EntityUUID {
+    }
+    EntityUUID - -* Entity : IDType is uuid.UUID
+    class Entity<IDType> {
+        +ID IDType
+        - -
+        +CreatedAt time.Time
+        - -
+        +UpdatedAt *time.Time
+        - -
+        +DeletedAt gorm.DeletedAt
+    }
+    Entity .down.|> IEntityModel
+}
+
+
+package domain {
+    class EthernetSwitchVLAN {
+        +VlanID int
+        - -
+        +EthernetSwitchID uuid.UUID `gorm:"index;size:36"`
+        - -
+        +UntaggedPorts string `gorm:"type:text"`
+        - -
+        +TaggedPorts string `gorm:"type:text"`
+    }
+
+    EthernetSwitchVLAN -down-* EntityUUID
+
+    note left of EthernetSwitchVLAN::UntaggedPorts
+        UUID's of untagged ports separated with ';'
+    end note
+
+    note left of EthernetSwitchVLAN::TaggedPorts
+      UUID's of tagged ports separated with ';'
+    end note
+}
+
+
+
+package app {
+    interface IGenericRepository<IDType, interfaces.IEntityModel[IDType]> {
+        +GetList(ctx context.Context, orderBy string, orderDirection string, page int, size int, queryBuilder interfaces.IQueryBuilder) ([]EntityType, error)
+        - -
+        +Count(ctx context.Context, queryBuilder interfaces.IQueryBuilder) (int, error)
+        - -
+        +IsExist(ctx context.Context, id IDType, queryBuilder interfaces.IQueryBuilder) (bool, error)
+        - -
+        +NewQueryBuilder(ctx context.Context) interfaces.IQueryBuilder
+        - -
+        +GetById(ctx context.Context, id IDType) (EntityType, error)
+        - -
+        +Update(ctx context.Context, entity EntityType) (EntityType, error)
+        - -
+        +Insert(ctx context.Context, entity EntityType) (EntityType, error)
+        - -
+        +Delete(ctx context.Context, id IDType) error
+        - -
+        +DeleteAll(ctx context.Context, queryBuilder interfaces.IQueryBuilder) error
+        - -
+        +Dispose() error
+    }
+    note left of IGenericRepository::GetList
+      Get list of elements with filtering and pagination
+    end note
+
+    note left of IGenericRepository::Count
+      Get count of entities with filtering
+    end note
+
+    note left of IGenericRepository::IsExist
+      Checks that entity with selected conditions is existed
+    end note
+
+    note left of IGenericRepository::NewQueryBuilder
+      Get new instance of the query builder
+    end note
+
+    note left of IGenericRepository::GetById
+      Get entity by ID from repository
+    end note
+
+    note left of IGenericRepository::Update
+      Save the changes to the existing entity in the repository
+    end note
+
+    note left of IGenericRepository::Insert
+      Add entity to the repository
+    end note
+
+    note left of IGenericRepository::Delete
+      Delete entity from repository
+    end note
+
+    note left of IGenericRepository::DeleteAll
+      Delete entities with selected conditions
+    end note
+
+    note left of IGenericRepository::Dispose
+      Dispose all allocated data
+    end note
+}
+
+
+package infrastructure {
+    class GormGenericRepository<IDType, EntityType>
+
+    GormGenericRepository .down.|> IGenericRepository
+}
+
+
+package infrastructure {
+    class GormEthernetSwitchVLANRepository
+
+    GormEthernetSwitchVLANRepository -down-* GormGenericRepository
+
+
+    note "EntityType is EthernetSwitchVLAN \nIDType is uuid.UUID" as EthernetSwitchVLANTypeNote
+
+    GormEthernetSwitchVLANRepository .down. EthernetSwitchVLANTypeNote
+    GormGenericRepository <.up. EthernetSwitchVLANTypeNote
+    EthernetSwitchVLAN .. EthernetSwitchVLANTypeNote
+}
+
+@enduml
+
+PlantUML version 1.2022.6(Tue Jun 21 17:34:49 EGST 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

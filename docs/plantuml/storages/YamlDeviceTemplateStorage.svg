@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="815px" preserveAspectRatio="none" style="width:2962px;height:815px;background:#FFFFFF;" version="1.1" viewBox="0 0 2962 815" width="2962px" zoomAndPan="magnify"><defs/><g><!--MD5=[d5ac3844f66b12d9e08170e47495e096]
+cluster app--><g id="cluster_app"><path d="M1903.5,628 L1933.5,628 A3.75,3.75 0 0 1 1936,630.5 L1943,650.2969 L2952.5,650.2969 A2.5,2.5 0 0 1 2955,652.7969 L2955,805.5 A2.5,2.5 0 0 1 2952.5,808 L1903.5,808 A2.5,2.5 0 0 1 1901,805.5 L1901,630.5 A2.5,2.5 0 0 1 1903.5,628 " style="stroke:#000000;stroke-width:1.5;fill:none;"/><line style="stroke:#000000;stroke-width:1.5;fill:none;" x1="1901" x2="1943" y1="650.2969" y2="650.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="29" x="1905" y="642.9951">app</text></g><!--MD5=[77349be1bd27b81b697a0f9b3aded3c8]
+cluster infrastructure--><g id="cluster_infrastructure"><path d="M2076.5,6 L2187.5,6 A3.75,3.75 0 0 1 2190,8.5 L2197,28.2969 L2433.5,28.2969 A2.5,2.5 0 0 1 2436,30.7969 L2436,463.5 A2.5,2.5 0 0 1 2433.5,466 L2076.5,466 A2.5,2.5 0 0 1 2074,463.5 L2074,8.5 A2.5,2.5 0 0 1 2076.5,6 " style="stroke:#000000;stroke-width:1.5;fill:none;"/><line style="stroke:#000000;stroke-width:1.5;fill:none;" x1="2074" x2="2197" y1="28.2969" y2="28.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="110" x="2078" y="20.9951">infrastructure</text></g><!--MD5=[27f772719433d509ddbc20ff768eba08]
+cluster domain--><g id="cluster_domain"><path d="M8.5,114 L66.5,114 A3.75,3.75 0 0 1 69,116.5 L76,136.2969 L1874.5,136.2969 A2.5,2.5 0 0 1 1877,138.7969 L1877,801.5 A2.5,2.5 0 0 1 1874.5,804 L8.5,804 A2.5,2.5 0 0 1 6,801.5 L6,116.5 A2.5,2.5 0 0 1 8.5,114 " style="stroke:#000000;stroke-width:1.5;fill:none;"/><line style="stroke:#000000;stroke-width:1.5;fill:none;" x1="6" x2="76" y1="136.2969" y2="136.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="57" x="10" y="128.9951">domain</text></g><!--MD5=[3beb778f651b40286c3d75d0060d5ff1]
+class IGenericTemplateStorage--><g id="elem_IGenericTemplateStorage"><rect codeLine="3" fill="#F1F1F1" height="129.1875" id="IGenericTemplateStorage" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="1021" x="1917.5" y="663"/><ellipse cx="2289.25" cy="679" fill="#B4A7E5" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M2285.1719,674.7656 L2285.1719,672.6094 L2292.5625,672.6094 L2292.5625,674.7656 L2290.0938,674.7656 L2290.0938,682.8438 L2292.5625,682.8438 L2292.5625,685 L2285.1719,685 L2285.1719,682.8438 L2287.6406,682.8438 L2287.6406,674.7656 L2285.1719,674.7656 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="177" x="2309.75" y="683.8467">IGenericTemplateStorage</text><rect fill="#FFFFFF" height="15.9688" style="stroke:#000000;stroke-width:1.0;stroke-dasharray:2.0,2.0;" width="90" x="2851.5" y="660"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="88" x="2852.5" y="672.1387">TemplateType</text><line style="stroke:#181818;stroke-width:0.5;" x1="1918.5" x2="2937.5" y1="695" y2="695"/><ellipse cx="1928.5" cy="706" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="470" x="1937.5" y="711.9951">GetByName(ctx context.Context, string name) (TemplateType, error)</text><line style="stroke:#181818;stroke-width:1.0;" x1="1918.5" x2="2937.5" y1="719.2969" y2="719.2969"/><ellipse cx="1928.5" cy="730.2969" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="995" x="1937.5" y="736.292">GetList(ctx context.Context, orderBy string, orderDirection string, page int, size int, queryBuilder interfaces.IQueryBuilder) ([]TemplateType, error)</text><line style="stroke:#181818;stroke-width:1.0;" x1="1918.5" x2="2937.5" y1="743.5938" y2="743.5938"/><ellipse cx="1928.5" cy="754.5938" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="539" x="1937.5" y="760.5889">Count(ctx context.Context, queryBuilder interfaces.IQueryBuilder) (int64, error)</text><line style="stroke:#181818;stroke-width:1.0;" x1="1918.5" x2="2937.5" y1="767.8906" y2="767.8906"/><ellipse cx="1928.5" cy="778.8906" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="431" x="1937.5" y="784.8857">NewQueryBuilder(ctx context.Context) interfaces.IQueryBuilder</text></g><!--MD5=[8833f603fefea890694bef68ef08d572]
+class YamlGenericTemplateStorage--><g id="elem_YamlGenericTemplateStorage"><rect codeLine="4" fill="#F1F1F1" height="48" id="YamlGenericTemplateStorage" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="330" x="2090" y="402"/><ellipse cx="2105" cy="418" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M2107.9688,423.6406 Q2107.3906,423.9375 2106.75,424.0781 Q2106.1094,424.2344 2105.4063,424.2344 Q2102.9063,424.2344 2101.5781,422.5938 Q2100.2656,420.9375 2100.2656,417.8125 Q2100.2656,414.6875 2101.5781,413.0313 Q2102.9063,411.375 2105.4063,411.375 Q2106.1094,411.375 2106.75,411.5313 Q2107.4063,411.6875 2107.9688,411.9844 L2107.9688,414.7031 Q2107.3438,414.125 2106.75,413.8594 Q2106.1563,413.5781 2105.5313,413.5781 Q2104.1875,413.5781 2103.5,414.6563 Q2102.8125,415.7188 2102.8125,417.8125 Q2102.8125,419.9063 2103.5,420.9844 Q2104.1875,422.0469 2105.5313,422.0469 Q2106.1563,422.0469 2106.75,421.7813 Q2107.3438,421.5 2107.9688,420.9219 L2107.9688,423.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="206" x="2119" y="422.8467">YamlGenericTemplateStorage</text><rect fill="#FFFFFF" height="15.9688" style="stroke:#000000;stroke-width:1.0;stroke-dasharray:2.0,2.0;" width="90" x="2333" y="399"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="88" x="2334" y="411.1387">TemplateType</text><line style="stroke:#181818;stroke-width:0.5;" x1="2091" x2="2419" y1="434" y2="434"/><line style="stroke:#181818;stroke-width:0.5;" x1="2091" x2="2419" y1="442" y2="442"/></g><g id="elem_DeviceTemplateTypeNote"><path d="M2090,156.5 L2090,181.6328 L2322,181.6328 L2322,166.5 L2312,156.5 L2090,156.5 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M2312,156.5 L2312,166.5 L2322,166.5 L2312,156.5 " fill="#FEFFDD" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="211" x="2096" y="173.5669">TemplateType is DeviceTemplate</text></g><!--MD5=[59242d06bb4cf047c903bd09961cebfe]
+class YamlDeviceTemplateStorage--><g id="elem_YamlDeviceTemplateStorage"><rect codeLine="8" fill="#F1F1F1" height="48" id="YamlDeviceTemplateStorage" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="231" x="2139.5" y="41"/><ellipse cx="2154.5" cy="57" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M2157.4688,62.6406 Q2156.8906,62.9375 2156.25,63.0781 Q2155.6094,63.2344 2154.9063,63.2344 Q2152.4063,63.2344 2151.0781,61.5938 Q2149.7656,59.9375 2149.7656,56.8125 Q2149.7656,53.6875 2151.0781,52.0313 Q2152.4063,50.375 2154.9063,50.375 Q2155.6094,50.375 2156.25,50.5313 Q2156.9063,50.6875 2157.4688,50.9844 L2157.4688,53.7031 Q2156.8438,53.125 2156.25,52.8594 Q2155.6563,52.5781 2155.0313,52.5781 Q2153.6875,52.5781 2153,53.6563 Q2152.3125,54.7188 2152.3125,56.8125 Q2152.3125,58.9063 2153,59.9844 Q2153.6875,61.0469 2155.0313,61.0469 Q2155.6563,61.0469 2156.25,60.7813 Q2156.8438,60.5 2157.4688,59.9219 L2157.4688,62.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="199" x="2168.5" y="61.8467">YamlDeviceTemplateStorage</text><line style="stroke:#181818;stroke-width:0.5;" x1="2140.5" x2="2369.5" y1="73" y2="73"/><line style="stroke:#181818;stroke-width:0.5;" x1="2140.5" x2="2369.5" y1="81" y2="81"/></g><!--MD5=[99b2cc807b2a6d9cde1eed7ebe5ca8d6]
+class DeviceTemplateNetworkInterface--><g id="elem_DeviceTemplateNetworkInterface"><rect codeLine="3" fill="#F1F1F1" height="129.1875" id="DeviceTemplateNetworkInterface" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="261" x="1159.5" y="361.5"/><ellipse cx="1174.5" cy="377.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1177.4688,383.1406 Q1176.8906,383.4375 1176.25,383.5781 Q1175.6094,383.7344 1174.9063,383.7344 Q1172.4063,383.7344 1171.0781,382.0938 Q1169.7656,380.4375 1169.7656,377.3125 Q1169.7656,374.1875 1171.0781,372.5313 Q1172.4063,370.875 1174.9063,370.875 Q1175.6094,370.875 1176.25,371.0313 Q1176.9063,371.1875 1177.4688,371.4844 L1177.4688,374.2031 Q1176.8438,373.625 1176.25,373.3594 Q1175.6563,373.0781 1175.0313,373.0781 Q1173.6875,373.0781 1173,374.1563 Q1172.3125,375.2188 1172.3125,377.3125 Q1172.3125,379.4063 1173,380.4844 Q1173.6875,381.5469 1175.0313,381.5469 Q1175.6563,381.5469 1176.25,381.2813 Q1176.8438,381 1177.4688,380.4219 L1177.4688,383.1406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="229" x="1188.5" y="382.3467">DeviceTemplateNetworkInterface</text><line style="stroke:#181818;stroke-width:0.5;" x1="1160.5" x2="1419.5" y1="393.5" y2="393.5"/><ellipse cx="1170.5" cy="404.5" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="83" x="1179.5" y="410.4951">Name string</text><line style="stroke:#181818;stroke-width:1.0;" x1="1160.5" x2="1419.5" y1="417.7969" y2="417.7969"/><ellipse cx="1170.5" cy="428.7969" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="117" x="1179.5" y="434.792">NetBoot boolean</text><line style="stroke:#181818;stroke-width:1.0;" x1="1160.5" x2="1419.5" y1="442.0938" y2="442.0938"/><ellipse cx="1170.5" cy="453.0938" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="101" x="1179.5" y="459.0889">POEIn boolean</text><line style="stroke:#181818;stroke-width:1.0;" x1="1160.5" x2="1419.5" y1="466.3906" y2="466.3906"/><ellipse cx="1170.5" cy="477.3906" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="151" x="1179.5" y="483.3857">Management boolean</text></g><path d="M1455.5,373.5 L1455.5,382.0664 L1262.5,405.6484 L1455.5,390.0664 L1455.5,398.6328 A0,0 0 0 0 1455.5,398.6328 L1860.5,398.6328 A0,0 0 0 0 1860.5,398.6328 L1860.5,383.5 L1850.5,373.5 L1455.5,373.5 A0,0 0 0 0 1455.5,373.5 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M1850.5,373.5 L1850.5,383.5 L1860.5,383.5 L1850.5,373.5 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="384" x="1461.5" y="390.5669">This field is unique within device template network interfaces</text><path d="M1455.5,408.6328 L1455.5,417.1992 L1280.5,454.2422 L1455.5,425.1992 L1455.5,433.7656 A0,0 0 0 0 1455.5,433.7656 L1790.5,433.7656 A0,0 0 0 0 1790.5,433.7656 L1790.5,418.6328 L1780.5,408.6328 L1455.5,408.6328 A0,0 0 0 0 1455.5,408.6328 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M1780.5,408.6328 L1780.5,418.6328 L1790.5,418.6328 L1780.5,408.6328 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="314" x="1461.5" y="425.6997">Only one network interface can be mark as POEIn</text><path d="M1455.5,443.7656 L1455.5,452.332 L1330.5,478.5391 L1455.5,460.332 L1455.5,468.8984 A0,0 0 0 0 1455.5,468.8984 L1840.5,468.8984 A0,0 0 0 0 1840.5,468.8984 L1840.5,453.7656 L1830.5,443.7656 L1455.5,443.7656 A0,0 0 0 0 1455.5,443.7656 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M1830.5,443.7656 L1830.5,453.7656 L1840.5,453.7656 L1830.5,443.7656 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="364" x="1461.5" y="460.8325">Only one network interface can be mark as management</text><!--MD5=[a234cf70aac494477a7ddd9e1f220e42]
+class DeviceTemplateControlDesc--><g id="elem_DeviceTemplateControlDesc"><rect codeLine="3" fill="#F1F1F1" height="104.8906" id="DeviceTemplateControlDesc" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="230" x="860" y="675"/><ellipse cx="875" cy="691" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M877.9688,696.6406 Q877.3906,696.9375 876.75,697.0781 Q876.1094,697.2344 875.4063,697.2344 Q872.9063,697.2344 871.5781,695.5938 Q870.2656,693.9375 870.2656,690.8125 Q870.2656,687.6875 871.5781,686.0313 Q872.9063,684.375 875.4063,684.375 Q876.1094,684.375 876.75,684.5313 Q877.4063,684.6875 877.9688,684.9844 L877.9688,687.7031 Q877.3438,687.125 876.75,686.8594 Q876.1563,686.5781 875.5313,686.5781 Q874.1875,686.5781 873.5,687.6563 Q872.8125,688.7188 872.8125,690.8125 Q872.8125,692.9063 873.5,693.9844 Q874.1875,695.0469 875.5313,695.0469 Q876.1563,695.0469 876.75,694.7813 Q877.3438,694.5 877.9688,693.9219 L877.9688,696.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="198" x="889" y="695.8467">DeviceTemplateControlDesc</text><line style="stroke:#181818;stroke-width:0.5;" x1="861" x2="1089" y1="707" y2="707"/><ellipse cx="871" cy="718" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="121" x="880" y="723.9951">Emergency string</text><line style="stroke:#181818;stroke-width:1.0;" x1="861" x2="1089" y1="731.2969" y2="731.2969"/><ellipse cx="871" cy="742.2969" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="86" x="880" y="748.292">Power string</text><line style="stroke:#181818;stroke-width:1.0;" x1="861" x2="1089" y1="755.5938" y2="755.5938"/><ellipse cx="871" cy="766.5938" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="107" x="880" y="772.5889">NextBoot string</text></g><path d="M1125,667 L1125,675.5664 L1001,719.1484 L1125,683.5664 L1125,692.1328 A0,0 0 0 0 1125,692.1328 L1805,692.1328 A0,0 0 0 0 1805,692.1328 L1805,677 L1795,667 L1125,667 A0,0 0 0 0 1125,667 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M1795,667 L1795,677 L1805,677 L1795,667 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="659" x="1131" y="684.0669">How to control device power in case of emergency. As example: POE(For Rpi4), IPMI, ILO or PowerSwitch</text><path d="M1125,702.1328 L1125,710.6992 L966,743.4453 L1125,718.6992 L1125,727.2656 A0,0 0 0 0 1125,727.2656 L1664,727.2656 A0,0 0 0 0 1664,727.2656 L1664,712.1328 L1654,702.1328 L1125,702.1328 A0,0 0 0 0 1125,702.1328 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M1654,702.1328 L1654,712.1328 L1664,712.1328 L1654,702.1328 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="518" x="1131" y="719.1997">How to control device power. As example: POE(For Rpi4), IPMI, ILO or PowerSwitch</text><path d="M1125,737.2656 L1125,753.3984 L987,767.7422 L1125,761.3984 L1125,777.5313 A0,0 0 0 0 1125,777.5313 L1699,777.5313 A0,0 0 0 0 1699,777.5313 L1699,747.2656 L1689,737.2656 L1125,737.2656 A0,0 0 0 0 1125,737.2656 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M1689,737.2656 L1689,747.2656 L1699,747.2656 L1689,737.2656 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="412" x="1131" y="754.3325">How to change next boot device. As example: IPMI, ILO or NONE.</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="553" x="1131" y="769.4653">For example NONE is used for Rpi4, we control next boot by u-boot files in boot stages.</text><!--MD5=[7885a1e79022bd13a786b4cdad8db080]
+class BootStageTemplate--><g id="elem_BootStageTemplate"><rect codeLine="3" fill="#F1F1F1" height="129.1875" id="BootStageTemplate" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="232" x="439" y="362"/><ellipse cx="481.9" cy="378" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M484.8688,383.6406 Q484.2906,383.9375 483.65,384.0781 Q483.0094,384.2344 482.3063,384.2344 Q479.8063,384.2344 478.4781,382.5938 Q477.1656,380.9375 477.1656,377.8125 Q477.1656,374.6875 478.4781,373.0313 Q479.8063,371.375 482.3063,371.375 Q483.0094,371.375 483.65,371.5313 Q484.3063,371.6875 484.8688,371.9844 L484.8688,374.7031 Q484.2438,374.125 483.65,373.8594 Q483.0563,373.5781 482.4313,373.5781 Q481.0875,373.5781 480.4,374.6563 Q479.7125,375.7188 479.7125,377.8125 Q479.7125,379.9063 480.4,380.9844 Q481.0875,382.0469 482.4313,382.0469 Q483.0563,382.0469 483.65,381.7813 Q484.2438,381.5 484.8688,380.9219 L484.8688,383.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="138" x="502.1" y="382.8467">BootStageTemplate</text><line style="stroke:#181818;stroke-width:0.5;" x1="440" x2="670" y1="394" y2="394"/><ellipse cx="450" cy="405" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="83" x="459" y="410.9951">Name string</text><line style="stroke:#181818;stroke-width:1.0;" x1="440" x2="670" y1="418.2969" y2="418.2969"/><ellipse cx="450" cy="429.2969" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="122" x="459" y="435.292">Description string</text><line style="stroke:#181818;stroke-width:1.0;" x1="440" x2="670" y1="442.5938" y2="442.5938"/><ellipse cx="450" cy="453.5938" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="86" x="459" y="459.5889">Action string</text><line style="stroke:#181818;stroke-width:1.0;" x1="440" x2="670" y1="466.8906" y2="466.8906"/><ellipse cx="450" cy="477.8906" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="206" x="459" y="483.8857">Files []BootStageTemplateFile</text></g><!--MD5=[b52e4b02592e8087d88e253407fc28e5]
+class BootStageTemplateFile--><g id="elem_BootStageTemplateFile"><rect codeLine="13" fill="#F1F1F1" height="80.5938" id="BootStageTemplateFile" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="193" x="469.5" y="687"/><ellipse cx="484.5" cy="703" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M487.4688,708.6406 Q486.8906,708.9375 486.25,709.0781 Q485.6094,709.2344 484.9063,709.2344 Q482.4063,709.2344 481.0781,707.5938 Q479.7656,705.9375 479.7656,702.8125 Q479.7656,699.6875 481.0781,698.0313 Q482.4063,696.375 484.9063,696.375 Q485.6094,696.375 486.25,696.5313 Q486.9063,696.6875 487.4688,696.9844 L487.4688,699.7031 Q486.8438,699.125 486.25,698.8594 Q485.6563,698.5781 485.0313,698.5781 Q483.6875,698.5781 483,699.6563 Q482.3125,700.7188 482.3125,702.8125 Q482.3125,704.9063 483,705.9844 Q483.6875,707.0469 485.0313,707.0469 Q485.6563,707.0469 486.25,706.7813 Q486.8438,706.5 487.4688,705.9219 L487.4688,708.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="161" x="498.5" y="707.8467">BootStageTemplateFile</text><line style="stroke:#181818;stroke-width:0.5;" x1="470.5" x2="661.5" y1="719" y2="719"/><ellipse cx="480.5" cy="730" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="159" x="489.5" y="735.9951">ExistingFileName string</text><line style="stroke:#181818;stroke-width:1.0;" x1="470.5" x2="661.5" y1="743.2969" y2="743.2969"/><ellipse cx="480.5" cy="754.2969" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="105" x="489.5" y="760.292">VirtualFileName</text></g><g id="elem_GMN1512"><path d="M277.5,149 L277.5,189.2656 A0,0 0 0 0 277.5,189.2656 L551,189.2656 L555,357.85 L559,189.2656 L832.5,189.2656 A0,0 0 0 0 832.5,189.2656 L832.5,159 L822.5,149 L277.5,149 A0,0 0 0 0 277.5,149 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M822.5,149 L822.5,159 L832.5,159 L822.5,149 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="520" x="283.5" y="166.0669">Boot stage can be overwritten in runtime by device entity or by device rent entity.</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="534" x="283.5" y="181.1997">BootStageTemplate converts to BootStage for device, then we create device entity.</text></g><path d="M22.5,355.5 L22.5,486.5625 A0,0 0 0 0 22.5,486.5625 L395.5,486.5625 A0,0 0 0 0 395.5,486.5625 L395.5,425.0313 L443,454.7422 L395.5,417.0313 L395.5,365.5 L385.5,355.5 L22.5,355.5 A0,0 0 0 0 22.5,355.5 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M385.5,355.5 L385.5,365.5 L395.5,365.5 L385.5,355.5 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="165" x="28.5" y="372.5669">Action for this boot stage.</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="340" x="28.5" y="387.6997">Can be: File, CheckPowerSwitch, EmergencyPowerOff,</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="260" x="28.5" y="402.8325">PowerOff, EmergencyPowerOn, PowerOn,</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="124" x="28.5" y="417.9653">CheckManagement</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="92" x="28.5" y="433.0981">For File action:</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="336" x="44.5" y="448.231">A stage can only be marked complete if all files have</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="318" x="44.5" y="463.3638">been downloaded by the device via TFTP or DHCP,</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="256" x="44.5" y="478.4966">after which the next step can be loaded.</text><path d="M22,685 L22,725.2656 A0,0 0 0 0 22,725.2656 L434,725.2656 A0,0 0 0 0 434,725.2656 L434,709.1328 L473.5,731.1484 L434,701.1328 L434,695 L424,685 L22,685 A0,0 0 0 0 22,685 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M424,685 L424,695 L434,695 L424,685 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="391" x="28" y="702.0669">Existing file name is a real full file path with name on the disk.</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="245" x="28" y="717.1997">This path is relative from app directory</text><path d="M22,735.2656 L22,760.3984 A0,0 0 0 0 22,760.3984 L364,760.3984 A0,0 0 0 0 364,760.3984 L364,753.2656 L473.5,755.4453 L364,745.2656 L364,745.2656 L354,735.2656 L22,735.2656 A0,0 0 0 0 22,735.2656 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M354,735.2656 L354,745.2656 L364,745.2656 L354,735.2656 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="321" x="28" y="752.3325">Virtual file name is relative from /&lt;mac-address&gt;/</text><!--MD5=[01516973ad7471874169af5526e0376a]
+class DeviceTemplate--><g id="elem_DeviceTemplate"><rect codeLine="7" fill="#F1F1F1" height="347.8594" id="DeviceTemplate" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="394" x="722" y="253"/><ellipse cx="858.75" cy="269" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M861.7188,274.6406 Q861.1406,274.9375 860.5,275.0781 Q859.8594,275.2344 859.1563,275.2344 Q856.6563,275.2344 855.3281,273.5938 Q854.0156,271.9375 854.0156,268.8125 Q854.0156,265.6875 855.3281,264.0313 Q856.6563,262.375 859.1563,262.375 Q859.8594,262.375 860.5,262.5313 Q861.1563,262.6875 861.7188,262.9844 L861.7188,265.7031 Q861.0938,265.125 860.5,264.8594 Q859.9063,264.5781 859.2813,264.5781 Q857.9375,264.5781 857.25,265.6563 Q856.5625,266.7188 856.5625,268.8125 Q856.5625,270.9063 857.25,271.9844 Q857.9375,273.0469 859.2813,273.0469 Q859.9063,273.0469 860.5,272.7813 Q861.0938,272.5 861.7188,271.9219 L861.7188,274.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="112" x="879.25" y="273.8467">DeviceTemplate</text><line style="stroke:#181818;stroke-width:0.5;" x1="723" x2="1115" y1="285" y2="285"/><ellipse cx="733" cy="296" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="83" x="742" y="301.9951">Name string</text><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:1.0,2.0;" x1="723" x2="1115" y1="309.2969" y2="309.2969"/><ellipse cx="733" cy="320.2969" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="242" x="742" y="326.292">Unique within the device templates</text><line style="stroke:#181818;stroke-width:1.0;" x1="723" x2="1115" y1="333.5938" y2="333.5938"/><ellipse cx="733" cy="344.5938" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="42" x="742" y="350.5889">Model</text><line style="stroke:#181818;stroke-width:1.0;" x1="723" x2="1115" y1="357.8906" y2="357.8906"/><ellipse cx="733" cy="368.8906" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="91" x="742" y="374.8857">Manufacturer</text><line style="stroke:#181818;stroke-width:1.0;" x1="723" x2="1115" y1="382.1875" y2="382.1875"/><ellipse cx="733" cy="393.1875" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="122" x="742" y="399.1826">Description string</text><line style="stroke:#181818;stroke-width:1.0;" x1="723" x2="1115" y1="406.4844" y2="406.4844"/><ellipse cx="733" cy="417.4844" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="92" x="742" y="423.4795">CPUCount int</text><line style="stroke:#181818;stroke-width:1.0;" x1="723" x2="1115" y1="430.7813" y2="430.7813"/><ellipse cx="733" cy="441.7813" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="114" x="742" y="447.7764">CPUModel string</text><line style="stroke:#181818;stroke-width:1.0;" x1="723" x2="1115" y1="455.0781" y2="455.0781"/><ellipse cx="733" cy="466.0781" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="52" x="742" y="472.0732">RAM int</text><line style="stroke:#181818;stroke-width:1.0;" x1="723" x2="1115" y1="479.375" y2="479.375"/><ellipse cx="733" cy="490.375" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="368" x="742" y="496.3701">NetworkInterfaces []DeviceTemplateNetworkInterface</text><line style="stroke:#181818;stroke-width:1.0;" x1="723" x2="1115" y1="503.6719" y2="503.6719"/><ellipse cx="733" cy="514.6719" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="252" x="742" y="520.667">Control DeviceTemplateControlDesc</text><line style="stroke:#181818;stroke-width:1.0;" x1="723" x2="1115" y1="527.9688" y2="527.9688"/><ellipse cx="733" cy="538.9688" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="263" x="742" y="544.9639">DiskBootStages []BootStageTemplate</text><line style="stroke:#181818;stroke-width:1.0;" x1="723" x2="1115" y1="552.2656" y2="552.2656"/><ellipse cx="733" cy="563.2656" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="257" x="742" y="569.2607">NetBootStages []BootStageTemplate</text><line style="stroke:#181818;stroke-width:1.0;" x1="723" x2="1115" y1="576.5625" y2="576.5625"/><ellipse cx="733" cy="587.5625" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="262" x="742" y="593.5576">USBBootStages []BootStageTemplate</text></g><!--MD5=[6716299319294c9c14361b18eac2eaf1]
+link YamlGenericTemplateStorage to IGenericTemplateStorage--><g id="link_YamlGenericTemplateStorage_IGenericTemplateStorage"><path codeLine="6" d="M2268.29,450 C2292.1,491.22 2343.09,579.5 2381.08,645.28 " fill="none" id="YamlGenericTemplateStorage-to-IGenericTemplateStorage" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="2387.23,641.93,2391.18,662.75,2375.11,648.93,2387.23,641.93" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[0381bb59898f3a371ff9d90742c0dc4e]
+link BootStageTemplate to BootStageTemplateFile--><g id="link_BootStageTemplate_BootStageTemplateFile"><path codeLine="19" d="M672,478 C716.85,478 635.53,616.69 591.52,686.85 " fill="none" id="BootStageTemplate-BootStageTemplateFile" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[3dadd3e37452f179ec37cda4fb2c29a9]
+link DeviceTemplateNetworkInterface to DeviceTemplateControlDesc--><!--MD5=[7d779a142703a7bcbbdfb7862acf7763]
+link DeviceTemplate to DeviceTemplateNetworkInterface--><g id="link_DeviceTemplate_DeviceTemplateNetworkInterface"><path codeLine="37" d="M1117,491 C1133.65,494.46 1150.66,494.52 1167.19,492.28 " fill="none" id="DeviceTemplate-DeviceTemplateNetworkInterface" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="1167.19" x2="1177.41" y1="492.28" y2="490.59"/></g><!--MD5=[e7661e4dd0fdfb1f621df1d32ae37a5f]
+link DeviceTemplate to DeviceTemplateControlDesc--><g id="link_DeviceTemplate_DeviceTemplateControlDesc"><path codeLine="38" d="M1117,515 C1156.11,515 1132.36,567.47 1116,603 C1103.07,631.08 1080.32,655.33 1056.82,674.72 " fill="none" id="DeviceTemplate-DeviceTemplateControlDesc" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[b97fc04679236aa6f50d8657f9bb91f6]
+link BootStageTemplate to DeviceTemplate--><g id="link_BootStageTemplate_DeviceTemplate"><path codeLine="39" d="M618.13,494.01 C644.09,515.8 676.23,535.19 710.72,538.5 " fill="none" id="BootStageTemplate-DeviceTemplate" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="710.72" x2="721" y1="538.5" y2="539"/></g><!--MD5=[05fda321c72bdf89bce8b9e55bb397a1]
+link DeviceTemplate to BootStageTemplate--><g id="link_DeviceTemplate_BootStageTemplate"><path codeLine="40" d="M721,563 C676.71,563 637.95,533.42 609.15,501.74 " fill="none" id="DeviceTemplate-BootStageTemplate" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="609.15" x2="602.41" y1="501.74" y2="494.1"/></g><!--MD5=[05fda321c72bdf89bce8b9e55bb397a1]
+link DeviceTemplate to BootStageTemplate--><g id="link_DeviceTemplate_BootStageTemplate"><path codeLine="41" d="M721,587 C668.2,587 626.01,544.25 597.51,502.81 " fill="none" id="DeviceTemplate-BootStageTemplate-1" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="597.51" x2="591.81" y1="502.81" y2="494.28"/></g><!--MD5=[797d655042079ece0e6f2f699121e268]
+link YamlDeviceTemplateStorage to YamlGenericTemplateStorage--><g id="link_YamlDeviceTemplateStorage_YamlGenericTemplateStorage"><path codeLine="10" d="M2323.85,89.22 C2330.2,93.85 2335.81,99.39 2340,106 C2359.77,137.15 2346.34,152.66 2340,189 C2327.05,263.15 2292.84,344.75 2271.98,389.95 " fill="none" id="YamlDeviceTemplateStorage-to-YamlGenericTemplateStorage" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2266.35,401.96,2272.5175,398.2234,2271.4405,391.0932,2265.273,394.8298,2266.35,401.96" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[6a60778ae5e9b4d437817f770540d276]
+link YamlDeviceTemplateStorage to DeviceTemplateTypeNote--><g id="link_YamlDeviceTemplateStorage_DeviceTemplateTypeNote"><path codeLine="11" d="M2243.88,89.15 C2233.83,110.07 2219.44,140.02 2211.61,156.33 " fill="none" id="YamlDeviceTemplateStorage-DeviceTemplateTypeNote" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/></g><!--MD5=[410bb39baeaa5f964ff5c26539504374]
+link DeviceTemplateTypeNote to YamlGenericTemplateStorage--><g id="link_DeviceTemplateTypeNote_YamlGenericTemplateStorage"><path codeLine="12" d="M2208.23,181.62 C2215.54,219.66 2238.9,341.19 2249.58,396.78 " fill="none" id="DeviceTemplateTypeNote-to-YamlGenericTemplateStorage" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="2250.57,401.94,2252.7974,392.3463,2249.6252,397.0301,2244.9415,393.8579,2250.57,401.94" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[1f15978b83ef8b61c74759a4371fd214]
+link DeviceTemplateTypeNote to DeviceTemplate--><g id="link_DeviceTemplateTypeNote_DeviceTemplate"><path codeLine="13" d="M2089.76,176.8 C1822.86,192.66 1185.59,232.04 1142,249 C1136.02,251.33 1130.08,253.87 1124.18,256.6 " fill="none" id="DeviceTemplateTypeNote-DeviceTemplate" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/></g><!--MD5=[fbb5b3a77d6aedee716a61eb73a87ad3]
+@startuml
+
+!include YamlGenericTemplateStorage.puml
+!include ../entities/DeviceTemplate.puml
+
+package infrastructure {
+    note "TemplateType is DeviceTemplate" as DeviceTemplateTypeNote
+
+    class YamlDeviceTemplateStorage
+
+    YamlDeviceTemplateStorage - -* YamlGenericTemplateStorage
+    YamlDeviceTemplateStorage .down. DeviceTemplateTypeNote
+    YamlGenericTemplateStorage <.up. DeviceTemplateTypeNote
+    DeviceTemplateTypeNote .. DeviceTemplate
+}
+
+@enduml
+
+@startuml
+
+
+package app {
+    interface IGenericTemplateStorage<TemplateType> {
+        +GetByName(ctx context.Context, string name) (TemplateType, error)
+        - -
+        +GetList(ctx context.Context, orderBy string, orderDirection string, page int, size int, queryBuilder interfaces.IQueryBuilder) ([]TemplateType, error)
+        - -
+        +Count(ctx context.Context, queryBuilder interfaces.IQueryBuilder) (int64, error)
+        - -
+        +NewQueryBuilder(ctx context.Context) interfaces.IQueryBuilder
+    }
+}
+
+
+package infrastructure {
+    class YamlGenericTemplateStorage<TemplateType>
+
+    YamlGenericTemplateStorage .down.|> IGenericTemplateStorage
+}
+
+
+package domain {
+    class DeviceTemplateNetworkInterface {
+        +Name string
+        - -
+        +NetBoot boolean
+        - -
+        +POEIn boolean
+        - -
+        +Management boolean
+    }
+    note right of DeviceTemplateNetworkInterface::Name
+      This field is unique within device template network interfaces
+    end note
+
+    note right of DeviceTemplateNetworkInterface::POEIn
+      Only one network interface can be mark as POEIn
+    end note
+
+    note right of DeviceTemplateNetworkInterface::Management
+      Only one network interface can be mark as management
+    end note
+}
+
+
+package domain {
+    class DeviceTemplateControlDesc {
+        +Emergency string
+        - -
+        +Power string
+        - -
+        +NextBoot string
+    }
+
+    note right of DeviceTemplateControlDesc::Emergency
+    How to control device power in case of emergency. As example: POE(For Rpi4), IPMI, ILO or PowerSwitch
+    end note
+
+    note right of DeviceTemplateControlDesc::Power
+    How to control device power. As example: POE(For Rpi4), IPMI, ILO or PowerSwitch
+    end note
+
+    note right of DeviceTemplateControlDesc::NextBoot
+    How to change next boot device. As example: IPMI, ILO or NONE.
+    For example NONE is used for Rpi4, we control next boot by u-boot files in boot stages.
+    end note
+}
+
+
+package domain {
+    class BootStageTemplate {
+        +Name string
+        - -
+        +Description string
+        - -
+        +Action string
+        - -
+        +Files []BootStageTemplateFile
+    }
+
+    class BootStageTemplateFile {
+        +ExistingFileName string
+        - -
+        +VirtualFileName
+    }
+
+    BootStageTemplate::Files - - BootStageTemplateFile
+
+    note top of BootStageTemplate
+    Boot stage can be overwritten in runtime by device entity or by device rent entity.
+    BootStageTemplate converts to BootStage for device, then we create device entity.
+    end note
+
+    note left of BootStageTemplate::Action
+    Action for this boot stage.
+    Can be: File, CheckPowerSwitch, EmergencyPowerOff,
+    PowerOff, EmergencyPowerOn, PowerOn,
+    CheckManagement
+    For File action:
+        A stage can only be marked complete if all files have
+        been downloaded by the device via TFTP or DHCP,
+        after which the next step can be loaded.
+    end note
+
+    note left of BootStageTemplateFile::ExistingFileName
+    Existing file name is a real full file path with name on the disk.
+    This path is relative from app directory
+    end note
+
+    note left of BootStageTemplateFile::VirtualFileName
+    Virtual file name is relative from /<mac-address>/
+    end note
+}
+
+
+package domain {
+    class DeviceTemplate {
+        +Name string
+        ..
+        +Unique within the device templates
+        - -
+        +Model
+        - -
+        +Manufacturer
+        - -
+        +Description string
+        - -
+        +CPUCount int
+        - -
+        +CPUModel string
+        - -
+        +RAM int
+        - -
+        +NetworkInterfaces []DeviceTemplateNetworkInterface
+        - -
+        +Control DeviceTemplateControlDesc
+        - -
+        +DiskBootStages []BootStageTemplate
+        - -
+        +NetBootStages []BootStageTemplate
+        - -
+        +USBBootStages []BootStageTemplate
+    }
+
+
+    DeviceTemplateNetworkInterface -[hidden]down-DeviceTemplateControlDesc
+    DeviceTemplate::NetworkInterfaces -right- DeviceTemplateNetworkInterface
+    DeviceTemplate::Control -right- DeviceTemplateControlDesc
+    DeviceTemplate::DiskBootStages -left- BootStageTemplate
+    DeviceTemplate::NetBootStages - - BootStageTemplate
+    DeviceTemplate::USBBootStages - - BootStageTemplate
+}
+
+
+package infrastructure {
+    note "TemplateType is DeviceTemplate" as DeviceTemplateTypeNote
+
+    class YamlDeviceTemplateStorage
+
+    YamlDeviceTemplateStorage - -* YamlGenericTemplateStorage
+    YamlDeviceTemplateStorage .down. DeviceTemplateTypeNote
+    YamlGenericTemplateStorage <.up. DeviceTemplateTypeNote
+    DeviceTemplateTypeNote .. DeviceTemplate
+}
+
+@enduml
+
+PlantUML version 1.2022.6(Tue Jun 21 17:34:49 EGST 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

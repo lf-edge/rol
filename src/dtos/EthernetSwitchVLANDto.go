@@ -4,7 +4,7 @@ import "github.com/google/uuid"
 
 //EthernetSwitchVLANDto ethernet switch VLAN response dto
 type EthernetSwitchVLANDto struct {
-	BaseDto
+	BaseDto[uuid.UUID]
 	EthernetSwitchVLANBaseDto
 	//VlanID VLAN ID
 	VlanID int

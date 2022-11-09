@@ -1,8 +1,14 @@
 @startuml IEntityModel
 
 package app {
-    interface IEntityModel {
-        +GetID() uuid.UUID
+    interface IEntityModel<IDType> {
+        +GetID() IDType
+        --
+        +GetCreatedAt() time.Time
+        --
+        +GetUpdatedAt() *time.Time
+        --
+        +GetDeletedAt() *time.Time
     }
 }
 

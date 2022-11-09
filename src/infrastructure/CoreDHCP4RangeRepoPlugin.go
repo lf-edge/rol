@@ -21,10 +21,10 @@ import (
 )
 
 var log = logger.GetLogger("plugins/range_repo")
-var leasesRepo interfaces.IGenericRepository[domain.DHCP4Lease]
+var leasesRepo interfaces.IGenericRepository[uuid.UUID, domain.DHCP4Lease]
 
 //NewRangeRepositoryPlugin constructor for range plugin that integrated with leases repository
-func NewRangeRepositoryPlugin(repo interfaces.IGenericRepository[domain.DHCP4Lease]) *plugins.Plugin {
+func NewRangeRepositoryPlugin(repo interfaces.IGenericRepository[uuid.UUID, domain.DHCP4Lease]) *plugins.Plugin {
 	leasesRepo = repo
 	return &plugins.Plugin{
 		Name:   "range_repo",

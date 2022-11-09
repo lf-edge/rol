@@ -2,7 +2,8 @@ package domain
 
 //DHCP4Config configuration for dhcp v4 server
 type DHCP4Config struct {
-	Entity
+	//EntityUUID - nested base entity where ID type is uuid.UUID
+	EntityUUID
 	Interface string `gorm:"type:varchar(64);index"`
 	Gateway   string `gorm:"type:varchar(15)"`
 	NTP       string `gorm:"type:varchar(15)"`

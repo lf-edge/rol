@@ -12,8 +12,8 @@ import (
 
 //DHCP4ServerService service structure for managing DHCP servers
 type DHCP4ServerService struct {
-	configsRepo interfaces.IGenericRepository[domain.DHCP4Config]
-	leasesRepo  interfaces.IGenericRepository[domain.DHCP4Lease]
+	configsRepo interfaces.IGenericRepository[uuid.UUID, domain.DHCP4Config]
+	leasesRepo  interfaces.IGenericRepository[uuid.UUID, domain.DHCP4Lease]
 	factory     interfaces.IDHCP4ServerFactory
 	servers     map[uuid.UUID]interfaces.IDHCP4Server
 }
@@ -26,8 +26,8 @@ type DHCP4ServerService struct {
 //Return:
 //	*DHCPServerService - New DHCP servers service
 func NewDHCP4ServerService(
-	configs interfaces.IGenericRepository[domain.DHCP4Config],
-	leases interfaces.IGenericRepository[domain.DHCP4Lease],
+	configs interfaces.IGenericRepository[uuid.UUID, domain.DHCP4Config],
+	leases interfaces.IGenericRepository[uuid.UUID, domain.DHCP4Lease],
 	dhcp4factory interfaces.IDHCP4ServerFactory,
 ) *DHCP4ServerService {
 	return &DHCP4ServerService{

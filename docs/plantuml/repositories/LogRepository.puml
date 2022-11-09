@@ -8,7 +8,7 @@ package infrastructure {
 
     LogRepository -down-* GormGenericRepository
 
-    note "EntityType is Log" as LogTypeNote
+    note "EntityType is Log \nIDType is uuid.UUID" as LogTypeNote
 
     LogRepository .down. LogTypeNote
     GormGenericRepository <.up. LogTypeNote

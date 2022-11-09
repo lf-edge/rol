@@ -1,6 +1,7 @@
 package infrastructure
 
 import (
+	"github.com/google/uuid"
 	"github.com/sirupsen/logrus"
 	"rol/app/interfaces"
 	"rol/domain"
@@ -8,7 +9,7 @@ import (
 
 //HTTPLogRepository repository for HTTPLog entity
 type HTTPLogRepository struct {
-	*GormGenericRepository[domain.HTTPLog]
+	*GormGenericRepository[uuid.UUID, domain.HTTPLog]
 }
 
 //NewHTTPLogRepository constructor for domain.HTTPLog GORM generic repository
@@ -17,9 +18,9 @@ type HTTPLogRepository struct {
 //	log - logrus logger
 //Return
 //	generic.IGenericRepository[domain.HTTPLog] - new http log repository
-func NewHTTPLogRepository(dbShell *GormFxShell, log *logrus.Logger) interfaces.IGenericRepository[domain.HTTPLog] {
+func NewHTTPLogRepository(dbShell *GormFxShell, log *logrus.Logger) interfaces.IGenericRepository[uuid.UUID, domain.HTTPLog] {
 	db := dbShell.GetDb()
-	genericRepository := NewGormGenericRepository[domain.HTTPLog](db, log)
+	genericRepository := NewGormGenericRepository[uuid.UUID, domain.HTTPLog](db, log)
 	return HTTPLogRepository{
 		genericRepository,
 	}

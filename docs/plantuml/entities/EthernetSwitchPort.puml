@@ -15,7 +15,7 @@ package domain {
         +PVID int
     }
 
-    EthernetSwitchPort -down-* Entity
+    EthernetSwitchPort -down-* EntityUUID
 
     note left of EthernetSwitchPort::POEType
       POE port type

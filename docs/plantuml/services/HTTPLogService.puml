@@ -5,7 +5,7 @@
 
 package app {
     class HTTPLogService {
-        -repository IGenericRepository<HTTPLog>
+        -repository IGenericRepository[uuid.UUID, HTTPLog]
         --
         +GetList(ctx context.Context, search string, orderBy string, orderDirection string, page int, pageSize int) (dtos.PaginatedItemsDto[dtos.HTTPLogDto], error)
         --

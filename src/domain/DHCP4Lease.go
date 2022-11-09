@@ -7,7 +7,8 @@ import (
 
 //DHCP4Lease information about DHCP v4 lease
 type DHCP4Lease struct {
-	Entity
+	//EntityUUID - nested base entity where ID type is uuid.UUID
+	EntityUUID
 	IP            string `gorm:"type:varchar(15);index"`
 	MAC           string `gorm:"type:varchar(17);index"`
 	Expires       time.Time

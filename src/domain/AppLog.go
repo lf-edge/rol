@@ -6,8 +6,8 @@ import (
 
 //AppLog App log entity
 type AppLog struct {
-	//	Entity - nested base entity
-	Entity
+	//EntityUUID - nested base entity where ID type is uuid.UUID
+	EntityUUID
 	//	ActionID - http request id, empty if the log is initiated inside the application
 	ActionID uuid.UUID `gorm:"index"`
 	//	Level - level of the log

@@ -2,16 +2,14 @@ package dtos
 
 import (
 	"time"
-
-	"github.com/google/uuid"
 )
 
 //BaseDto base dto type
-type BaseDto struct {
+type BaseDto[IDType comparable] struct {
 	//	ID - unique identifier
-	ID uuid.UUID
+	ID IDType
 	//	CreatedAt - entity create time
 	CreatedAt time.Time
 	//	UpdatedAt - entity update time
-	UpdatedAt time.Time
+	UpdatedAt *time.Time
 }

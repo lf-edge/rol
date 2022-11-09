@@ -133,7 +133,7 @@ func (e *EthernetSwitchService) GetVLANByID(ctx context.Context, switchID, id uu
 	}
 	queryBuilder := e.vlanRepo.NewQueryBuilder(ctx)
 	queryBuilder.Where("EthernetSwitchID", "==", switchID)
-	return GetByID[dtos.EthernetSwitchVLANDto, domain.EthernetSwitchVLAN](ctx, e.vlanRepo, id, queryBuilder)
+	return GetByID[dtos.EthernetSwitchVLANDto, uuid.UUID, domain.EthernetSwitchVLAN](ctx, e.vlanRepo, id, queryBuilder)
 }
 
 //GetVLANs Get list of ethernet switch VLANs with filtering and pagination

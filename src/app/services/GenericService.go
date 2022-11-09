@@ -2,7 +2,6 @@ package services
 
 import (
 	"context"
-	"github.com/google/uuid"
 	"rol/app/errors"
 	"rol/app/interfaces"
 	"rol/app/mappers"
@@ -20,8 +19,8 @@ import (
 //Return:
 //	DtoType - created entity dto
 //	error - if an error occurs, otherwise nil
-func Create[DtoType any, EntityType interfaces.IEntityModel, CreateDtoType any](ctx context.Context,
-	repo interfaces.IGenericRepository[EntityType], createDto CreateDtoType) (DtoType, error) {
+func Create[DtoType any, EntityIDType comparable, EntityType interfaces.IEntityModel[EntityIDType], CreateDtoType any](ctx context.Context,
+	repo interfaces.IGenericRepository[EntityIDType, EntityType], createDto CreateDtoType) (DtoType, error) {
 	entity := new(EntityType)
 	outDto := new(DtoType)
 	err := mappers.MapDtoToEntity(createDto, entity)
@@ -40,7 +39,11 @@ func Create[DtoType any, EntityType interfaces.IEntityModel, CreateDtoType any](
 }
 
 //AddSearchInAllFields add search in all field to query builder
-func AddSearchInAllFields[EntityType interfaces.IEntityModel](search string, repo interfaces.IGenericRepository[EntityType], queryBuilder interfaces.IQueryBuilder) {
+func AddSearchInAllFields[EntityIDType comparable, EntityType interfaces.IEntityModel[EntityIDType]](
+	search string,
+	repo interfaces.IGenericRepository[EntityIDType, EntityType],
+	queryBuilder interfaces.IQueryBuilder,
+) {
 	entityModel := new(EntityType)
 	stringFieldNames := &[]string{}
 	utils.GetStringFieldsNames(entityModel, stringFieldNames)
@@ -68,7 +71,19 @@ func AddSearchInAllFields[EntityType interfaces.IEntityModel](search string, rep
 //Return:
 //	*DtoType - pointer to dto
 //	error - if an error occurs, otherwise nil
-func GetByID[DtoType any, EntityType interfaces.IEntityModel](ctx context.Context, repo interfaces.IGenericRepository[EntityType], id uuid.UUID, queryBuilder interfaces.IQueryBuilder) (DtoType, error) {
+func GetByID[
+DtoType any,
+EntityIDType comparable,
+EntityType interfaces.IEntityModel[EntityIDType],
+](
+	ctx context.Context,
+	repo interfaces.IGenericRepository[EntityIDType, EntityType],
+	id EntityIDType,
+	queryBuilder interfaces.IQueryBuilder,
+) (
+	DtoType,
+	error,
+) {
 	dto := new(DtoType)
 	entity, err := repo.GetByIDExtended(ctx, id, queryBuilder)
 	if err != nil {
@@ -92,7 +107,21 @@ func GetByID[DtoType any, EntityType interfaces.IEntityModel](ctx context.Contex
 //Return:
 //	DtoType - updated entity dto
 //	error - if an error occurs, otherwise nil
-func Update[DtoType, UpdateDtoType any, EntityType interfaces.IEntityModel](ctx context.Context, repo interfaces.IGenericRepository[EntityType], updateDto UpdateDtoType, id uuid.UUID, queryBuilder interfaces.IQueryBuilder) (DtoType, error) {
+func Update[
+DtoType,
+UpdateDtoType any,
+EntityIDType comparable,
+EntityType interfaces.IEntityModel[EntityIDType],
+](
+	ctx context.Context,
+	repo interfaces.IGenericRepository[EntityIDType, EntityType],
+	updateDto UpdateDtoType,
+	id EntityIDType,
+	queryBuilder interfaces.IQueryBuilder,
+) (
+	DtoType,
+	error,
+) {
 	entity, err := repo.GetByIDExtended(ctx, id, queryBuilder)
 	if err != nil {
 		return *new(DtoType), err
@@ -126,8 +155,8 @@ func Update[DtoType, UpdateDtoType any, EntityType interfaces.IEntityModel](ctx 
 //Return:
 //	dtos.PaginatedItemsDto[DtoType] - pointer to paginated list
 //	error - if an error occurs, otherwise nil
-func GetList[DtoType any, EntityType interfaces.IEntityModel](ctx context.Context,
-	repo interfaces.IGenericRepository[EntityType], search, orderBy, orderDirection string,
+func GetList[DtoType any, EntityIDType comparable, EntityType interfaces.IEntityModel[EntityIDType]](ctx context.Context,
+	repo interfaces.IGenericRepository[EntityIDType, EntityType], search, orderBy, orderDirection string,
 	page, pageSize int) (dtos.PaginatedItemsDto[DtoType], error) {
 	searchQueryBuilder := repo.NewQueryBuilder(ctx)
 	if len(search) > 3 {
@@ -149,9 +178,22 @@ func GetList[DtoType any, EntityType interfaces.IEntityModel](ctx context.Contex
 //Return:
 //	dtos.PaginatedItemsDto[DtoType] - pointer to paginated list
 //	error - if an error occurs, otherwise nil
-func GetListExtended[DtoType any, EntityType interfaces.IEntityModel](ctx context.Context,
-	repo interfaces.IGenericRepository[EntityType], queryBuilder interfaces.IQueryBuilder, orderBy, orderDirection string,
-	page, pageSize int) (dtos.PaginatedItemsDto[DtoType], error) {
+func GetListExtended[
+DtoType any,
+EntityIDType comparable,
+EntityType interfaces.IEntityModel[EntityIDType],
+](
+	ctx context.Context,
+	repo interfaces.IGenericRepository[EntityIDType, EntityType],
+	queryBuilder interfaces.IQueryBuilder,
+	orderBy,
+	orderDirection string,
+	page,
+	pageSize int,
+) (
+	dtos.PaginatedItemsDto[DtoType],
+	error,
+) {
 	paginatedItemsDto := dtos.NewEmptyPaginatedItemsDto[DtoType]()
 	pageFinal := page
 	pageSizeFinal := pageSize

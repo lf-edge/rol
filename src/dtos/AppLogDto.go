@@ -6,7 +6,7 @@ import (
 
 //AppLogDto dto for app log
 type AppLogDto struct {
-	BaseDto
+	BaseDto[uuid.UUID]
 	ActionID uuid.UUID `gorm:"index"`
 	//	Level - level of the log
 	Level string

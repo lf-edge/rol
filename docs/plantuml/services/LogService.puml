@@ -5,7 +5,7 @@
 
 package app {
     class LogService {
-        -repository IGenericRepository
+        -repository IGenericRepository[uuid.UUID, domain.AppLog]
         --
         +GetList(ctx context.Context, search string, orderBy string, orderDirection string, page int, pageSize int) (dtos.PaginatedItemsDto[dtos.AppLogDto], error)
         --

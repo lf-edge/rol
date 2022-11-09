@@ -6,7 +6,7 @@
 package dtos {
     class EthernetSwitchPortDto
 
-    EthernetSwitchPortDto --* BaseDto
+    EthernetSwitchPortDto --* BaseDto  : IDType is uuid.UUID
     EthernetSwitchPortDto --* EthernetSwitchPortBaseDto
 }
 

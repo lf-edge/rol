@@ -12,7 +12,7 @@ import (
 
 //HTTPLogService service structure for HTTPLog entity
 type HTTPLogService struct {
-	repository interfaces.IGenericRepository[domain.HTTPLog]
+	repository interfaces.IGenericRepository[uuid.UUID, domain.HTTPLog]
 	logger     *logrus.Logger
 }
 
@@ -22,7 +22,7 @@ type HTTPLogService struct {
 //	log - logrus logger
 //Return
 //	New http log service
-func NewHTTPLogService(repo interfaces.IGenericRepository[domain.HTTPLog], log *logrus.Logger) (*HTTPLogService, error) {
+func NewHTTPLogService(repo interfaces.IGenericRepository[uuid.UUID, domain.HTTPLog], log *logrus.Logger) (*HTTPLogService, error) {
 	return &HTTPLogService{
 		repository: repo,
 		logger:     log,

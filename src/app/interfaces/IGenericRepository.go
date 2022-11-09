@@ -2,11 +2,10 @@ package interfaces
 
 import (
 	"context"
-	"github.com/google/uuid"
 )
 
 //IGenericRepository generic repository interface for IEntityModel
-type IGenericRepository[EntityType IEntityModel] interface {
+type IGenericRepository[EntityIDType comparable, EntityType IEntityModel[EntityIDType]] interface {
 	//GetList
 	//	Get list of elements with filtering and pagination.
 	//Params
@@ -28,7 +27,17 @@ type IGenericRepository[EntityType IEntityModel] interface {
 	//Return
 	//	int64 - count of entities
 	//	error - if an error occurred, otherwise nil
-	Count(ctx context.Context, queryBuilder IQueryBuilder) (int64, error)
+	Count(ctx context.Context, queryBuilder IQueryBuilder) (int, error)
+	//IsExist checks that entity is existed in repository
+	//
+	//Params
+	//	ctx - context is used only for logging
+	//	id - id of the entity
+	//	queryBuilder - query builder with addition conditions, can be nil
+	//Return
+	//	bool - true if existed, otherwise false
+	//	error - if an error occurs, otherwise nil
+	IsExist(ctx context.Context, id EntityIDType, queryBuilder IQueryBuilder) (bool, error)
 	//NewQueryBuilder
 	//	Get QueryBuilder
 	//Params
@@ -44,7 +53,7 @@ type IGenericRepository[EntityType IEntityModel] interface {
 	//Return
 	//  EntityType - entity from repository
 	//	error - if an error occurred, otherwise nil
-	GetByID(ctx context.Context, id uuid.UUID) (EntityType, error)
+	GetByID(ctx context.Context, id EntityIDType) (EntityType, error)
 	//GetByIDExtended Get entity by ID and query from repository
 	//Params
 	//	ctx - context is used only for logging
@@ -53,7 +62,7 @@ type IGenericRepository[EntityType IEntityModel] interface {
 	//Return
 	//  EntityType - entity from repository
 	//	error - if an error occurs, otherwise nil
-	GetByIDExtended(ctx context.Context, id uuid.UUID, queryBuilder IQueryBuilder) (EntityType, error)
+	GetByIDExtended(ctx context.Context, id EntityIDType, queryBuilder IQueryBuilder) (EntityType, error)
 	//Update
 	//	Save the changes to the existing entity in the repository.
 	//Params
@@ -79,10 +88,18 @@ type IGenericRepository[EntityType IEntityModel] interface {
 	//  id - id of the entity for delete.
 	//Return
 	//	error - if an error occurred, otherwise nil
-	Delete(ctx context.Context, id uuid.UUID) error
-	//CloseDb
-	//	Closes current database connection
+	Delete(ctx context.Context, id EntityIDType) error
+	//DeleteAll entities matching the condition
+	//
+	//Params
+	//	ctx - context is used only for logging
+	//	queryBuilder - query builder with conditions
+	//Return
+	//	error - if an error occurs, otherwise nil
+	DeleteAll(ctx context.Context, queryBuilder IQueryBuilder) error
+	//Dispose releases all resources
+	//
 	//Return
 	//	error - if an error occurred, otherwise nil
-	CloseDb() error
+	Dispose() error
 }

@@ -16,11 +16,11 @@
 
 package app {
     class EthernetSwitchService {
-        -switchRepo interfaces.IGenericRepository[domain.EthernetSwitch]
+        -switchRepo interfaces.IGenericRepository[uuid.UUID, domain.EthernetSwitch]
         --
-        -portRepo interfaces.IGenericRepository[domain.EthernetSwitchPort]
+        -portRepo interfaces.IGenericRepository[uuid.UUID, domain.EthernetSwitchPort]
         --
-        -vlanRepo interfaces.IGenericRepository[domain.EthernetSwitchVLAN]
+        -vlanRepo interfaces.IGenericRepository[uuid.UUID, domain.EthernetSwitchVLAN]
         --
         -managers interfaces.IEthernetSwitchManagerProvider[domain.EthernetSwitchVLAN]
         --

@@ -8,7 +8,7 @@ package infrastructure {
     class EthernetSwitchManagerProvider {
         -managers map[uuid.UUID]interfaces.IEthernetSwitchManager
         --
-        -switchRepo interfaces.IGenericRepository[domain.EthernetSwitch]
+        -switchRepo interfaces.IGenericRepository[uuid.UUID, domain.EthernetSwitch]
     }
     EthernetSwitchManagerProvider --|> IEthernetSwitchManagerProvider
     EthernetSwitchManagerProvider::managers -- TPLinkEthernetSwitchManager

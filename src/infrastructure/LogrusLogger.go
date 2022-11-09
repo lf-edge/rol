@@ -1,6 +1,7 @@
 package infrastructure
 
 import (
+	"github.com/google/uuid"
 	"os"
 	"rol/app/errors"
 	"rol/app/interfaces"
@@ -29,7 +30,7 @@ func NewLogrusLogger(config *domain.AppConfig) (*logrus.Logger, error) {
 }
 
 //RegisterLogHooks registers logrus hooks which will duplicate all logs to database
-func RegisterLogHooks(logger *logrus.Logger, httpLogRepo interfaces.IGenericRepository[domain.HTTPLog], logRepo interfaces.IGenericRepository[domain.AppLog], config *domain.AppConfig) {
+func RegisterLogHooks(logger *logrus.Logger, httpLogRepo interfaces.IGenericRepository[uuid.UUID, domain.HTTPLog], logRepo interfaces.IGenericRepository[uuid.UUID, domain.AppLog], config *domain.AppConfig) {
 	if config.Logger.LogsToDatabase {
 		httpHook := NewHTTPHook(httpLogRepo)
 		appHook := NewAppHook(logRepo)

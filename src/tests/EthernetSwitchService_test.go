@@ -21,9 +21,9 @@ import (
 
 var (
 	ethSwitchService       *services.EthernetSwitchService
-	ethSwitchRepo          interfaces.IGenericRepository[domain.EthernetSwitch]
-	ethSwitchPortRepo      interfaces.IGenericRepository[domain.EthernetSwitchPort]
-	ethSwitchVlanRepo      interfaces.IGenericRepository[domain.EthernetSwitchVLAN]
+	ethSwitchRepo          interfaces.IGenericRepository[uuid.UUID, domain.EthernetSwitch]
+	ethSwitchPortRepo      interfaces.IGenericRepository[uuid.UUID, domain.EthernetSwitchPort]
+	ethSwitchVlanRepo      interfaces.IGenericRepository[uuid.UUID, domain.EthernetSwitchVLAN]
 	createdEthSwitchPortID uuid.UUID
 	ethSwitchID            uuid.UUID
 )
@@ -53,9 +53,9 @@ func Test_EthernetSwitchService_Prepare(t *testing.T) {
 	}
 
 	logger := logrus.New()
-	ethSwitchRepo = infrastructure.NewGormGenericRepository[domain.EthernetSwitch](testGenDb, logger)
-	ethSwitchPortRepo = infrastructure.NewGormGenericRepository[domain.EthernetSwitchPort](testGenDb, logger)
-	ethSwitchVlanRepo = infrastructure.NewGormGenericRepository[domain.EthernetSwitchVLAN](testGenDb, logger)
+	ethSwitchRepo = infrastructure.NewGormGenericRepository[uuid.UUID, domain.EthernetSwitch](testGenDb, logger)
+	ethSwitchPortRepo = infrastructure.NewGormGenericRepository[uuid.UUID, domain.EthernetSwitchPort](testGenDb, logger)
+	ethSwitchVlanRepo = infrastructure.NewGormGenericRepository[uuid.UUID, domain.EthernetSwitchVLAN](testGenDb, logger)
 	getter := infrastructure.NewEthernetSwitchManagerProvider(ethSwitchRepo)
 	ethSwitchService, err = services.NewEthernetSwitchService(ethSwitchRepo, ethSwitchPortRepo, ethSwitchVlanRepo, getter)
 	if err != nil {
@@ -422,10 +422,10 @@ func Test_EthernetSwitchService_Delete(t *testing.T) {
 }
 
 func Test_EthernetSwitchService_CloseConnectionAndRemoveDb(t *testing.T) {
-	if err := ethSwitchRepo.CloseDb(); err != nil {
+	if err := ethSwitchRepo.Dispose(); err != nil {
 		t.Errorf("close db failed:  %s", err)
 	}
-	if err := ethSwitchPortRepo.CloseDb(); err != nil {
+	if err := ethSwitchPortRepo.Dispose(); err != nil {
 		t.Errorf("close db failed:  %s", err)
 	}
 	if err := os.Remove("ethernetSwitchService_test.db"); err != nil {

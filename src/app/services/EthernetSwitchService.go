@@ -14,9 +14,9 @@ import (
 
 //EthernetSwitchService service structure for EthernetSwitch entity
 type EthernetSwitchService struct {
-	switchRepo    interfaces.IGenericRepository[domain.EthernetSwitch]
-	portRepo      interfaces.IGenericRepository[domain.EthernetSwitchPort]
-	vlanRepo      interfaces.IGenericRepository[domain.EthernetSwitchVLAN]
+	switchRepo    interfaces.IGenericRepository[uuid.UUID, domain.EthernetSwitch]
+	portRepo      interfaces.IGenericRepository[uuid.UUID, domain.EthernetSwitchPort]
+	vlanRepo      interfaces.IGenericRepository[uuid.UUID, domain.EthernetSwitchVLAN]
 	supportedList *[]domain.EthernetSwitchModel
 	managers      interfaces.IEthernetSwitchManagerProvider
 }
@@ -27,9 +27,9 @@ type EthernetSwitchService struct {
 //	log - logrus logger
 //Return
 //	New ethernet switch service
-func NewEthernetSwitchService(switchRepo interfaces.IGenericRepository[domain.EthernetSwitch],
-	portRepo interfaces.IGenericRepository[domain.EthernetSwitchPort],
-	vlanRepo interfaces.IGenericRepository[domain.EthernetSwitchVLAN],
+func NewEthernetSwitchService(switchRepo interfaces.IGenericRepository[uuid.UUID, domain.EthernetSwitch],
+	portRepo interfaces.IGenericRepository[uuid.UUID, domain.EthernetSwitchPort],
+	vlanRepo interfaces.IGenericRepository[uuid.UUID, domain.EthernetSwitchVLAN],
 	managersProvider interfaces.IEthernetSwitchManagerProvider) (*EthernetSwitchService, error) {
 	ethernetSwitchService := &EthernetSwitchService{
 		switchRepo:    switchRepo,

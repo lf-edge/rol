@@ -21,9 +21,9 @@ import (
 
 type tEthSwitchService struct {
 	service    *services.EthernetSwitchService
-	portRepo   interfaces.IGenericRepository[domain.EthernetSwitchPort]
-	vlanRepo   interfaces.IGenericRepository[domain.EthernetSwitchVLAN]
-	switchRepo interfaces.IGenericRepository[domain.EthernetSwitch]
+	portRepo   interfaces.IGenericRepository[uuid.UUID, domain.EthernetSwitchPort]
+	vlanRepo   interfaces.IGenericRepository[uuid.UUID, domain.EthernetSwitchVLAN]
+	switchRepo interfaces.IGenericRepository[uuid.UUID, domain.EthernetSwitch]
 	dbPath     string
 	portID     uuid.UUID
 	switchID   uuid.UUID
@@ -287,13 +287,13 @@ func Test_EthernetSwitchServiceVLAN_GetList(t *testing.T) {
 }
 
 func Test_EthernetSwitchServiceVLAN_RemoveDb(t *testing.T) {
-	if err := ethSwitchServiceTester.switchRepo.CloseDb(); err != nil {
+	if err := ethSwitchServiceTester.switchRepo.Dispose(); err != nil {
 		t.Errorf("close db failed:  %s", err)
 	}
-	if err := ethSwitchServiceTester.portRepo.CloseDb(); err != nil {
+	if err := ethSwitchServiceTester.portRepo.Dispose(); err != nil {
 		t.Errorf("close db failed:  %s", err)
 	}
-	if err := ethSwitchServiceTester.vlanRepo.CloseDb(); err != nil {
+	if err := ethSwitchServiceTester.vlanRepo.Dispose(); err != nil {
 		t.Errorf("close db failed:  %s", err)
 	}
 	if err := os.Remove(ethSwitchServiceTester.dbPath); err != nil {

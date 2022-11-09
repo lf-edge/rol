@@ -6,8 +6,8 @@ import (
 
 //HTTPLog http log entity
 type HTTPLog struct {
-	//	Entity - nested base entity
-	Entity
+	//EntityUUID - nested base entity where ID type is uuid.UUID
+	EntityUUID
 	//	HTTPMethod - http method
 	HTTPMethod string
 	//	Domain - domain that processed the request

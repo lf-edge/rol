@@ -1,6 +1,7 @@
 package infrastructure
 
 import (
+	"github.com/google/uuid"
 	"github.com/sirupsen/logrus"
 	"gorm.io/gorm"
 	"rol/app/interfaces"
@@ -9,7 +10,7 @@ import (
 
 //EthernetSwitchRepository repository for EthernetSwitch entity
 type EthernetSwitchRepository struct {
-	*GormGenericRepository[domain.EthernetSwitch]
+	*GormGenericRepository[uuid.UUID, domain.EthernetSwitch]
 }
 
 //NewEthernetSwitchRepository constructor for domain.EthernetSwitch GORM generic repository
@@ -18,8 +19,8 @@ type EthernetSwitchRepository struct {
 //	log - logrus logger
 //Return
 //	generic.IGenericRepository[domain.EthernetSwitch] - new ethernet switch repository
-func NewEthernetSwitchRepository(db *gorm.DB, log *logrus.Logger) interfaces.IGenericRepository[domain.EthernetSwitch] {
-	genericRepository := NewGormGenericRepository[domain.EthernetSwitch](db, log)
+func NewEthernetSwitchRepository(db *gorm.DB, log *logrus.Logger) interfaces.IGenericRepository[uuid.UUID, domain.EthernetSwitch] {
+	genericRepository := NewGormGenericRepository[uuid.UUID, domain.EthernetSwitch](db, log)
 	return EthernetSwitchRepository{
 		genericRepository,
 	}

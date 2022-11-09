@@ -11,7 +11,7 @@ import (
 
 //AppLogService service structure for AppLog entity
 type AppLogService struct {
-	repository interfaces.IGenericRepository[domain.AppLog]
+	repository interfaces.IGenericRepository[uuid.UUID, domain.AppLog]
 	logger     *logrus.Logger
 }
 
@@ -23,7 +23,7 @@ type AppLogService struct {
 //Return:
 //	*AppLogService - new app log service
 //	error - if an error occurs, otherwise nil
-func NewAppLogService(repo interfaces.IGenericRepository[domain.AppLog], log *logrus.Logger) (*AppLogService, error) {
+func NewAppLogService(repo interfaces.IGenericRepository[uuid.UUID, domain.AppLog], log *logrus.Logger) (*AppLogService, error) {
 	return &AppLogService{
 		repository: repo,
 		logger:     log,

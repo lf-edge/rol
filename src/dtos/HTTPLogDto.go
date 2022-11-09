@@ -1,8 +1,10 @@
 package dtos
 
+import "github.com/google/uuid"
+
 //HTTPLogDto dto for http log
 type HTTPLogDto struct {
-	BaseDto
+	BaseDto[uuid.UUID]
 	//	HTTPMethod - http method
 	HTTPMethod string
 	//	Domain - domain that processed the request

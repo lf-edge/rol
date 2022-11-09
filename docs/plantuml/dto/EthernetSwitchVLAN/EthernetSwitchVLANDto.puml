@@ -11,7 +11,7 @@ package dtos {
     }
 
     EthernetSwitchVLANDto --* EthernetSwitchVLANBaseDto
-    EthernetSwitchVLANDto --* BaseDto
+    EthernetSwitchVLANDto --* BaseDto  : IDType is uuid.UUID
 }
 
 @enduml

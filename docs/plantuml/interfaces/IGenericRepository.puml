@@ -1,22 +1,26 @@
 @startuml IGenericRepository
 
 package app {
-    interface IGenericRepository<EntityType> {
+    interface IGenericRepository<IDType, interfaces.IEntityModel[IDType]> {
         +GetList(ctx context.Context, orderBy string, orderDirection string, page int, size int, queryBuilder interfaces.IQueryBuilder) ([]EntityType, error)
         --
-        +Count(ctx context.Context, queryBuilder interfaces.IQueryBuilder) (int64, error)
+        +Count(ctx context.Context, queryBuilder interfaces.IQueryBuilder) (int, error)
+        --
+        +IsExist(ctx context.Context, id IDType, queryBuilder interfaces.IQueryBuilder) (bool, error)
         --
         +NewQueryBuilder(ctx context.Context) interfaces.IQueryBuilder
         --
-        +GetById(ctx context.Context, id uuid.UUID) (EntityType, error)
+        +GetById(ctx context.Context, id IDType) (EntityType, error)
         --
         +Update(ctx context.Context, entity EntityType) (EntityType, error)
         --
         +Insert(ctx context.Context, entity EntityType) (EntityType, error)
         --
-        +Delete(ctx context.Context, id uuid.UUID) error
+        +Delete(ctx context.Context, id IDType) error
         --
-        +CloseDb() error
+        +DeleteAll(ctx context.Context, queryBuilder interfaces.IQueryBuilder) error
+        --
+        +Dispose() error
     }
     note left of IGenericRepository::GetList
       Get list of elements with filtering and pagination
@@ -24,6 +28,10 @@ package app {
 
     note left of IGenericRepository::Count
       Get count of entities with filtering
+    end note
+
+    note left of IGenericRepository::IsExist
+      Checks that entity with selected conditions is existed
     end note
 
     note left of IGenericRepository::NewQueryBuilder
@@ -43,11 +51,15 @@ package app {
     end note
 
     note left of IGenericRepository::Delete
-      Delete entity from the database
+      Delete entity from repository
     end note
 
-    note left of IGenericRepository::CloseDb
-      Closes current database connection
+    note left of IGenericRepository::DeleteAll
+      Delete entities with selected conditions
+    end note
+
+    note left of IGenericRepository::Dispose
+      Dispose all allocated data
     end note
 }
 

@@ -1,6 +1,7 @@
 package infrastructure
 
 import (
+	"github.com/google/uuid"
 	"rol/app/errors"
 	"rol/app/interfaces"
 	"rol/domain"
@@ -8,12 +9,12 @@ import (
 
 //CoreDHCP4ServerFactory fabric for creating dhcp v4 servers
 type CoreDHCP4ServerFactory struct {
-	leasesRepo interfaces.IGenericRepository[domain.DHCP4Lease]
+	leasesRepo interfaces.IGenericRepository[uuid.UUID, domain.DHCP4Lease]
 }
 
 //NewCoreDHCP4ServerFactory constructor for CoreDHCP v4 servers manager
 func NewCoreDHCP4ServerFactory(
-	leasesRepo interfaces.IGenericRepository[domain.DHCP4Lease],
+	leasesRepo interfaces.IGenericRepository[uuid.UUID, domain.DHCP4Lease],
 ) interfaces.IDHCP4ServerFactory {
 	return &CoreDHCP4ServerFactory{
 		leasesRepo: leasesRepo,

@@ -22,7 +22,7 @@ package domain {
         --
         +NTP string
     }
-    DHCP4Config -down-* Entity
+    DHCP4Config -down-* EntityUUID
 
     note left of DHCP4Config::Range
     Start IP and End IP, that separated by "-"

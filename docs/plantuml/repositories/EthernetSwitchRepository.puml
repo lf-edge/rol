@@ -9,7 +9,7 @@ package infrastructure {
     EthernetSwitchRepository -down-* GormGenericRepository
 
 
-    note "EntityType is EthernetSwitch" as EthernetSwitchTypeNote
+    note "EntityType is EthernetSwitch \nIDType is uuid.UUID" as EthernetSwitchTypeNote
 
     EthernetSwitchRepository .down. EthernetSwitchTypeNote
     GormGenericRepository <.up. EthernetSwitchTypeNote

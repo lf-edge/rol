@@ -12,7 +12,7 @@ package dtos {
         --
         +Message string
     }
-    LogDto --* BaseDto
+    LogDto --* BaseDto : IDType is uuid.UUID
 }
 
 @enduml

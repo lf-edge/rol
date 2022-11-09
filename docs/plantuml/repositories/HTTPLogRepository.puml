@@ -8,7 +8,7 @@ package infrastructure {
 
     HTTPLogRepository -down-* GormGenericRepository
 
-    note "EntityType is HTTPLog" as HTTPLogTypeNote
+    note "EntityType is HTTPLog \nIDType is uuid.UUID" as HTTPLogTypeNote
 
     HTTPLogRepository .down. HTTPLogTypeNote
     GormGenericRepository <.up. HTTPLogTypeNote

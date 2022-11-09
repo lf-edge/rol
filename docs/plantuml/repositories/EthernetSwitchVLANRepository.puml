@@ -9,7 +9,7 @@ package infrastructure {
     EthernetSwitchVLANRepository -down-* GormGenericRepository
 
 
-    note "EntityType is EthernetSwitchVLAN" as EthernetSwitchVLANTypeNote
+    note "EntityType is EthernetSwitchVLAN \nIDType is uuid.UUID" as EthernetSwitchVLANTypeNote
 
     EthernetSwitchVLANRepository .down. EthernetSwitchVLANTypeNote
     GormGenericRepository <.up. EthernetSwitchVLANTypeNote

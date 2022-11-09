@@ -1,8 +1,8 @@
 @startuml BaseDto
 
 package dtos {
-    class BaseDto {
-        +ID uuid.UUID
+    class BaseDto<IDType> {
+        +ID IDType
         --
         +CreatedAt time.Time
         --

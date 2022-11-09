@@ -11,7 +11,7 @@ package dtos {
         +Expires time.Time
     }
 
-    DHCP4LeaseDto --* BaseDto
+    DHCP4LeaseDto --* BaseDto : IDType is uuid.UUID
 }
 
 @enduml

@@ -27,7 +27,7 @@ package dtos {
         +State string
     }
 
-    DHCP4ServerDto --* BaseDto
+    DHCP4ServerDto --* BaseDto  : IDType is uuid.UUID
 }
 
 @enduml

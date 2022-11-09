@@ -10,12 +10,12 @@ import (
 
 //EthernetSwitchManagerProvider struct for switch manager getter
 type EthernetSwitchManagerProvider struct {
-	switchRepo interfaces.IGenericRepository[domain.EthernetSwitch]
+	switchRepo interfaces.IGenericRepository[uuid.UUID, domain.EthernetSwitch]
 	managers   map[uuid.UUID]interfaces.IEthernetSwitchManager
 }
 
 //NewEthernetSwitchManagerProvider constructor for EthernetSwitchManagerProvider
-func NewEthernetSwitchManagerProvider(switchRepo interfaces.IGenericRepository[domain.EthernetSwitch]) interfaces.IEthernetSwitchManagerProvider {
+func NewEthernetSwitchManagerProvider(switchRepo interfaces.IGenericRepository[uuid.UUID, domain.EthernetSwitch]) interfaces.IEthernetSwitchManagerProvider {
 	return &EthernetSwitchManagerProvider{
 		managers:   make(map[uuid.UUID]interfaces.IEthernetSwitchManager),
 		switchRepo: switchRepo,

@@ -11,7 +11,7 @@ package domain {
         --
         +MAC string
     }
-    DHCP4Lease -down-* Entity
+    DHCP4Lease -down-* EntityUUID
 }
 
 @enduml

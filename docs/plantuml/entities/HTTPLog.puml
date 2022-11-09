@@ -30,7 +30,7 @@ package domain {
         --
         +CustomRequestHeadersInd string `gorm:"index"`
     }
-    HTTPLog -down-* Entity
+    HTTPLog -down-* EntityUUID
 }
 
 @enduml

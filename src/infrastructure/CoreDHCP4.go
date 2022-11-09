@@ -2,6 +2,7 @@ package infrastructure
 
 import (
 	"github.com/coredhcp/coredhcp/plugins"
+	"github.com/google/uuid"
 	pluginDNS "github.com/insei/coredhcp/plugins/dns"
 	pluginNetmask "github.com/insei/coredhcp/plugins/netmask"
 	pluginRouter "github.com/insei/coredhcp/plugins/router"
@@ -18,7 +19,7 @@ import (
 
 var pluginsInitialized = false
 
-func initializeCoreDHCPPlugins(leasesRepo interfaces.IGenericRepository[domain.DHCP4Lease]) error {
+func initializeCoreDHCPPlugins(leasesRepo interfaces.IGenericRepository[uuid.UUID, domain.DHCP4Lease]) error {
 	pluginsSlice := []*plugins.Plugin{
 		&pluginDNS.Plugin,
 		&pluginNetmask.Plugin,
@@ -43,7 +44,7 @@ type coreDHCP4Server struct {
 //NewCoreDHCP4Server constructor for core DHCP v4 server
 func NewCoreDHCP4Server(
 	dhcp4config domain.DHCP4Config,
-	leasesRepo interfaces.IGenericRepository[domain.DHCP4Lease],
+	leasesRepo interfaces.IGenericRepository[uuid.UUID, domain.DHCP4Lease],
 ) (interfaces.IDHCP4Server, error) {
 	if !pluginsInitialized {
 		err := initializeCoreDHCPPlugins(leasesRepo)

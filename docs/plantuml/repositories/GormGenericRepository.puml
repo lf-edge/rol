@@ -3,7 +3,7 @@
 !include ../interfaces/IGenericRepository.puml
 
 package infrastructure {
-    class GormGenericRepository<EntityType>
+    class GormGenericRepository<IDType, EntityType>
 
     GormGenericRepository .down.|> IGenericRepository
 }

@@ -13,7 +13,7 @@ package domain {
         +TaggedPorts string `gorm:"type:text"`
     }
 
-    EthernetSwitchVLAN -down-* Entity
+    EthernetSwitchVLAN -down-* EntityUUID
 
     note left of EthernetSwitchVLAN::UntaggedPorts
         UUID's of untagged ports separated with ';'

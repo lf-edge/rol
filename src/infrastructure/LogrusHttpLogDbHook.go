@@ -24,9 +24,9 @@ const appAPIName = "applog"
 
 //HTTPHook log hook struct
 type HTTPHook struct {
-	repo       interfaces.IGenericRepository[domain.HTTPLog]
+	repo       interfaces.IGenericRepository[uuid.UUID, domain.HTTPLog]
 	mutex      sync.RWMutex
-	InsertFunc func(entry *logrus.Entry, repository interfaces.IGenericRepository[domain.HTTPLog]) error
+	InsertFunc func(entry *logrus.Entry, repository interfaces.IGenericRepository[uuid.UUID, domain.HTTPLog]) error
 }
 
 //HTTPAsyncHook log hook struct
@@ -36,10 +36,10 @@ type HTTPAsyncHook struct {
 	flush      chan bool
 	wg         sync.WaitGroup
 	Ticker     *time.Ticker
-	InsertFunc func(entry *logrus.Entry, repository interfaces.IGenericRepository[domain.HTTPLog]) error
+	InsertFunc func(entry *logrus.Entry, repository interfaces.IGenericRepository[uuid.UUID, domain.HTTPLog]) error
 }
 
-var httpInsertFunc = func(entry *logrus.Entry, repository interfaces.IGenericRepository[domain.HTTPLog]) error {
+var httpInsertFunc = func(entry *logrus.Entry, repository interfaces.IGenericRepository[uuid.UUID, domain.HTTPLog]) error {
 	if entry.Data["method"] != nil && !fromLogController(entry) {
 		ent := newEntityFromHTTP(entry)
 		_, err := repository.Insert(nil, *ent)
@@ -50,7 +50,7 @@ var httpInsertFunc = func(entry *logrus.Entry, repository interfaces.IGenericRep
 	return nil
 }
 
-var asyncHTTPInsertFunc = func(entry *logrus.Entry, repository interfaces.IGenericRepository[domain.HTTPLog]) error {
+var asyncHTTPInsertFunc = func(entry *logrus.Entry, repository interfaces.IGenericRepository[uuid.UUID, domain.HTTPLog]) error {
 	if entry.Data["method"] != nil {
 		ent := newEntityFromHTTP(entry)
 		_, err := repository.Insert(nil, *ent)
@@ -67,7 +67,7 @@ func newEntityFromHTTP(entry *logrus.Entry) *domain.HTTPLog {
 	queryParamsInd := utils.CutIndexingString(queryParams)
 
 	return &domain.HTTPLog{
-		Entity: domain.Entity{
+		EntityUUID: domain.EntityUUID{
 			ID: entry.Data["requestID"].(uuid.UUID),
 		},
 		HTTPMethod:              entry.Data["method"].(string),
@@ -91,7 +91,7 @@ func newEntityFromHTTP(entry *logrus.Entry) *domain.HTTPLog {
 //	repo - gorm generic repository with domain.HTTPHook instantiated
 //Return
 //	*HTTPHook - gorm hook
-func NewHTTPHook(repo interfaces.IGenericRepository[domain.HTTPLog]) *HTTPHook {
+func NewHTTPHook(repo interfaces.IGenericRepository[uuid.UUID, domain.HTTPLog]) *HTTPHook {
 	return &HTTPHook{
 		repo:       repo,
 		InsertFunc: httpInsertFunc,
@@ -103,7 +103,7 @@ func NewHTTPHook(repo interfaces.IGenericRepository[domain.HTTPLog]) *HTTPHook {
 //	repo - gorm generic repository with domain.HTTPHook instantiated
 //Return
 //	*HTTPHook - async gorm hook
-func NewAsyncHTTPHook(repo *GormGenericRepository[domain.HTTPLog]) *HTTPAsyncHook {
+func NewAsyncHTTPHook(repo *GormGenericRepository[uuid.UUID, domain.HTTPLog]) *HTTPAsyncHook {
 	hook := &HTTPAsyncHook{
 		HTTPHook:   NewHTTPHook(repo),
 		buf:        make(chan *logrus.Entry, HTTPBufSize),

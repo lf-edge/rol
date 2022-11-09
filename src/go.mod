@@ -11,6 +11,7 @@ require (
 	github.com/insomniacslk/dhcp v0.0.0-20221001123530-5308ebe5334c
 	github.com/reiver/go-telnet v0.0.0-20180421082511-9ff0b2ab096e
 	github.com/sirupsen/logrus v1.8.1
+	github.com/stretchr/testify v1.7.1
 	github.com/swaggo/swag v1.8.1
 	github.com/vishvananda/netlink v1.1.0
 	go.uber.org/fx v1.17.1
@@ -24,6 +25,7 @@ require (
 	github.com/KyleBanks/depth v1.2.1 // indirect
 	github.com/asaskevich/govalidator v0.0.0-20210307081110-f21760c49a8d // indirect
 	github.com/chappjc/logrus-prefix v0.0.0-20180227015900-3a1d64819adb // indirect
+	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/fsnotify/fsnotify v1.4.9 // indirect
 	github.com/go-openapi/jsonpointer v0.19.5 // indirect
 	github.com/go-openapi/jsonreference v0.20.0 // indirect
@@ -38,6 +40,7 @@ require (
 	github.com/mgutz/ansi v0.0.0-20200706080929-d51e80ef957d // indirect
 	github.com/mitchellh/mapstructure v1.4.1 // indirect
 	github.com/pelletier/go-toml v1.8.1 // indirect
+	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/reiver/go-oi v1.0.0 // indirect
 	github.com/rifflock/lfshook v0.0.0-20180920164130-b9218ef580f5 // indirect
 	github.com/spf13/afero v1.5.1 // indirect

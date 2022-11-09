@@ -10,7 +10,7 @@ package infrastructure {
     CoreDHCP4Server .down.|> IDHCP4Server
 
     class CoreDHCP4ServerFactory {
-        -leasesRepo interfaces.IGenericRepository[domain.DHCP4Lease]
+        -leasesRepo interfaces.IGenericRepository[uuid.UUID, domain.DHCP4Lease]
     }
     CoreDHCP4ServerFactory::leasesRepo -- DHCP4LeaseRepository
     CoreDHCP4ServerFactory .down.|> IDHCP4ServerFactory

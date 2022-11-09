@@ -1,8 +1,10 @@
 package dtos
 
+import "github.com/google/uuid"
+
 //DHCP4ServerDto DTO for DHCP v4 server entity
 type DHCP4ServerDto struct {
-	BaseDto
+	BaseDto[uuid.UUID]
 	//Range of ip's for this dhcp v4 server, separated by "-", for example: "10.10.10.2-10.10.10.22"
 	Range string
 	//Mask for dhcp leases, for example: "255.255.255.0"

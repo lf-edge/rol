@@ -12,9 +12,9 @@
 
 package app {
     class DHCP4ServerService {
-        -leasesRepo IGenericRepository[domain.DHCP4Lease]
+        -leasesRepo IGenericRepository[uuid.UUID, domain.DHCP4Lease]
         --
-        -configsRepo IGenericRepository[domain.DHCP4Config]
+        -configsRepo IGenericRepository[uuid.UUID, domain.DHCP4Config]
         --
         -factory IDHCP4ServerFactory
         --

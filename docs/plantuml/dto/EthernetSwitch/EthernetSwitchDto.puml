@@ -8,7 +8,7 @@ package dtos {
 
     }
     EthernetSwitchDto --* EthernetSwitchBaseDto
-    EthernetSwitchDto --* BaseDto
+    EthernetSwitchDto --* BaseDto  : IDType is uuid.UUID
 }
 
 @enduml

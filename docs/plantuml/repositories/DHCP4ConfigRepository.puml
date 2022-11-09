@@ -7,7 +7,7 @@ package infrastructure {
 
     DHCP4ConfigRepository -down-* GormGenericRepository
 
-    note "EntityType is DHCP4Config" as DHCP4ConfigTypeNote
+    note "EntityType is DHCP4Config \nIDType is uuid.UUID" as DHCP4ConfigTypeNote
 
     DHCP4ConfigRepository .down. DHCP4ConfigTypeNote
     GormGenericRepository <.up. DHCP4ConfigTypeNote

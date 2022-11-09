@@ -24,7 +24,7 @@ package dtos {
         --
         +CustomRequestHeaders string
     }
-    HTTPLogDto --* BaseDto
+    HTTPLogDto --* BaseDto : IDType is uuid.UUID
 }
 
 @enduml

@@ -4,13 +4,13 @@
 !include GormGenericRepository.puml
 
 package infrastructure {
-    class HTTPLogRepository
+    class GormHTTPLogRepository
 
-    HTTPLogRepository -down-* GormGenericRepository
+    GormHTTPLogRepository -down-* GormGenericRepository
 
     note "EntityType is HTTPLog \nIDType is uuid.UUID" as HTTPLogTypeNote
 
-    HTTPLogRepository .down. HTTPLogTypeNote
+    GormHTTPLogRepository .down. HTTPLogTypeNote
     GormGenericRepository <.up. HTTPLogTypeNote
     HTTPLog .. HTTPLogTypeNote
 }

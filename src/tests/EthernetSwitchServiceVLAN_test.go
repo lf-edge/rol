@@ -50,9 +50,9 @@ func Test_EthernetSwitchServiceVLAN_Prepare(t *testing.T) {
 	}
 
 	logger := logrus.New()
-	switchRepo := infrastructure.NewEthernetSwitchRepository(testGenDb, logger)
-	portRepo := infrastructure.NewEthernetSwitchPortRepository(testGenDb, logger)
-	vlanRepo := infrastructure.NewEthernetSwitchVLANRepository(testGenDb, logger)
+	switchRepo := infrastructure.NewGormEthernetSwitchRepository(testGenDb, logger)
+	portRepo := infrastructure.NewGormEthernetSwitchPortRepository(testGenDb, logger)
+	vlanRepo := infrastructure.NewGormEthernetSwitchVLANRepository(testGenDb, logger)
 	ethSwitchServiceTester.switchRepo = switchRepo
 	ethSwitchServiceTester.portRepo = portRepo
 	ethSwitchServiceTester.vlanRepo = vlanRepo

@@ -3,13 +3,13 @@
 !include GormGenericRepository.puml
 
 package infrastructure {
-    class DHCP4ConfigRepository
+    class GormDHCP4ConfigRepository
 
-    DHCP4ConfigRepository -down-* GormGenericRepository
+    GormDHCP4ConfigRepository -down-* GormGenericRepository
 
     note "EntityType is DHCP4Config \nIDType is uuid.UUID" as DHCP4ConfigTypeNote
 
-    DHCP4ConfigRepository .down. DHCP4ConfigTypeNote
+    GormDHCP4ConfigRepository .down. DHCP4ConfigTypeNote
     GormGenericRepository <.up. DHCP4ConfigTypeNote
     DHCP4Config .. DHCP4ConfigTypeNote
 }

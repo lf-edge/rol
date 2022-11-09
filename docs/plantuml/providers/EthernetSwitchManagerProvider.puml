@@ -1,7 +1,7 @@
 @startuml
 !include ../interfaces/IEthernetSwitchManagerProvider.puml
 !include ../interfaces/IEthernetSwitchManager.puml
-!include ../repositories/EthernetSwitchRepository.puml
+!include ../repositories/GormEthernetSwitchRepository.puml
 !include ../managers/TPLinkEthernetSwitchManager.puml
 
 package infrastructure {
@@ -12,7 +12,7 @@ package infrastructure {
     }
     EthernetSwitchManagerProvider --|> IEthernetSwitchManagerProvider
     EthernetSwitchManagerProvider::managers -- TPLinkEthernetSwitchManager
-    EthernetSwitchManagerProvider::switchRepo -- EthernetSwitchRepository
+    EthernetSwitchManagerProvider::switchRepo -- GormEthernetSwitchRepository
 }
 
 @enduml

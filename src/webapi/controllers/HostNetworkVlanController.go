@@ -94,7 +94,7 @@ func (h *HostNetworkVlanController) GetByName(ctx *gin.Context) {
 // @Failure	500		"Internal Server Error"
 // @router	/host/network/vlan/	[post]
 func (h *HostNetworkVlanController) Create(ctx *gin.Context) {
-	reqDto, err := getRequestDtoAndRestoreBody[dtos.HostNetworkVlanCreateDto](ctx)
+	reqDto, err := getRequestDto[dtos.HostNetworkVlanCreateDto](ctx)
 	if err != nil {
 		abortWithStatusByErrorType(ctx, err)
 		return
@@ -122,7 +122,7 @@ func (h *HostNetworkVlanController) Create(ctx *gin.Context) {
 // @Failure	500		"Internal Server Error"
 // @router	/host/network/vlan/{name}	[put]
 func (h *HostNetworkVlanController) Update(ctx *gin.Context) {
-	reqDto, err := getRequestDtoAndRestoreBody[dtos.HostNetworkVlanUpdateDto](ctx)
+	reqDto, err := getRequestDto[dtos.HostNetworkVlanUpdateDto](ctx)
 	if err != nil {
 		abortWithStatusByErrorType(ctx, err)
 		return
@@ -134,7 +134,7 @@ func (h *HostNetworkVlanController) Update(ctx *gin.Context) {
 
 //Delete host network vlan
 //
-//Params:
+//Params:S
 //	ctx - gin context
 //
 // @Summary	Delete host network vlan by name

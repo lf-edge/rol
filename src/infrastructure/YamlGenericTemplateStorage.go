@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"github.com/google/uuid"
 	"github.com/sirupsen/logrus"
-	"gopkg.in/yaml.v2"
 	"io/ioutil"
 	"os"
 	"path"
@@ -70,30 +69,13 @@ func (y *YamlGenericTemplateStorage[TemplateType]) reloadFromFiles() error {
 		return errors.Internal.Wrap(err, "reading dir error")
 	}
 	for _, f := range files {
-		template, err := y.getTemplateObjFromYaml(f.Name())
+		template, err := ReadYamlFile[TemplateType](f.Name())
 		if err != nil {
 			return errors.Internal.Wrap(err, "yaml parsing error")
 		}
-		y.Templates = append(y.Templates, *template)
+		y.Templates = append(y.Templates, template)
 	}
 	return nil
-}
-
-func (y *YamlGenericTemplateStorage[TemplateType]) getTemplateObjFromYaml(templateName string) (*TemplateType, error) {
-	template := new(TemplateType)
-	templateFilePath := path.Join(y.TemplatesDirectory, fmt.Sprintf(templateName))
-	f, err := os.Open(templateFilePath)
-	if err != nil {
-		return nil, errors.Internal.Wrap(err, "directory opening error")
-	}
-	defer f.Close()
-
-	decoder := yaml.NewDecoder(f)
-	err = decoder.Decode(template)
-	if err != nil {
-		return nil, errors.Internal.Wrap(err, "yaml decoding error")
-	}
-	return template, nil
 }
 
 func (y *YamlGenericTemplateStorage[TemplateType]) sortTemplatesSlice(templates *[]TemplateType, orderBy, orderDirection string) error {
@@ -239,11 +221,11 @@ func (y *YamlGenericTemplateStorage[TemplateType]) Count(ctx context.Context, qu
 		return 0, errors.Internal.Wrap(err, "get templates files error")
 	}
 	for _, f := range files {
-		template, err := y.getTemplateObjFromYaml(f.Name())
+		template, err := ReadYamlFile[TemplateType](f.Name())
 		if err != nil {
 			return 0, errors.Internal.Wrap(err, "error converting yaml to struct")
 		}
-		templatesSlice = append(templatesSlice, *template)
+		templatesSlice = append(templatesSlice, template)
 	}
 	queryStr, err := queryBuilder.Build()
 	if err != nil {

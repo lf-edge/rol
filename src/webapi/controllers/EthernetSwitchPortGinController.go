@@ -124,7 +124,7 @@ func (e *EthernetSwitchPortGinController) GetPorts(ctx *gin.Context) {
 // @Failure	500		"Internal Server Error"
 // @router /ethernet-switch/{id}/port/ [post]
 func (e *EthernetSwitchPortGinController) CreatePort(ctx *gin.Context) {
-	reqDto, err := getRequestDtoAndRestoreBody[dtos.EthernetSwitchPortCreateDto](ctx)
+	reqDto, err := getRequestDto[dtos.EthernetSwitchPortCreateDto](ctx)
 	if err != nil {
 		abortWithStatusByErrorType(ctx, err)
 		return
@@ -155,7 +155,7 @@ func (e *EthernetSwitchPortGinController) CreatePort(ctx *gin.Context) {
 // @Failure		500		"Internal Server Error"
 // @router /ethernet-switch/{id}/port/{portID} [put]
 func (e *EthernetSwitchPortGinController) UpdatePort(ctx *gin.Context) {
-	reqDto, err := getRequestDtoAndRestoreBody[dtos.EthernetSwitchPortUpdateDto](ctx)
+	reqDto, err := getRequestDto[dtos.EthernetSwitchPortUpdateDto](ctx)
 	if err != nil {
 		abortWithStatusByErrorType(ctx, err)
 		return

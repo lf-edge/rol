@@ -107,7 +107,7 @@ func (e *EthernetSwitchGinController) GetByID(ctx *gin.Context) {
 // @Failure	500		"Internal Server Error"
 // @router /ethernet-switch/ [post]
 func (e *EthernetSwitchGinController) Create(ctx *gin.Context) {
-	reqDto, err := getRequestDtoAndRestoreBody[dtos.EthernetSwitchCreateDto](ctx)
+	reqDto, err := getRequestDto[dtos.EthernetSwitchCreateDto](ctx)
 	if err != nil {
 		abortWithStatusByErrorType(ctx, err)
 		return
@@ -133,7 +133,7 @@ func (e *EthernetSwitchGinController) Create(ctx *gin.Context) {
 // @Failure	500		"Internal Server Error"
 // @router /ethernet-switch/{id} [put]
 func (e *EthernetSwitchGinController) Update(ctx *gin.Context) {
-	reqDto, err := getRequestDtoAndRestoreBody[dtos.EthernetSwitchUpdateDto](ctx)
+	reqDto, err := getRequestDto[dtos.EthernetSwitchUpdateDto](ctx)
 	if err != nil {
 		abortWithStatusByErrorType(ctx, err)
 		return

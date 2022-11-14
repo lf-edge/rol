@@ -1,0 +1,109 @@
+@startuml
+
+!include ../repositories/GormTFTPConfigRepository.puml
+!include ../repositories/GormTFTPPathRatioRepository.puml
+!include ../dto/PaginatedItemsDto.puml
+!include ../dto/TFTPServer/TFTPServerDto.puml
+!include ../dto/TFTPServer/TFTPServerCreateDto.puml
+!include ../dto/TFTPServer/TFTPServerUpdateDto.puml
+!include ../dto/TFTPPathRatio/TFTPPathDto.puml
+!include ../dto/TFTPPathRatio/TFTPPathUpdateDto.puml
+!include ../dto/TFTPPathRatio/TFTPPathCreateDto.puml
+!include ../factories/PinTFTPServerFactory.puml
+
+package app {
+    class TFTPServerService {
+        -configsRepo interfaces.IGenericRepository[uuid.UUID, domain.TFTPConfig]
+        --
+        -pathsRepo interfaces.IGenericRepository[uuid.UUID, domain.TFTPPathRatio]
+        --
+        -factory interfaces.ITFTPServerFactory
+        --
+        -servers map[uuid.UUID]interfaces.ITFTPServer
+        --
+        +GetServerByID(ctx context.Context, id uuid.UUID) (dtos.TFTPConfigDto, error)
+        --
+        +GetServerList(ctx context.Context, search, orderBy, orderDirection string, page, pageSize int) (dtos.PaginatedItemsDto[dtos.TFTPConfigDto], error)
+        --
+        +CreateServer(ctx context.Context, createDto dtos.TFTPConfigCreateDto) (dtos.TFTPConfigDto, error)
+        --
+        +UpdateServer(ctx context.Context, updateDto dtos.TFTPConfigUpdateDto, id uuid.UUID) (dtos.TFTPConfigDto, error)
+        --
+        +DeleteServer(ctx context.Context, id uuid.UUID) error
+        --
+        +GetPathList(ctx context.Context, configID uuid.UUID, orderBy, orderDirection string, page, pageSize int) (dtos.PaginatedItemsDto[dtos.TFTPPathDto], error)
+        --
+        +GetPathByID(ctx context.Context, configID uuid.UUID, pathID uuid.UUID) (dtos.TFTPPathDto, error)
+        --
+        +CreatePath(ctx context.Context, configID uuid.UUID, createDto dtos.TFTPPathCreateDto) (dtos.TFTPPathDto, error)
+        --
+        +UpdatePath(ctx context.Context, configID uuid.UUID, createDto dtos.TFTPPathUpdateDto) (dtos.TFTPPathDto, error)
+        --
+        +DeletePath(ctx context.Context, configID uuid.UUID, id uuid.UUID) error
+    }
+
+    GormTFTPConfigRepository -right- TFTPServerService::configsRepo
+    GormTFTPPathRatioRepository -right- TFTPServerService::pathsRepo
+    PinTFTPServerFactory -right- TFTPServerService::factory
+
+    TFTPServerService .[hidden]up. IGenericRepository
+    ITFTPServer .[hidden]up. IGenericRepository
+    GormGenericRepository .[hidden]down. IGenericRepository
+    TFTPServerService .[hidden]down. dtos
+
+    note as TFTPServiceTypes
+    DTOs that are used by this service
+    end note
+
+    TFTPServerService .down. TFTPServiceTypes
+
+    TFTPServiceTypes ... TFTPServerCreateDto
+    TFTPServiceTypes ... TFTPServerUpdateDto
+    TFTPServiceTypes ... TFTPServerDto
+    TFTPServiceTypes ... TFTPPathCreateDto
+    TFTPServiceTypes ... TFTPPathUpdateDto
+    TFTPServiceTypes ... TFTPPathDto
+    TFTPServiceTypes ... PaginatedItemsDto
+
+    note left of TFTPServerService::GetServerByID
+        Get TFTP server config by ID
+    end note
+
+    note left of TFTPServerService::GetServerList
+        Get list of TFTP server configs
+    end note
+
+    note left of TFTPServerService::CreateServer
+        Create new TFTP server config
+    end note
+
+    note left of TFTPServerService::UpdateServer
+        Update TFTP server config
+    end note
+
+    note left of TFTPServerService::DeleteServer
+        Delete TFTP server config
+    end note
+
+    note left of TFTPServerService::GetPathList
+        Get paths ratio for TFTP server
+    end note
+
+    note left of TFTPServerService::GetPathByID
+        Get path ratio by id
+    end note
+
+    note left of TFTPServerService::CreatePath
+        Create new path ratio for TFTP server
+    end note
+
+    note left of TFTPServerService::UpdatePath
+        Update path ratio for TFTP server
+    end note
+
+    note left of TFTPServerService::DeletePath
+        Delete path ratio on TFTP server
+    end note
+}
+
+@enduml

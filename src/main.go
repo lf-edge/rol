@@ -68,6 +68,7 @@ func main() {
 			services.NewDeviceTemplateService,
 			services.NewHostNetworkService,
 			services.NewDHCP4ServerService,
+			services.NewTFTPServerService,
 			// WEB API -> GIN Server
 			webapi.NewGinHTTPServer,
 			// WEB API -> GIN Controllers
@@ -88,6 +89,7 @@ func main() {
 			//Services initialization
 			services.EthernetSwitchServiceInit,
 			services.DHCP4ServerServiceInit,
+			services.TFTPServerServiceInit,
 			//GIN Controllers registration
 			controllers.RegisterEthernetSwitchController,
 			controllers.RegisterHTTPLogController,

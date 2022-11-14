@@ -1,3 +1,4 @@
+// Package infrastructure stores all implementations of app interfaces
 package infrastructure
 
 import (
@@ -43,6 +44,8 @@ func NewGormEntityDb(cfg *domain.AppConfig) (*gorm.DB, error) {
 		return nil, errors.Internal.Wrap(err, "failed to open db")
 	}
 	err = db.AutoMigrate(
+		&domain.TFTPConfig{},
+		&domain.TFTPPathRatio{},
 		&domain.EthernetSwitch{},
 		&domain.EthernetSwitchPort{},
 		&domain.EthernetSwitchVLAN{},

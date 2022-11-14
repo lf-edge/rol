@@ -1,0 +1,15 @@
+@startuml
+
+!include ../entities/TFTPPathRatio.puml
+!include GormGenericRepository.puml
+
+package infrastructure {
+    class GormTFTPPathRatioRepository {
+    }
+
+    note "EntityType is TFTPPathRatio" as TFTPPathNote
+    GormTFTPPathRatioRepository -down- TFTPPathNote
+    GormGenericRepository *-up- TFTPPathNote
+    TFTPPathRatio .. TFTPPathNote
+}
+@enduml

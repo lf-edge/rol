@@ -1,3 +1,4 @@
+// Package infrastructure provides all implementations for the application
 package infrastructure
 
 import (

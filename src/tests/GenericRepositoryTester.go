@@ -238,7 +238,7 @@ func (t *GenericRepositoryTester[IDType, EntityType]) createEntitiesAndDeferClea
 
 //TestInsertAndDelete test inserting entity to repository and check that fields of entity wrote too
 func (t *GenericRepositoryTester[IDType, EntityType]) TestInsertAndDelete() {
-	t.t.Run(fmt.Sprintf("%s", t.getTestBaseName()),
+	t.t.Run(t.getTestBaseName(),
 		t.createEntitiesAndDeferClean(0, func(entities []EntityType) {
 			newEntity := t.createPredefinedTestEntity()
 			newEntityFields := newEntity.GetDataFields()
@@ -256,7 +256,7 @@ func (t *GenericRepositoryTester[IDType, EntityType]) TestInsertAndDelete() {
 
 //TestDeleteAll delete all test
 func (t *GenericRepositoryTester[IDType, EntityType]) TestDeleteAll() {
-	t.t.Run(fmt.Sprintf("%s", t.getTestBaseName()),
+	t.t.Run(t.getTestBaseName(),
 		t.createEntitiesAndDeferClean(3, func(entities []EntityType) {
 			queryBuilder := t.repo.NewQueryBuilder(t.ctx)
 			queryBuilder.Where("CreatedAt", "!=", time.Now().AddDate(1, 1, 1))

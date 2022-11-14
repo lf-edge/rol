@@ -6,7 +6,6 @@ import (
 	"github.com/google/uuid"
 	"github.com/sirupsen/logrus"
 	"gopkg.in/yaml.v2"
-	"io/ioutil"
 	"os"
 	"path"
 	"reflect"
@@ -65,7 +64,7 @@ func NewYamlGenericTemplateStorage[TemplateType interface{}](dirName string, log
 func (y *YamlGenericTemplateStorage[TemplateType]) reloadFromFiles() error {
 	y.Templates = []TemplateType{}
 
-	files, err := ioutil.ReadDir(y.TemplatesDirectory)
+	files, err := os.ReadDir(y.TemplatesDirectory)
 	if err != nil {
 		return errors.Internal.Wrap(err, "reading dir error")
 	}
@@ -234,7 +233,7 @@ func (y *YamlGenericTemplateStorage[TemplateType]) getPaginatedSlice(templates [
 func (y *YamlGenericTemplateStorage[TemplateType]) Count(ctx context.Context, queryBuilder interfaces.IQueryBuilder) (int64, error) {
 	y.log(ctx, logrus.DebugLevel, fmt.Sprintf("Count: IN: queryBuilder=%+v", queryBuilder))
 	var templatesSlice []TemplateType
-	files, err := ioutil.ReadDir(y.TemplatesDirectory)
+	files, err := os.ReadDir(y.TemplatesDirectory)
 	if err != nil {
 		return 0, errors.Internal.Wrap(err, "get templates files error")
 	}

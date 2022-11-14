@@ -1,0 +1,13 @@
+@startuml
+
+package app {
+    interface ITFTPServerFactory {
+        +Create(config domain.TFTPConfig) (interfaces.ITFTPServer, error)
+    }
+
+    note left of ITFTPServerFactory::Create
+    Create runtime TFTP server
+    end note
+}
+
+@enduml

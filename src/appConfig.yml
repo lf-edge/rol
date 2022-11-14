@@ -4,24 +4,35 @@ httpServer:
   host: "localhost"
   port: 8080
 
-# Database config [MySQL only]
+# Database config
+# Currently supports MySQL and SQLite db drivers
 database:
   entity:
-    dbName: "roldb"
-    username: "root"
-    password: "67Edh68Tyt69"    # pragma: allowlist secret
-    protocol: "tcp"
-    hostname: "localhost"
-    port: "3306"
-    parameters: "?charset=utf8mb4&parseTime=True&loc=Local"
+    driver: "mysql"
+    mysql:
+      dbName: "roldb"
+      username: "root"
+      password: "67Edh68Tyt69"    # pragma: allowlist secret
+      protocol: "tcp"
+      hostname: "localhost"
+      port: "3306"
+      parameters: "?charset=utf8mb4&parseTime=True&loc=Local"
+    sqlite:
+      # If filename does not start with '/' then the path will be relative to the launch file
+      filename: "rol.db"
   log:
-    dbName: "roldb_logs"
-    username: "root"
-    password: "67Edh68Tyt69"    # pragma: allowlist secret
-    protocol: "tcp"
-    hostname: "localhost"
-    port: "3306"
-    parameters: "?charset=utf8mb4&parseTime=True&loc=Local"
+    driver: "mysql"
+    mysql:
+      dbName: "roldb_logs"
+      username: "root"
+      password: "67Edh68Tyt69"    # pragma: allowlist secret
+      protocol: "tcp"
+      hostname: "localhost"
+      port: "3306"
+      parameters: "?charset=utf8mb4&parseTime=True&loc=Local"
+    sqlite:
+      # If filename does not start with '/' then the path will be relative to the launch file
+      filename: "rol_logs.db"
 
 # Logger configuration
 logger:

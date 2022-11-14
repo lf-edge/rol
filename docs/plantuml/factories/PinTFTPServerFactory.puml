@@ -1,0 +1,32 @@
+@startuml
+
+!include ../interfaces/ITFTPServerFactory.puml
+!include ../interfaces/ITFTPServer.puml
+
+package infrastructure {
+    class PinTFTPServer {
+        -runtime *tftp.Server
+        --
+        -config domain.TFTPConfig
+        --
+        -paths []domain.TFTPPathRatio
+        --
+        -state domain.TFTPServerState
+    }
+    TFTPServerState .[hidden]left. Entity
+    PinTFTPServer::state -- TFTPServerState
+    PinTFTPServer::config -down- TFTPConfig
+    PinTFTPServer::paths -down- TFTPPathRatio
+    PinTFTPServer .down.|> ITFTPServer
+
+    class PinTFTPServerFactory
+
+    PinTFTPServerFactory .down.|> ITFTPServerFactory
+    PinTFTPServerFactory .[hidden]down. ITFTPServer
+
+    note "PinTFTPServerFactory produces PinTFTPServer's" as TFTPServersNote
+    PinTFTPServer <.up. TFTPServersNote
+    PinTFTPServerFactory .down. TFTPServersNote
+}
+
+@enduml

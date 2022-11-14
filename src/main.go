@@ -48,6 +48,8 @@ func main() {
 			infrastructure.NewGormEthernetSwitchRepository,
 			infrastructure.NewGormHTTPLogRepository,
 			infrastructure.NewGormAppLogRepository,
+			infrastructure.NewGormTFTPConfigRepository,
+			infrastructure.NewGormTFTPPathRatioRepository,
 			infrastructure.NewLogrusLogger,
 			infrastructure.NewGormEthernetSwitchPortRepository,
 			infrastructure.NewDeviceTemplateStorage,

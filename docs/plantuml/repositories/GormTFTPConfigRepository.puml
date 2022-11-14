@@ -1,0 +1,15 @@
+@startuml
+
+!include ../entities/TFTPConfig.puml
+!include GormGenericRepository.puml
+
+package infrastructure {
+    class GormTFTPConfigRepository {
+    }
+    note "EntityType is TFTPConfig" as TFTPConfigNote
+
+    GormTFTPConfigRepository -down- TFTPConfigNote
+    GormGenericRepository *-up- TFTPConfigNote
+    TFTPConfig .. TFTPConfigNote
+}
+@enduml

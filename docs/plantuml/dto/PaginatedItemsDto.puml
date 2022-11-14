@@ -1,0 +1,21 @@
+@startuml
+
+package dtos {
+    class PaginationInfoDto {
+        +Page int
+        --
+        +Size int
+        --
+        +TotalCount int
+        --
+        +TotalPages int
+    }
+    class PaginatedItemsDto<DtoType> {
+        +Pagination PaginationInfoDto
+        --
+        +Items []DtoType
+    }
+    PaginatedItemsDto::Pagination -- PaginationInfoDto
+}
+
+@enduml

@@ -1,7 +1,7 @@
 package domain
 
-//DbConfig structure describing the database configuration
-type DbConfig struct {
+//MySQL structure with mysql db connection parameters
+type MySQL struct {
 	DbName     string `yaml:"dbName"`
 	Username   string `yaml:"username"`
 	Password   string `yaml:"password"`
@@ -9,6 +9,18 @@ type DbConfig struct {
 	Hostname   string `yaml:"hostname"`
 	Port       string `yaml:"port"`
 	Parameters string `yaml:"parameters"`
+}
+
+//SQLite structure for sqlite db connection
+type SQLite struct {
+	Filename string `yaml:"filename"`
+}
+
+//DbConfig structure describing the database configuration
+type DbConfig struct {
+	Driver string `yaml:"driver"`
+	MySQL  `yaml:"mysql"`
+	SQLite `yaml:"sqlite"`
 }
 
 //AppConfig application config structure

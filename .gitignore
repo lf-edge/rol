@@ -20,5 +20,10 @@
 # Go workspace file
 go.work
 
+# rol binaries and configs
+src/hostNetworkConfig.yaml
+src/go_build_main_go
+src/rol
+
 go
 .idea

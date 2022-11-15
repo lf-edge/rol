@@ -689,6 +689,28 @@ definitions:
         $ref: '#/definitions/dtos.PaginationInfoDto'
         description: Pagination info about pagination
     type: object
+  dtos.PaginatedItemsDto-dtos_TFTPPathDto:
+    properties:
+      items:
+        description: Items slice of items
+        items:
+          $ref: '#/definitions/dtos.TFTPPathDto'
+        type: array
+      pagination:
+        $ref: '#/definitions/dtos.PaginationInfoDto'
+        description: Pagination info about pagination
+    type: object
+  dtos.PaginatedItemsDto-dtos_TFTPServerDto:
+    properties:
+      items:
+        description: Items slice of items
+        items:
+          $ref: '#/definitions/dtos.TFTPServerDto'
+        type: array
+      pagination:
+        $ref: '#/definitions/dtos.PaginationInfoDto'
+        description: Pagination info about pagination
+    type: object
   dtos.PaginationInfoDto:
     properties:
       page:
@@ -703,6 +725,81 @@ definitions:
       totalPages:
         description: TotalPages - total number of pages
         type: integer
+    type: object
+  dtos.TFTPPathCreateDto:
+    properties:
+      actualPath:
+        description: ActualPath actual file path
+        type: string
+      virtualPath:
+        description: VirtualPath virtual file path
+        type: string
+    type: object
+  dtos.TFTPPathDto:
+    properties:
+      actualPath:
+        description: ActualPath actual file path
+        type: string
+      createdAt:
+        description: CreatedAt - entity create time
+        type: string
+      id:
+        description: ID - unique identifier
+        type: string
+      updatedAt:
+        description: UpdatedAt - entity update time
+        type: string
+      virtualPath:
+        description: VirtualPath virtual file path
+        type: string
+    type: object
+  dtos.TFTPServerCreateDto:
+    properties:
+      address:
+        description: Address TFTP server IP address
+        type: string
+      enabled:
+        description: Enabled TFTP server startup status
+        type: boolean
+      port:
+        description: Port TFTP server port
+        type: string
+    type: object
+  dtos.TFTPServerDto:
+    properties:
+      address:
+        description: Address TFTP server IP address
+        type: string
+      createdAt:
+        description: CreatedAt - entity create time
+        type: string
+      enabled:
+        description: Enabled TFTP server startup status
+        type: boolean
+      id:
+        description: ID - unique identifier
+        type: string
+      port:
+        description: Port TFTP server port
+        type: string
+      state:
+        description: State of tftp server
+        type: string
+      updatedAt:
+        description: UpdatedAt - entity update time
+        type: string
+    type: object
+  dtos.TFTPServerUpdateDto:
+    properties:
+      address:
+        description: Address TFTP server IP address
+        type: string
+      enabled:
+        description: Enabled TFTP server startup status
+        type: boolean
+      port:
+        description: Port TFTP server port
+        type: string
     type: object
   dtos.ValidationErrorDto:
     properties:
@@ -1978,4 +2075,245 @@ paths:
       summary: Gets device template by its name
       tags:
       - template
+  /tftp/:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Order by field
+        in: query
+        name: orderBy
+        type: string
+      - description: '''asc'' or ''desc'' for ascending or descending order'
+        in: query
+        name: orderDirection
+        type: string
+      - description: Searchable value in entity
+        in: query
+        name: search
+        type: string
+      - description: Page number
+        in: query
+        name: page
+        type: integer
+      - description: Number of entities per page
+        in: query
+        name: pageSize
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dtos.PaginatedItemsDto-dtos_TFTPServerDto'
+        "500":
+          description: Internal Server Error
+      summary: Get paginated list of tftp servers
+      tags:
+      - tftp
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: TFTP server fields
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dtos.TFTPServerCreateDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dtos.TFTPServerDto'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dtos.ValidationErrorDto'
+        "500":
+          description: Internal Server Error
+      summary: Create new TFTP server
+      tags:
+      - tftp
+  /tftp/{id}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: TFTP server ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: OK, but No Content
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+      summary: Delete TFTP server by id
+      tags:
+      - tftp
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: TFTP server ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dtos.TFTPServerDto'
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+      summary: Get TFTP server by id
+      tags:
+      - tftp
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: TFTP server ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: TFTP server fields
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dtos.TFTPServerUpdateDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dtos.TFTPServerDto'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dtos.ValidationErrorDto'
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+      summary: Updates TFTP server by id
+      tags:
+      - tftp
+  /tftp/{id}/path/:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: TFTP server ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Order by field
+        in: query
+        name: orderBy
+        type: string
+      - description: '''asc'' or ''desc'' for ascending or descending order'
+        in: query
+        name: orderDirection
+        type: string
+      - description: Page number
+        in: query
+        name: page
+        type: integer
+      - description: Number of entities per page
+        in: query
+        name: pageSize
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dtos.PaginatedItemsDto-dtos_TFTPPathDto'
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+      summary: Gets paginated list of TFTP server paths
+      tags:
+      - tftp
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: TFTP server ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: TFTP server path fields
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dtos.TFTPPathCreateDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dtos.TFTPPathDto'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dtos.ValidationErrorDto'
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+      summary: Creates new TFTP server path
+      tags:
+      - tftp
+  /tftp/{id}/path/{pathID}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: TFTP server ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: TFTP server path ID
+        in: path
+        name: portID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: OK, but No Content
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+      summary: Delete TFTP server path by id
+      tags:
+      - tftp
 swagger: "2.0"

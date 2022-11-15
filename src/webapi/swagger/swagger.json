@@ -1904,6 +1904,374 @@
                     }
                 }
             }
+        },
+        "/tftp/": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "tftp"
+                ],
+                "summary": "Get paginated list of tftp servers",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Order by field",
+                        "name": "orderBy",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "'asc' or 'desc' for ascending or descending order",
+                        "name": "orderDirection",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "Searchable value in entity",
+                        "name": "search",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Page number",
+                        "name": "page",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Number of entities per page",
+                        "name": "pageSize",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.PaginatedItemsDto-dtos_TFTPServerDto"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "tftp"
+                ],
+                "summary": "Create new TFTP server",
+                "parameters": [
+                    {
+                        "description": "TFTP server fields",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dtos.TFTPServerCreateDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.TFTPServerDto"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.ValidationErrorDto"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/tftp/{id}": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "tftp"
+                ],
+                "summary": "Get TFTP server by id",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "TFTP server ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.TFTPServerDto"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "put": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "tftp"
+                ],
+                "summary": "Updates TFTP server by id",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "TFTP server ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "TFTP server fields",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dtos.TFTPServerUpdateDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.TFTPServerDto"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.ValidationErrorDto"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "delete": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "tftp"
+                ],
+                "summary": "Delete TFTP server by id",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "TFTP server ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "OK, but No Content"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/tftp/{id}/path/": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "tftp"
+                ],
+                "summary": "Gets paginated list of TFTP server paths",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "TFTP server ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Order by field",
+                        "name": "orderBy",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "'asc' or 'desc' for ascending or descending order",
+                        "name": "orderDirection",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Page number",
+                        "name": "page",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Number of entities per page",
+                        "name": "pageSize",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.PaginatedItemsDto-dtos_TFTPPathDto"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "tftp"
+                ],
+                "summary": "Creates new TFTP server path",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "TFTP server ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "TFTP server path fields",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dtos.TFTPPathCreateDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.TFTPPathDto"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.ValidationErrorDto"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/tftp/{id}/path/{pathID}": {
+            "delete": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "tftp"
+                ],
+                "summary": "Delete TFTP server path by id",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "TFTP server ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "TFTP server path ID",
+                        "name": "portID",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "OK, but No Content"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
         }
     },
     "definitions": {
@@ -2847,6 +3215,38 @@
                 }
             }
         },
+        "dtos.PaginatedItemsDto-dtos_TFTPPathDto": {
+            "type": "object",
+            "properties": {
+                "items": {
+                    "description": "Items slice of items",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dtos.TFTPPathDto"
+                    }
+                },
+                "pagination": {
+                    "description": "Pagination info about pagination",
+                    "$ref": "#/definitions/dtos.PaginationInfoDto"
+                }
+            }
+        },
+        "dtos.PaginatedItemsDto-dtos_TFTPServerDto": {
+            "type": "object",
+            "properties": {
+                "items": {
+                    "description": "Items slice of items",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dtos.TFTPServerDto"
+                    }
+                },
+                "pagination": {
+                    "description": "Pagination info about pagination",
+                    "$ref": "#/definitions/dtos.PaginationInfoDto"
+                }
+            }
+        },
         "dtos.PaginationInfoDto": {
             "type": "object",
             "properties": {
@@ -2865,6 +3265,111 @@
                 "totalPages": {
                     "description": "TotalPages - total number of pages",
                     "type": "integer"
+                }
+            }
+        },
+        "dtos.TFTPPathCreateDto": {
+            "type": "object",
+            "properties": {
+                "actualPath": {
+                    "description": "ActualPath actual file path",
+                    "type": "string"
+                },
+                "virtualPath": {
+                    "description": "VirtualPath virtual file path",
+                    "type": "string"
+                }
+            }
+        },
+        "dtos.TFTPPathDto": {
+            "type": "object",
+            "properties": {
+                "actualPath": {
+                    "description": "ActualPath actual file path",
+                    "type": "string"
+                },
+                "createdAt": {
+                    "description": "CreatedAt - entity create time",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "ID - unique identifier",
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "description": "UpdatedAt - entity update time",
+                    "type": "string"
+                },
+                "virtualPath": {
+                    "description": "VirtualPath virtual file path",
+                    "type": "string"
+                }
+            }
+        },
+        "dtos.TFTPServerCreateDto": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "description": "Address TFTP server IP address",
+                    "type": "string"
+                },
+                "enabled": {
+                    "description": "Enabled TFTP server startup status",
+                    "type": "boolean"
+                },
+                "port": {
+                    "description": "Port TFTP server port",
+                    "type": "string"
+                }
+            }
+        },
+        "dtos.TFTPServerDto": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "description": "Address TFTP server IP address",
+                    "type": "string"
+                },
+                "createdAt": {
+                    "description": "CreatedAt - entity create time",
+                    "type": "string"
+                },
+                "enabled": {
+                    "description": "Enabled TFTP server startup status",
+                    "type": "boolean"
+                },
+                "id": {
+                    "description": "ID - unique identifier",
+                    "type": "string"
+                },
+                "port": {
+                    "description": "Port TFTP server port",
+                    "type": "string"
+                },
+                "state": {
+                    "description": "State of tftp server",
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "description": "UpdatedAt - entity update time",
+                    "type": "string"
+                }
+            }
+        },
+        "dtos.TFTPServerUpdateDto": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "description": "Address TFTP server IP address",
+                    "type": "string"
+                },
+                "enabled": {
+                    "description": "Enabled TFTP server startup status",
+                    "type": "boolean"
+                },
+                "port": {
+                    "description": "Port TFTP server port",
+                    "type": "string"
                 }
             }
         },

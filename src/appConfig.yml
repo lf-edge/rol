@@ -8,7 +8,7 @@ httpServer:
 # Currently supports MySQL and SQLite db drivers
 database:
   entity:
-    driver: "mysql"
+    driver: "sqlite"
     mysql:
       dbName: "roldb"
       username: "root"
@@ -21,7 +21,7 @@ database:
       # If filename does not start with '/' then the path will be relative to the launch file
       filename: "rol.db"
   log:
-    driver: "mysql"
+    driver: "sqlite"
     mysql:
       dbName: "roldb_logs"
       username: "root"

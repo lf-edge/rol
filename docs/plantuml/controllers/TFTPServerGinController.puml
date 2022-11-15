@@ -1,0 +1,63 @@
+@startuml
+
+!include ../services/TFTPServerService.puml
+
+package controllers {
+    class TFTPServerGinController {
+        -service *services.HostNetworkVlanService
+        --
+        -logger *logrus.Logger
+        --
+        +GetList(ctx *gin.Context)
+        --
+        +GetByID(ctx *gin.Context)
+        --
+        +Create(ctx *gin.Context)
+        --
+        +Update(ctx *gin.Context)
+        --
+        +Delete(ctx *gin.Context)
+        --
+        +GetPaths(ctx *gin.Context)
+        --
+        +CreatePath(ctx *gin.Context)
+        --
+        +DeletePath(ctx *gin.Context)
+    }
+
+    note left of TFTPServerGinController::GetList
+    Get list of TFTP servers
+    end note
+
+    note left of TFTPServerGinController::GetByID
+    Get TFTP server by ID
+    end note
+
+    note left of TFTPServerGinController::Create
+    Create new TFTP server
+    end note
+
+    note left of TFTPServerGinController::Update
+    Update TFTP server
+    end note
+
+    note left of TFTPServerGinController::Delete
+    Delete TFTP server
+    end note
+
+    note left of TFTPServerGinController::GetPaths
+    Get TFTP Server files paths ratios
+    end note
+
+    note left of TFTPServerGinController::CreatePath
+    Create file path ratio for tftp server
+    end note
+
+    note left of TFTPServerGinController::DeletePath
+    Delete file path ratio from tftp server
+    end note
+
+    TFTPServerService -up- TFTPServerGinController::service
+}
+
+@enduml

@@ -70,8 +70,10 @@ func newGormDb(cfg domain.DbConfig) (*gorm.DB, error) {
 		return createMySQLDb(cfg.MySQL)
 	case "sqlite":
 		return createSQLiteDb(cfg.SQLite)
+	case "":
+		return nil, errors.Internal.New("no db driver specified")
 	default:
-		return nil, errors.Internal.New("unsupported db driver")
+		return nil, errors.Internal.Newf("unsupported db driver: %s", cfg.Driver)
 	}
 }
 

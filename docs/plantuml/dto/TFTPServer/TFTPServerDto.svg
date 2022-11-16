@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="293px" preserveAspectRatio="none" style="width:423px;height:293px;background:#FFFFFF;" version="1.1" viewBox="0 0 423 293" width="423px" zoomAndPan="magnify"><defs/><g><!--MD5=[ac65c812e7532cbcd7b9effd958b962e]
+cluster dtos--><g id="cluster_dtos"><path d="M8.5,6 L44.5,6 A3.75,3.75 0 0 1 47,8.5 L54,28.2969 L413.5,28.2969 A2.5,2.5 0 0 1 416,30.7969 L416,283.5 A2.5,2.5 0 0 1 413.5,286 L8.5,286 A2.5,2.5 0 0 1 6,283.5 L6,8.5 A2.5,2.5 0 0 1 8.5,6 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="6" x2="54" y1="28.2969" y2="28.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="35" x="10" y="20.9951">dtos</text></g><!--MD5=[a203eca1f0769929ae1344e0135bff6b]
+class BaseDto--><g id="elem_BaseDto"><rect codeLine="3" fill="#F1F1F1" height="104.8906" id="BaseDto" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="171" x="22.5" y="165"/><ellipse cx="51.9" cy="181" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M54.8688,186.6406 Q54.2906,186.9375 53.65,187.0781 Q53.0094,187.2344 52.3063,187.2344 Q49.8063,187.2344 48.4781,185.5938 Q47.1656,183.9375 47.1656,180.8125 Q47.1656,177.6875 48.4781,176.0313 Q49.8063,174.375 52.3063,174.375 Q53.0094,174.375 53.65,174.5313 Q54.3063,174.6875 54.8688,174.9844 L54.8688,177.7031 Q54.2438,177.125 53.65,176.8594 Q53.0563,176.5781 52.4313,176.5781 Q51.0875,176.5781 50.4,177.6563 Q49.7125,178.7188 49.7125,180.8125 Q49.7125,182.9063 50.4,183.9844 Q51.0875,185.0469 52.4313,185.0469 Q53.0563,185.0469 53.65,184.7813 Q54.2438,184.5 54.8688,183.9219 L54.8688,186.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="60" x="69.1" y="185.8467">BaseDto</text><rect fill="#FFFFFF" height="15.9688" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" width="45" x="151.5" y="162"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="43" x="152.5" y="174.1387">IDType</text><line style="stroke:#181818;stroke-width:0.5;" x1="23.5" x2="192.5" y1="197" y2="197"/><ellipse cx="33.5" cy="210.6484" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="66" x="42.5" y="213.9951">ID IDType</text><line style="stroke:#181818;stroke-width:1.0;" x1="23.5" x2="192.5" y1="221.2969" y2="221.2969"/><ellipse cx="33.5" cy="234.9453" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="141" x="42.5" y="238.292">CreatedAt time.Time</text><line style="stroke:#181818;stroke-width:1.0;" x1="23.5" x2="192.5" y1="245.5938" y2="245.5938"/><ellipse cx="33.5" cy="259.2422" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="145" x="42.5" y="262.5889">UpdatedAt time.Time</text></g><!--MD5=[27905da863934eac2056778070a0f812]
+class TFTPServerBaseDto--><g id="elem_TFTPServerBaseDto"><rect codeLine="3" fill="#F1F1F1" height="104.8906" id="TFTPServerBaseDto" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="171" x="228.5" y="165"/><ellipse cx="243.5" cy="181" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M246.4688,186.6406 Q245.8906,186.9375 245.25,187.0781 Q244.6094,187.2344 243.9063,187.2344 Q241.4063,187.2344 240.0781,185.5938 Q238.7656,183.9375 238.7656,180.8125 Q238.7656,177.6875 240.0781,176.0313 Q241.4063,174.375 243.9063,174.375 Q244.6094,174.375 245.25,174.5313 Q245.9063,174.6875 246.4688,174.9844 L246.4688,177.7031 Q245.8438,177.125 245.25,176.8594 Q244.6563,176.5781 244.0313,176.5781 Q242.6875,176.5781 242,177.6563 Q241.3125,178.7188 241.3125,180.8125 Q241.3125,182.9063 242,183.9844 Q242.6875,185.0469 244.0313,185.0469 Q244.6563,185.0469 245.25,184.7813 Q245.8438,184.5 246.4688,183.9219 L246.4688,186.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="139" x="257.5" y="185.8467">TFTPServerBaseDto</text><line style="stroke:#181818;stroke-width:0.5;" x1="229.5" x2="398.5" y1="197" y2="197"/><ellipse cx="239.5" cy="210.6484" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="100" x="248.5" y="213.9951">Address string</text><line style="stroke:#181818;stroke-width:1.0;" x1="229.5" x2="398.5" y1="221.2969" y2="221.2969"/><ellipse cx="239.5" cy="234.9453" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="71" x="248.5" y="238.292">Port string</text><line style="stroke:#181818;stroke-width:1.0;" x1="229.5" x2="398.5" y1="245.5938" y2="245.5938"/><ellipse cx="239.5" cy="259.2422" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="90" x="248.5" y="262.5889">Enabled bool</text></g><!--MD5=[d434456e5caec3d81d35b61e166fd02f]
+class TFTPServerDto--><g id="elem_TFTPServerDto"><rect codeLine="6" fill="#F1F1F1" height="64.2969" id="TFTPServerDto" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="136" x="143" y="41"/><ellipse cx="158" cy="57" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M160.9688,62.6406 Q160.3906,62.9375 159.75,63.0781 Q159.1094,63.2344 158.4063,63.2344 Q155.9063,63.2344 154.5781,61.5938 Q153.2656,59.9375 153.2656,56.8125 Q153.2656,53.6875 154.5781,52.0313 Q155.9063,50.375 158.4063,50.375 Q159.1094,50.375 159.75,50.5313 Q160.4063,50.6875 160.9688,50.9844 L160.9688,53.7031 Q160.3438,53.125 159.75,52.8594 Q159.1563,52.5781 158.5313,52.5781 Q157.1875,52.5781 156.5,53.6563 Q155.8125,54.7188 155.8125,56.8125 Q155.8125,58.9063 156.5,59.9844 Q157.1875,61.0469 158.5313,61.0469 Q159.1563,61.0469 159.75,60.7813 Q160.3438,60.5 160.9688,59.9219 L160.9688,62.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="104" x="172" y="61.8467">TFTPServerDto</text><line style="stroke:#181818;stroke-width:0.5;" x1="144" x2="278" y1="73" y2="73"/><ellipse cx="154" cy="86.6484" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="79" x="163" y="89.9951">State string</text><line style="stroke:#181818;stroke-width:0.5;" x1="144" x2="278" y1="97.2969" y2="97.2969"/></g><!--MD5=[4f59ec446325b263c4dee0bfad51c8a4]
+link TFTPServerDto to TFTPServerBaseDto--><g id="link_TFTPServerDto_TFTPServerBaseDto"><path codeLine="11" d="M233.6,105.27 C243.95,119.59 256.6,137.09 268.77,153.93 " fill="none" id="TFTPServerDto-to-TFTPServerBaseDto" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="276.67,164.86,276.3998,157.654,269.6441,155.1318,269.9143,162.3379,276.67,164.86" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[a19edc063acd5afe27ba84a60cf7a458]
+link TFTPServerDto to BaseDto--><g id="link_TFTPServerDto_BaseDto"><path codeLine="12" d="M188.4,105.27 C178.05,119.59 165.4,137.09 153.23,153.93 " fill="none" id="TFTPServerDto-to-BaseDto" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="145.33,164.86,152.0857,162.3379,152.3559,155.1318,145.6002,157.654,145.33,164.86" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[f84661b341fbdb8907c5e959d5fe8da0]
+@startuml
+
+!include ../BaseDto.puml
+!include TFTPServerBaseDto.puml
+
+package dtos {
+    class TFTPServerDto {
+        +State string
+    }
+}
+
+TFTPServerDto - -* TFTPServerBaseDto
+TFTPServerDto - -* BaseDto
+
+@enduml
+
+@startuml
+
+
+package dtos {
+    class BaseDto<IDType> {
+        +ID IDType
+        - -
+        +CreatedAt time.Time
+        - -
+        +UpdatedAt time.Time
+    }
+}
+
+
+package dtos {
+    class TFTPServerBaseDto {
+        +Address string
+        - -
+        +Port string
+        - -
+        +Enabled bool
+    }
+}
+
+
+package dtos {
+    class TFTPServerDto {
+        +State string
+    }
+}
+
+TFTPServerDto - -* TFTPServerBaseDto
+TFTPServerDto - -* BaseDto
+
+@enduml
+
+PlantUML version 1.2022.12(Sun Oct 23 18:12:26 EGST 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

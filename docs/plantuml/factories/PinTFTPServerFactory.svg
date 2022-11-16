@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="1183px" preserveAspectRatio="none" style="width:1757px;height:1183px;background:#FFFFFF;" version="1.1" viewBox="0 0 1757 1183" width="1757px" zoomAndPan="magnify"><defs/><g><!--MD5=[d5ac3844f66b12d9e08170e47495e096]
+cluster app--><g id="cluster_app"><path d="M8.5,949 L38.5,949 A3.75,3.75 0 0 1 41,951.5 L48,971.2969 L1747.5,971.2969 A2.5,2.5 0 0 1 1750,973.7969 L1750,1173.5 A2.5,2.5 0 0 1 1747.5,1176 L8.5,1176 A2.5,2.5 0 0 1 6,1173.5 L6,951.5 A2.5,2.5 0 0 1 8.5,949 " style="stroke:#000000;stroke-width:1.5;fill:none;"/><line style="stroke:#000000;stroke-width:1.5;fill:none;" x1="6" x2="48" y1="971.2969" y2="971.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="29" x="10" y="963.9951">app</text></g><!--MD5=[27f772719433d509ddbc20ff768eba08]
+cluster domain--><g id="cluster_domain"><path d="M635.5,421 L693.5,421 A3.75,3.75 0 0 1 696,423.5 L703,443.2969 L1057.5,443.2969 A2.5,2.5 0 0 1 1060,445.7969 L1060,913.5 A2.5,2.5 0 0 1 1057.5,916 L635.5,916 A2.5,2.5 0 0 1 633,913.5 L633,423.5 A2.5,2.5 0 0 1 635.5,421 " style="stroke:#000000;stroke-width:1.5;fill:none;"/><line style="stroke:#000000;stroke-width:1.5;fill:none;" x1="633" x2="703" y1="443.2969" y2="443.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="57" x="637" y="435.9951">domain</text></g><!--MD5=[77349be1bd27b81b697a0f9b3aded3c8]
+cluster infrastructure--><g id="cluster_infrastructure"><path d="M676.5,6 L787.5,6 A3.75,3.75 0 0 1 790,8.5 L797,28.2969 L1027.5,28.2969 A2.5,2.5 0 0 1 1030,30.7969 L1030,385.5 A2.5,2.5 0 0 1 1027.5,388 L676.5,388 A2.5,2.5 0 0 1 674,385.5 L674,8.5 A2.5,2.5 0 0 1 676.5,6 " style="stroke:#000000;stroke-width:1.5;fill:none;"/><line style="stroke:#000000;stroke-width:1.5;fill:none;" x1="674" x2="797" y1="28.2969" y2="28.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="110" x="678" y="20.9951">infrastructure</text></g><!--MD5=[d26211df6002f5e4d066386f3bad4348]
+class ITFTPServerFactory--><g id="elem_ITFTPServerFactory"><rect codeLine="3" fill="#F1F1F1" height="64.2969" id="ITFTPServerFactory" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="471" x="1263.5" y="1040"/><ellipse cx="1427.75" cy="1056" fill="#B4A7E5" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1423.6719,1051.7656 L1423.6719,1049.6094 L1431.0625,1049.6094 L1431.0625,1051.7656 L1428.5938,1051.7656 L1428.5938,1059.8438 L1431.0625,1059.8438 L1431.0625,1062 L1423.6719,1062 L1423.6719,1059.8438 L1426.1406,1059.8438 L1426.1406,1051.7656 L1423.6719,1051.7656 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="134" x="1448.25" y="1060.8467">ITFTPServerFactory</text><line style="stroke:#181818;stroke-width:0.5;" x1="1264.5" x2="1733.5" y1="1072" y2="1072"/><line style="stroke:#181818;stroke-width:0.5;" x1="1264.5" x2="1733.5" y1="1080" y2="1080"/><ellipse cx="1274.5" cy="1091" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="445" x="1283.5" y="1096.9951">Create(config domain.TFTPConfig) (interfaces.ITFTPServer, error)</text></g><path d="M1033.5,1054.5 L1033.5,1079.6328 A0,0 0 0 0 1033.5,1079.6328 L1228.5,1079.6328 A0,0 0 0 0 1228.5,1079.6328 L1228.5,1072.5 L1267.5,1092.1484 L1228.5,1064.5 L1228.5,1064.5 L1218.5,1054.5 L1033.5,1054.5 A0,0 0 0 0 1033.5,1054.5 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M1218.5,1054.5 L1218.5,1064.5 L1228.5,1064.5 L1218.5,1054.5 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="174" x="1039.5" y="1071.5669">Create runtime TFTP server</text><!--MD5=[2a39a5be1cc24ddddd6e6286e4ece992]
+class IEntityModel--><g id="elem_IEntityModel"><rect codeLine="3" fill="#F1F1F1" height="129.1875" id="IEntityModel" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="213" x="785.5" y="1007.5"/><ellipse cx="822.55" cy="1023.5" fill="#B4A7E5" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M818.4719,1019.2656 L818.4719,1017.1094 L825.8625,1017.1094 L825.8625,1019.2656 L823.3938,1019.2656 L823.3938,1027.3438 L825.8625,1027.3438 L825.8625,1029.5 L818.4719,1029.5 L818.4719,1027.3438 L820.9406,1027.3438 L820.9406,1019.2656 L818.4719,1019.2656 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="85" x="841.45" y="1028.3467">IEntityModel</text><rect fill="#FFFFFF" height="15.9688" style="stroke:#000000;stroke-width:1.0;stroke-dasharray:2.0,2.0;" width="45" x="956.5" y="1004.5"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="43" x="957.5" y="1016.6387">IDType</text><line style="stroke:#181818;stroke-width:0.5;" x1="786.5" x2="997.5" y1="1039.5" y2="1039.5"/><ellipse cx="796.5" cy="1050.5" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="101" x="805.5" y="1056.4951">GetID() IDType</text><line style="stroke:#181818;stroke-width:1.0;" x1="786.5" x2="997.5" y1="1063.7969" y2="1063.7969"/><ellipse cx="796.5" cy="1074.7969" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="176" x="805.5" y="1080.792">GetCreatedAt() time.Time</text><line style="stroke:#181818;stroke-width:1.0;" x1="786.5" x2="997.5" y1="1088.0938" y2="1088.0938"/><ellipse cx="796.5" cy="1099.0938" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="187" x="805.5" y="1105.0889">GetUpdatedAt() *time.Time</text><line style="stroke:#181818;stroke-width:1.0;" x1="786.5" x2="997.5" y1="1112.3906" y2="1112.3906"/><ellipse cx="796.5" cy="1123.3906" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="183" x="805.5" y="1129.3857">GetDeletedAt() *time.Time</text></g><!--MD5=[226a31cae08f7d2a88b638458847f8bd]
+class ITFTPServer--><g id="elem_ITFTPServer"><rect codeLine="7" fill="#F1F1F1" height="153.4844" id="ITFTPServer" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="332" x="418" y="995.5"/><ellipse cx="538.25" cy="1011.5" fill="#B4A7E5" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M534.1719,1007.2656 L534.1719,1005.1094 L541.5625,1005.1094 L541.5625,1007.2656 L539.0938,1007.2656 L539.0938,1015.3438 L541.5625,1015.3438 L541.5625,1017.5 L534.1719,1017.5 L534.1719,1015.3438 L536.6406,1015.3438 L536.6406,1007.2656 L534.1719,1007.2656 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="83" x="558.75" y="1016.3467">ITFTPServer</text><line style="stroke:#181818;stroke-width:0.5;" x1="419" x2="749" y1="1027.5" y2="1027.5"/><ellipse cx="429" cy="1038.5" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="282" x="438" y="1044.4951">ReloadConfig(config domain.TFTPConfig)</text><line style="stroke:#181818;stroke-width:1.0;" x1="419" x2="749" y1="1051.7969" y2="1051.7969"/><ellipse cx="429" cy="1062.7969" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="306" x="438" y="1068.792">ReloadPaths(paths []domain.TFTPPathRatio)</text><line style="stroke:#181818;stroke-width:1.0;" x1="419" x2="749" y1="1076.0938" y2="1076.0938"/><ellipse cx="429" cy="1087.0938" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="79" x="438" y="1093.0889">Start() error</text><line style="stroke:#181818;stroke-width:1.0;" x1="419" x2="749" y1="1100.3906" y2="1100.3906"/><ellipse cx="429" cy="1111.3906" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="42" x="438" y="1117.3857">Stop()</text><line style="stroke:#181818;stroke-width:1.0;" x1="419" x2="749" y1="1124.6875" y2="1124.6875"/><ellipse cx="429" cy="1135.6875" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="245" x="438" y="1141.6826">GetState() domain.TFTPServerState</text></g><path d="M21.5,984 L21.5,1009.1328 A0,0 0 0 0 21.5,1009.1328 L346.5,1009.1328 A0,0 0 0 0 346.5,1009.1328 L346.5,1002 L422,1039.6484 L346.5,994 L346.5,994 L336.5,984 L21.5,984 A0,0 0 0 0 21.5,984 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M336.5,984 L336.5,994 L346.5,994 L336.5,984 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="304" x="27.5" y="1001.0669">Reload configuration for TFTP server from config</text><path d="M21.5,1019.1328 L21.5,1044.2656 A0,0 0 0 0 21.5,1044.2656 L382.5,1044.2656 A0,0 0 0 0 382.5,1044.2656 L382.5,1037.1328 L422,1063.9453 L382.5,1029.1328 L382.5,1029.1328 L372.5,1019.1328 L21.5,1019.1328 A0,0 0 0 0 21.5,1019.1328 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M372.5,1019.1328 L372.5,1029.1328 L382.5,1029.1328 L372.5,1019.1328 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="340" x="27.5" y="1036.1997">Reload file paths configuration for TFTP server (On fly)</text><path d="M21.5,1054.2656 L21.5,1079.3984 A0,0 0 0 0 21.5,1079.3984 L151.5,1079.3984 A0,0 0 0 0 151.5,1079.3984 L151.5,1072.2656 L422,1088.2422 L151.5,1064.2656 L151.5,1064.2656 L141.5,1054.2656 L21.5,1054.2656 A0,0 0 0 0 21.5,1054.2656 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M141.5,1054.2656 L141.5,1064.2656 L151.5,1064.2656 L141.5,1054.2656 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="109" x="27.5" y="1071.3325">Start TFTP server</text><path d="M21.5,1089.3984 L21.5,1114.5313 A0,0 0 0 0 21.5,1114.5313 L149.5,1114.5313 A0,0 0 0 0 149.5,1114.5313 L149.5,1107.3984 L422,1112.5391 L149.5,1099.3984 L149.5,1099.3984 L139.5,1089.3984 L21.5,1089.3984 A0,0 0 0 0 21.5,1089.3984 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M139.5,1089.3984 L139.5,1099.3984 L149.5,1099.3984 L139.5,1089.3984 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="107" x="27.5" y="1106.4653">Stop TFTP server</text><path d="M21.5,1124.5313 L21.5,1149.6641 A0,0 0 0 0 21.5,1149.6641 L245.5,1149.6641 A0,0 0 0 0 245.5,1149.6641 L245.5,1142.5313 L422,1136.8359 L245.5,1134.5313 L245.5,1134.5313 L235.5,1124.5313 L21.5,1124.5313 A0,0 0 0 0 21.5,1124.5313 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M235.5,1124.5313 L235.5,1134.5313 L245.5,1134.5313 L235.5,1124.5313 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="203" x="27.5" y="1141.5981">Get current state of TFTP server</text><!--MD5=[2198d3bfd14eba6d7379688992ec094c]
+class TFTPServerState--><g id="elem_TFTPServerState"><rect codeLine="3" fill="#F1F1F1" height="153.4844" id="TFTPServerState" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="151" x="649.5" y="747"/><ellipse cx="666.3" cy="763" fill="#EB937F" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M670.4094,769 L662.6906,769 L662.6906,756.6094 L670.4094,756.6094 L670.4094,758.7656 L665.1438,758.7656 L665.1438,761.4375 L669.9094,761.4375 L669.9094,763.5938 L665.1438,763.5938 L665.1438,766.8438 L670.4094,766.8438 L670.4094,769 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="115" x="680.7" y="767.8467">TFTPServerState</text><line style="stroke:#181818;stroke-width:0.5;" x1="650.5" x2="799.5" y1="779" y2="779"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="139" x="655.5" y="795.9951">TFTPStateLaunched</text><line style="stroke:#181818;stroke-width:1.0;" x1="650.5" x2="799.5" y1="803.2969" y2="803.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="130" x="655.5" y="820.292">TFTPStateStopped</text><line style="stroke:#181818;stroke-width:1.0;" x1="650.5" x2="799.5" y1="827.5938" y2="827.5938"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="104" x="655.5" y="844.5889">TFTPStateError</text><line style="stroke:#181818;stroke-width:1.0;" x1="650.5" x2="799.5" y1="851.8906" y2="851.8906"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="108" x="655.5" y="868.8857">TFTPStateNone</text><line style="stroke:#181818;stroke-width:1.0;" x1="650.5" x2="799.5" y1="876.1875" y2="876.1875"/><ellipse cx="660.5" cy="887.1875" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="68" x="669.5" y="893.1826">ToString()</text></g><!--MD5=[1045d07ae824aea072cabb0fb8284887]
+class EntityUUID--><g id="elem_EntityUUID"><rect codeLine="5" fill="#F1F1F1" height="48" id="EntityUUID" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="104" x="865" y="622"/><ellipse cx="880" cy="638" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M882.9688,643.6406 Q882.3906,643.9375 881.75,644.0781 Q881.1094,644.2344 880.4063,644.2344 Q877.9063,644.2344 876.5781,642.5938 Q875.2656,640.9375 875.2656,637.8125 Q875.2656,634.6875 876.5781,633.0313 Q877.9063,631.375 880.4063,631.375 Q881.1094,631.375 881.75,631.5313 Q882.4063,631.6875 882.9688,631.9844 L882.9688,634.7031 Q882.3438,634.125 881.75,633.8594 Q881.1563,633.5781 880.5313,633.5781 Q879.1875,633.5781 878.5,634.6563 Q877.8125,635.7188 877.8125,637.8125 Q877.8125,639.9063 878.5,640.9844 Q879.1875,642.0469 880.5313,642.0469 Q881.1563,642.0469 881.75,641.7813 Q882.3438,641.5 882.9688,640.9219 L882.9688,643.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="72" x="894" y="642.8467">EntityUUID</text><line style="stroke:#181818;stroke-width:0.5;" x1="866" x2="968" y1="654" y2="654"/><line style="stroke:#181818;stroke-width:0.5;" x1="866" x2="968" y1="662" y2="662"/></g><!--MD5=[be996cdb8e6bf2fc7cb89c555f2cd144]
+class Entity--><g id="elem_Entity"><rect codeLine="8" fill="#F1F1F1" height="129.1875" id="Entity" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="208" x="836" y="759"/><ellipse cx="893.25" cy="775" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M896.2188,780.6406 Q895.6406,780.9375 895,781.0781 Q894.3594,781.2344 893.6563,781.2344 Q891.1563,781.2344 889.8281,779.5938 Q888.5156,777.9375 888.5156,774.8125 Q888.5156,771.6875 889.8281,770.0313 Q891.1563,768.375 893.6563,768.375 Q894.3594,768.375 895,768.5313 Q895.6563,768.6875 896.2188,768.9844 L896.2188,771.7031 Q895.5938,771.125 895,770.8594 Q894.4063,770.5781 893.7813,770.5781 Q892.4375,770.5781 891.75,771.6563 Q891.0625,772.7188 891.0625,774.8125 Q891.0625,776.9063 891.75,777.9844 Q892.4375,779.0469 893.7813,779.0469 Q894.4063,779.0469 895,778.7813 Q895.5938,778.5 896.2188,777.9219 L896.2188,780.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="38" x="913.75" y="779.8467">Entity</text><rect fill="#FFFFFF" height="15.9688" style="stroke:#000000;stroke-width:1.0;stroke-dasharray:2.0,2.0;" width="45" x="1002" y="756"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="43" x="1003" y="768.1387">IDType</text><line style="stroke:#181818;stroke-width:0.5;" x1="837" x2="1043" y1="791" y2="791"/><ellipse cx="847" cy="802" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="66" x="856" y="807.9951">ID IDType</text><line style="stroke:#181818;stroke-width:1.0;" x1="837" x2="1043" y1="815.2969" y2="815.2969"/><ellipse cx="847" cy="826.2969" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="141" x="856" y="832.292">CreatedAt time.Time</text><line style="stroke:#181818;stroke-width:1.0;" x1="837" x2="1043" y1="839.5938" y2="839.5938"/><ellipse cx="847" cy="850.5938" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="152" x="856" y="856.5889">UpdatedAt *time.Time</text><line style="stroke:#181818;stroke-width:1.0;" x1="837" x2="1043" y1="863.8906" y2="863.8906"/><ellipse cx="847" cy="874.8906" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="182" x="856" y="880.8857">DeletedAt gorm.DeletedAt</text></g><!--MD5=[66312c7dc3a7a5109fe9a86e1204a9bb]
+class TFTPConfig--><g id="elem_TFTPConfig"><rect codeLine="5" fill="#F1F1F1" height="104.8906" id="TFTPConfig" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="126" x="918" y="456"/><ellipse cx="939.75" cy="472" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M942.7188,477.6406 Q942.1406,477.9375 941.5,478.0781 Q940.8594,478.2344 940.1563,478.2344 Q937.6563,478.2344 936.3281,476.5938 Q935.0156,474.9375 935.0156,471.8125 Q935.0156,468.6875 936.3281,467.0313 Q937.6563,465.375 940.1563,465.375 Q940.8594,465.375 941.5,465.5313 Q942.1563,465.6875 942.7188,465.9844 L942.7188,468.7031 Q942.0938,468.125 941.5,467.8594 Q940.9063,467.5781 940.2813,467.5781 Q938.9375,467.5781 938.25,468.6563 Q937.5625,469.7188 937.5625,471.8125 Q937.5625,473.9063 938.25,474.9844 Q938.9375,476.0469 940.2813,476.0469 Q940.9063,476.0469 941.5,475.7813 Q942.0938,475.5 942.7188,474.9219 L942.7188,477.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="79" x="955.25" y="476.8467">TFTPConfig</text><line style="stroke:#181818;stroke-width:0.5;" x1="919" x2="1043" y1="488" y2="488"/><ellipse cx="929" cy="499" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="100" x="938" y="504.9951">Address string</text><line style="stroke:#181818;stroke-width:1.0;" x1="919" x2="1043" y1="512.2969" y2="512.2969"/><ellipse cx="929" cy="523.2969" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="71" x="938" y="529.292">Port string</text><line style="stroke:#181818;stroke-width:1.0;" x1="919" x2="1043" y1="536.5938" y2="536.5938"/><ellipse cx="929" cy="547.5938" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="90" x="938" y="553.5889">Enabled bool</text></g><!--MD5=[caf42e0349c1b51ba90b5c83755b2009]
+class TFTPPathRatio--><g id="elem_TFTPPathRatio"><rect codeLine="5" fill="#F1F1F1" height="104.8906" id="TFTPPathRatio" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="191" x="691.5" y="456"/><ellipse cx="732.6" cy="472" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M735.5688,477.6406 Q734.9906,477.9375 734.35,478.0781 Q733.7094,478.2344 733.0063,478.2344 Q730.5063,478.2344 729.1781,476.5938 Q727.8656,474.9375 727.8656,471.8125 Q727.8656,468.6875 729.1781,467.0313 Q730.5063,465.375 733.0063,465.375 Q733.7094,465.375 734.35,465.5313 Q735.0063,465.6875 735.5688,465.9844 L735.5688,468.7031 Q734.9438,468.125 734.35,467.8594 Q733.7563,467.5781 733.1313,467.5781 Q731.7875,467.5781 731.1,468.6563 Q730.4125,469.7188 730.4125,471.8125 Q730.4125,473.9063 731.1,474.9844 Q731.7875,476.0469 733.1313,476.0469 Q733.7563,476.0469 734.35,475.7813 Q734.9438,475.5 735.5688,474.9219 L735.5688,477.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="101" x="752.4" y="476.8467">TFTPPathRatio</text><line style="stroke:#181818;stroke-width:0.5;" x1="692.5" x2="881.5" y1="488" y2="488"/><ellipse cx="702.5" cy="499" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="165" x="711.5" y="504.9951">TFTPConfigID uuid.UUID</text><line style="stroke:#181818;stroke-width:1.0;" x1="692.5" x2="881.5" y1="512.2969" y2="512.2969"/><ellipse cx="702.5" cy="523.2969" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="116" x="711.5" y="529.292">ActualPath string</text><line style="stroke:#181818;stroke-width:1.0;" x1="692.5" x2="881.5" y1="536.5938" y2="536.5938"/><ellipse cx="702.5" cy="547.5938" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="116" x="711.5" y="553.5889">VirtualPath string</text></g><!--MD5=[f8d81217986f026607563f786913c1eb]
+class PinTFTPServer--><g id="elem_PinTFTPServer"><rect codeLine="6" fill="#F1F1F1" height="129.1875" id="PinTFTPServer" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="235" x="698.5" y="240"/><ellipse cx="761.75" cy="256" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M764.7188,261.6406 Q764.1406,261.9375 763.5,262.0781 Q762.8594,262.2344 762.1563,262.2344 Q759.6563,262.2344 758.3281,260.5938 Q757.0156,258.9375 757.0156,255.8125 Q757.0156,252.6875 758.3281,251.0313 Q759.6563,249.375 762.1563,249.375 Q762.8594,249.375 763.5,249.5313 Q764.1563,249.6875 764.7188,249.9844 L764.7188,252.7031 Q764.0938,252.125 763.5,251.8594 Q762.9063,251.5781 762.2813,251.5781 Q760.9375,251.5781 760.25,252.6563 Q759.5625,253.7188 759.5625,255.8125 Q759.5625,257.9063 760.25,258.9844 Q760.9375,260.0469 762.2813,260.0469 Q762.9063,260.0469 763.5,259.7813 Q764.0938,259.5 764.7188,258.9219 L764.7188,261.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="100" x="782.25" y="260.8467">PinTFTPServer</text><line style="stroke:#181818;stroke-width:0.5;" x1="699.5" x2="932.5" y1="272" y2="272"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="706.5" y="280"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="135" x="718.5" y="288.9951">runtime *tftp.Server</text><line style="stroke:#181818;stroke-width:1.0;" x1="699.5" x2="932.5" y1="296.2969" y2="296.2969"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="706.5" y="304.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="180" x="718.5" y="313.292">config domain.TFTPConfig</text><line style="stroke:#181818;stroke-width:1.0;" x1="699.5" x2="932.5" y1="320.5938" y2="320.5938"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="706.5" y="328.5938"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="209" x="718.5" y="337.5889">paths []domain.TFTPPathRatio</text><line style="stroke:#181818;stroke-width:1.0;" x1="699.5" x2="932.5" y1="344.8906" y2="344.8906"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="706.5" y="352.8906"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="209" x="718.5" y="361.8857">state domain.TFTPServerState</text></g><!--MD5=[8fde6485f0164ba4270644cc9bbbdb4e]
+class PinTFTPServerFactory--><g id="elem_PinTFTPServerFactory"><rect codeLine="21" fill="#F1F1F1" height="48" id="PinTFTPServerFactory" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="182" x="832" y="41"/><ellipse cx="847" cy="57" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M849.9688,62.6406 Q849.3906,62.9375 848.75,63.0781 Q848.1094,63.2344 847.4063,63.2344 Q844.9063,63.2344 843.5781,61.5938 Q842.2656,59.9375 842.2656,56.8125 Q842.2656,53.6875 843.5781,52.0313 Q844.9063,50.375 847.4063,50.375 Q848.1094,50.375 848.75,50.5313 Q849.4063,50.6875 849.9688,50.9844 L849.9688,53.7031 Q849.3438,53.125 848.75,52.8594 Q848.1563,52.5781 847.5313,52.5781 Q846.1875,52.5781 845.5,53.6563 Q844.8125,54.7188 844.8125,56.8125 Q844.8125,58.9063 845.5,59.9844 Q846.1875,61.0469 847.5313,61.0469 Q848.1563,61.0469 848.75,60.7813 Q849.3438,60.5 849.9688,59.9219 L849.9688,62.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="150" x="861" y="61.8467">PinTFTPServerFactory</text><line style="stroke:#181818;stroke-width:0.5;" x1="833" x2="1013" y1="73" y2="73"/><line style="stroke:#181818;stroke-width:0.5;" x1="833" x2="1013" y1="81" y2="81"/></g><g id="elem_TFTPServersNote"><path d="M689.5,150 L689.5,175.1328 L1014.5,175.1328 L1014.5,160 L1004.5,150 L689.5,150 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M1004.5,150 L1004.5,160 L1014.5,160 L1004.5,150 " fill="#FEFFDD" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="304" x="695.5" y="167.0669">PinTFTPServerFactory produces PinTFTPServer's</text></g><!--MD5=[4afd32b9c3a651e50eee9a88aa9ac7c6]
+link EntityUUID to Entity--><g id="link_EntityUUID_Entity"><path codeLine="7" d="M920.05,670.31 C922.6,689.7 926.36,718.45 929.94,745.75 " fill="none" id="EntityUUID-to-Entity" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="931.68,758.99,934.8679,752.5218,930.1234,747.0914,926.9355,753.5596,931.68,758.99" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="125" x="926" y="713.0669">IDType is uuid.UUID</text></g><!--MD5=[a6c7a0eda5b041e127f539f1664bb96a]
+link Entity to IEntityModel--><g id="link_Entity_IEntityModel"><path codeLine="17" d="M927.58,888.3 C921.69,918.52 914.59,955 908.28,987.4 " fill="none" id="Entity-to-IEntityModel" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="915.07,989.17,904.37,1007.47,901.32,986.5,915.07,989.17" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[c4f6a66c75aa5a5930f9ad521c3ff88d]
+link TFTPConfig to EntityUUID--><g id="link_TFTPConfig_EntityUUID"><path codeLine="12" d="M956.62,561.11 C948.89,577.47 940.54,595.17 933.5,610.07 " fill="none" id="TFTPConfig-to-EntityUUID" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="927.94,621.84,934.1204,618.1248,933.068,610.9909,926.8876,614.7061,927.94,621.84" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[1907dee3a2135422184dd65ec3cf3102]
+link TFTPPathRatio to EntityUUID--><g id="link_TFTPPathRatio_EntityUUID"><path codeLine="12" d="M836.52,561.11 C853,578.29 870.89,596.94 885.61,612.28 " fill="none" id="TFTPPathRatio-to-EntityUUID" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="894.78,621.84,893.5144,614.7408,886.4746,613.1786,887.7402,620.2778,894.78,621.84" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[2a9b7e057a7ba9637c59ec3e2bfbf971]
+link Entity to TFTPServerState--><!--MD5=[c818a6dbbf99e0052df6ae5b263b6582]
+link PinTFTPServer to TFTPServerState--><g id="link_PinTFTPServer_TFTPServerState"><path codeLine="16" d="M698,356 C543.36,356 633.99,614.66 690.36,746.77 " fill="none" id="PinTFTPServer-TFTPServerState" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[ef8fa4ee8b6a9556b61683a40a2cf01b]
+link PinTFTPServer to TFTPConfig--><g id="link_PinTFTPServer_TFTPConfig"><path codeLine="17" d="M935,308 C995.69,308 995.89,396.75 989.29,455.86 " fill="none" id="PinTFTPServer-TFTPConfig" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[9873a753b2fb946c92371238d20c837b]
+link PinTFTPServer to TFTPPathRatio--><g id="link_PinTFTPServer_TFTPPathRatio"><path codeLine="18" d="M698,332 C641.97,332 694.26,404.03 739.07,455.79 " fill="none" id="PinTFTPServer-TFTPPathRatio" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[0ee5f54ba1a2352435198802a3f1def0]
+link PinTFTPServer to ITFTPServer--><g id="link_PinTFTPServer_ITFTPServer"><path codeLine="19" d="M690.43,358.15 C663.91,371.56 636.78,387.04 613,404 C575.55,430.71 567,501.76 567,507.5 C567,507.5 567,507.5 567,824.5 C567,874.25 570.49,929.52 574.31,975.1 " fill="none" id="PinTFTPServer-to-ITFTPServer" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="581.3,974.77,576.07,995.3,567.36,975.99,581.3,974.77" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[b443dacc27a31d77d00e300131c7907d]
+link PinTFTPServerFactory to ITFTPServerFactory--><g id="link_PinTFTPServerFactory_ITFTPServerFactory"><path codeLine="23" d="M1014.25,67.86 C1141.54,72.98 1357,91.92 1357,161.5 C1357,161.5 1357,161.5 1357,824.5 C1357,902.65 1411.25,978.36 1452.68,1024.8 " fill="none" id="PinTFTPServerFactory-to-ITFTPServerFactory" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="1457.99,1020.23,1466.42,1039.67,1447.71,1029.73,1457.99,1020.23" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[b1f441d24b6ea429462869cde2e5e15a]
+link PinTFTPServerFactory to ITFTPServer--><!--MD5=[6ea77bec670f9ff30895a089e5f29e35]
+link TFTPServersNote to PinTFTPServer--><g id="link_TFTPServersNote_PinTFTPServer"><path codeLine="27" d="M848.93,175.39 C845.64,188.13 840.14,209.45 834.57,231.05 " fill="none" id="TFTPServersNote-to-PinTFTPServer" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="833.3,235.96,839.4117,228.2368,834.5429,231.1169,831.6628,226.2482,833.3,235.96" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[a8b16fd571a2a8a3dc7397a5d7e71b7b]
+link PinTFTPServerFactory to TFTPServersNote--><g id="link_PinTFTPServerFactory_TFTPServersNote"><path codeLine="28" d="M905.81,89.12 C891.53,108.33 871.8,134.86 860.63,149.89 " fill="none" id="PinTFTPServerFactory-TFTPServersNote" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/></g><!--MD5=[a18da70705ea13014e315a9e40c00a7e]
+@startuml
+
+!include ../interfaces/ITFTPServerFactory.puml
+!include ../interfaces/ITFTPServer.puml
+
+package infrastructure {
+    class PinTFTPServer {
+        -runtime *tftp.Server
+        - -
+    	-config domain.TFTPConfig
+    	- -
+    	-paths []domain.TFTPPathRatio
+    	- -
+    	-state domain.TFTPServerState
+    }
+    TFTPServerState .[hidden]left. Entity
+    PinTFTPServer::state - - TFTPServerState
+    PinTFTPServer::config -down- TFTPConfig
+    PinTFTPServer::paths -down- TFTPPathRatio
+    PinTFTPServer .down.|> ITFTPServer
+
+    class PinTFTPServerFactory
+
+    PinTFTPServerFactory .down.|> ITFTPServerFactory
+    PinTFTPServerFactory .[hidden]down. ITFTPServer
+
+    note "PinTFTPServerFactory produces PinTFTPServer's" as TFTPServersNote
+    PinTFTPServer <.up. TFTPServersNote
+    PinTFTPServerFactory .down. TFTPServersNote
+}
+
+@enduml
+
+@startuml
+
+
+package app {
+    interface ITFTPServerFactory {
+        +Create(config domain.TFTPConfig) (interfaces.ITFTPServer, error)
+    }
+
+    note left of ITFTPServerFactory::Create
+    Create runtime TFTP server
+    end note
+}
+
+
+
+package domain {
+    enum TFTPServerState {
+            TFTPStateLaunched
+            - -
+            TFTPStateStopped
+            - -
+            TFTPStateError
+            - -
+            TFTPStateNone
+            - -
+            +ToString()
+    }
+}
+
+
+
+
+package app {
+    interface IEntityModel<IDType> {
+        +GetID() IDType
+        - -
+        +GetCreatedAt() time.Time
+        - -
+        +GetUpdatedAt() *time.Time
+        - -
+        +GetDeletedAt() *time.Time
+    }
+}
+
+
+package domain {
+    class EntityUUID {
+    }
+    EntityUUID - -* Entity : IDType is uuid.UUID
+    class Entity<IDType> {
+        +ID IDType
+        - -
+        +CreatedAt time.Time
+        - -
+        +UpdatedAt *time.Time
+        - -
+        +DeletedAt gorm.DeletedAt
+    }
+    Entity .down.|> IEntityModel
+}
+
+
+package domain {
+    class TFTPConfig {
+        +Address string
+        - -
+        +Port string
+        - -
+        +Enabled bool
+    }
+    TFTPConfig -down-* EntityUUID
+}
+
+
+
+package domain {
+    class TFTPPathRatio {
+        +TFTPConfigID uuid.UUID
+        - -
+        +ActualPath string
+        - -
+        +VirtualPath string
+    }
+    TFTPPathRatio -down-* EntityUUID
+}
+
+
+package app {
+    interface ITFTPServer {
+        +ReloadConfig(config domain.TFTPConfig)
+        - -
+        +ReloadPaths(paths []domain.TFTPPathRatio)
+        - -
+        +Start() error
+        - -
+        +Stop()
+        - -
+        +GetState() domain.TFTPServerState
+    }
+
+    note left of ITFTPServer::ReloadConfig
+    Reload configuration for TFTP server from config
+    end note
+
+    note left of ITFTPServer::ReloadPaths
+    Reload file paths configuration for TFTP server (On fly)
+    end note
+
+    note left of ITFTPServer::Start
+    Start TFTP server
+    end note
+
+    note left of ITFTPServer::Stop
+    Stop TFTP server
+    end note
+
+    note left of ITFTPServer::GetState
+    Get current state of TFTP server
+    end note
+}
+
+
+package infrastructure {
+    class PinTFTPServer {
+        -runtime *tftp.Server
+        - -
+    	-config domain.TFTPConfig
+    	- -
+    	-paths []domain.TFTPPathRatio
+    	- -
+    	-state domain.TFTPServerState
+    }
+    TFTPServerState .[hidden]left. Entity
+    PinTFTPServer::state - - TFTPServerState
+    PinTFTPServer::config -down- TFTPConfig
+    PinTFTPServer::paths -down- TFTPPathRatio
+    PinTFTPServer .down.|> ITFTPServer
+
+    class PinTFTPServerFactory
+
+    PinTFTPServerFactory .down.|> ITFTPServerFactory
+    PinTFTPServerFactory .[hidden]down. ITFTPServer
+
+    note "PinTFTPServerFactory produces PinTFTPServer's" as TFTPServersNote
+    PinTFTPServer <.up. TFTPServersNote
+    PinTFTPServerFactory .down. TFTPServersNote
+}
+
+@enduml
+
+PlantUML version 1.2022.6(Tue Jun 21 17:34:49 EGST 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

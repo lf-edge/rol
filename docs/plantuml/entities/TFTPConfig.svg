@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="697px" preserveAspectRatio="none" style="width:257px;height:697px;background:#FFFFFF;" version="1.1" viewBox="0 0 257 697" width="257px" zoomAndPan="magnify"><defs/><g><!--MD5=[d5ac3844f66b12d9e08170e47495e096]
+cluster app--><g id="cluster_app"><path d="M8.5,510 L38.5,510 A3.75,3.75 0 0 1 41,512.5 L48,532.2969 L247.5,532.2969 A2.5,2.5 0 0 1 250,534.7969 L250,687.5 A2.5,2.5 0 0 1 247.5,690 L8.5,690 A2.5,2.5 0 0 1 6,687.5 L6,512.5 A2.5,2.5 0 0 1 8.5,510 " style="stroke:#000000;stroke-width:1.5;fill:none;"/><line style="stroke:#000000;stroke-width:1.5;fill:none;" x1="6" x2="48" y1="532.2969" y2="532.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="29" x="10" y="524.9951">app</text></g><!--MD5=[27f772719433d509ddbc20ff768eba08]
+cluster domain--><g id="cluster_domain"><path d="M10.5,6 L68.5,6 A3.75,3.75 0 0 1 71,8.5 L78,28.2969 L245.5,28.2969 A2.5,2.5 0 0 1 248,30.7969 L248,474.5 A2.5,2.5 0 0 1 245.5,477 L10.5,477 A2.5,2.5 0 0 1 8,474.5 L8,8.5 A2.5,2.5 0 0 1 10.5,6 " style="stroke:#000000;stroke-width:1.5;fill:none;"/><line style="stroke:#000000;stroke-width:1.5;fill:none;" x1="8" x2="78" y1="28.2969" y2="28.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="57" x="12" y="20.9951">domain</text></g><!--MD5=[2a39a5be1cc24ddddd6e6286e4ece992]
+class IEntityModel--><g id="elem_IEntityModel"><rect codeLine="3" fill="#F1F1F1" height="129.1875" id="IEntityModel" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="213" x="21.5" y="545"/><ellipse cx="58.55" cy="561" fill="#B4A7E5" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M54.4719,556.7656 L54.4719,554.6094 L61.8625,554.6094 L61.8625,556.7656 L59.3938,556.7656 L59.3938,564.8438 L61.8625,564.8438 L61.8625,567 L54.4719,567 L54.4719,564.8438 L56.9406,564.8438 L56.9406,556.7656 L54.4719,556.7656 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="85" x="77.45" y="565.8467">IEntityModel</text><rect fill="#FFFFFF" height="15.9688" style="stroke:#000000;stroke-width:1.0;stroke-dasharray:2.0,2.0;" width="45" x="192.5" y="542"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="43" x="193.5" y="554.1387">IDType</text><line style="stroke:#181818;stroke-width:0.5;" x1="22.5" x2="233.5" y1="577" y2="577"/><ellipse cx="32.5" cy="588" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="101" x="41.5" y="593.9951">GetID() IDType</text><line style="stroke:#181818;stroke-width:1.0;" x1="22.5" x2="233.5" y1="601.2969" y2="601.2969"/><ellipse cx="32.5" cy="612.2969" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="176" x="41.5" y="618.292">GetCreatedAt() time.Time</text><line style="stroke:#181818;stroke-width:1.0;" x1="22.5" x2="233.5" y1="625.5938" y2="625.5938"/><ellipse cx="32.5" cy="636.5938" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="187" x="41.5" y="642.5889">GetUpdatedAt() *time.Time</text><line style="stroke:#181818;stroke-width:1.0;" x1="22.5" x2="233.5" y1="649.8906" y2="649.8906"/><ellipse cx="32.5" cy="660.8906" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="183" x="41.5" y="666.8857">GetDeletedAt() *time.Time</text></g><!--MD5=[1045d07ae824aea072cabb0fb8284887]
+class EntityUUID--><g id="elem_EntityUUID"><rect codeLine="5" fill="#F1F1F1" height="48" id="EntityUUID" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="104" x="53" y="207"/><ellipse cx="68" cy="223" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M70.9688,228.6406 Q70.3906,228.9375 69.75,229.0781 Q69.1094,229.2344 68.4063,229.2344 Q65.9063,229.2344 64.5781,227.5938 Q63.2656,225.9375 63.2656,222.8125 Q63.2656,219.6875 64.5781,218.0313 Q65.9063,216.375 68.4063,216.375 Q69.1094,216.375 69.75,216.5313 Q70.4063,216.6875 70.9688,216.9844 L70.9688,219.7031 Q70.3438,219.125 69.75,218.8594 Q69.1563,218.5781 68.5313,218.5781 Q67.1875,218.5781 66.5,219.6563 Q65.8125,220.7188 65.8125,222.8125 Q65.8125,224.9063 66.5,225.9844 Q67.1875,227.0469 68.5313,227.0469 Q69.1563,227.0469 69.75,226.7813 Q70.3438,226.5 70.9688,225.9219 L70.9688,228.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="72" x="82" y="227.8467">EntityUUID</text><line style="stroke:#181818;stroke-width:0.5;" x1="54" x2="156" y1="239" y2="239"/><line style="stroke:#181818;stroke-width:0.5;" x1="54" x2="156" y1="247" y2="247"/></g><!--MD5=[be996cdb8e6bf2fc7cb89c555f2cd144]
+class Entity--><g id="elem_Entity"><rect codeLine="8" fill="#F1F1F1" height="129.1875" id="Entity" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="208" x="24" y="332"/><ellipse cx="81.25" cy="348" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M84.2188,353.6406 Q83.6406,353.9375 83,354.0781 Q82.3594,354.2344 81.6563,354.2344 Q79.1563,354.2344 77.8281,352.5938 Q76.5156,350.9375 76.5156,347.8125 Q76.5156,344.6875 77.8281,343.0313 Q79.1563,341.375 81.6563,341.375 Q82.3594,341.375 83,341.5313 Q83.6563,341.6875 84.2188,341.9844 L84.2188,344.7031 Q83.5938,344.125 83,343.8594 Q82.4063,343.5781 81.7813,343.5781 Q80.4375,343.5781 79.75,344.6563 Q79.0625,345.7188 79.0625,347.8125 Q79.0625,349.9063 79.75,350.9844 Q80.4375,352.0469 81.7813,352.0469 Q82.4063,352.0469 83,351.7813 Q83.5938,351.5 84.2188,350.9219 L84.2188,353.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="38" x="101.75" y="352.8467">Entity</text><rect fill="#FFFFFF" height="15.9688" style="stroke:#000000;stroke-width:1.0;stroke-dasharray:2.0,2.0;" width="45" x="190" y="329"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="43" x="191" y="341.1387">IDType</text><line style="stroke:#181818;stroke-width:0.5;" x1="25" x2="231" y1="364" y2="364"/><ellipse cx="35" cy="375" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="66" x="44" y="380.9951">ID IDType</text><line style="stroke:#181818;stroke-width:1.0;" x1="25" x2="231" y1="388.2969" y2="388.2969"/><ellipse cx="35" cy="399.2969" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="141" x="44" y="405.292">CreatedAt time.Time</text><line style="stroke:#181818;stroke-width:1.0;" x1="25" x2="231" y1="412.5938" y2="412.5938"/><ellipse cx="35" cy="423.5938" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="152" x="44" y="429.5889">UpdatedAt *time.Time</text><line style="stroke:#181818;stroke-width:1.0;" x1="25" x2="231" y1="436.8906" y2="436.8906"/><ellipse cx="35" cy="447.8906" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="182" x="44" y="453.8857">DeletedAt gorm.DeletedAt</text></g><!--MD5=[66312c7dc3a7a5109fe9a86e1204a9bb]
+class TFTPConfig--><g id="elem_TFTPConfig"><rect codeLine="5" fill="#F1F1F1" height="104.8906" id="TFTPConfig" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="126" x="42" y="41"/><ellipse cx="63.75" cy="57" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M66.7188,62.6406 Q66.1406,62.9375 65.5,63.0781 Q64.8594,63.2344 64.1563,63.2344 Q61.6563,63.2344 60.3281,61.5938 Q59.0156,59.9375 59.0156,56.8125 Q59.0156,53.6875 60.3281,52.0313 Q61.6563,50.375 64.1563,50.375 Q64.8594,50.375 65.5,50.5313 Q66.1563,50.6875 66.7188,50.9844 L66.7188,53.7031 Q66.0938,53.125 65.5,52.8594 Q64.9063,52.5781 64.2813,52.5781 Q62.9375,52.5781 62.25,53.6563 Q61.5625,54.7188 61.5625,56.8125 Q61.5625,58.9063 62.25,59.9844 Q62.9375,61.0469 64.2813,61.0469 Q64.9063,61.0469 65.5,60.7813 Q66.0938,60.5 66.7188,59.9219 L66.7188,62.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="79" x="79.25" y="61.8467">TFTPConfig</text><line style="stroke:#181818;stroke-width:0.5;" x1="43" x2="167" y1="73" y2="73"/><ellipse cx="53" cy="84" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="100" x="62" y="89.9951">Address string</text><line style="stroke:#181818;stroke-width:1.0;" x1="43" x2="167" y1="97.2969" y2="97.2969"/><ellipse cx="53" cy="108.2969" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="71" x="62" y="114.292">Port string</text><line style="stroke:#181818;stroke-width:1.0;" x1="43" x2="167" y1="121.5938" y2="121.5938"/><ellipse cx="53" cy="132.5938" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="90" x="62" y="138.5889">Enabled bool</text></g><!--MD5=[4afd32b9c3a651e50eee9a88aa9ac7c6]
+link EntityUUID to Entity--><g id="link_EntityUUID_Entity"><path codeLine="7" d="M108.25,255.08 C110.61,271.86 113.95,295.61 117.21,318.82 " fill="none" id="EntityUUID-to-Entity" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="119.07,331.98,122.2005,325.4838,117.408,320.0956,114.2776,326.5918,119.07,331.98" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="125" x="116" y="298.0669">IDType is uuid.UUID</text></g><!--MD5=[a6c7a0eda5b041e127f539f1664bb96a]
+link Entity to IEntityModel--><g id="link_Entity_IEntityModel"><path codeLine="17" d="M128,461.09 C128,481.04 128,503.36 128,524.49 " fill="none" id="Entity-to-IEntityModel" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="135,524.67,128,544.67,121,524.67,135,524.67" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[c4f6a66c75aa5a5930f9ad521c3ff88d]
+link TFTPConfig to EntityUUID--><g id="link_TFTPConfig_EntityUUID"><path codeLine="12" d="M105,146.11 C105,161.98 105,179.11 105,193.72 " fill="none" id="TFTPConfig-to-EntityUUID" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="105,206.84,109,200.84,105,194.84,101,200.84,105,206.84" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[57f3b8b524f6f3d5efa7b280456a76c6]
+@startuml
+
+!include Entity.puml
+
+package domain {
+    class TFTPConfig {
+        +Address string
+        - -
+        +Port string
+        - -
+        +Enabled bool
+    }
+    TFTPConfig -down-* EntityUUID
+}
+
+@enduml
+
+@startuml
+
+
+
+package app {
+    interface IEntityModel<IDType> {
+        +GetID() IDType
+        - -
+        +GetCreatedAt() time.Time
+        - -
+        +GetUpdatedAt() *time.Time
+        - -
+        +GetDeletedAt() *time.Time
+    }
+}
+
+
+package domain {
+    class EntityUUID {
+    }
+    EntityUUID - -* Entity : IDType is uuid.UUID
+    class Entity<IDType> {
+        +ID IDType
+        - -
+        +CreatedAt time.Time
+        - -
+        +UpdatedAt *time.Time
+        - -
+        +DeletedAt gorm.DeletedAt
+    }
+    Entity .down.|> IEntityModel
+}
+
+
+package domain {
+    class TFTPConfig {
+        +Address string
+        - -
+        +Port string
+        - -
+        +Enabled bool
+    }
+    TFTPConfig -down-* EntityUUID
+}
+
+@enduml
+
+PlantUML version 1.2022.6(Tue Jun 21 17:34:49 EGST 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

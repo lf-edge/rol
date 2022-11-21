@@ -2262,7 +2262,7 @@ const docTemplate = `{
                     {
                         "type": "string",
                         "description": "TFTP server path ID",
-                        "name": "portID",
+                        "name": "pathID",
                         "in": "path",
                         "required": true
                     }

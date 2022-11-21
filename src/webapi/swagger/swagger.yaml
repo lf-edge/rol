@@ -2301,7 +2301,7 @@ paths:
         type: string
       - description: TFTP server path ID
         in: path
-        name: portID
+        name: pathID
         required: true
         type: string
       produces:

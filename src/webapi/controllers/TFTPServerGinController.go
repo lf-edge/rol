@@ -272,7 +272,7 @@ func (t *TFTPServerGinController) CreatePath(ctx *gin.Context) {
 // @Accept	json
 // @Produce	json
 // @param	id		path					string	true	"TFTP server ID"
-// @param	portID	path					string	true	"TFTP server path ID"
+// @param	pathID	path					string	true	"TFTP server path ID"
 // @Success	204		"OK, but No Content"
 // @Failure	404		"Not Found"
 // @Failure	500		"Internal Server Error"

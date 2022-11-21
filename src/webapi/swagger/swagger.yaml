@@ -1534,12 +1534,12 @@ paths:
       - application/json
       parameters:
       - description: Ethernet switch ID
-        in: query
+        in: path
         name: id
         required: true
         type: string
       - description: Ethernet switch VLAN UUID
-        in: query
+        in: path
         name: vlanUUID
         required: true
         type: string

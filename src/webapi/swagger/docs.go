@@ -1216,14 +1216,14 @@ const docTemplate = `{
                         "type": "string",
                         "description": "Ethernet switch ID",
                         "name": "id",
-                        "in": "query",
+                        "in": "path",
                         "required": true
                     },
                     {
                         "type": "string",
                         "description": "Ethernet switch VLAN UUID",
                         "name": "vlanUUID",
-                        "in": "query",
+                        "in": "path",
                         "required": true
                     }
                 ],

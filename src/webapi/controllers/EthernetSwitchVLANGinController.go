@@ -176,9 +176,9 @@ func (e *EthernetSwitchVLANGinController) Update(ctx *gin.Context) {
 // @version 1.0
 // @Tags ethernet-switch
 // @Accept  json
-// @Produce  json
-// @param	 id			query	string		true	"Ethernet switch ID"
-// @param	 vlanUUID		query	string		true	"Ethernet switch VLAN UUID"
+// @Produce	json
+// @param	id			path	string		true	"Ethernet switch ID"
+// @param	vlanUUID	path	string		true	"Ethernet switch VLAN UUID"
 // @Success 204 	"OK, but No Content"
 // @Failure	404		"Not Found"
 // @Failure	500		"Internal Server Error"

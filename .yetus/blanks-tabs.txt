@@ -1,2 +1,3 @@
+.*[Mm]akefile
 .*\.go
 .*\.md

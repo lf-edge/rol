@@ -1,11 +1,15 @@
+// Package infrastructure stores all implementations of app interfaces
 package infrastructure
 
 import (
 	"fmt"
+	"github.com/coreos/go-iptables/iptables"
 	"github.com/vishvananda/netlink"
 	"net"
 	"rol/app/errors"
 	"rol/app/interfaces"
+	"rol/app/mappers"
+	"rol/app/utils"
 	"rol/domain"
 	"strings"
 )
@@ -13,18 +17,32 @@ import (
 //HostNetworkManager is a struct for network manager
 type HostNetworkManager struct {
 	configStorage     interfaces.IHostNetworkConfigStorage
+	iptables          *iptables.IPTables
 	hasUnsavedChanges bool
+}
+
+var netfilterTables = []string{
+	"filter",
+	"nat",
+	"mangle",
+	"raw",
+	"security",
 }
 
 //NewHostNetworkManager constructor for HostNetworkManager
 func NewHostNetworkManager(configStorage interfaces.IHostNetworkConfigStorage) (interfaces.IHostNetworkManager, error) {
+	ipTables, err := iptables.New()
+	if err != nil {
+		return nil, errors.Internal.Wrap(err, "error getting iptables instance")
+	}
 	hostNetworkManager := &HostNetworkManager{
 		configStorage:     configStorage,
+		iptables:          ipTables,
 		hasUnsavedChanges: true,
 		// we set this flag for calling reset changes function at start, for apply configuration from storage
 	}
 	//if it's a first time, we need to save config based on current configuration
-	_, err := configStorage.GetConfig()
+	_, err = configStorage.GetConfig()
 	if err != nil && !errors.As(err, errors.Internal) {
 		err = hostNetworkManager.SaveConfiguration()
 		if err != nil {
@@ -361,6 +379,131 @@ func (h *HostNetworkManager) AddrDelete(linkName string, addr net.IPNet) error {
 	return nil
 }
 
+func (h *HostNetworkManager) parseRule(rule domain.HostNetworkTrafficRule) []string {
+	var rulespec []string
+	if rule.Source != "" {
+		rulespec = append(rulespec, "-s")
+		rulespec = append(rulespec, rule.Source)
+	}
+	if rule.Destination != "" {
+		rulespec = append(rulespec, "-d")
+		rulespec = append(rulespec, rule.Destination)
+	}
+	if rule.Action != "" {
+		rulespec = append(rulespec, "-j")
+		rulespec = append(rulespec, rule.Action)
+	}
+	return rulespec
+}
+
+//CreateTrafficRule Create netfilter traffic rule for specified table
+//
+//Params:
+//	table - table to create a rule
+//	rule - rule entity
+//Return:
+//	domain.HostNetworkTrafficRule - new traffic rule
+//	error - if an error occurs, otherwise nil
+func (h *HostNetworkManager) CreateTrafficRule(table string, rule domain.HostNetworkTrafficRule) (domain.HostNetworkTrafficRule, error) {
+	rulespec := h.parseRule(rule)
+	err := h.iptables.AppendUnique(table, rule.Chain, rulespec...)
+	if err != nil {
+		return domain.HostNetworkTrafficRule{}, errors.Internal.Wrap(err, "failed to create traffic rule")
+	}
+	h.hasUnsavedChanges = true
+	return rule, nil
+}
+
+//DeleteTrafficRule Delete netfilter traffic rule in specified table
+//
+//Params:
+//	table - table to delete a rule
+//	rule - rule entity
+//Return:
+//	error - if an error occurs, otherwise nil
+func (h *HostNetworkManager) DeleteTrafficRule(table string, rule domain.HostNetworkTrafficRule) error {
+	rulespec := h.parseRule(rule)
+	exist, err := h.iptables.Exists(table, rule.Chain, rulespec...)
+	if err != nil {
+		return errors.Internal.Wrap(err, "failed to check existence of traffic rule")
+	}
+	if exist {
+		err = h.iptables.Delete(table, rule.Chain, rulespec...)
+		if err != nil {
+			return errors.Internal.Wrap(err, "failed to delete traffic rule")
+		}
+		h.hasUnsavedChanges = true
+		return nil
+	}
+	return errors.NotFound.New("traffic rule not found")
+}
+
+//GetChainRules Get selected netfilter chain rules at specified table
+//
+//Params:
+//	table - table to get a rules
+//	chain - chain where we get the rules
+//Return:
+//	[]domain.HostNetworkTrafficRule - slice of rules
+//	error - if an error occurs, otherwise nil
+func (h *HostNetworkManager) GetChainRules(table string, chain string) ([]domain.HostNetworkTrafficRule, error) {
+	var rules []domain.HostNetworkTrafficRule
+
+	list, err := h.iptables.Stats(table, chain)
+	if err != nil {
+		return nil, errors.Internal.Wrap(err, "failed to get list of traffic rules")
+	}
+	for _, l := range list {
+		stat, err := h.iptables.ParseStat(l)
+		if err != nil {
+			return nil, errors.Internal.Wrap(err, "failed to parse traffic rule to stat struct")
+		}
+		rule := &domain.HostNetworkTrafficRule{Chain: chain}
+		mappers.MapStatToTrafficRule(stat, rule)
+		rules = append(rules, *rule)
+	}
+	return rules, err
+}
+
+func (h *HostNetworkManager) trimExclamationMarkInStat(slice []string) (out []string) {
+	for _, element := range slice {
+		out = append(out, strings.Trim(element, "!"))
+	}
+	return
+}
+
+//GetTableRules Get specified netfilter table rules
+//
+//Params:
+//	table - table to get a rules
+//Return:
+//	[]domain.HostNetworkTrafficRule - slice of rules
+//	error - if an error occurs, otherwise nil
+func (h *HostNetworkManager) GetTableRules(table string) ([]domain.HostNetworkTrafficRule, error) {
+	var rules []domain.HostNetworkTrafficRule
+
+	chains, err := h.iptables.ListChains(table)
+	if err != nil {
+		return nil, errors.Internal.Wrap(err, "failed to get list table chains")
+	}
+	for _, chain := range chains {
+		list, err := h.iptables.Stats(table, chain)
+		if err != nil {
+			return nil, errors.Internal.Wrap(err, "failed to get list of traffic rules")
+		}
+		for _, l := range list {
+			stat, err := h.iptables.ParseStat(h.trimExclamationMarkInStat(l))
+			if err != nil {
+				return nil, errors.Internal.Wrap(err, "failed to parse traffic rule to stat struct")
+			}
+			rule := &domain.HostNetworkTrafficRule{Chain: chain}
+			mappers.MapStatToTrafficRule(stat, rule)
+			rules = append(rules, *rule)
+		}
+	}
+	return rules, nil
+}
+
 //SaveConfiguration save current host network configuration to the configuration storage
 //Save previous config file to .back file
 //
@@ -380,6 +523,14 @@ func (h *HostNetworkManager) SaveConfiguration() error {
 		} else if inter.GetType() == "bridge" {
 			config.Bridges = append(config.Bridges, inter.(domain.HostNetworkBridge))
 		}
+	}
+	for _, table := range netfilterTables {
+		rules, err := h.GetTableRules(table)
+		if err != nil {
+			return errors.Internal.Wrap(err, "failed to get table rules")
+		}
+
+		h.setTrafficRulesConfigField(table, rules, &config)
 	}
 	err = h.configStorage.SaveConfig(config)
 	if err != nil {
@@ -594,6 +745,70 @@ func (h *HostNetworkManager) loadBridgeConfiguration(config domain.HostNetworkCo
 	return nil
 }
 
+func (h *HostNetworkManager) setTrafficRulesConfigField(table string, rule []domain.HostNetworkTrafficRule, config *domain.HostNetworkConfig) {
+	switch table {
+	case "filter":
+		config.TrafficRules.Filter = rule
+	case "nat":
+		config.TrafficRules.NAT = rule
+	case "mangle":
+		config.TrafficRules.Mangle = rule
+	case "raw":
+		config.TrafficRules.Raw = rule
+	case "security":
+		config.TrafficRules.Security = rule
+	}
+}
+
+func (h *HostNetworkManager) getTrafficRulesConfigField(table string, config domain.HostNetworkConfig) []domain.HostNetworkTrafficRule {
+	switch table {
+	case "filter":
+		return config.TrafficRules.Filter
+	case "nat":
+		return config.TrafficRules.NAT
+	case "mangle":
+		return config.TrafficRules.Mangle
+	case "raw":
+		return config.TrafficRules.Raw
+	case "security":
+		return config.TrafficRules.Security
+	default:
+		return nil
+	}
+}
+
+func (h *HostNetworkManager) loadTrafficConfiguration(config domain.HostNetworkConfig) error {
+	for _, table := range netfilterTables {
+		rules, err := h.GetTableRules(table)
+		if err != nil {
+			return errors.Internal.Wrap(err, "failed to get table rules")
+		}
+
+		configField := h.getTrafficRulesConfigField(table, config)
+		if configField == nil {
+			return errors.Internal.New("failed to get config field")
+		}
+
+		for _, rule := range configField {
+			if !utils.SliceContainsElement(rules, rule) {
+				_, err = h.CreateTrafficRule(table, rule)
+				if err != nil {
+					return errors.Internal.New("error when creating traffic rule")
+				}
+			}
+		}
+		for _, rule := range rules {
+			if !utils.SliceContainsElement(configField, rule) {
+				err = h.DeleteTrafficRule(table, rule)
+				if err != nil {
+					return errors.Internal.New("error when deleting traffic rule")
+				}
+			}
+		}
+	}
+	return nil
+}
+
 func (h *HostNetworkManager) loadConfiguration(config domain.HostNetworkConfig) error {
 	err := h.loadVlanConfiguration(config)
 	if err != nil {
@@ -602,6 +817,10 @@ func (h *HostNetworkManager) loadConfiguration(config domain.HostNetworkConfig) 
 	err = h.loadBridgeConfiguration(config)
 	if err != nil {
 		return errors.Internal.Wrap(err, "error loading bridge configuration")
+	}
+	err = h.loadTrafficConfiguration(config)
+	if err != nil {
+		return errors.Internal.Wrap(err, "error loading host network traffic configuration")
 	}
 	h.hasUnsavedChanges = false
 	return nil

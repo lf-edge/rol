@@ -1,6 +1,9 @@
 package interfaces
 
-import "net"
+import (
+	"net"
+	"rol/domain"
+)
 
 //IHostNetworkManager is an interface for network manager
 type IHostNetworkManager interface {
@@ -80,6 +83,40 @@ type IHostNetworkManager interface {
 	//Return:
 	//	error - if an error occurs, otherwise nil
 	AddrDelete(linkName string, addr net.IPNet) error
+	//CreateTrafficRule Create netfilter traffic rule for specified table
+	//
+	//Params:
+	//	table - table to create a rule
+	//	rule - rule entity
+	//Return:
+	//	domain.HostNetworkTrafficRule - new traffic rule
+	//	error - if an error occurs, otherwise nil
+	CreateTrafficRule(table string, rule domain.HostNetworkTrafficRule) (domain.HostNetworkTrafficRule, error)
+	//DeleteTrafficRule Delete netfilter traffic rule in specified table
+	//
+	//Params:
+	//	table - table to delete a rule
+	//	rule - rule entity
+	//Return:
+	//	error - if an error occurs, otherwise nil
+	DeleteTrafficRule(table string, rule domain.HostNetworkTrafficRule) error
+	//GetChainRules Get selected netfilter chain rules at specified table
+	//
+	//Params:
+	//	table - table to get a rules
+	//	chain - chain where we get the rules
+	//Return:
+	//	[]domain.HostNetworkTrafficRule - slice of rules
+	//	error - if an error occurs, otherwise nil
+	GetChainRules(table string, chain string) ([]domain.HostNetworkTrafficRule, error)
+	//GetTableRules Get specified netfilter table rules
+	//
+	//Params:
+	//	table - table to get a rules
+	//Return:
+	//	[]domain.HostNetworkTrafficRule - slice of rules
+	//	error - if an error occurs, otherwise nil
+	GetTableRules(table string) ([]domain.HostNetworkTrafficRule, error)
 	//SaveConfiguration save current host network configuration to the configuration storage
 	//
 	//Return:

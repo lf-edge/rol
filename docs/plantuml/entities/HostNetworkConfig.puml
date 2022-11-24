@@ -3,6 +3,7 @@
 !include HostNetworkDevice.puml
 !include HostNetworkVlan.puml
 !include HostNetworkBridge.puml
+!include HostNetworkTrafficRule.puml
 
 package domain {
     class HostNetworkConfig {
@@ -11,11 +12,42 @@ package domain {
         +Vlans   []HostNetworkVlan
         --
         +Bridges []HostNetworkBridge
+        --
+        +TrafficRules TrafficRules
+    }
+
+    class TrafficRules {
+        +Filter []HostNetworkTrafficRule
+        --
+        +NAT []HostNetworkTrafficRule
+        --
+        +Mangle []HostNetworkTrafficRule
+        --
+        +Raw []HostNetworkTrafficRule
+        --
+        +Security []HostNetworkTrafficRule
     }
 
     HostNetworkConfig::Devices -- HostNetworkDevice
     HostNetworkConfig::Vlans -- HostNetworkVlan
     HostNetworkConfig::Bridges -- HostNetworkBridge
+    HostNetworkConfig::TrafficRules -- TrafficRules
+
+    note as NetworkTrafficRuleNote
+        Since traffic rules are stored in the .yaml config
+         we need to split all netfilter tables into class fields
+    end note
+
+    TrafficRules .l[hidden]. NetworkTrafficRuleNote
+
+
+    TrafficRules::Filter .. NetworkTrafficRuleNote
+    TrafficRules::NAT .. NetworkTrafficRuleNote
+    TrafficRules::Mangle .. NetworkTrafficRuleNote
+    TrafficRules::Raw .. NetworkTrafficRuleNote
+    TrafficRules::Security .. NetworkTrafficRuleNote
+
+    NetworkTrafficRuleNote ..> HostNetworkTrafficRule
 }
 
 @enduml

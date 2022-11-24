@@ -24,6 +24,14 @@ package app {
         --
         +AddrDelete(linkName string, addr net.IPNet) error
         --
+        +CreateTrafficRule(table string, rule HostNetworkTrafficRule) (HostNetworkTrafficRule, error)
+        --
+        +DeleteTrafficRule(table string, rule HostNetworkTrafficRule) error
+        --
+        +GetChainRules(table string, chain string) ([]HostNetworkTrafficRule, error)
+        --
+        +GetTableRules(table string) ([]HostNetworkTrafficRule, error)
+        --
         +SaveConfiguration() error
         --
         +RestoreFromBackup() error
@@ -71,6 +79,22 @@ package app {
 
     note left of IHostNetworkManager::AddrDelete
     Delete ip address for network interface
+    end note
+
+    note left of IHostNetworkManager::CreateTrafficRule
+    Create netfilter traffic rule for specified table
+    end note
+
+    note left of IHostNetworkManager::DeleteTrafficRule
+    Delete netfilter traffic rule in specified table
+    end note
+
+    note left of IHostNetworkManager::GetChainRules
+    Get selected netfilter chain rules at specified table
+    end note
+
+    note left of IHostNetworkManager::GetTableRules
+    Get specified netfilter table rules
     end note
 
     note left of IHostNetworkManager::SaveConfiguration

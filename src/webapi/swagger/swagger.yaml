@@ -562,6 +562,51 @@ definitions:
           type: string
         type: array
     type: object
+  dtos.HostNetworkTrafficRuleCreateDto:
+    properties:
+      action:
+        description: Action rule action like ACCEPT, MASQUERADE, DROP, etc.
+        type: string
+      chain:
+        description: Chain rule chain
+        type: string
+      destination:
+        description: Destination packets destination
+        type: string
+      source:
+        description: Source packets source
+        type: string
+    type: object
+  dtos.HostNetworkTrafficRuleDeleteDto:
+    properties:
+      action:
+        description: Action rule action like ACCEPT, MASQUERADE, DROP, etc.
+        type: string
+      chain:
+        description: Chain rule chain
+        type: string
+      destination:
+        description: Destination packets destination
+        type: string
+      source:
+        description: Source packets source
+        type: string
+    type: object
+  dtos.HostNetworkTrafficRuleDto:
+    properties:
+      action:
+        description: Action rule action like ACCEPT, MASQUERADE, DROP, etc.
+        type: string
+      chain:
+        description: Chain rule chain
+        type: string
+      destination:
+        description: Destination packets destination
+        type: string
+      source:
+        description: Source packets source
+        type: string
+    type: object
   dtos.HostNetworkVlanCreateDto:
     properties:
       addresses:
@@ -1768,6 +1813,88 @@ paths:
           description: Internal Server Error
       summary: Call the backend to notify that the current setting does not break
         the connection
+      tags:
+      - host
+  /host/network/traffic/{table}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: Table name
+        in: path
+        name: table
+        required: true
+        type: string
+      - description: Host traffic rule fields
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dtos.HostNetworkTrafficRuleDeleteDto'
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: OK, but No Content
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+      summary: Delete netfilter traffic rule in specified table
+      tags:
+      - host
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Table name
+        in: path
+        name: table
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/dtos.HostNetworkTrafficRuleDto'
+            type: array
+        "500":
+          description: Internal Server Error
+      summary: Get selected netfilter table rules
+      tags:
+      - host
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Table name
+        in: path
+        name: table
+        required: true
+        type: string
+      - description: Host traffic rule fields
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dtos.HostNetworkTrafficRuleCreateDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dtos.HostNetworkTrafficRuleDto'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dtos.ValidationErrorDto'
+        "500":
+          description: Internal Server Error
+      summary: Create new traffic rule in specified table
       tags:
       - host
   /host/network/vlan/:

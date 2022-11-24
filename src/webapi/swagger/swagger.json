@@ -1436,6 +1436,131 @@
                 }
             }
         },
+        "/host/network/traffic/{table}": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "host"
+                ],
+                "summary": "Get selected netfilter table rules",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Table name",
+                        "name": "table",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/dtos.HostNetworkTrafficRuleDto"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "host"
+                ],
+                "summary": "Create new traffic rule in specified table",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Table name",
+                        "name": "table",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "Host traffic rule fields",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dtos.HostNetworkTrafficRuleCreateDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.HostNetworkTrafficRuleDto"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.ValidationErrorDto"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "delete": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "host"
+                ],
+                "summary": "Delete netfilter traffic rule in specified table",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Table name",
+                        "name": "table",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "Host traffic rule fields",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dtos.HostNetworkTrafficRuleDeleteDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "OK, but No Content"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
         "/host/network/vlan/": {
             "get": {
                 "consumes": [
@@ -3028,6 +3153,69 @@
                     "items": {
                         "type": "string"
                     }
+                }
+            }
+        },
+        "dtos.HostNetworkTrafficRuleCreateDto": {
+            "type": "object",
+            "properties": {
+                "action": {
+                    "description": "Action rule action like ACCEPT, MASQUERADE, DROP, etc.",
+                    "type": "string"
+                },
+                "chain": {
+                    "description": "Chain rule chain",
+                    "type": "string"
+                },
+                "destination": {
+                    "description": "Destination packets destination",
+                    "type": "string"
+                },
+                "source": {
+                    "description": "Source packets source",
+                    "type": "string"
+                }
+            }
+        },
+        "dtos.HostNetworkTrafficRuleDeleteDto": {
+            "type": "object",
+            "properties": {
+                "action": {
+                    "description": "Action rule action like ACCEPT, MASQUERADE, DROP, etc.",
+                    "type": "string"
+                },
+                "chain": {
+                    "description": "Chain rule chain",
+                    "type": "string"
+                },
+                "destination": {
+                    "description": "Destination packets destination",
+                    "type": "string"
+                },
+                "source": {
+                    "description": "Source packets source",
+                    "type": "string"
+                }
+            }
+        },
+        "dtos.HostNetworkTrafficRuleDto": {
+            "type": "object",
+            "properties": {
+                "action": {
+                    "description": "Action rule action like ACCEPT, MASQUERADE, DROP, etc.",
+                    "type": "string"
+                },
+                "chain": {
+                    "description": "Chain rule chain",
+                    "type": "string"
+                },
+                "destination": {
+                    "description": "Destination packets destination",
+                    "type": "string"
+                },
+                "source": {
+                    "description": "Source packets source",
+                    "type": "string"
                 }
             }
         },

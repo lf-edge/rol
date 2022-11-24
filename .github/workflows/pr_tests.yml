@@ -18,10 +18,11 @@ jobs:
       - uses: actions/checkout@v3
       - name: Build tests
         run: cd src && go test -c rol/tests -o ./tests/rol.test
-      - name: Setup CAP_NET_ADMIN for compiled tests
+      - name: Setup CAP_NET_RAW and CAP_NET_ADMIN for compiled tests
         if: matrix.os == 'ubuntu-22.04'
         run: |
           sudo setcap cap_net_admin+ep ./src/tests/rol.test
+          sudo setcap "cap_net_raw+ep cap_net_admin+ep" /usr/sbin/xtables-nft-multi
       - name: Run tests
         run: |
           cd src/tests && ./rol.test -test.v

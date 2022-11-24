@@ -6,6 +6,9 @@
 !include ../dto/HostNetworkBridge/HostNetworkBridgeDto.puml
 !include ../dto/HostNetworkBridge/HostNetworkBridgeCreateDto.puml
 !include ../dto/HostNetworkBridge/HostNetworkBridgeUpdateDto.puml
+!include ../dto/HostNetworkTrafficRule/HostNetworkTrafficRuleDto.puml
+!include ../dto/HostNetworkTrafficRule/HostNetworkTrafficRuleCreateDto.puml
+!include ../dto/HostNetworkTrafficRule/HostNetworkTrafficRuleDeleteDto.puml
 
 !include ../managers/HostNetworkManager.puml
 
@@ -32,6 +35,14 @@ package app {
         +UpdateBridge(bridgeName string, updateDto dtos.HostNetworkBridgeUpdateDto) (dtos.HostNetworkBridgeDto, error)
         --
         +DeleteBridge(bridgeName string) error
+        --
+        +CreateTrafficRule(table string, ruleDto dtos.HostNetworkTrafficRuleCreateDto) (dtos.HostNetworkTrafficRuleDto, error)
+        --
+        +DeleteTrafficRule(table string, ruleDto dtos.HostNetworkTrafficRuleDeleteDto) error
+        --
+        +GetChainRules(table string, chain string) ([]dtos.HostNetworkTrafficRuleDto, error)
+        --
+        +GetTableRules(table string) ([]dtos.HostNetworkTrafficRuleDto, error)
     }
     HostNetworkService::manager -- HostNetworkManager
 
@@ -73,6 +84,22 @@ package app {
 
     note right of HostNetworkService::DeleteBridge
         Delete bridge interface from host
+    end note
+
+    note right of HostNetworkService::CreateTrafficRule
+        Create netfilter traffic rule for specified table
+    end note
+
+    note right of HostNetworkService::DeleteTrafficRule
+        Delete netfilter traffic rule in specified table
+    end note
+
+    note right of HostNetworkService::GetChainRules
+        Get selected netfilter chain rules at specified table
+    end note
+
+    note right of HostNetworkService::GetTableRules
+        Get specified netfilter table rules
     end note
 }
 

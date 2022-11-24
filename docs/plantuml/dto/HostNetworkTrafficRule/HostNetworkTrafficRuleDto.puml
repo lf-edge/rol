@@ -1,0 +1,12 @@
+@startuml
+
+!include HostNetworkTrafficRuleBaseDto.puml
+
+package dtos {
+    class HostNetworkTrafficRuleDto {
+    }
+
+    HostNetworkTrafficRuleDto --* HostNetworkTrafficRuleBaseDto
+}
+
+@enduml

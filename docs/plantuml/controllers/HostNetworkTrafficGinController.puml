@@ -1,0 +1,41 @@
+@startuml
+
+!include ../services/HostNetworkService.puml
+remove HostNetworkBridgeDto
+remove HostNetworkBridgeUpdateDto
+remove HostNetworkBridgeCreateDto
+remove HostNetworkBridgeBaseDto
+remove HostNetworkVlanDto
+remove HostNetworkVlanUpdateDto
+remove HostNetworkVlanCreateDto
+
+package controllers {
+    class HostNetworkTrafficGinController {
+        -service *services.HostNetworkService
+        --
+        -logger  *logrus.Logger
+        --
+        +GetTableRules(ctx *gin.Context)
+        --
+        +Create(ctx *gin.Context)
+        --
+        +Delete(ctx *gin.Context)
+    }
+
+    note left of HostNetworkTrafficGinController::GetTableRules
+    Get selected netfilter table rules
+    end note
+
+    note left of HostNetworkTrafficGinController::Create
+    Create new traffic rule in specified table
+    end note
+
+    note left of HostNetworkTrafficGinController::Delete
+    Delete netfilter traffic rule in specified table
+    end note
+
+
+    HostNetworkService -up- HostNetworkTrafficGinController::service
+}
+
+@enduml

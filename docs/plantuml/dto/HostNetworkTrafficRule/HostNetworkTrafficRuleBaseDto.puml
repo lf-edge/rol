@@ -1,0 +1,16 @@
+@startuml
+
+package dtos {
+    class HostNetworkTrafficRuleBaseDto {
+        +Chain string
+        --
+        +Target string
+        --
+        +Source string
+        --
+        +Destination string
+    }
+}
+
+
+@enduml

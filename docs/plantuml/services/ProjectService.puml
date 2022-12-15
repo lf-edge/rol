@@ -1,0 +1,30 @@
+@startuml
+
+!include ../repositories/GormProjectRepository.puml
+
+package app {
+    class ProjectService {
+        -repository IGenericRepository<uuid.UUID, domain.Project>
+        --
+        -config *domain.AppConfig
+        --
+        -dhcpService *DHCP4ServerService
+        --
+        -tftpService *TFTPServerService
+        --
+        -hostNetworkService *HostNetworkService
+        --
+        -logger *logrus.Logger
+        --
+        +GetList(ctx context.Context, search string, orderBy string, orderDirection string, page int, pageSize int) (PaginatedItemsDto[ProjectDto], error)
+        --
+        +GetByID(ctx context.Context, id uuid.UUID) (ProjectDto, error)
+        --
+        +Create(ctx context.Context, createDto ProjectCreateDto) (ProjectDto, error)
+        --
+        +Delete(ctx context.Context, id uuid.UUID) error
+    }
+
+    GormProjectRepository -- ProjectService::repository
+}
+@enduml

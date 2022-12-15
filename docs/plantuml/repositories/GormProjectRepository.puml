@@ -1,0 +1,17 @@
+@startuml
+!include ../entities/Project.puml
+!include GormGenericRepository.puml
+
+package infrastructure {
+    class GormProjectRepository
+
+    GormProjectRepository -down-* GormGenericRepository
+
+
+    note "EntityType is Project" as ProjectTypeNote
+
+    GormProjectRepository .down. ProjectTypeNote
+    GormGenericRepository <.up. ProjectTypeNote
+    Project .. ProjectTypeNote
+}
+@enduml

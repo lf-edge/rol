@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="967px" preserveAspectRatio="none" style="width:1752px;height:967px;background:#FFFFFF;" version="1.1" viewBox="0 0 1752 967" width="1752px" zoomAndPan="magnify"><defs/><g><!--MD5=[d5ac3844f66b12d9e08170e47495e096]
+cluster app--><g id="cluster_app"><path d="M8.5,558 L38.5,558 A3.75,3.75 0 0 1 41,560.5 L48,580.2969 L1742.5,580.2969 A2.5,2.5 0 0 1 1745,582.7969 L1745,957.5 A2.5,2.5 0 0 1 1742.5,960 L8.5,960 A2.5,2.5 0 0 1 6,957.5 L6,560.5 A2.5,2.5 0 0 1 8.5,558 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="6" x2="48" y1="580.2969" y2="580.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="29" x="10" y="572.9951">app</text></g><!--MD5=[27f772719433d509ddbc20ff768eba08]
+cluster domain--><g id="cluster_domain"><path d="M247.5,6 L307.5,6 A3.75,3.75 0 0 1 310,8.5 L317,28.2969 L488.5,28.2969 A2.5,2.5 0 0 1 491,30.7969 L491,522.5 A2.5,2.5 0 0 1 488.5,525 L247.5,525 A2.5,2.5 0 0 1 245,522.5 L245,8.5 A2.5,2.5 0 0 1 247.5,6 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="245" x2="317" y1="28.2969" y2="28.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="59" x="249" y="20.9951">domain</text></g><!--MD5=[77349be1bd27b81b697a0f9b3aded3c8]
+cluster infrastructure--><g id="cluster_infrastructure"><path d="M895.5,58.5 L1007.5,58.5 A3.75,3.75 0 0 1 1010,61 L1017,80.7969 L1246.5,80.7969 A2.5,2.5 0 0 1 1249,83.2969 L1249,482 A2.5,2.5 0 0 1 1246.5,484.5 L895.5,484.5 A2.5,2.5 0 0 1 893,482 L893,61 A2.5,2.5 0 0 1 895.5,58.5 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="893" x2="1017" y1="80.7969" y2="80.7969"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="111" x="897" y="73.4951">infrastructure</text></g><!--MD5=[2a39a5be1cc24ddddd6e6286e4ece992]
+class IEntityModel--><g id="elem_IEntityModel"><rect codeLine="3" fill="#F1F1F1" height="129.1875" id="IEntityModel" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="219" x="22.5" y="704"/><ellipse cx="61.8" cy="720" fill="#B4A7E5" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M57.7219,715.7656 L57.7219,713.6094 L65.1125,713.6094 L65.1125,715.7656 L62.6438,715.7656 L62.6438,723.8438 L65.1125,723.8438 L65.1125,726 L57.7219,726 L57.7219,723.8438 L60.1906,723.8438 L60.1906,715.7656 L57.7219,715.7656 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="87" x="81.2" y="724.8467">IEntityModel</text><rect fill="#FFFFFF" height="15.9688" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" width="44" x="200.5" y="701"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="42" x="201.5" y="713.1387">IDType</text><line style="stroke:#181818;stroke-width:0.5;" x1="23.5" x2="240.5" y1="736" y2="736"/><ellipse cx="33.5" cy="749.6484" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="104" x="42.5" y="752.9951">GetID() IDType</text><line style="stroke:#181818;stroke-width:1.0;" x1="23.5" x2="240.5" y1="760.2969" y2="760.2969"/><ellipse cx="33.5" cy="773.9453" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="183" x="42.5" y="777.292">GetCreatedAt() time.Time</text><line style="stroke:#181818;stroke-width:1.0;" x1="23.5" x2="240.5" y1="784.5938" y2="784.5938"/><ellipse cx="33.5" cy="798.2422" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="193" x="42.5" y="801.5889">GetUpdatedAt() *time.Time</text><line style="stroke:#181818;stroke-width:1.0;" x1="23.5" x2="240.5" y1="808.8906" y2="808.8906"/><ellipse cx="33.5" cy="822.5391" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="189" x="42.5" y="825.8857">GetDeletedAt() *time.Time</text></g><!--MD5=[b3e0f8dcddb1b27f071a0303a68762bf]
+class IGenericRepository--><g id="elem_IGenericRepository"><rect codeLine="3" fill="#F1F1F1" height="274.9688" id="IGenericRepository" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="1030" x="699" y="631"/><ellipse cx="1019.75" cy="647" fill="#B4A7E5" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M1015.6719,642.7656 L1015.6719,640.6094 L1023.0625,640.6094 L1023.0625,642.7656 L1020.5938,642.7656 L1020.5938,650.8438 L1023.0625,650.8438 L1023.0625,653 L1015.6719,653 L1015.6719,650.8438 L1018.1406,650.8438 L1018.1406,642.7656 L1015.6719,642.7656 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="136" x="1040.25" y="651.8467">IGenericRepository</text><rect fill="#FFFFFF" height="15.9688" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" width="242" x="1490" y="628"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="240" x="1491" y="640.1387">IDType, interfaces.IEntityModel[IDType]</text><line style="stroke:#181818;stroke-width:0.5;" x1="700" x2="1728" y1="663" y2="663"/><ellipse cx="710" cy="676.6484" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="1004" x="719" y="679.9951">GetList(ctx context.Context, orderBy string, orderDirection string, page int, size int, queryBuilder interfaces.IQueryBuilder) ([]EntityType, error)</text><line style="stroke:#181818;stroke-width:1.0;" x1="700" x2="1728" y1="687.2969" y2="687.2969"/><ellipse cx="710" cy="700.9453" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="542" x="719" y="704.292">Count(ctx context.Context, queryBuilder interfaces.IQueryBuilder) (int, error)</text><line style="stroke:#181818;stroke-width:1.0;" x1="700" x2="1728" y1="711.5938" y2="711.5938"/><ellipse cx="710" cy="725.2422" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="632" x="719" y="728.5889">IsExist(ctx context.Context, id IDType, queryBuilder interfaces.IQueryBuilder) (bool, error)</text><line style="stroke:#181818;stroke-width:1.0;" x1="700" x2="1728" y1="735.8906" y2="735.8906"/><ellipse cx="710" cy="749.5391" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="448" x="719" y="752.8857">NewQueryBuilder(ctx context.Context) interfaces.IQueryBuilder</text><line style="stroke:#181818;stroke-width:1.0;" x1="700" x2="1728" y1="760.1875" y2="760.1875"/><ellipse cx="710" cy="773.8359" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="411" x="719" y="777.1826">GetById(ctx context.Context, id IDType) (EntityType, error)</text><line style="stroke:#181818;stroke-width:1.0;" x1="700" x2="1728" y1="784.4844" y2="784.4844"/><ellipse cx="710" cy="798.1328" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="458" x="719" y="801.4795">Update(ctx context.Context, entity EntityType) (EntityType, error)</text><line style="stroke:#181818;stroke-width:1.0;" x1="700" x2="1728" y1="808.7813" y2="808.7813"/><ellipse cx="710" cy="822.4297" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="447" x="719" y="825.7764">Insert(ctx context.Context, entity EntityType) (EntityType, error)</text><line style="stroke:#181818;stroke-width:1.0;" x1="700" x2="1728" y1="833.0781" y2="833.0781"/><ellipse cx="710" cy="846.7266" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="309" x="719" y="850.0732">Delete(ctx context.Context, id IDType) error</text><line style="stroke:#181818;stroke-width:1.0;" x1="700" x2="1728" y1="857.375" y2="857.375"/><ellipse cx="710" cy="871.0234" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="529" x="719" y="874.3701">DeleteAll(ctx context.Context, queryBuilder interfaces.IQueryBuilder) error</text><line style="stroke:#181818;stroke-width:1.0;" x1="700" x2="1728" y1="881.6719" y2="881.6719"/><ellipse cx="710" cy="895.3203" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="106" x="719" y="898.667">Dispose() error</text></g><path d="M276.5,593 L276.5,618.1328 A0,0 0 0 0 276.5,618.1328 L614.5,618.1328 A0,0 0 0 0 614.5,618.1328 L614.5,611 L703,675.1484 L614.5,603 L614.5,603 L604.5,593 L276.5,593 A0,0 0 0 0 276.5,593 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M604.5,593 L604.5,603 L614.5,603 L604.5,593 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="317" x="282.5" y="610.0669">Get list of elements with filtering and pagination</text><path d="M276.5,628.1328 L276.5,653.2656 A0,0 0 0 0 276.5,653.2656 L517.5,653.2656 A0,0 0 0 0 517.5,653.2656 L517.5,646.1328 L703,699.4453 L517.5,638.1328 L517.5,638.1328 L507.5,628.1328 L276.5,628.1328 A0,0 0 0 0 276.5,628.1328 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M507.5,628.1328 L507.5,638.1328 L517.5,638.1328 L507.5,628.1328 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="220" x="282.5" y="645.1997">Get count of entities with filtering</text><path d="M276.5,663.2656 L276.5,688.3984 A0,0 0 0 0 276.5,688.3984 L645.5,688.3984 A0,0 0 0 0 645.5,688.3984 L645.5,681.2656 L703,723.7422 L645.5,673.2656 L645.5,673.2656 L635.5,663.2656 L276.5,663.2656 A0,0 0 0 0 276.5,663.2656 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M635.5,663.2656 L635.5,673.2656 L645.5,673.2656 L635.5,663.2656 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="348" x="282.5" y="680.3325">Checks that entity with selected conditions is existed</text><path d="M276.5,698.3984 L276.5,723.5313 A0,0 0 0 0 276.5,723.5313 L542.5,723.5313 A0,0 0 0 0 542.5,723.5313 L542.5,716.3984 L703,748.0391 L542.5,708.3984 L542.5,708.3984 L532.5,698.3984 L276.5,698.3984 A0,0 0 0 0 276.5,698.3984 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M532.5,698.3984 L532.5,708.3984 L542.5,708.3984 L532.5,698.3984 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="245" x="282.5" y="715.4653">Get new instance of the query builder</text><path d="M276.5,733.5313 L276.5,758.6641 A0,0 0 0 0 276.5,758.6641 L505.5,758.6641 A0,0 0 0 0 505.5,758.6641 L505.5,751.5313 L703,772.3359 L505.5,743.5313 L505.5,743.5313 L495.5,733.5313 L276.5,733.5313 A0,0 0 0 0 276.5,733.5313 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M495.5,733.5313 L495.5,743.5313 L505.5,743.5313 L495.5,733.5313 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="208" x="282.5" y="750.5981">Get entity by ID from repository</text><path d="M276.5,768.6641 L276.5,793.7969 A0,0 0 0 0 276.5,793.7969 L663.5,793.7969 A0,0 0 0 0 663.5,793.7969 L663.5,786.6641 L703,796.6328 L663.5,778.6641 L663.5,778.6641 L653.5,768.6641 L276.5,768.6641 A0,0 0 0 0 276.5,768.6641 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M653.5,768.6641 L653.5,778.6641 L663.5,778.6641 L653.5,768.6641 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="366" x="282.5" y="785.731">Save the changes to the existing entity in the repository</text><path d="M276.5,803.7969 L276.5,828.9297 A0,0 0 0 0 276.5,828.9297 L476.5,828.9297 A0,0 0 0 0 476.5,828.9297 L476.5,821.7969 L703,820.9297 L476.5,813.7969 L476.5,813.7969 L466.5,803.7969 L276.5,803.7969 A0,0 0 0 0 276.5,803.7969 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M466.5,803.7969 L466.5,813.7969 L476.5,813.7969 L466.5,803.7969 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="179" x="282.5" y="820.8638">Add entity to the repository</text><path d="M276.5,838.9297 L276.5,864.0625 A0,0 0 0 0 276.5,864.0625 L487.5,864.0625 A0,0 0 0 0 487.5,864.0625 L487.5,856.9297 L703,845.2266 L487.5,848.9297 L487.5,848.9297 L477.5,838.9297 L276.5,838.9297 A0,0 0 0 0 276.5,838.9297 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M477.5,838.9297 L477.5,848.9297 L487.5,848.9297 L477.5,838.9297 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="190" x="282.5" y="855.9966">Delete entity from repository</text><path d="M276.5,874.0625 L276.5,899.1953 A0,0 0 0 0 276.5,899.1953 L555.5,899.1953 A0,0 0 0 0 555.5,899.1953 L555.5,892.0625 L703,869.5234 L555.5,884.0625 L555.5,884.0625 L545.5,874.0625 L276.5,874.0625 A0,0 0 0 0 276.5,874.0625 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M545.5,874.0625 L545.5,884.0625 L555.5,884.0625 L545.5,874.0625 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="258" x="282.5" y="891.1294">Delete entities with selected conditions</text><path d="M276.5,909.1953 L276.5,934.3281 A0,0 0 0 0 276.5,934.3281 L466.5,934.3281 A0,0 0 0 0 466.5,934.3281 L466.5,927.1953 L703,893.8203 L466.5,919.1953 L466.5,919.1953 L456.5,909.1953 L276.5,909.1953 A0,0 0 0 0 276.5,909.1953 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M456.5,909.1953 L456.5,919.1953 L466.5,919.1953 L456.5,909.1953 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="169" x="282.5" y="926.2622">Dispose all allocated data</text><!--MD5=[1045d07ae824aea072cabb0fb8284887]
+class EntityUUID--><g id="elem_EntityUUID"><rect codeLine="5" fill="#F1F1F1" height="48" id="EntityUUID" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="107" x="290.5" y="255"/><ellipse cx="305.5" cy="271" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M308.4688,276.6406 Q307.8906,276.9375 307.25,277.0781 Q306.6094,277.2344 305.9063,277.2344 Q303.4063,277.2344 302.0781,275.5938 Q300.7656,273.9375 300.7656,270.8125 Q300.7656,267.6875 302.0781,266.0313 Q303.4063,264.375 305.9063,264.375 Q306.6094,264.375 307.25,264.5313 Q307.9063,264.6875 308.4688,264.9844 L308.4688,267.7031 Q307.8438,267.125 307.25,266.8594 Q306.6563,266.5781 306.0313,266.5781 Q304.6875,266.5781 304,267.6563 Q303.3125,268.7188 303.3125,270.8125 Q303.3125,272.9063 304,273.9844 Q304.6875,275.0469 306.0313,275.0469 Q306.6563,275.0469 307.25,274.7813 Q307.8438,274.5 308.4688,273.9219 L308.4688,276.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="75" x="319.5" y="275.8467">EntityUUID</text><line style="stroke:#181818;stroke-width:0.5;" x1="291.5" x2="396.5" y1="287" y2="287"/><line style="stroke:#181818;stroke-width:0.5;" x1="291.5" x2="396.5" y1="295" y2="295"/></g><!--MD5=[be996cdb8e6bf2fc7cb89c555f2cd144]
+class Entity--><g id="elem_Entity"><rect codeLine="8" fill="#F1F1F1" height="129.1875" id="Entity" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="214" x="261" y="380"/><ellipse cx="320.75" cy="396" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M323.7188,401.6406 Q323.1406,401.9375 322.5,402.0781 Q321.8594,402.2344 321.1563,402.2344 Q318.6563,402.2344 317.3281,400.5938 Q316.0156,398.9375 316.0156,395.8125 Q316.0156,392.6875 317.3281,391.0313 Q318.6563,389.375 321.1563,389.375 Q321.8594,389.375 322.5,389.5313 Q323.1563,389.6875 323.7188,389.9844 L323.7188,392.7031 Q323.0938,392.125 322.5,391.8594 Q321.9063,391.5781 321.2813,391.5781 Q319.9375,391.5781 319.25,392.6563 Q318.5625,393.7188 318.5625,395.8125 Q318.5625,397.9063 319.25,398.9844 Q319.9375,400.0469 321.2813,400.0469 Q321.9063,400.0469 322.5,399.7813 Q323.0938,399.5 323.7188,398.9219 L323.7188,401.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="40" x="341.25" y="400.8467">Entity</text><rect fill="#FFFFFF" height="15.9688" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" width="44" x="434" y="377"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="42" x="435" y="389.1387">IDType</text><line style="stroke:#181818;stroke-width:0.5;" x1="262" x2="474" y1="412" y2="412"/><ellipse cx="272" cy="425.6484" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="69" x="281" y="428.9951">ID IDType</text><line style="stroke:#181818;stroke-width:1.0;" x1="262" x2="474" y1="436.2969" y2="436.2969"/><ellipse cx="272" cy="449.9453" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="148" x="281" y="453.292">CreatedAt time.Time</text><line style="stroke:#181818;stroke-width:1.0;" x1="262" x2="474" y1="460.5938" y2="460.5938"/><ellipse cx="272" cy="474.2422" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="158" x="281" y="477.5889">UpdatedAt *time.Time</text><line style="stroke:#181818;stroke-width:1.0;" x1="262" x2="474" y1="484.8906" y2="484.8906"/><ellipse cx="272" cy="498.5391" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="188" x="281" y="501.8857">DeletedAt gorm.DeletedAt</text></g><!--MD5=[79d378210367c0c6ec62ef762ddfbd1b]
+class Project--><g id="elem_Project"><rect codeLine="5" fill="#F1F1F1" height="153.4844" id="Project" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="202" x="267" y="41"/><ellipse cx="339.25" cy="57" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M342.2188,62.6406 Q341.6406,62.9375 341,63.0781 Q340.3594,63.2344 339.6563,63.2344 Q337.1563,63.2344 335.8281,61.5938 Q334.5156,59.9375 334.5156,56.8125 Q334.5156,53.6875 335.8281,52.0313 Q337.1563,50.375 339.6563,50.375 Q340.3594,50.375 341,50.5313 Q341.6563,50.6875 342.2188,50.9844 L342.2188,53.7031 Q341.5938,53.125 341,52.8594 Q340.4063,52.5781 339.7813,52.5781 Q338.4375,52.5781 337.75,53.6563 Q337.0625,54.7188 337.0625,56.8125 Q337.0625,58.9063 337.75,59.9844 Q338.4375,61.0469 339.7813,61.0469 Q340.4063,61.0469 341,60.7813 Q341.5938,60.5 342.2188,59.9219 L342.2188,62.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="49" x="359.75" y="61.8467">Project</text><line style="stroke:#181818;stroke-width:0.5;" x1="268" x2="468" y1="73" y2="73"/><ellipse cx="278" cy="86.6484" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="86" x="287" y="89.9951">Name string</text><line style="stroke:#181818;stroke-width:1.0;" x1="268" x2="468" y1="97.2969" y2="97.2969"/><ellipse cx="278" cy="110.9453" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="133" x="287" y="114.292">BridgeName string</text><line style="stroke:#181818;stroke-width:1.0;" x1="268" x2="468" y1="121.5938" y2="121.5938"/><ellipse cx="278" cy="135.2422" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="94" x="287" y="138.5889">Subnet string</text><line style="stroke:#181818;stroke-width:1.0;" x1="268" x2="468" y1="145.8906" y2="145.8906"/><ellipse cx="278" cy="159.5391" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="176" x="287" y="162.8857">DHCPServerID uuid.UUID</text><line style="stroke:#181818;stroke-width:1.0;" x1="268" x2="468" y1="170.1875" y2="170.1875"/><ellipse cx="278" cy="183.8359" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="170" x="287" y="187.1826">TFTPServerID uuid.UUID</text></g><!--MD5=[27abfb56f32eefa7f07c83348fb1ee32]
+class GormGenericRepository--><g id="elem_GormGenericRepository"><rect codeLine="5" fill="#F1F1F1" height="48" id="GormGenericRepository" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="323" x="909.5" y="420.5"/><ellipse cx="924.5" cy="436.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M927.4688,442.1406 Q926.8906,442.4375 926.25,442.5781 Q925.6094,442.7344 924.9063,442.7344 Q922.4063,442.7344 921.0781,441.0938 Q919.7656,439.4375 919.7656,436.3125 Q919.7656,433.1875 921.0781,431.5313 Q922.4063,429.875 924.9063,429.875 Q925.6094,429.875 926.25,430.0313 Q926.9063,430.1875 927.4688,430.4844 L927.4688,433.2031 Q926.8438,432.625 926.25,432.3594 Q925.6563,432.0781 925.0313,432.0781 Q923.6875,432.0781 923,433.1563 Q922.3125,434.2188 922.3125,436.3125 Q922.3125,438.4063 923,439.4844 Q923.6875,440.5469 925.0313,440.5469 Q925.6563,440.5469 926.25,440.2813 Q926.8438,440 927.4688,439.4219 L927.4688,442.1406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="172" x="938.5" y="441.3467">GormGenericRepository</text><rect fill="#FFFFFF" height="15.9688" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" width="117" x="1118.5" y="417.5"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="115" x="1119.5" y="429.6387">IDType, EntityType</text><line style="stroke:#181818;stroke-width:0.5;" x1="910.5" x2="1231.5" y1="452.5" y2="452.5"/><line style="stroke:#181818;stroke-width:0.5;" x1="910.5" x2="1231.5" y1="460.5" y2="460.5"/></g><!--MD5=[e6f7ee3ae4c217a01980122c523c7064]
+class GormProjectRepository--><g id="elem_GormProjectRepository"><rect codeLine="5" fill="#F1F1F1" height="48" id="GormProjectRepository" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="197" x="972.5" y="93.5"/><ellipse cx="987.5" cy="109.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M990.4688,115.1406 Q989.8906,115.4375 989.25,115.5781 Q988.6094,115.7344 987.9063,115.7344 Q985.4063,115.7344 984.0781,114.0938 Q982.7656,112.4375 982.7656,109.3125 Q982.7656,106.1875 984.0781,104.5313 Q985.4063,102.875 987.9063,102.875 Q988.6094,102.875 989.25,103.0313 Q989.9063,103.1875 990.4688,103.4844 L990.4688,106.2031 Q989.8438,105.625 989.25,105.3594 Q988.6563,105.0781 988.0313,105.0781 Q986.6875,105.0781 986,106.1563 Q985.3125,107.2188 985.3125,109.3125 Q985.3125,111.4063 986,112.4844 Q986.6875,113.5469 988.0313,113.5469 Q988.6563,113.5469 989.25,113.2813 Q989.8438,113 990.4688,112.4219 L990.4688,115.1406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="165" x="1001.5" y="114.3467">GormProjectRepository</text><line style="stroke:#181818;stroke-width:0.5;" x1="973.5" x2="1168.5" y1="125.5" y2="125.5"/><line style="stroke:#181818;stroke-width:0.5;" x1="973.5" x2="1168.5" y1="133.5" y2="133.5"/></g><g id="elem_ProjectTypeNote"><path d="M909.5,266.5 L909.5,291.6328 L1064.5,291.6328 L1064.5,276.5 L1054.5,266.5 L909.5,266.5 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M1054.5,266.5 L1054.5,276.5 L1064.5,276.5 L1054.5,266.5 " fill="#FEFFDD" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="134" x="915.5" y="283.5669">EntityType is Project</text></g><!--MD5=[4afd32b9c3a651e50eee9a88aa9ac7c6]
+link EntityUUID to Entity--><g id="link_EntityUUID_Entity"><path codeLine="7" d="M347.39,303.08 C349.85,319.86 353.34,343.61 356.74,366.82 " fill="none" id="EntityUUID-to-Entity" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="358.68,379.98,361.767,373.4631,356.9386,368.107,353.8517,374.624,358.68,379.98" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="131" x="354" y="346.0669">IDType is uuid.UUID</text></g><!--MD5=[a6c7a0eda5b041e127f539f1664bb96a]
+link Entity to IEntityModel--><g id="link_Entity_IEntityModel"><path codeLine="17" d="M295.84,509.15 C282.9,522.06 270.03,536 259,550 C225.92,591.97 195.47,643.45 172.69,685.78 " fill="none" id="Entity-to-IEntityModel" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="178.8,689.21,163.25,703.61,166.42,682.66,178.8,689.21" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[5bf434ab4ad145639414dba1b1e9726f]
+link Project to EntityUUID--><g id="link_Project_EntityUUID"><path codeLine="16" d="M354.54,194.2 C352.92,204.21 351.36,214.34 350,224 C349.2,229.67 348.44,235.7 347.75,241.58 " fill="none" id="Project-to-EntityUUID" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="346.27,254.84,350.9108,249.3207,347.601,242.914,342.9602,248.4334,346.27,254.84" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[1b84833638557571905b03f54e842c8c]
+link GormGenericRepository to IGenericRepository--><g id="link_GormGenericRepository_IGenericRepository"><path codeLine="7" d="M1081.28,468.66 C1094.92,499.36 1120.17,556.22 1145.02,612.17 " fill="none" id="GormGenericRepository-to-IGenericRepository" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="1151.51,609.54,1153.23,630.66,1138.72,615.22,1151.51,609.54" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[9e8ca88172389d83445f74356e6c47ed]
+link GormProjectRepository to GormGenericRepository--><g id="link_GormProjectRepository_GormGenericRepository"><path codeLine="7" d="M1073.44,141.65 C1076.16,168.78 1080.39,215.09 1082,255 C1084.13,307.98 1079.18,369.25 1075.24,407.2 " fill="none" id="GormProjectRepository-to-GormGenericRepository" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1073.83,420.3,1078.4527,414.7655,1075.1219,408.3697,1070.4992,413.9042,1073.83,420.3" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[d30c114d66083bd5743f8f7dbaef1ff8]
+link GormProjectRepository to ProjectTypeNote--><g id="link_GormProjectRepository_ProjectTypeNote"><path codeLine="12" d="M1058.79,141.69 C1040.58,176.25 1007.01,240.01 993.19,266.25 " fill="none" id="GormProjectRepository-ProjectTypeNote" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/></g><!--MD5=[53a3241ca9f96f162fe9a25d8d46e89c]
+link ProjectTypeNote to GormGenericRepository--><g id="link_ProjectTypeNote_GormGenericRepository"><path codeLine="13" d="M993.04,291.76 C1006.25,317.48 1038.03,379.32 1056.68,415.62 " fill="none" id="ProjectTypeNote-to-GormGenericRepository" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="1059.11,420.35,1058.5624,410.5164,1056.8284,415.9009,1051.4439,414.1669,1059.11,420.35" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[7187d617b08208f7897573aa1ae262cb]
+link Project to ProjectTypeNote--><g id="link_Project_ProjectTypeNote"><path codeLine="14" d="M469.18,144.57 C605.78,179.77 843.43,241.01 942.08,266.43 " fill="none" id="Project-ProjectTypeNote" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/></g><!--MD5=[fb91c4b91214a16e571b49b5ccb18664]
+@startuml
+!include ../entities/Project.puml
+!include GormGenericRepository.puml
+
+package infrastructure {
+    class GormProjectRepository
+
+    GormProjectRepository -down-* GormGenericRepository
+
+
+    note "EntityType is Project" as ProjectTypeNote
+
+    GormProjectRepository .down. ProjectTypeNote
+    GormGenericRepository <.up. ProjectTypeNote
+    Project .. ProjectTypeNote
+}
+@enduml
+
+@startuml
+
+
+
+package app {
+    interface IEntityModel<IDType> {
+        +GetID() IDType
+        - -
+        +GetCreatedAt() time.Time
+        - -
+        +GetUpdatedAt() *time.Time
+        - -
+        +GetDeletedAt() *time.Time
+    }
+}
+
+
+package domain {
+    class EntityUUID {
+    }
+    EntityUUID - -* Entity : IDType is uuid.UUID
+    class Entity<IDType> {
+        +ID IDType
+        - -
+        +CreatedAt time.Time
+        - -
+        +UpdatedAt *time.Time
+        - -
+        +DeletedAt gorm.DeletedAt
+    }
+    Entity .down.|> IEntityModel
+}
+
+
+package domain {
+    class Project {
+        +Name string
+        - -
+        +BridgeName string
+        - -
+        +Subnet string
+        - -
+        +DHCPServerID uuid.UUID
+        - -
+        +TFTPServerID uuid.UUID
+    }
+    Project -down-* EntityUUID
+}
+
+
+
+package app {
+    interface IGenericRepository<IDType, interfaces.IEntityModel[IDType]> {
+        +GetList(ctx context.Context, orderBy string, orderDirection string, page int, size int, queryBuilder interfaces.IQueryBuilder) ([]EntityType, error)
+        - -
+        +Count(ctx context.Context, queryBuilder interfaces.IQueryBuilder) (int, error)
+        - -
+        +IsExist(ctx context.Context, id IDType, queryBuilder interfaces.IQueryBuilder) (bool, error)
+        - -
+        +NewQueryBuilder(ctx context.Context) interfaces.IQueryBuilder
+        - -
+        +GetById(ctx context.Context, id IDType) (EntityType, error)
+        - -
+        +Update(ctx context.Context, entity EntityType) (EntityType, error)
+        - -
+        +Insert(ctx context.Context, entity EntityType) (EntityType, error)
+        - -
+        +Delete(ctx context.Context, id IDType) error
+        - -
+        +DeleteAll(ctx context.Context, queryBuilder interfaces.IQueryBuilder) error
+        - -
+        +Dispose() error
+    }
+    note left of IGenericRepository::GetList
+      Get list of elements with filtering and pagination
+    end note
+
+    note left of IGenericRepository::Count
+      Get count of entities with filtering
+    end note
+
+    note left of IGenericRepository::IsExist
+      Checks that entity with selected conditions is existed
+    end note
+
+    note left of IGenericRepository::NewQueryBuilder
+      Get new instance of the query builder
+    end note
+
+    note left of IGenericRepository::GetById
+      Get entity by ID from repository
+    end note
+
+    note left of IGenericRepository::Update
+      Save the changes to the existing entity in the repository
+    end note
+
+    note left of IGenericRepository::Insert
+      Add entity to the repository
+    end note
+
+    note left of IGenericRepository::Delete
+      Delete entity from repository
+    end note
+
+    note left of IGenericRepository::DeleteAll
+      Delete entities with selected conditions
+    end note
+
+    note left of IGenericRepository::Dispose
+      Dispose all allocated data
+    end note
+}
+
+
+package infrastructure {
+    class GormGenericRepository<IDType, EntityType>
+
+    GormGenericRepository .down.|> IGenericRepository
+}
+
+
+package infrastructure {
+    class GormProjectRepository
+
+    GormProjectRepository -down-* GormGenericRepository
+
+
+    note "EntityType is Project" as ProjectTypeNote
+
+    GormProjectRepository .down. ProjectTypeNote
+    GormGenericRepository <.up. ProjectTypeNote
+    Project .. ProjectTypeNote
+}
+@enduml
+
+PlantUML version 1.2022.13(Sat Nov 19 16:22:17 MSK 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: ru
+Country: RU
+--></g></svg>

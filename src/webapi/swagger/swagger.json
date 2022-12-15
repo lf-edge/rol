@@ -1936,6 +1936,172 @@
                 }
             }
         },
+        "/project/": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "project"
+                ],
+                "summary": "Get list of user projects",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Order by field",
+                        "name": "orderBy",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "'asc' or 'desc' for ascending or descending order",
+                        "name": "orderDirection",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "Searchable value in entity",
+                        "name": "search",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Page number",
+                        "name": "page",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Number of entities per page",
+                        "name": "pageSize",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.PaginatedItemsDto-dtos_ProjectDto"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "project"
+                ],
+                "summary": "Create new user project",
+                "parameters": [
+                    {
+                        "description": "User project fields",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dtos.ProjectCreateDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.ProjectDto"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.ValidationErrorDto"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/project/{id}": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "project"
+                ],
+                "summary": "Gets user project by id",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "User project ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.ProjectDto"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "delete": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "project"
+                ],
+                "summary": "Delete user project by id",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "User project ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "OK, but No Content"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
         "/template/device/": {
             "get": {
                 "consumes": [
@@ -3403,6 +3569,22 @@
                 }
             }
         },
+        "dtos.PaginatedItemsDto-dtos_ProjectDto": {
+            "type": "object",
+            "properties": {
+                "items": {
+                    "description": "Items slice of items",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dtos.ProjectDto"
+                    }
+                },
+                "pagination": {
+                    "description": "Pagination info about pagination",
+                    "$ref": "#/definitions/dtos.PaginationInfoDto"
+                }
+            }
+        },
         "dtos.PaginatedItemsDto-dtos_TFTPPathDto": {
             "type": "object",
             "properties": {
@@ -3453,6 +3635,56 @@
                 "totalPages": {
                     "description": "TotalPages - total number of pages",
                     "type": "integer"
+                }
+            }
+        },
+        "dtos.ProjectCreateDto": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "description": "Name project name",
+                    "type": "string"
+                },
+                "subnet": {
+                    "description": "Subnet project subnet xx.xx.xx.0",
+                    "type": "string"
+                }
+            }
+        },
+        "dtos.ProjectDto": {
+            "type": "object",
+            "properties": {
+                "bridgeName": {
+                    "description": "BridgeName name of project bridge",
+                    "type": "string"
+                },
+                "createdAt": {
+                    "description": "CreatedAt - entity create time",
+                    "type": "string"
+                },
+                "dhcpserverID": {
+                    "description": "DHCPServerID ip of project DHCP server",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "ID - unique identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Name project name",
+                    "type": "string"
+                },
+                "subnet": {
+                    "description": "Subnet project subnet xx.xx.xx.0",
+                    "type": "string"
+                },
+                "tftpserverID": {
+                    "description": "TFTPServerID ip of project TFTP server",
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "description": "UpdatedAt - entity update time",
+                    "type": "string"
                 }
             }
         },

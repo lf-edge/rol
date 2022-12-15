@@ -84,6 +84,8 @@ func main() {
 			controllers.NewEthernetSwitchVLANGinController,
 			controllers.NewDHCP4ServerGinController,
 			controllers.NewTFTPServerGinController,
+			controllers.NewProjectGinController,
+			controllers.NewHostNetworkTrafficGinController,
 		),
 		fx.Invoke(
 			//Register logrus hooks

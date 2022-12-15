@@ -1,3 +1,4 @@
+// Package domain stores the main structures of the program
 package domain
 
 import "github.com/google/uuid"

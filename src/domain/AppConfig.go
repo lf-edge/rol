@@ -1,3 +1,4 @@
+// Package domain stores the main structures of the program
 package domain
 
 //MySQL structure with mysql db connection parameters

@@ -1,0 +1,40 @@
+@startuml
+
+!include ../services/ProjectService.puml
+
+package controllers {
+    class ProjectController {
+        -service *services.HostNetworkService
+        --
+        -logger  *logrus.Logger
+        --
+        +GetList(ctx *gin.Context)
+        --
+        +GetByID(ctx *gin.Context)
+        --
+        +Create(ctx *gin.Context)
+        --
+        +Delete(ctx *gin.Context)
+    }
+
+    note left of ProjectController::GetList
+    Get list of user projects
+    end note
+
+    note left of ProjectController::GetByID
+    Gets user project by id
+    end note
+
+    note left of ProjectController::Create
+    Create new user project
+    end note
+
+    note left of ProjectController::Delete
+    Delete user project by id
+    end note
+
+
+    UserProjectService -up- ProjectController::service
+}
+
+@enduml

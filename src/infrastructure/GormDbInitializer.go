@@ -96,6 +96,7 @@ func NewGormEntityDb(cfg *domain.AppConfig) (*gorm.DB, error) {
 		&domain.EthernetSwitch{},
 		&domain.EthernetSwitchPort{},
 		&domain.EthernetSwitchVLAN{},
+		&domain.Project{},
 		&domain.DHCP4Config{},
 		&domain.DHCP4Lease{},
 	)

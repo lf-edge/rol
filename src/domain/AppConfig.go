@@ -1,3 +1,4 @@
+// Package domain stores the main structures of the program
 package domain
 
 //MySQL structure with mysql db connection parameters
@@ -29,6 +30,9 @@ type AppConfig struct {
 		Port string `yaml:"port"`
 		Host string `yaml:"host"`
 	} `yaml:"httpServer"`
+	Network struct {
+		Interface string `yaml:"interface"`
+	} `yaml:"network"`
 	Database struct {
 		Entity DbConfig `yaml:"entity"`
 		Log    DbConfig `yaml:"log"`

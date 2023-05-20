@@ -62,6 +62,7 @@ func main() {
 			infrastructure.NewGormDHCP4LeaseRepository,
 			infrastructure.NewGormDHCP4ConfigRepository,
 			infrastructure.NewCoreDHCP4ServerFactory,
+			infrastructure.NewProjectRepository,
 			// Application logic
 			services.NewEthernetSwitchService,
 			services.NewHTTPLogService,
@@ -70,6 +71,7 @@ func main() {
 			services.NewHostNetworkService,
 			services.NewDHCP4ServerService,
 			services.NewTFTPServerService,
+			services.NewProjectService,
 			// WEB API -> GIN Server
 			webapi.NewGinHTTPServer,
 			// WEB API -> GIN Controllers
@@ -84,6 +86,8 @@ func main() {
 			controllers.NewEthernetSwitchVLANGinController,
 			controllers.NewDHCP4ServerGinController,
 			controllers.NewTFTPServerGinController,
+			controllers.NewProjectGinController,
+			controllers.NewHostNetworkTrafficGinController,
 		),
 		fx.Invoke(
 			//Register logrus hooks
@@ -104,6 +108,8 @@ func main() {
 			controllers.RegisterEthernetSwitchVLANGinController,
 			controllers.RegisterDHCP4ServerGinController,
 			controllers.RegisterTFTPServerGinController,
+			controllers.RegisterProjectGinController,
+			controllers.RegisterHostNetworkTrafficGinController,
 			//Start GIN http server
 			webapi.StartHTTPServer,
 		),

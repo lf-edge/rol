@@ -1,0 +1,17 @@
+@startuml
+!include ProjectBaseDto.puml
+!include ../BaseDto.puml
+
+package dtos {
+    class ProjectDto {
+        +BridgeName string
+        --
+        +DHCPServerID uuid.UUID
+        --
+        +TFTPServerID uuid.UUID
+    }
+    ProjectDto --* ProjectBaseDto
+    ProjectDto --* BaseDto
+}
+
+@enduml

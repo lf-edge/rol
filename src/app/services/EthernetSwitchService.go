@@ -56,6 +56,12 @@ func (e *EthernetSwitchService) initSupportedList() {
 		Code:         "unifi_switch_us-24-250w",
 	}
 	*e.supportedList = append(*e.supportedList, ubiquityUnifiSwitchUs24250W)
+	tpLink := domain.EthernetSwitchModel{
+		Model:        "TL-SG2210MP",
+		Manufacturer: "TP-Link",
+		Code:         "tl-sg2210mp",
+	}
+	*e.supportedList = append(*e.supportedList, tpLink)
 }
 
 func (e *EthernetSwitchService) modelIsSupported(model string) bool {

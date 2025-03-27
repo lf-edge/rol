@@ -166,6 +166,110 @@ definitions:
         description: Port of DHCP server
         type: integer
     type: object
+  dtos.DeviceCreateDto:
+    properties:
+      manufacturer:
+        description: Manufacturer - device manufacturer
+        type: string
+      model:
+        description: Model - device model
+        type: string
+      name:
+        description: Name - device name
+        type: string
+      powerControlBus:
+        description: PowerControlBus - power control bus for this device
+        type: string
+    type: object
+  dtos.DeviceDto:
+    properties:
+      createdAt:
+        description: CreatedAt - entity create time
+        type: string
+      id:
+        description: ID - unique identifier
+        type: string
+      manufacturer:
+        description: Manufacturer - device manufacturer
+        type: string
+      model:
+        description: Model - device model
+        type: string
+      name:
+        description: Name - device name
+        type: string
+      powerControlBus:
+        description: PowerControlBus - power control bus for this device
+        type: string
+      powerState:
+        description: PowerState current power state of the device
+        type: string
+      updatedAt:
+        description: UpdatedAt - entity update time
+        type: string
+    type: object
+  dtos.DeviceNetworkInterfaceCreateDto:
+    properties:
+      connectedSwitchId:
+        description: ConnectedSwitchId - id of connected switch
+        type: string
+      connectedSwitchPortId:
+        description: ConnectedSwitchId - id of connected switch port
+        type: string
+      mac:
+        description: Mac address of network interface. This field is unique within
+          all devices.
+        type: string
+    type: object
+  dtos.DeviceNetworkInterfaceDto:
+    properties:
+      connectedSwitchId:
+        description: ConnectedSwitchId - id of connected switch
+        type: string
+      connectedSwitchPortId:
+        description: ConnectedSwitchId - id of connected switch port
+        type: string
+      createdAt:
+        description: CreatedAt - entity create time
+        type: string
+      id:
+        description: ID - unique identifier
+        type: string
+      mac:
+        description: Mac address of network interface. This field is unique within
+          all devices.
+        type: string
+      updatedAt:
+        description: UpdatedAt - entity update time
+        type: string
+    type: object
+  dtos.DeviceNetworkInterfaceUpdateDto:
+    properties:
+      connectedSwitchId:
+        description: ConnectedSwitchId - id of connected switch
+        type: string
+      connectedSwitchPortId:
+        description: ConnectedSwitchId - id of connected switch port
+        type: string
+      mac:
+        description: Mac address of network interface. This field is unique within
+          all devices.
+        type: string
+    type: object
+  dtos.DevicePowerCommandDto:
+    properties:
+      command:
+        type: string
+      createdAt:
+        description: CreatedAt - entity create time
+        type: string
+      id:
+        description: ID - unique identifier
+        type: string
+      updatedAt:
+        description: UpdatedAt - entity update time
+        type: string
+    type: object
   dtos.DeviceTemplateBootStageDto:
     properties:
       action:
@@ -276,6 +380,21 @@ definitions:
       poein:
         description: POEIn only one network interface can be mark as POEIn
         type: boolean
+    type: object
+  dtos.DeviceUpdateDto:
+    properties:
+      manufacturer:
+        description: Manufacturer - device manufacturer
+        type: string
+      model:
+        description: Model - device model
+        type: string
+      name:
+        description: Name - device name
+        type: string
+      powerControlBus:
+        description: PowerControlBus - power control bus for this device
+        type: string
     type: object
   dtos.EthernetSwitchCreateDto:
     properties:
@@ -679,6 +798,28 @@ definitions:
         $ref: '#/definitions/dtos.PaginationInfoDto'
         description: Pagination info about pagination
     type: object
+  dtos.PaginatedItemsDto-dtos_DeviceDto:
+    properties:
+      items:
+        description: Items slice of items
+        items:
+          $ref: '#/definitions/dtos.DeviceDto'
+        type: array
+      pagination:
+        $ref: '#/definitions/dtos.PaginationInfoDto'
+        description: Pagination info about pagination
+    type: object
+  dtos.PaginatedItemsDto-dtos_DeviceNetworkInterfaceDto:
+    properties:
+      items:
+        description: Items slice of items
+        items:
+          $ref: '#/definitions/dtos.DeviceNetworkInterfaceDto'
+        type: array
+      pagination:
+        $ref: '#/definitions/dtos.PaginationInfoDto'
+        description: Pagination info about pagination
+    type: object
   dtos.PaginatedItemsDto-dtos_DeviceTemplateDto:
     properties:
       items:
@@ -867,7 +1008,7 @@ definitions:
         description: Source for the field, for example query or body
         type: string
     type: object
-host: localhost:8080
+host: 192.168.8.118:8080
 info:
   contact:
     email: support@swagger.io
@@ -880,6 +1021,341 @@ info:
   title: Rack of labs API
   version: 0.1.0
 paths:
+  /device/:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Order by field
+        in: query
+        name: orderBy
+        type: string
+      - description: '''asc'' or ''desc'' for ascending or descending order'
+        in: query
+        name: orderDirection
+        type: string
+      - description: searchable value in entity
+        in: query
+        name: search
+        type: string
+      - description: page number
+        in: query
+        name: page
+        type: integer
+      - description: number of entities per page
+        in: query
+        name: pageSize
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dtos.PaginatedItemsDto-dtos_DeviceDto'
+        "500":
+          description: Internal Server Error
+      summary: Gets paginated list of device entity
+      tags:
+      - device
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Device fields
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dtos.DeviceCreateDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dtos.DeviceDto'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dtos.ValidationErrorDto'
+        "500":
+          description: Internal Server Error
+      summary: Create device
+      tags:
+      - device
+  /device/{id}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: Device ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: OK, but No Content
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+      summary: Delete device by id
+      tags:
+      - device
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Device ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dtos.DeviceDto'
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+      summary: Get device by id
+      tags:
+      - device
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Device ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Device fields
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dtos.DeviceUpdateDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dtos.DeviceDto'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dtos.ValidationErrorDto'
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+      summary: Updates device
+      tags:
+      - device
+  /device/{id}/network-interface:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Device ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Order by field
+        in: query
+        name: orderBy
+        type: string
+      - description: '''asc'' or ''desc'' for ascending or descending order'
+        in: query
+        name: orderDirection
+        type: string
+      - description: Searchable value in entity
+        in: query
+        name: search
+        type: string
+      - description: Page number
+        in: query
+        name: page
+        type: integer
+      - description: Number of entities per page
+        in: query
+        name: pageSize
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dtos.PaginatedItemsDto-dtos_DeviceNetworkInterfaceDto'
+        "500":
+          description: Internal Server Error
+      summary: Get list of device network interface
+      tags:
+      - device
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: DHCP v4 server ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Device network interface fields
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dtos.DeviceNetworkInterfaceCreateDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dtos.DeviceNetworkInterfaceDto'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dtos.ValidationErrorDto'
+        "500":
+          description: Internal Server Error
+      summary: Create device network interface
+      tags:
+      - device
+  /device/{id}/network-interface/{interfaceID}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: Device ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Device network interface ID
+        in: path
+        name: interfaceID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: OK, but No Content
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+      summary: Delete device network interface by id
+      tags:
+      - device
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Device ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Device network interface ID
+        in: path
+        name: interfaceID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dtos.DeviceNetworkInterfaceDto'
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+      summary: Get device network interface by id
+      tags:
+      - device
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Device ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Device network interface ID
+        in: path
+        name: interfaceID
+        required: true
+        type: string
+      - description: Device network interface fields
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dtos.DeviceNetworkInterfaceUpdateDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dtos.DeviceNetworkInterfaceDto'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dtos.ValidationErrorDto'
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+      summary: Updates device network interface
+      tags:
+      - device
+  /device/{id}/power-command/:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Device ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Device power command fields
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dtos.DevicePowerCommandDto'
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: OK, but No Content
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+      summary: Send power device command
+      tags:
+      - device
   /dhcp/:
     get:
       consumes:

@@ -271,7 +271,8 @@ func (e *EthernetSwitchService) UpdatePort(ctx context.Context, switchID, id uui
 	if err != nil {
 		return dto, err // we already wrap error in Update()
 	}
-	return updatedPort, e.syncPortConfOnSwitch(ctx, switchID, dto.Name, dto.POEType, dto.POEEnabled, dto.PVID)
+	return updatedPort, e.syncPortConfOnSwitch(ctx, switchID,
+		updatedPort.Name, updatedPort.POEType, updatedPort.POEEnabled, updatedPort.PVID)
 }
 
 //GetPorts Get list of ethernet switch ports with filtering and pagination

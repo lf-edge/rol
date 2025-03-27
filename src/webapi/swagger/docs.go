@@ -24,6 +24,516 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
+        "/device/": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "device"
+                ],
+                "summary": "Gets paginated list of device entity",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Order by field",
+                        "name": "orderBy",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "'asc' or 'desc' for ascending or descending order",
+                        "name": "orderDirection",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "searchable value in entity",
+                        "name": "search",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "page number",
+                        "name": "page",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "number of entities per page",
+                        "name": "pageSize",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.PaginatedItemsDto-dtos_DeviceDto"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "device"
+                ],
+                "summary": "Create device",
+                "parameters": [
+                    {
+                        "description": "Device fields",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dtos.DeviceCreateDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.DeviceDto"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.ValidationErrorDto"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/device/{id}": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "device"
+                ],
+                "summary": "Get device by id",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Device ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.DeviceDto"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "put": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "device"
+                ],
+                "summary": "Updates device",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Device ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "Device fields",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dtos.DeviceUpdateDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.DeviceDto"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.ValidationErrorDto"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "delete": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "device"
+                ],
+                "summary": "Delete device by id",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Device ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "OK, but No Content"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/device/{id}/network-interface": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "device"
+                ],
+                "summary": "Get list of device network interface",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Device ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Order by field",
+                        "name": "orderBy",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "'asc' or 'desc' for ascending or descending order",
+                        "name": "orderDirection",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "Searchable value in entity",
+                        "name": "search",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Page number",
+                        "name": "page",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Number of entities per page",
+                        "name": "pageSize",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.PaginatedItemsDto-dtos_DeviceNetworkInterfaceDto"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "device"
+                ],
+                "summary": "Create device network interface",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "DHCP v4 server ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "Device network interface fields",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dtos.DeviceNetworkInterfaceCreateDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.DeviceNetworkInterfaceDto"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.ValidationErrorDto"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/device/{id}/network-interface/{interfaceID}": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "device"
+                ],
+                "summary": "Get device network interface by id",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Device ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Device network interface ID",
+                        "name": "interfaceID",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.DeviceNetworkInterfaceDto"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "put": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "device"
+                ],
+                "summary": "Updates device network interface",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Device ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Device network interface ID",
+                        "name": "interfaceID",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "Device network interface fields",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dtos.DeviceNetworkInterfaceUpdateDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.DeviceNetworkInterfaceDto"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.ValidationErrorDto"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "delete": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "device"
+                ],
+                "summary": "Delete device network interface by id",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Device ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Device network interface ID",
+                        "name": "interfaceID",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "OK, but No Content"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/device/{id}/power-command/": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "device"
+                ],
+                "summary": "Send power device command",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Device ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "Device power command fields",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dtos.DevicePowerCommandDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "OK, but No Content"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
         "/dhcp/": {
             "get": {
                 "consumes": [
@@ -2633,6 +3143,147 @@ const docTemplate = `{
                 }
             }
         },
+        "dtos.DeviceCreateDto": {
+            "type": "object",
+            "properties": {
+                "manufacturer": {
+                    "description": "Manufacturer - device manufacturer",
+                    "type": "string"
+                },
+                "model": {
+                    "description": "Model - device model",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Name - device name",
+                    "type": "string"
+                },
+                "powerControlBus": {
+                    "description": "PowerControlBus - power control bus for this device",
+                    "type": "string"
+                }
+            }
+        },
+        "dtos.DeviceDto": {
+            "type": "object",
+            "properties": {
+                "createdAt": {
+                    "description": "CreatedAt - entity create time",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "ID - unique identifier",
+                    "type": "string"
+                },
+                "manufacturer": {
+                    "description": "Manufacturer - device manufacturer",
+                    "type": "string"
+                },
+                "model": {
+                    "description": "Model - device model",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Name - device name",
+                    "type": "string"
+                },
+                "powerControlBus": {
+                    "description": "PowerControlBus - power control bus for this device",
+                    "type": "string"
+                },
+                "powerState": {
+                    "description": "PowerState current power state of the device",
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "description": "UpdatedAt - entity update time",
+                    "type": "string"
+                }
+            }
+        },
+        "dtos.DeviceNetworkInterfaceCreateDto": {
+            "type": "object",
+            "properties": {
+                "connectedSwitchId": {
+                    "description": "ConnectedSwitchId - id of connected switch",
+                    "type": "string"
+                },
+                "connectedSwitchPortId": {
+                    "description": "ConnectedSwitchId - id of connected switch port",
+                    "type": "string"
+                },
+                "mac": {
+                    "description": "Mac address of network interface. This field is unique within all devices.",
+                    "type": "string"
+                }
+            }
+        },
+        "dtos.DeviceNetworkInterfaceDto": {
+            "type": "object",
+            "properties": {
+                "connectedSwitchId": {
+                    "description": "ConnectedSwitchId - id of connected switch",
+                    "type": "string"
+                },
+                "connectedSwitchPortId": {
+                    "description": "ConnectedSwitchId - id of connected switch port",
+                    "type": "string"
+                },
+                "createdAt": {
+                    "description": "CreatedAt - entity create time",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "ID - unique identifier",
+                    "type": "string"
+                },
+                "mac": {
+                    "description": "Mac address of network interface. This field is unique within all devices.",
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "description": "UpdatedAt - entity update time",
+                    "type": "string"
+                }
+            }
+        },
+        "dtos.DeviceNetworkInterfaceUpdateDto": {
+            "type": "object",
+            "properties": {
+                "connectedSwitchId": {
+                    "description": "ConnectedSwitchId - id of connected switch",
+                    "type": "string"
+                },
+                "connectedSwitchPortId": {
+                    "description": "ConnectedSwitchId - id of connected switch port",
+                    "type": "string"
+                },
+                "mac": {
+                    "description": "Mac address of network interface. This field is unique within all devices.",
+                    "type": "string"
+                }
+            }
+        },
+        "dtos.DevicePowerCommandDto": {
+            "type": "object",
+            "properties": {
+                "command": {
+                    "type": "string"
+                },
+                "createdAt": {
+                    "description": "CreatedAt - entity create time",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "ID - unique identifier",
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "description": "UpdatedAt - entity update time",
+                    "type": "string"
+                }
+            }
+        },
         "dtos.DeviceTemplateBootStageDto": {
             "type": "object",
             "properties": {
@@ -2770,6 +3421,27 @@ const docTemplate = `{
                 "poein": {
                     "description": "POEIn only one network interface can be mark as POEIn",
                     "type": "boolean"
+                }
+            }
+        },
+        "dtos.DeviceUpdateDto": {
+            "type": "object",
+            "properties": {
+                "manufacturer": {
+                    "description": "Manufacturer - device manufacturer",
+                    "type": "string"
+                },
+                "model": {
+                    "description": "Model - device model",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Name - device name",
+                    "type": "string"
+                },
+                "powerControlBus": {
+                    "description": "PowerControlBus - power control bus for this device",
+                    "type": "string"
                 }
             }
         },
@@ -3330,6 +4002,38 @@ const docTemplate = `{
                 }
             }
         },
+        "dtos.PaginatedItemsDto-dtos_DeviceDto": {
+            "type": "object",
+            "properties": {
+                "items": {
+                    "description": "Items slice of items",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dtos.DeviceDto"
+                    }
+                },
+                "pagination": {
+                    "description": "Pagination info about pagination",
+                    "$ref": "#/definitions/dtos.PaginationInfoDto"
+                }
+            }
+        },
+        "dtos.PaginatedItemsDto-dtos_DeviceNetworkInterfaceDto": {
+            "type": "object",
+            "properties": {
+                "items": {
+                    "description": "Items slice of items",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dtos.DeviceNetworkInterfaceDto"
+                    }
+                },
+                "pagination": {
+                    "description": "Pagination info about pagination",
+                    "$ref": "#/definitions/dtos.PaginationInfoDto"
+                }
+            }
+        },
         "dtos.PaginatedItemsDto-dtos_DeviceTemplateDto": {
             "type": "object",
             "properties": {
@@ -3605,7 +4309,7 @@ const docTemplate = `{
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = &swag.Spec{
 	Version:          "0.1.0",
-	Host:             "localhost:8080",
+	Host:             "192.168.8.118:8080",
 	BasePath:         "/api/v1/",
 	Schemes:          []string{},
 	Title:            "Rack of labs API",

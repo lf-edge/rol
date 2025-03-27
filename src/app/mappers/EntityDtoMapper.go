@@ -65,6 +65,16 @@ func MapDtoToEntity(dto interface{}, entity interface{}) error {
 		MapDHCP4LeaseCreateDtoToEntity(dto.(dtos.DHCP4LeaseCreateDto), entity.(*domain.DHCP4Lease))
 	case dtos.DHCP4LeaseUpdateDto:
 		MapDHCP4LeaseUpdateDtoToEntity(dto.(dtos.DHCP4LeaseUpdateDto), entity.(*domain.DHCP4Lease))
+	//Device
+	case dtos.DeviceCreateDto:
+		MapDeviceCreateDtoToEntity(dto.(dtos.DeviceCreateDto), entity.(*domain.Device))
+	case dtos.DeviceUpdateDto:
+		MapDeviceUpdateDtoToEntity(dto.(dtos.DeviceUpdateDto), entity.(*domain.Device))
+	//DeviceNetworkInterface
+	case dtos.DeviceNetworkInterfaceCreateDto:
+		MapDeviceNetworkInterfaceCreateDtoToEntity(dto.(dtos.DeviceNetworkInterfaceCreateDto), entity.(*domain.DeviceNetworkInterface))
+	case dtos.DeviceNetworkInterfaceUpdateDto:
+		MapDeviceNetworkInterfaceUpdateDtoToEntity(dto.(dtos.DeviceNetworkInterfaceUpdateDto), entity.(*domain.DeviceNetworkInterface))
 	default:
 		return errors.Internal.Newf("can't find route for map dto %+v to entity %+v", dto, entity)
 	}
@@ -115,7 +125,12 @@ func MapEntityToDto(entity interface{}, dto interface{}) error {
 	//DHCP4Lease
 	case domain.DHCP4Lease:
 		MapDHCP4LeaseToDto(entity.(domain.DHCP4Lease), dto.(*dtos.DHCP4LeaseDto))
-
+	//Device
+	case domain.Device:
+		MapDeviceToDto(entity.(domain.Device), dto.(*dtos.DeviceDto))
+	//DeviceNetworkInterface
+	case domain.DeviceNetworkInterface:
+		MapDeviceNetworkInterfaceToDto(entity.(domain.DeviceNetworkInterface), dto.(*dtos.DeviceNetworkInterfaceDto))
 	default:
 		return errors.Internal.Newf("can't find route for map entity %+v to dto %+v", dto, entity)
 	}

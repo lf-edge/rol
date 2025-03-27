@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="745px" preserveAspectRatio="none" style="width:265px;height:745px;background:#FFFFFF;" version="1.1" viewBox="0 0 265 745" width="265px" zoomAndPan="magnify"><defs/><g><!--MD5=[d5ac3844f66b12d9e08170e47495e096]
+cluster app--><g id="cluster_app"><path d="M8.5,558 L38.5,558 A3.75,3.75 0 0 1 41,560.5 L48,580.2969 L255.5,580.2969 A2.5,2.5 0 0 1 258,582.7969 L258,735.5 A2.5,2.5 0 0 1 255.5,738 L8.5,738 A2.5,2.5 0 0 1 6,735.5 L6,560.5 A2.5,2.5 0 0 1 8.5,558 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="6" x2="48" y1="580.2969" y2="580.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="29" x="10" y="572.9951">app</text></g><!--MD5=[27f772719433d509ddbc20ff768eba08]
+cluster domain--><g id="cluster_domain"><path d="M11.5,6 L71.5,6 A3.75,3.75 0 0 1 74,8.5 L81,28.2969 L252.5,28.2969 A2.5,2.5 0 0 1 255,30.7969 L255,522.5 A2.5,2.5 0 0 1 252.5,525 L11.5,525 A2.5,2.5 0 0 1 9,522.5 L9,8.5 A2.5,2.5 0 0 1 11.5,6 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="9" x2="81" y1="28.2969" y2="28.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="59" x="13" y="20.9951">domain</text></g><!--MD5=[2a39a5be1cc24ddddd6e6286e4ece992]
+class IEntityModel--><g id="elem_IEntityModel"><rect codeLine="3" fill="#F1F1F1" height="129.1875" id="IEntityModel" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="219" x="22.5" y="593"/><ellipse cx="61.8" cy="609" fill="#B4A7E5" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M57.7219,604.7656 L57.7219,602.6094 L65.1125,602.6094 L65.1125,604.7656 L62.6438,604.7656 L62.6438,612.8438 L65.1125,612.8438 L65.1125,615 L57.7219,615 L57.7219,612.8438 L60.1906,612.8438 L60.1906,604.7656 L57.7219,604.7656 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="87" x="81.2" y="613.8467">IEntityModel</text><rect fill="#FFFFFF" height="15.9688" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" width="44" x="200.5" y="590"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="42" x="201.5" y="602.1387">IDType</text><line style="stroke:#181818;stroke-width:0.5;" x1="23.5" x2="240.5" y1="625" y2="625"/><ellipse cx="33.5" cy="638.6484" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="104" x="42.5" y="641.9951">GetID() IDType</text><line style="stroke:#181818;stroke-width:1.0;" x1="23.5" x2="240.5" y1="649.2969" y2="649.2969"/><ellipse cx="33.5" cy="662.9453" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="183" x="42.5" y="666.292">GetCreatedAt() time.Time</text><line style="stroke:#181818;stroke-width:1.0;" x1="23.5" x2="240.5" y1="673.5938" y2="673.5938"/><ellipse cx="33.5" cy="687.2422" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="193" x="42.5" y="690.5889">GetUpdatedAt() *time.Time</text><line style="stroke:#181818;stroke-width:1.0;" x1="23.5" x2="240.5" y1="697.8906" y2="697.8906"/><ellipse cx="33.5" cy="711.5391" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="189" x="42.5" y="714.8857">GetDeletedAt() *time.Time</text></g><!--MD5=[1045d07ae824aea072cabb0fb8284887]
+class EntityUUID--><g id="elem_EntityUUID"><rect codeLine="5" fill="#F1F1F1" height="48" id="EntityUUID" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="107" x="62.5" y="255"/><ellipse cx="77.5" cy="271" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M80.4688,276.6406 Q79.8906,276.9375 79.25,277.0781 Q78.6094,277.2344 77.9063,277.2344 Q75.4063,277.2344 74.0781,275.5938 Q72.7656,273.9375 72.7656,270.8125 Q72.7656,267.6875 74.0781,266.0313 Q75.4063,264.375 77.9063,264.375 Q78.6094,264.375 79.25,264.5313 Q79.9063,264.6875 80.4688,264.9844 L80.4688,267.7031 Q79.8438,267.125 79.25,266.8594 Q78.6563,266.5781 78.0313,266.5781 Q76.6875,266.5781 76,267.6563 Q75.3125,268.7188 75.3125,270.8125 Q75.3125,272.9063 76,273.9844 Q76.6875,275.0469 78.0313,275.0469 Q78.6563,275.0469 79.25,274.7813 Q79.8438,274.5 80.4688,273.9219 L80.4688,276.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="75" x="91.5" y="275.8467">EntityUUID</text><line style="stroke:#181818;stroke-width:0.5;" x1="63.5" x2="168.5" y1="287" y2="287"/><line style="stroke:#181818;stroke-width:0.5;" x1="63.5" x2="168.5" y1="295" y2="295"/></g><!--MD5=[be996cdb8e6bf2fc7cb89c555f2cd144]
+class Entity--><g id="elem_Entity"><rect codeLine="8" fill="#F1F1F1" height="129.1875" id="Entity" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="214" x="25" y="380"/><ellipse cx="84.75" cy="396" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M87.7188,401.6406 Q87.1406,401.9375 86.5,402.0781 Q85.8594,402.2344 85.1563,402.2344 Q82.6563,402.2344 81.3281,400.5938 Q80.0156,398.9375 80.0156,395.8125 Q80.0156,392.6875 81.3281,391.0313 Q82.6563,389.375 85.1563,389.375 Q85.8594,389.375 86.5,389.5313 Q87.1563,389.6875 87.7188,389.9844 L87.7188,392.7031 Q87.0938,392.125 86.5,391.8594 Q85.9063,391.5781 85.2813,391.5781 Q83.9375,391.5781 83.25,392.6563 Q82.5625,393.7188 82.5625,395.8125 Q82.5625,397.9063 83.25,398.9844 Q83.9375,400.0469 85.2813,400.0469 Q85.9063,400.0469 86.5,399.7813 Q87.0938,399.5 87.7188,398.9219 L87.7188,401.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="40" x="105.25" y="400.8467">Entity</text><rect fill="#FFFFFF" height="15.9688" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" width="44" x="198" y="377"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="42" x="199" y="389.1387">IDType</text><line style="stroke:#181818;stroke-width:0.5;" x1="26" x2="238" y1="412" y2="412"/><ellipse cx="36" cy="425.6484" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="69" x="45" y="428.9951">ID IDType</text><line style="stroke:#181818;stroke-width:1.0;" x1="26" x2="238" y1="436.2969" y2="436.2969"/><ellipse cx="36" cy="449.9453" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="148" x="45" y="453.292">CreatedAt time.Time</text><line style="stroke:#181818;stroke-width:1.0;" x1="26" x2="238" y1="460.5938" y2="460.5938"/><ellipse cx="36" cy="474.2422" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="158" x="45" y="477.5889">UpdatedAt *time.Time</text><line style="stroke:#181818;stroke-width:1.0;" x1="26" x2="238" y1="484.8906" y2="484.8906"/><ellipse cx="36" cy="498.5391" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="188" x="45" y="501.8857">DeletedAt gorm.DeletedAt</text></g><!--MD5=[79d378210367c0c6ec62ef762ddfbd1b]
+class Project--><g id="elem_Project"><rect codeLine="5" fill="#F1F1F1" height="153.4844" id="Project" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="202" x="25" y="41"/><ellipse cx="97.25" cy="57" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M100.2188,62.6406 Q99.6406,62.9375 99,63.0781 Q98.3594,63.2344 97.6563,63.2344 Q95.1563,63.2344 93.8281,61.5938 Q92.5156,59.9375 92.5156,56.8125 Q92.5156,53.6875 93.8281,52.0313 Q95.1563,50.375 97.6563,50.375 Q98.3594,50.375 99,50.5313 Q99.6563,50.6875 100.2188,50.9844 L100.2188,53.7031 Q99.5938,53.125 99,52.8594 Q98.4063,52.5781 97.7813,52.5781 Q96.4375,52.5781 95.75,53.6563 Q95.0625,54.7188 95.0625,56.8125 Q95.0625,58.9063 95.75,59.9844 Q96.4375,61.0469 97.7813,61.0469 Q98.4063,61.0469 99,60.7813 Q99.5938,60.5 100.2188,59.9219 L100.2188,62.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="49" x="117.75" y="61.8467">Project</text><line style="stroke:#181818;stroke-width:0.5;" x1="26" x2="226" y1="73" y2="73"/><ellipse cx="36" cy="86.6484" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="86" x="45" y="89.9951">Name string</text><line style="stroke:#181818;stroke-width:1.0;" x1="26" x2="226" y1="97.2969" y2="97.2969"/><ellipse cx="36" cy="110.9453" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="133" x="45" y="114.292">BridgeName string</text><line style="stroke:#181818;stroke-width:1.0;" x1="26" x2="226" y1="121.5938" y2="121.5938"/><ellipse cx="36" cy="135.2422" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="94" x="45" y="138.5889">Subnet string</text><line style="stroke:#181818;stroke-width:1.0;" x1="26" x2="226" y1="145.8906" y2="145.8906"/><ellipse cx="36" cy="159.5391" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="176" x="45" y="162.8857">DHCPServerID uuid.UUID</text><line style="stroke:#181818;stroke-width:1.0;" x1="26" x2="226" y1="170.1875" y2="170.1875"/><ellipse cx="36" cy="183.8359" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="170" x="45" y="187.1826">TFTPServerID uuid.UUID</text></g><!--MD5=[4afd32b9c3a651e50eee9a88aa9ac7c6]
+link EntityUUID to Entity--><g id="link_EntityUUID_Entity"><path codeLine="7" d="M118.26,303.08 C119.9,319.86 122.23,343.61 124.5,366.82 " fill="none" id="EntityUUID-to-Entity" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="125.78,379.98,129.1743,373.6177,124.6068,368.0375,121.2126,374.3998,125.78,379.98" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="131" x="124" y="346.0669">IDType is uuid.UUID</text></g><!--MD5=[a6c7a0eda5b041e127f539f1664bb96a]
+link Entity to IEntityModel--><g id="link_Entity_IEntityModel"><path codeLine="17" d="M132,509.09 C132,529.04 132,551.36 132,572.49 " fill="none" id="Entity-to-IEntityModel" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="139,572.67,132,592.67,125,572.67,139,572.67" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[5bf434ab4ad145639414dba1b1e9726f]
+link Project to EntityUUID--><g id="link_Project_EntityUUID"><path codeLine="16" d="M121.26,194.05 C120.23,210.59 119.17,227.38 118.29,241.55 " fill="none" id="Project-to-EntityUUID" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="117.46,254.74,121.8218,248.9976,118.1987,242.7628,113.8369,248.5052,117.46,254.74" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[83543b3e8d7245d00c951bd646c7d747]
+@startuml Project
+
+!include Entity.puml
+
+package domain {
+    class Project {
+        +Name string
+        - -
+        +BridgeName string
+        - -
+        +Subnet string
+        - -
+        +DHCPServerID uuid.UUID
+        - -
+        +TFTPServerID uuid.UUID
+    }
+    Project -down-* EntityUUID
+}
+
+@enduml
+
+@startuml Project
+
+
+
+package app {
+    interface IEntityModel<IDType> {
+        +GetID() IDType
+        - -
+        +GetCreatedAt() time.Time
+        - -
+        +GetUpdatedAt() *time.Time
+        - -
+        +GetDeletedAt() *time.Time
+    }
+}
+
+
+package domain {
+    class EntityUUID {
+    }
+    EntityUUID - -* Entity : IDType is uuid.UUID
+    class Entity<IDType> {
+        +ID IDType
+        - -
+        +CreatedAt time.Time
+        - -
+        +UpdatedAt *time.Time
+        - -
+        +DeletedAt gorm.DeletedAt
+    }
+    Entity .down.|> IEntityModel
+}
+
+
+package domain {
+    class Project {
+        +Name string
+        - -
+        +BridgeName string
+        - -
+        +Subnet string
+        - -
+        +DHCPServerID uuid.UUID
+        - -
+        +TFTPServerID uuid.UUID
+    }
+    Project -down-* EntityUUID
+}
+
+@enduml
+
+PlantUML version 1.2022.13(Sat Nov 19 16:22:17 MSK 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: ru
+Country: RU
+--></g></svg>

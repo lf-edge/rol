@@ -56,6 +56,9 @@ func MapDtoToEntity(dto interface{}, entity interface{}) error {
 		MapEthernetSwitchVLANCreateDto(dto.(dtos.EthernetSwitchVLANCreateDto), entity.(*domain.EthernetSwitchVLAN))
 	case dtos.EthernetSwitchVLANUpdateDto:
 		MapEthernetSwitchVLANUpdateDto(dto.(dtos.EthernetSwitchVLANUpdateDto), entity.(*domain.EthernetSwitchVLAN))
+	//Project
+	case dtos.ProjectCreateDto:
+		MapProjectCreateDtoToEntity(dto.(dtos.ProjectCreateDto), entity.(*domain.Project))
 	//DHCPServer
 	case dtos.DHCP4ServerCreateDto:
 		MapDHCP4ServerCreateDtoToEntity(dto.(dtos.DHCP4ServerCreateDto), entity.(*domain.DHCP4Config))
@@ -109,6 +112,9 @@ func MapEntityToDto(entity interface{}, dto interface{}) error {
 	//EthernetSwitchVLAN
 	case domain.EthernetSwitchVLAN:
 		MapEthernetSwitchVLANToDto(entity.(domain.EthernetSwitchVLAN), dto.(*dtos.EthernetSwitchVLANDto))
+	//Project
+	case domain.Project:
+		MapProjectToDto(entity.(domain.Project), dto.(*dtos.ProjectDto))
 	//DHCP4Server
 	case domain.DHCP4Config:
 		MapDHCP4ServerToDto(entity.(domain.DHCP4Config), dto.(*dtos.DHCP4ServerDto))

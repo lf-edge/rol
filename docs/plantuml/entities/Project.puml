@@ -1,0 +1,20 @@
+@startuml Project
+
+!include Entity.puml
+
+package domain {
+    class Project {
+        +Name string
+        --
+        +BridgeName string
+        --
+        +Subnet string
+        --
+        +DHCPServerID uuid.UUID
+        --
+        +TFTPServerID uuid.UUID
+    }
+    Project -down-* EntityUUID
+}
+
+@enduml

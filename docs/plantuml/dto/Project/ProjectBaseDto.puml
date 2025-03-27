@@ -1,0 +1,11 @@
+@startuml
+
+package dtos {
+    class ProjectBaseDto {
+        +Name   string
+        --
+        +Subnet string
+    }
+}
+
+@enduml

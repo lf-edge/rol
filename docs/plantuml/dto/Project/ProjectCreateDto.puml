@@ -1,0 +1,12 @@
+@startuml
+
+!include ProjectBaseDto.puml
+
+package dtos {
+    class ProjectCreateDto
+
+    ProjectCreateDto --* ProjectBaseDto
+}
+
+
+@enduml

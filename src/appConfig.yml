@@ -4,6 +4,9 @@ httpServer:
   host: "localhost"
   port: 8080
 
+network:
+  interface: "enp0s8"
+
 # Database config
 # Currently supports MySQL and SQLite db drivers
 database:

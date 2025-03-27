@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="334px" preserveAspectRatio="none" style="width:398px;height:334px;background:#FFFFFF;" version="1.1" viewBox="0 0 398 334" width="398px" zoomAndPan="magnify"><defs/><g><!--MD5=[ac65c812e7532cbcd7b9effd958b962e]
+cluster dtos--><g id="cluster_dtos"><path d="M8.5,6 L44.5,6 A3.75,3.75 0 0 1 47,8.5 L54,28.2969 L388.5,28.2969 A2.5,2.5 0 0 1 391,30.7969 L391,324.5 A2.5,2.5 0 0 1 388.5,327 L8.5,327 A2.5,2.5 0 0 1 6,324.5 L6,8.5 A2.5,2.5 0 0 1 8.5,6 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="6" x2="54" y1="28.2969" y2="28.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="35" x="10" y="20.9951">dtos</text></g><!--MD5=[b0bb09096d22b6f82c8caf44bd0f1812]
+class ProjectBaseDto--><g id="elem_ProjectBaseDto"><rect codeLine="3" fill="#F1F1F1" height="80.5938" id="ProjectBaseDto" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="141" x="22.5" y="218"/><ellipse cx="37.5" cy="234" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M40.4688,239.6406 Q39.8906,239.9375 39.25,240.0781 Q38.6094,240.2344 37.9063,240.2344 Q35.4063,240.2344 34.0781,238.5938 Q32.7656,236.9375 32.7656,233.8125 Q32.7656,230.6875 34.0781,229.0313 Q35.4063,227.375 37.9063,227.375 Q38.6094,227.375 39.25,227.5313 Q39.9063,227.6875 40.4688,227.9844 L40.4688,230.7031 Q39.8438,230.125 39.25,229.8594 Q38.6563,229.5781 38.0313,229.5781 Q36.6875,229.5781 36,230.6563 Q35.3125,231.7188 35.3125,233.8125 Q35.3125,235.9063 36,236.9844 Q36.6875,238.0469 38.0313,238.0469 Q38.6563,238.0469 39.25,237.7813 Q39.8438,237.5 40.4688,236.9219 L40.4688,239.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="109" x="51.5" y="238.8467">ProjectBaseDto</text><line style="stroke:#181818;stroke-width:0.5;" x1="23.5" x2="162.5" y1="250" y2="250"/><ellipse cx="33.5" cy="263.6484" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="94" x="42.5" y="266.9951">Name   string</text><line style="stroke:#181818;stroke-width:1.0;" x1="23.5" x2="162.5" y1="274.2969" y2="274.2969"/><ellipse cx="33.5" cy="287.9453" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="94" x="42.5" y="291.292">Subnet string</text></g><!--MD5=[a203eca1f0769929ae1344e0135bff6b]
+class BaseDto--><g id="elem_BaseDto"><rect codeLine="3" fill="#F1F1F1" height="104.8906" id="BaseDto" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="177" x="198.5" y="206"/><ellipse cx="231.05" cy="222" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M234.0188,227.6406 Q233.4406,227.9375 232.8,228.0781 Q232.1594,228.2344 231.4563,228.2344 Q228.9563,228.2344 227.6281,226.5938 Q226.3156,224.9375 226.3156,221.8125 Q226.3156,218.6875 227.6281,217.0313 Q228.9563,215.375 231.4563,215.375 Q232.1594,215.375 232.8,215.5313 Q233.4563,215.6875 234.0188,215.9844 L234.0188,218.7031 Q233.3938,218.125 232.8,217.8594 Q232.2063,217.5781 231.5813,217.5781 Q230.2375,217.5781 229.55,218.6563 Q228.8625,219.7188 228.8625,221.8125 Q228.8625,223.9063 229.55,224.9844 Q230.2375,226.0469 231.5813,226.0469 Q232.2063,226.0469 232.8,225.7813 Q233.3938,225.5 234.0188,224.9219 L234.0188,227.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="60" x="248.95" y="226.8467">BaseDto</text><rect fill="#FFFFFF" height="15.9688" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" width="44" x="334.5" y="203"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="42" x="335.5" y="215.1387">IDType</text><line style="stroke:#181818;stroke-width:0.5;" x1="199.5" x2="374.5" y1="238" y2="238"/><ellipse cx="209.5" cy="251.6484" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="69" x="218.5" y="254.9951">ID IDType</text><line style="stroke:#181818;stroke-width:1.0;" x1="199.5" x2="374.5" y1="262.2969" y2="262.2969"/><ellipse cx="209.5" cy="275.9453" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="148" x="218.5" y="279.292">CreatedAt time.Time</text><line style="stroke:#181818;stroke-width:1.0;" x1="199.5" x2="374.5" y1="286.5938" y2="286.5938"/><ellipse cx="209.5" cy="300.2422" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="151" x="218.5" y="303.5889">UpdatedAt time.Time</text></g><!--MD5=[61bcb6a22bcd5259a8a4a007dfc7030b]
+class ProjectDto--><g id="elem_ProjectDto"><rect codeLine="5" fill="#F1F1F1" height="104.8906" id="ProjectDto" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="202" x="97" y="41"/><ellipse cx="156.75" cy="57" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M159.7188,62.6406 Q159.1406,62.9375 158.5,63.0781 Q157.8594,63.2344 157.1563,63.2344 Q154.6563,63.2344 153.3281,61.5938 Q152.0156,59.9375 152.0156,56.8125 Q152.0156,53.6875 153.3281,52.0313 Q154.6563,50.375 157.1563,50.375 Q157.8594,50.375 158.5,50.5313 Q159.1563,50.6875 159.7188,50.9844 L159.7188,53.7031 Q159.0938,53.125 158.5,52.8594 Q157.9063,52.5781 157.2813,52.5781 Q155.9375,52.5781 155.25,53.6563 Q154.5625,54.7188 154.5625,56.8125 Q154.5625,58.9063 155.25,59.9844 Q155.9375,61.0469 157.2813,61.0469 Q157.9063,61.0469 158.5,60.7813 Q159.0938,60.5 159.7188,59.9219 L159.7188,62.6406 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="74" x="177.25" y="61.8467">ProjectDto</text><line style="stroke:#181818;stroke-width:0.5;" x1="98" x2="298" y1="73" y2="73"/><ellipse cx="108" cy="86.6484" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="133" x="117" y="89.9951">BridgeName string</text><line style="stroke:#181818;stroke-width:1.0;" x1="98" x2="298" y1="97.2969" y2="97.2969"/><ellipse cx="108" cy="110.9453" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="176" x="117" y="114.292">DHCPServerID uuid.UUID</text><line style="stroke:#181818;stroke-width:1.0;" x1="98" x2="298" y1="121.5938" y2="121.5938"/><ellipse cx="108" cy="135.2422" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="170" x="117" y="138.5889">TFTPServerID uuid.UUID</text></g><!--MD5=[0375af81145e85bff5405a92024b0bf6]
+link ProjectDto to ProjectBaseDto--><g id="link_ProjectDto_ProjectBaseDto"><path codeLine="12" d="M164.78,146.07 C152.27,165.49 138.07,187.53 125.62,206.86 " fill="none" id="ProjectDto-to-ProjectBaseDto" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="118.52,217.89,125.1325,215.0134,125.0204,207.8031,118.4079,210.6798,118.52,217.89" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[383c251cbb3430169e64dfe75a54febf]
+link ProjectDto to BaseDto--><g id="link_ProjectDto_BaseDto"><path codeLine="13" d="M226.16,146.07 C234.56,161.46 243.86,178.5 252.62,194.53 " fill="none" id="ProjectDto-to-BaseDto" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="258.87,205.98,259.5034,198.7968,253.1164,195.4493,252.483,202.6325,258.87,205.98" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[80b38dbbc55b4158d656c906081fb1b9]
+@startuml
+!include ProjectBaseDto.puml
+!include ../BaseDto.puml
+
+package dtos {
+    class ProjectDto {
+        +BridgeName string
+        - -
+        +DHCPServerID uuid.UUID
+        - -
+        +TFTPServerID uuid.UUID
+    }
+    ProjectDto - -* ProjectBaseDto
+    ProjectDto - -* BaseDto
+}
+
+@enduml
+
+@startuml
+
+package dtos {
+    class ProjectBaseDto {
+        +Name   string
+        - -
+        +Subnet string
+    }
+}
+
+
+package dtos {
+    class BaseDto<IDType> {
+        +ID IDType
+        - -
+        +CreatedAt time.Time
+        - -
+        +UpdatedAt time.Time
+    }
+}
+
+
+package dtos {
+    class ProjectDto {
+        +BridgeName string
+        - -
+        +DHCPServerID uuid.UUID
+        - -
+        +TFTPServerID uuid.UUID
+    }
+    ProjectDto - -* ProjectBaseDto
+    ProjectDto - -* BaseDto
+}
+
+@enduml
+
+PlantUML version 1.2022.13(Sat Nov 19 16:22:17 MSK 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: ru
+Country: RU
+--></g></svg>
